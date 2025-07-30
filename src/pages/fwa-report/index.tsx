@@ -28,7 +28,10 @@ const Index = () => {
           property='og:description'
           content="Highlights from the Fraud, Waste, and Abuse report by the LA Controller's Office."
         />
-        <meta property='og:image' content='/fwa-annualreport2024.png' />
+        <meta
+          property='og:image'
+          content='https://controller.lacity.gov/fwa-annualreport2024.png'
+        />
         <meta
           property='og:url'
           content='https://controller.lacity.gov/fwa-report'
@@ -42,7 +45,10 @@ const Index = () => {
           name='twitter:description'
           content="Explore highlights from the Fraud, Waste, and Abuse report by the LA Controller's Office."
         />
-        <meta name='twitter:image' content='/fwa-annualreport2024.png' />
+        <meta
+          name='twitter:image'
+          content='https://controller.lacity.org/fwa-annualreport2024.png'
+        />
         <meta name='twitter:site' content='@lacontroller' />
       </Head>
       <Navbar />
