@@ -1,6 +1,14 @@
 {
   "audits": [
-      {
+    {
+      "name": "Fraud, Waste and Abuse Annual Report",
+      "Year": 2025,
+      "document": "FWA Investigative Report",
+      "category": "City of Los Angeles",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/FINAL%20-%20FWA_Annual_Report_2024%20-%2006272025-2.pdf?alt=media&token=f470ed0f-93d5-49f7-933d-40725568a5a1",
+      "link": "https://controller.lacity.gov/fwa-report"
+    },
+    {
       "name": "Affordable Housing Oversight Audit",
       "Year": 2025,
       "document": "Audit",
