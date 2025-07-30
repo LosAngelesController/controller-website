@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
-import { BarChart } from 'lucide-react';
 
 import { Button } from '../ui/button';
 
@@ -24,7 +23,7 @@ const FwaHero = () => {
 
           <div className='mb-8 flex flex-wrap gap-4'>
             <a
-              href='https://example.com/fwa-2024-report.pdf'
+              href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/FINAL%20-%20FWA_Annual_Report_2024%20-%2006272025-2.pdf?alt=media&token=f470ed0f-93d5-49f7-933d-40725568a5a1'
               target='_blank'
               rel='noopener noreferrer'
               download
@@ -35,20 +34,6 @@ const FwaHero = () => {
               >
                 <Download className='h-4 w-4' />
                 Download Report (2.4 MB)
-              </Button>
-            </a>
-            <a
-              href='https://controller.lacity.gov/fwa'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <Button
-                variant='outline'
-                size='lg'
-                className='border border-[#41ffca] text-white hover:bg-zinc-800'
-              >
-                <BarChart className='h-6 w-6 text-[#41ffca]' />
-                View Metrics
               </Button>
             </a>
           </div>
@@ -69,7 +54,7 @@ const FwaHero = () => {
         >
           <div className='relative h-[600px] w-[500px]'>
             <img
-              src='/fwa-cover.png'
+              src='/fwa-annualreport2024.png'
               alt='FWA Report Cover'
               className='h-full w-full rounded-lg object-cover'
             />
