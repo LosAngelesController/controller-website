@@ -181,7 +181,7 @@ export default function HomePage(props: any) {
                 // year={eachaudit.Year}
                 // document={eachaudit.document}
                 // dept={eachaudit.category}
-                name={`${eachaudit.Year} | ${eachaudit.document} | ${eachaudit.category} | ${eachaudit.name}  `} // Updated text format
+                name={`${eachaudit.Year} | ${eachaudit.document} | ${eachaudit.category} | ${eachaudit.name}  `}
                 alt={eachaudit.alt ? eachaudit.alt : eachaudit.name}
                 year=''
                 document=''
