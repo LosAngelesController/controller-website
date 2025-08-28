@@ -123,7 +123,7 @@ export default function Navbar(props: any) {
                       <Image
                         className='block h-8 w-auto dark:hidden print:block'
                         src='/images/logo-elect.png'
-                        alt='link to home page'
+                        alt='City of Los Angeles Controller’s Office Homepage'
                         height={32}
                         width={72}
                         priority={true}
@@ -132,7 +132,7 @@ export default function Navbar(props: any) {
                       <Image
                         className='hidden h-8 w-auto dark:block print:hidden'
                         src='/images/KennethMejia-logo-white-elect.png'
-                        alt='link to home page'
+                        alt='City of Los Angeles Controller’s Office Homepage'
                         height={32}
                         width={72}
                         priority={true}
