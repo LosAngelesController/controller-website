@@ -22,7 +22,7 @@ export function ChangeColour() {
     <ThemeContext.Consumer>
       {(themeChanger: any) => (
         <Popover className='relative '>
-          <Popover.Button aria-label="Change Theme">
+          <Popover.Button aria-label='Change Theme'>
             <div
               className='rounded-full px-2 py-2 text-gray-900 drop-shadow-md  dark:text-gray-200'
               suppressHydrationWarning={true}
@@ -34,6 +34,7 @@ export function ChangeColour() {
                 strokeWidth={1.5}
                 stroke='currentColor'
                 className='h-5 w-5'
+                aria-hidden='true'
               >
                 <path
                   strokeLinecap='round'
