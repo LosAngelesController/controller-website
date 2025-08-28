@@ -112,7 +112,7 @@ export default function OpenDataSeries() {
     },
     {
       name: 'Checkbook',
-      link: 'https://lacity.spending.socrata.com/#!/year/2022/',
+      link: 'https://lacity.spending.socrata.com/',
       tags: ['socrata'],
       // lastupdated: datainfo.checkbook.lastUpdatedAt,
       //  size: checkbookinfo.checkbooklastupdated[0].filesize,
