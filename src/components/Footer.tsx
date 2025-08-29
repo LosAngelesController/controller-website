@@ -67,7 +67,7 @@ export default function Footer() {
             © 2025{' '}
             <a
               href='https://controller.lacity.gov'
-              className='p-0 hover:underline dark:text-white'
+              className='p-0 text-gray-800 hover:text-gray-500 hover:underline dark:text-white'
             >
               Kenneth Mejia, Los Angeles City Controller
             </a>
