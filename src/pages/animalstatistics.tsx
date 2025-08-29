@@ -151,9 +151,7 @@ export default function AnimalStatistics() {
           <div className='mx-auto mt-2 lg:max-w-6xl'>
             <div className='px-4 md:px-8 lg:mx-4'>
               <h1>Animal Statistics</h1>
-              <main>
-                <div id='theanimalbox'></div>
-              </main>
+              <div id='theanimalbox'></div>
             </div>
           </div>
         </div>
