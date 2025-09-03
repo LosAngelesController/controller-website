@@ -46,6 +46,16 @@ export default function CollectionsBoard(props: any) {
 
           <div className='mt-3 '>
             <table>
+              <caption className="sr-only">
+                Meetings with links to agendas and minutes
+              </caption>
+              <thead>
+                <tr className="text-left dark:text-white">
+                  <th scope="col" className="px-1 py-2">Date</th>
+                  <th scope="col" className="px-1 py-2">Agenda</th>
+                  <th scope="col" className="px-1 py-2">Minutes</th>
+                </tr>
+              </thead>
               <tbody>
                 {collections.map((eachmeeting: any, key: number) => (
                   <tr className='dark:text-white' key={key}>
