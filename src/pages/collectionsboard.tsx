@@ -72,7 +72,7 @@ export default function CollectionsBoard(props: any) {
                         </Link>
                       </td>
                     ) : (
-                      <td></td>
+                      <td aria-label="Not available"></td>
                     )}
 
                     {eachmeeting.minutes ? (
@@ -86,7 +86,7 @@ export default function CollectionsBoard(props: any) {
                         </Link>
                       </td>
                     ) : (
-                      <td></td>
+                      <td aria-label="Not available"></td>
                     )}
                   </tr>
                 ))}
