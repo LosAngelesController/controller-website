@@ -28,9 +28,7 @@ export default function CollectionsBoard(props: any) {
           <h1 className='py-2 dark:text-white sm:pt-4 sm:pb-2'>
             Collections Board of Review
           </h1>
-
-          <br />
-          <p className='dark:text-white'>
+          <p className='dark:text-white mt-6'>
             The Los Angeles Administrative Code Section 5.182 establishes a
             Collections Board of Review (Board) to review uncollectible accounts
             of City departments, bureaus and offices. The Board consists of the
