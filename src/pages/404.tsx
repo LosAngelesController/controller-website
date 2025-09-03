@@ -25,6 +25,7 @@ export default function NotFoundPage(props: any) {
             <img
               src='/images/corgi-happy-cropped.png'
               className='w-32 lg:w-64'
+              alt=''
             ></img>
 
             <h1 className='mt-8 text-lg sm:text-4xl md:text-6xl'>
