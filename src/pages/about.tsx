@@ -274,7 +274,7 @@ export default function About(props: any) {
           <div className='mb-4 grid grid-cols-1 gap-x-4 dark:text-gray-100 sm:grid-cols-2 '>
             <div className='flex flex-col gap-y-8'>
               <div className='flex flex-col gap-y-2'>
-                <p className='text-xl dark:text-gray-100'>Leadership</p>
+                <h3 className='text-xl font-normal dark:text-gray-100'>Leadership</h3>
                 <ProfileCard
                   name='Kenneth Mejia'
                   title='LA City Controller'
@@ -312,9 +312,9 @@ export default function About(props: any) {
                 />
               </div>
               <div className='flex flex-col gap-y-2'>
-                <p className='text-xl'>
+                <h3 className='text-xl font-normal'>
                   Financial Analysis and Reporting Division
-                </p>
+                </h3>
                 <ProfileCard
                   name='Rahoof (Wally) Oyewole'
                   title='Director of Financial Analysis and Reporting'
@@ -323,7 +323,7 @@ export default function About(props: any) {
                 />
               </div>
               <div className='flex flex-col gap-y-2'>
-                <p className='text-xl'>Accounting Operations Division</p>
+                <h3 className='text-xl font-normal'>Accounting Operations Division</h3>
                 <ProfileCard
                   name='James Robinson'
                   title='Chief Operations Officer/Principal Deputy Controller'
@@ -332,7 +332,7 @@ export default function About(props: any) {
                 />
               </div>
               <div className='flex flex-col gap-y-2'>
-                <p className='text-xl'>Audit Services Division</p>
+                <h3 className='text-xl font-normal'>Audit Services Division</h3>
                 <ProfileCard
                   name='Devang Panchal'
                   title='Director of Auditing'
@@ -341,7 +341,7 @@ export default function About(props: any) {
                 />
               </div>
               <div className='flex flex-col gap-y-2'>
-                <p className='text-xl'>Management Services Division</p>
+                <h3 className='text-xl font-normal'>Management Services Division</h3>
                 <ProfileCard
                   name='Shane Min'
                   title='Chief Management Analyst'
@@ -353,7 +353,7 @@ export default function About(props: any) {
             <div className='flex flex-col gap-y-8'>
               <div className='flex flex-col gap-y-2'>
                 <div className='flex flex-col gap-y-2'>
-                  <p className='text-xl'>Working Groups</p>
+                  <h3 className='text-xl font-normal'>Working Groups</h3>
                   <ProfileCard
                     name='Ashley Bennett'
                     title='Director of Homelessness'
@@ -369,7 +369,7 @@ export default function About(props: any) {
                 </div>
                 <br></br>
                 <div className='flex flex-col gap-y-2'>
-                  <p className='text-xl dark:text-gray-100'>Communications</p>
+                  <h3 className='text-xl font-normal dark:text-gray-100'>Communications</h3>
                   <ProfileCard
                     name='Diana Chang'
                     title='Director of Communications'
@@ -390,7 +390,7 @@ export default function About(props: any) {
                 </div>
                 <br></br>
                 <div className='flex flex-col gap-y-2'>
-                  <p className='text-xl'>Technology</p>
+                  <h3 className='text-xl font-normal'>Technology</h3>
                   <ProfileCard
                     name='Vartan Arzumanyan'
                     title='Director of Technology'
@@ -407,7 +407,7 @@ export default function About(props: any) {
               </div>
 
               <div className='flex flex-col gap-y-2'>
-                <p className='text-xl'>Government Affairs and Research</p>
+                <h3 className='text-xl font-normal'>Government Affairs and Research</h3>
                 <ProfileCard
                   name='Michael Shear'
                   title='Director of Research & Government Affairs'
