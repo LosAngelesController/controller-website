@@ -132,7 +132,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <>
-      <div className='z-[9999999999] w-full bg-[#0f2940] text-xs leading-none text-white'>
+      <header className='z-[9999999999] w-full bg-[#0f2940] text-xs leading-none text-white'>
         <div className='mx-auto flex max-w-7xl flex-wrap items-center justify-between px-3 py-2'>
           {/* Left Side */}
           <div className='flex items-center space-x-2'>
@@ -175,7 +175,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </a>
           </div>
         </div>
-      </div>
+      </header>
 
       <ThemeContext.Provider value={themeChanger}>
         <Script
