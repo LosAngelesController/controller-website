@@ -88,7 +88,8 @@ function ProfileCard(props: profilecardprops) {
           localeToUse = browserLocales[0];
         }
 
-        const htmlelem = document.querySelector('html');
+        const htmlelem =
+          typeof document !== 'undefined' ? document.documentElement : null;
 
         if (htmlelem) {
           const htmlselectorlang = htmlelem.getAttribute('lang');
