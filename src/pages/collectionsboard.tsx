@@ -71,15 +71,13 @@ export default function CollectionsBoard(props: any) {
                     </td>
 
                     {eachmeeting.minutes ? (
-                      <td>
-                        <td className='px-1'>
-                          <Link
-                            href={eachmeeting.minutes}
-                            className='text-green-700 dark:text-mejito'
-                          >
-                            Minutes
-                          </Link>
-                        </td>
+                      <td className='px-1'>
+                        <Link
+                          href={eachmeeting.minutes}
+                          className='text-green-700 dark:text-mejito'
+                        >
+                          Minutes
+                        </Link>
                       </td>
                     ) : (
                       <td></td>
