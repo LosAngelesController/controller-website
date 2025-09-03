@@ -24,10 +24,10 @@ export default function ImportantLinksSection(props: any) {
     <div className='grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-3'>
       {links.map((link, key) => (
         <div key={key}>
-          <Link href={link.url} key={key} target='_blank' rel='noreferrer'>
-            <p className='text-lg font-bold text-black underline dark:text-white'>
+          <Link href={link.url} key={key} target='_blank' rel='noreferrer' className='text-lg font-bold text-black underline dark:text-white'>
+            <span>
               {link.name}
-            </p>
+            </span>
           </Link>
         </div>
       ))}
