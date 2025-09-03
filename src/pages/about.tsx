@@ -186,7 +186,7 @@ export default function About(props: any) {
             <div className='z-10 mx-4 max-w-7xl text-white lg:mx-auto'>
               <div className='mx-auto flex flex-row lg:max-w-3xl'>
                 <div className='my-auto'>
-                  <h2>About Our Office</h2>
+                  <h1 className="text-xl md:text-3xl">About Our Office</h1>
                 </div>
 
                 <SocialPageSeries />
@@ -424,7 +424,7 @@ export default function About(props: any) {
             </div>
           </div>
 
-          <h1 className='md:py-4'>Audit Services Division</h1>
+          <h2 className='text-2xl md:text-4xl md:py-4'>Audit Services Division</h2>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-2'>
             The Audit Services Division of the Controller’s Office conducts
             scheduled audits, special audits, and audits requested by the City
@@ -483,7 +483,7 @@ export default function About(props: any) {
 
           <div className='break-normal'></div>
 
-          <h1>Accounting Operations Division</h1>
+          <h2 className='text-2xl md:text-4xl'>Accounting Operations Division</h2>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
             The Accounting Operations Division is responsible for paying
             employees and vendors, budgetary control of all City funds as
@@ -525,7 +525,7 @@ export default function About(props: any) {
 
           <div className='break-normal'></div>
 
-          <h1>Financial Analysis and Reporting Division</h1>
+          <h2 className='text-2xl md:text-4xl'>Financial Analysis and Reporting Division</h2>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
             The Financial Analysis and Reporting Division is responsible for
             producing federal, state and local financial compliance reports, and
@@ -626,7 +626,7 @@ export default function About(props: any) {
 
           <div className='break-normal'></div>
 
-          <h1>Management Services</h1>
+          <h2 className='text-2xl md:text-4xl'>Management Services</h2>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
             The Management Services Division is responsible for all
             administrative aspects of the Controller’s Office, including all
