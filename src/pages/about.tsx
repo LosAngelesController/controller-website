@@ -367,7 +367,7 @@ export default function About(props: any) {
                     picture='/images/staff/MariaRosas-DeputyControllerFinance.JPG'
                   />
                 </div>
-                <br></br>
+
                 <div className='flex flex-col gap-y-2'>
                   <h3 className='text-xl font-normal dark:text-gray-100'>Communications</h3>
                   <ProfileCard
@@ -388,7 +388,7 @@ export default function About(props: any) {
                     }}
                   />
                 </div>
-                <br></br>
+
                 <div className='flex flex-col gap-y-2'>
                   <h3 className='text-xl font-normal'>Technology</h3>
                   <ProfileCard
