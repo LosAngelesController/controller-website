@@ -253,20 +253,20 @@ export default function About(props: any) {
           </p>
 
           {/* address */}
-          <div className='text-left md:relative md:py-4 md:text-center '>
+          <address className='not-italic text-left md:relative md:py-4 md:text-center '>
             <p className='content-center break-normal font-bold md:relative md:py-2'>
               200 N. Main Street, Suite 300 Los Angeles, CA 90012
             </p>
             <p className='content-center break-normal font-bold md:relative'>
-              Phone: 213.978.7200
+              Phone: <a href="tel:12139787200" className="underline-offset-2 hover:underline">213.978.7200</a>
             </p>
             <p className='content-center break-normal font-bold md:relative'>
               Fax: 213.978.7211
             </p>
             <p className='content-center break-normal font-bold md:relative'>
-              controller.mejia@lacity.org
+              <a href="mailto:controller.mejia@lacity.org" className="underline-offset-2 hover:underline">controller.mejia@lacity.org</a>
             </p>
-          </div>
+          </address>
 
           {/*BRUH OKAY THE CONTACTS GO HERE */}
 
