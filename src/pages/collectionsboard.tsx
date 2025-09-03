@@ -61,14 +61,18 @@ export default function CollectionsBoard(props: any) {
                   <tr className='dark:text-white' key={key}>
                     <td className='px-1'>{eachmeeting.date}</td>
 
-                    <td className='px-1'>
-                      <Link
-                        href={eachmeeting.agenda}
-                        className='text-green-700 dark:text-mejito'
-                      >
-                        Agenda
-                      </Link>
-                    </td>
+                    {eachmeeting.agenda ? (
+                      <td className='px-1'>
+                        <Link
+                          href={eachmeeting.agenda}
+                          className='text-green-700 dark:text-mejito'
+                        >
+                          Agenda
+                        </Link>
+                      </td>
+                    ) : (
+                      <td></td>
+                    )}
 
                     {eachmeeting.minutes ? (
                       <td className='px-1'>
