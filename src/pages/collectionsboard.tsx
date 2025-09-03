@@ -66,6 +66,7 @@ export default function CollectionsBoard(props: any) {
                         <Link
                           href={eachmeeting.agenda}
                           className='text-green-700 dark:text-mejito'
+                          aria-label={`Agenda for meeting on ${eachmeeting.date}`}
                         >
                           Agenda
                         </Link>
@@ -79,6 +80,7 @@ export default function CollectionsBoard(props: any) {
                         <Link
                           href={eachmeeting.minutes}
                           className='text-green-700 dark:text-mejito'
+                          aria-label={`Minutes for meeting on ${eachmeeting.date}`}
                         >
                           Minutes
                         </Link>
