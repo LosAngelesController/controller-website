@@ -8,10 +8,11 @@ import Seo from '@/components/Seo';
 
 export default function NotFoundPage(props: any) {
   return (
-    <Layout>
-      <Seo templateTitle='Not Found' />
+    <>
       <Navbar themeChanger={props.themeChanger} />
-      <main>
+      <Layout>
+        <Seo templateTitle='Not Found' />
+
         <section className='bg-white dark:bg-whosestreets'>
           <div className='layout flex min-h-[80vh] flex-col items-center justify-center text-center text-black dark:text-white'>
             {false && (
@@ -35,7 +36,7 @@ export default function NotFoundPage(props: any) {
             </ArrowLink>
           </div>
         </section>
-      </main>
-    </Layout>
+      </Layout>
+    </>
   );
 }

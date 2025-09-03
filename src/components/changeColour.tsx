@@ -2,6 +2,7 @@ import { Popover } from '@headlessui/react';
 import * as React from 'react';
 
 import { ThemeContext } from '@/themeManager';
+import { Button } from '@/components/taho/ui/button';
 
 function ThemeIndicator(props: any) {
   return (
@@ -22,7 +23,7 @@ export function ChangeColour() {
     <ThemeContext.Consumer>
       {(themeChanger: any) => (
         <Popover className='relative '>
-          <Popover.Button aria-label="Change Theme">
+          <Popover.Button aria-label='Change Theme'>
             <div
               className='rounded-full px-2 py-2 text-gray-900 drop-shadow-md  dark:text-gray-200'
               suppressHydrationWarning={true}
@@ -34,6 +35,7 @@ export function ChangeColour() {
                 strokeWidth={1.5}
                 stroke='currentColor'
                 className='h-5 w-5'
+                aria-hidden='true'
               >
                 <path
                   strokeLinecap='round'
@@ -52,11 +54,11 @@ export function ChangeColour() {
                   themeChanger.makeLight();
                 }}
               >
-                <div className='flex flex-row'>
+                <button className='flex flex-row'>
                   {' '}
                   <ThemeIndicator match='light' />
                   Light
-                </div>
+                </button>
               </div>
               <div
                 onClick={() => {
@@ -64,10 +66,10 @@ export function ChangeColour() {
                 }}
                 className='border px-2 py-1 dark:border-gray-600 dark:text-white'
               >
-                <div className='flex flex-row'>
+                <button className='flex flex-row'>
                   <ThemeIndicator match='dark' />
                   Dark
-                </div>
+                </button>
               </div>
               <div
                 onClick={() => {
@@ -75,10 +77,10 @@ export function ChangeColour() {
                 }}
                 className='border px-2 py-1 dark:border-gray-600 dark:text-white'
               >
-                <div className='flex flex-row'>
+                <button className='flex flex-row'>
                   <ThemeIndicator match='system' />
                   System
-                </div>
+                </button>
               </div>
             </div>
           </Popover.Panel>
