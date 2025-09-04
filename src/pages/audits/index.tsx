@@ -125,6 +125,7 @@
 //     },
 //   };
 // }
+import Link from 'next/link';
 import * as React from 'react';
 
 import '@/styles/aboutstyles.module.css';
@@ -151,27 +152,24 @@ export default function Audits(props: any) {
             <h1 className='dark:text-white' style={{ marginRight: '20px' }}>
               Oversight
             </h1>
-            <button
-              className='rounded-full bg-black px-4 py-2 font-bold text-white dark:bg-white dark:text-black'
+            <Link
+              href='/upcoming/'
+              className='rounded-full bg-black px-4 py-2 font-bold text-white dark:bg-white dark:text-black text-center'
               style={{ marginRight: '20px' }}
-              onClick={() => {
-                window.location.href = '/upcoming/';
-              }}
             >
               Upcoming Audits & Reports
-            </button>
-            <button className='rounded-full bg-black px-2 py-2 font-bold text-white dark:bg-white dark:text-black'>
-              <a
-                href='https://docs.google.com/spreadsheets/d/1oYBlBXCcSyUxx7YKovNXqt15oPD5rqOdqe5tXXgylPA/edit?usp=sharing'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                Old Audits and Reports
-              </a>
-            </button>
+            </Link>
+            <a
+              href='https://docs.google.com/spreadsheets/d/1oYBlBXCcSyUxx7YKovNXqt15oPD5rqOdqe5tXXgylPA/edit?usp=sharing'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='rounded-full bg-black px-2 py-2 font-bold text-white dark:bg-white dark:text-black text-center'
+            >
+              Old Audits and Reports
+            </a>
           </div>
 
-          <div className='md:hidden'>
+          <div className='md:hidden mt-6'>
             {props.audits.map((audit: any, index: number) => (
               <LineItem
                 key={index}
