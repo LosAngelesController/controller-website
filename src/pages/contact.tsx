@@ -54,7 +54,7 @@ export default function Contact(props: any) {
 
       {/* contact form footer like */}
 
-      <main className='bg-white dark:bg-gray-900'>
+      <section className='bg-white dark:bg-gray-900'>
         <div className=' container mx-auto mt-4  px-4 py-4 '>
           <ImportantLinksSection />
         </div>
@@ -141,7 +141,7 @@ export default function Contact(props: any) {
             </ul>
           </div>
         </div>
-      </main>
+      </section>
     </>
   );
 }
