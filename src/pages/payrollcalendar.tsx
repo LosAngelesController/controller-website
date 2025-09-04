@@ -247,7 +247,7 @@ export default function PayrollCalendar(props: any) {
   function getAriaOfDate(month: number, day: number) {
     const category = getcategoryfromdate(month, day);
 
-    const date = new Date(selectedYear, month, day);
+    const date = new Date(selectedYear, month - 1, day);
 
     let aria = `${date.toLocaleDateString('en-us', {
       weekday: 'long',
@@ -351,7 +351,7 @@ export default function PayrollCalendar(props: any) {
               aria-label="Download Payroll Calendar 2025 (PDF) in a new tab"
               className='my-auto rounded-full bg-black p-1.5 text-white dark:bg-white dark:text-black md:p-2  print:hidden'
             >
-                <svg className='l-4 h-4' viewBox='0 0 24 24'>
+                <svg className='l-4 h-4' viewBox='0 0 24 24' aria-hidden="true">
                   <path
                     fill='currentColor'
                     d='M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z'
@@ -451,19 +451,10 @@ export default function PayrollCalendar(props: any) {
                               )}  ${checkiftodaysdate(monthindex + 1, day)}`}
                             >
                               <time
-                                dateTime={`${selectedYear}-${
-                                  monthindex + 1
-                                }-${day}`}
+                                dateTime={`${selectedYear}-${String(monthindex+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`}
+                                aria-label={getAriaOfDate(monthindex+1, day)}
                               >
-                                <p
-                                  className='m-auto print:text-black'
-                                  aria-label={getAriaOfDate(
-                                    monthindex + 1,
-                                    day
-                                  )}
-                                >
-                                  {day}
-                                </p>
+                                <span className="m-auto print:text-black">{day}</span>
                               </time>
                             </div>
                           )
