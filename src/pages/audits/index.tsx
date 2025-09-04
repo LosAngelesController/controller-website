@@ -193,7 +193,7 @@ export default function Audits(props: any) {
                     <img
                       src={audit.image}
                       className='w-full'
-                      alt='Card images'
+                      alt=''
                     />
                     <div className='px-2 py-2'>
                       <p className='dark:text-white'>
