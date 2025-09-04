@@ -78,7 +78,7 @@ export default function Data(props: any) {
                     target='_blank'
                     rel='noreferrer'
                   >
-                    <img src={eachaudit.image} className='w-full'></img>
+                    <img src={eachaudit.image} className='w-full' alt=''></img>
                     <div className=' px-2 py-2'>
                       <p className='dark:text-white'>
                         {eachaudit.year} | <span>{eachaudit.dept}</span>
