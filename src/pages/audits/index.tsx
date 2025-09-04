@@ -171,7 +171,6 @@ export default function Audits(props: any) {
             </button>
           </div>
 
-          <br />
           <div className='md:hidden'>
             {props.audits.map((audit: any, index: number) => (
               <LineItem
@@ -185,7 +184,7 @@ export default function Audits(props: any) {
             ))}
           </div>
 
-          <div className='hidden md:block'>
+          <div className='hidden md:block mt-6'>
             <div className='grid grid-cols-3 gap-x-6 gap-y-4 lg:grid-cols-3'>
               {props.audits.map((audit: any, index: number) => (
                 <div
