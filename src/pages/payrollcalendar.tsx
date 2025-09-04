@@ -363,7 +363,7 @@ export default function PayrollCalendar(props: any) {
             <p className='text-green-900 underline dark:text-mejito '>
               <Link
                 href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll2025old.pdf?alt=media&token=86060fba-cdc3-4a6c-bdaa-bbfb48f89842'
-                className='font-semibold text-green-500 dark:text-mejito'
+                className='font-semibold text-green-700 dark:text-mejito'
               >
                 Print Old Version
               </Link>
@@ -375,7 +375,7 @@ export default function PayrollCalendar(props: any) {
             <p className='text-green-900 underline dark:text-mejito '>
               <Link
                 href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendar%202026_v2.pdf?alt=media&token=7b520beb-ebbd-4858-9c85-b0576534d5a8'
-                className='font-semibold text-green-500 dark:text-mejito'
+                className='font-semibold text-green-700 dark:text-mejito'
               >
                 Payroll Calendar 2026
               </Link>
