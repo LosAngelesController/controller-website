@@ -31,9 +31,9 @@ export default function FraudWasteAndAbuse(props: any) {
         />
 
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-4 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h2 className='pt-4 pb-2 dark:text-white sm:pt-8'>
+          <h1 className='pt-4 pb-2 dark:text-white sm:pt-8 text-xl md:text-3xl'>
             Report Fraud, Waste, and Abuse
-          </h2>
+          </h1>
 
           <p className='text-wrap pr-4 pb-2 dark:text-gray-100'>
             The City established the Fraud, Waste and Abuse Unit (FWA Unit)
