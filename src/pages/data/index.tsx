@@ -45,10 +45,8 @@ export default function Data(props: any) {
           <OpenDataSeries />
 
           <div className='flex flex-row pt-2'>
-            <Link href='https://controllerdata.lacity.org/browse?limitTo=datasets'>
-              <div>
-                <div className={`${kirbybutton}`}>All Datasets</div>
-              </div>
+            <Link href='https://controllerdata.lacity.org/browse?limitTo=datasets' className={kirbybutton}>
+              All Datasets
             </Link>
           </div>
 
