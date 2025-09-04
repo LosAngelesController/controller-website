@@ -28,32 +28,29 @@ const Index = () => {
           aria-label='affordable housing oversight audit page navigation'
         >
           <div></div>
-          <ul className='flex items-center space-x-8' role='menubar'>
-            <li role='none'>
+          <ul className='flex items-center space-x-8'>
+            <li>
               <a
                 href='#about'
                 className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'
-                role='menuitem'
               >
                 About
               </a>
             </li>
-            <li role='none'>
+            <li>
               <a
                 href='#findings'
                 className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'
-                role='menuitem'
               >
                 Findings
               </a>
             </li>
-            <li role='none'>
+            <li>
               <a
                 href='#recommendations'
                 className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'
-                role='menuitem'
               >
-                Recommendation
+                Recommendations
               </a>
             </li>
           </ul>
@@ -63,6 +60,7 @@ const Index = () => {
         <section
           className='mx-auto grid max-w-7xl grid-cols-1 gap-16 px-8 py-16 lg:grid-cols-2'
           aria-labelledby='hero-heading'
+          id='about'
         >
           <div className='space-y-8'>
             <h1
