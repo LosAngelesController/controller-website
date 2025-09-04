@@ -40,7 +40,8 @@ export default function Data(props: any) {
         />
 
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h1 className='pt-8 pb-4 dark:text-white'>Financial Data</h1>
+          <h1 className="sr-only">Open Data</h1>
+          <h2 className='pt-8 pb-4 dark:text-white'>Financial Data</h2>
 
           <OpenDataSeries />
 
