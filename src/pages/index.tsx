@@ -120,8 +120,8 @@ export default function HomePage(props: any) {
               <div className='flex'>
                 <div className='w-full flex-col pt-2 md:pt-0'>
                   <div>
-                    <h2>Kenneth Mejia, CPA</h2>
-                    <h2>City Controller of Los Angeles</h2>
+                    <p className="text-xl md:text-3xl font-bold">Kenneth Mejia, CPA</p>
+                    <h1 className="text-xl md:text-3xl">City Controller of Los Angeles</h1>
                   </div>
                   <SocialPageSeries />
                   <div className='ml-auto mt-10 items-end '>
