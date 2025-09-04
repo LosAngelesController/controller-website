@@ -368,7 +368,7 @@ export default function About(props: any) {
                   />
                 </div>
 
-                <div className='flex flex-col gap-y-2'>
+                <div className='flex flex-col gap-y-2 mt-6'>
                   <h3 className='text-xl font-normal dark:text-gray-100'>Communications</h3>
                   <ProfileCard
                     name='Diana Chang'
@@ -389,7 +389,7 @@ export default function About(props: any) {
                   />
                 </div>
 
-                <div className='flex flex-col gap-y-2'>
+                <div className='flex flex-col gap-y-2 mt-6'>
                   <h3 className='text-xl font-normal'>Technology</h3>
                   <ProfileCard
                     name='Vartan Arzumanyan'
