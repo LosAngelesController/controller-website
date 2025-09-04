@@ -52,7 +52,14 @@ export default function FraudWasteAndAbuse(props: any) {
             </a>
             <br></br>
 
-            or by phone at 1-877-ASK-LAPD.
+            or by phone at{' '}
+            <a
+              href='tel:+18772755273'
+              className='text-green-700 underline dark:text-mejito'
+            >
+              1-877-ASK-LAPD
+            </a>
+            .
           </p>
 
           <div className='mt-1 flex flex-row gap-x-2'>
@@ -65,7 +72,10 @@ export default function FraudWasteAndAbuse(props: any) {
 
           </div>
           <div className='mt-8 dark:text-white'>
-            To make an online report please click New Report above. We encourage users to file a report online as you will have the ability to upload documents and information, respond to questions from our unit, and provide additional details if new information becomes available. Otherwise, to make a report by phone during business hours, call (866) 428-1514.
+            To make an online report please click New Report above. We encourage users to file a report online as you will have the ability to upload documents and information, respond to questions from our unit, and provide additional details if new information becomes available. Otherwise, to make a report by phone during business hours, call <a
+              href='tel:+18664281514'
+              className='text-green-700 underline dark:text-mejito'
+            >(866) 428-1514</a>.
             {/* To make a report by phone, call (866) 428-1514. */}
           </div>
           <div className='mt-8 dark:text-white'>
@@ -209,7 +219,14 @@ export default function FraudWasteAndAbuse(props: any) {
               The Los Angeles Department of Water and Power (LADWP) has notified
               customers of scammers posing as employees and urges customers to
               hang up on any suspicious calls, even if the phone number looks
-              familiar, and dial LADWP directly at 1-800-DIAL-DWP (342-5397) to
+              familiar, and dial LADWP directly at{' '}
+              <a
+                href='tel:+18003425397'
+                className='text-green-700 underline dark:text-mejito'
+              >
+                1-800-DIAL-DWP
+              </a>{' '}
+              (342-5397) to
               ensure you are connected to LADWP’s call center. LADWP will never
               ask customers to make payments with a prepaid debit card, gift
               card or any form of cryptocurrency over the phone to avoid service
