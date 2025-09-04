@@ -420,13 +420,13 @@ export default function PayrollCalendar(props: any) {
             {calendar.length != 0 &&
               calendar.map((month, monthindex: number) => (
                 <div key={monthindex} className=''>
-                  <h3 className='w-full text-center'>
+                  <h2 className='w-full text-center text-2xl'>
                     {new Date(
                       `2022-${String(monthindex + 1).padStart(2, '0')}-15`
                     ).toLocaleDateString('default', {
                       month: 'long',
                     })}
-                  </h3>
+                  </h2>
                   <div className='mx-auto pt-2'>
                     {month.map((weekline, weeklineindex) => (
                       <div
