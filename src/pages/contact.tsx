@@ -33,7 +33,7 @@ export default function Contact(props: any) {
               <div className='mx-auto flex flex-row lg:max-w-3xl'>
                 <div className='my-auto'>
                   {' '}
-                  <h2>Contact The Controller's Office</h2>
+                  <h1 className="text-xl md:text-3xl">Contact The Controller's Office</h1>
                 </div>
 
                 <SocialPageSeries />
@@ -77,7 +77,7 @@ export default function Contact(props: any) {
                 <p>www.controller.lacity.gov</p>
               </li>
               <li className='mb-6'>
-                <h4>General Inquiries</h4>
+                <h3 className="text-base">General Inquiries</h3>
               </li>
               <li className='mb-4'>
                 <p>213.978.7200</p>
@@ -86,7 +86,7 @@ export default function Contact(props: any) {
                 <p>controller.mejia@lacity.org</p>
               </li>
               <li className='mb-6'>
-                <h4>Media Inquiries</h4>
+                <h3 className="text-base">Media Inquiries</h3>
               </li>
               <li className='mb-4'>
                 <p>diana.chang@lacity.org</p>
@@ -101,30 +101,33 @@ export default function Contact(props: any) {
               <li className='mb-4'>
                 <p>213.978.7300</p>
               </li>
-              <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-                Accounting Operations
-              </h2>
-              <ul className='text-gray-500 dark:text-gray-100'>
-                <li className='mb-4'>
-                  <p>213.978.7292</p>
-                </li>
-                <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-                  Audit Services
-                </h2>
-                <ul className='text-gray-500 dark:text-gray-100'>
-                  <li className='mb-4'>
-                    <p>213.978.7500</p>
-                  </li>
-                </ul>
-                <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-                  Management Services
-                </h2>
-                <ul className='text-gray-500 dark:text-gray-100'>
-                  <li className='mb-4'>
-                    <p>213.978.7250</p>
-                  </li>
-                </ul>
-              </ul>
+            </ul>
+
+            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
+              Accounting Operations
+            </h2>
+            <ul className='text-gray-500 dark:text-gray-100'>
+              <li className='mb-4'>
+                <p>213.978.7292</p>
+              </li>
+            </ul>
+
+            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
+              Audit Services
+            </h2>
+            <ul className='text-gray-500 dark:text-gray-100'>
+              <li className='mb-4'>
+                <p>213.978.7500</p>
+              </li>
+            </ul>
+
+            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
+              Management Services
+            </h2>
+            <ul className='text-gray-500 dark:text-gray-100'>
+              <li className='mb-4'>
+                <p>213.978.7250</p>
+              </li>
             </ul>
           </div>
           <div>
