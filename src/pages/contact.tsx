@@ -74,22 +74,42 @@ export default function Contact(props: any) {
                 <p>213.978.7211 Fax</p>
               </li>
               <li className='mb-4'>
-                <p>www.controller.lacity.gov</p>
+                <a
+                  href="https://www.controller.lacity.gov"
+                  className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+                >
+                  www.controller.lacity.gov
+                </a>
               </li>
               <li className='mb-6'>
                 <h3 className="text-base">General Inquiries</h3>
               </li>
               <li className='mb-4'>
-                <p>213.978.7200</p>
+                <a
+                  href="tel:2139787200"
+                  className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+                >
+                  213.978.7200
+                </a>
               </li>
               <li className='mb-4'>
-                <p>controller.mejia@lacity.org</p>
+                <a
+                  href="mailto:controller.mejia@lacity.org"
+                  className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+                >
+                  controller.mejia@lacity.org
+                </a>
               </li>
               <li className='mb-6'>
                 <h3 className="text-base">Media Inquiries</h3>
               </li>
               <li className='mb-4'>
-                <p>diana.chang@lacity.org</p>
+                <a
+                  href="mailto:diana.chang@lacity.org"
+                  className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+                >
+                  diana.chang@lacity.org
+                </a>
               </li>
             </ul>
           </div>
@@ -99,7 +119,12 @@ export default function Contact(props: any) {
             </h2>
             <ul className='text-gray-500 dark:text-gray-100'>
               <li className='mb-4'>
-                <p>213.978.7300</p>
+                <a
+                  href="tel:2139787300"
+                  className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+                >
+                  213.978.7300
+                </a>
               </li>
             </ul>
 
@@ -108,7 +133,12 @@ export default function Contact(props: any) {
             </h2>
             <ul className='text-gray-500 dark:text-gray-100'>
               <li className='mb-4'>
-                <p>213.978.7292</p>
+                <a
+                  href="tel:2139787292"
+                  className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+                >
+                  213.978.7292
+                </a>
               </li>
             </ul>
 
@@ -117,7 +147,12 @@ export default function Contact(props: any) {
             </h2>
             <ul className='text-gray-500 dark:text-gray-100'>
               <li className='mb-4'>
-                <p>213.978.7500</p>
+                <a
+                  href="tel:2139787500"
+                  className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+                >
+                  213.978.7500
+                </a>
               </li>
             </ul>
 
@@ -126,7 +161,12 @@ export default function Contact(props: any) {
             </h2>
             <ul className='text-gray-500 dark:text-gray-100'>
               <li className='mb-4'>
-                <p>213.978.7250</p>
+                <a
+                  href="tel:2139787250"
+                  className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
+                >
+                  213.978.7250
+                </a>
               </li>
             </ul>
           </div>
