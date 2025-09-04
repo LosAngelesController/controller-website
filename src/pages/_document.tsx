@@ -34,9 +34,9 @@ class MyDocument extends Document {
         </Head>
 
         <body className='dontburnmyeyesoutplz flex  min-h-screen flex-col dark:bg-zinc-900'>
-          <div className='flex-grow'>
+          <main className='flex-grow'>
             <Main />
-          </div>
+          </main>
           <NextScript />
           <Footer />
           <script
