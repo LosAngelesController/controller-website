@@ -109,7 +109,7 @@ const FwaBarChart = () => {
       </h3>
 
       <div className='h-[300px]'>
-        <Bar data={chartData} options={options} />
+        <Bar data={chartData} options={options} aria-hidden="true" />
       </div>
 
       <ul className='sr-only'>
