@@ -140,6 +140,20 @@ const Hbfs = () => {
     },
   };
 
+    // === Accessibility: name & description for the canvas ===
+  const titleId = 'cdChartTitle';
+  const descId = 'cdChartDesc';
+  const datasetLabel = selectedType === 'arrests' ? '# of Arrests' : 'Homeless Count';
+
+  const titleText = `${datasetLabel} by Council District${selectedYear ? `, ${selectedYear}` : ''}`;
+
+  const descText =
+    fundingSources.length
+      ? fundingSources
+          .map((cd, i) => `CD ${cd}: ${Number(amounts[i]).toLocaleString()}`)
+          .join('. ') + '.'
+      : 'No data available.';
+
   return (
     <div style={{ width: '100%', height: '500px' }}>
       <div style={{ display: 'inline-block', marginRight: '20px' }}>
@@ -169,9 +183,23 @@ const Hbfs = () => {
           <option value='homeless'>Homeless Count</option>
         </select>
       </div>
-      <div className='chart-container'>
-        <Bar data={chartData} options={chartOptions as any} />
-      </div>
+      <figure className='chart-container' aria-labelledby={titleId} aria-describedby={descId}>
+        <p id={titleId} className='sr-only'>
+          {titleText}
+        </p>
+        <p id={descId} className='sr-only'>
+          {descText}
+        </p>
+
+        <Bar
+          data={chartData}
+          options={chartOptions as any}
+          role='img'
+          aria-labelledby={titleId}
+          aria-describedby={descId}
+          tabIndex={-1}   // not keyboard-interactive
+        />
+      </figure>
     </div>
   );
 };

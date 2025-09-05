@@ -127,6 +127,24 @@ const Hbfs = () => {
     },
   };
 
+  // === A11y: name & description for the canvas ===
+  const titleId = 'raceChartTitle';
+  const descId = 'raceChartDesc';
+
+  // Visible dataset label already used in the chart
+  const datasetLabel = '# of Arrests';
+
+  // Example: "# of Arrests by Race, 2023"
+  const titleText = `${datasetLabel} by Race${selectedYear ? `, ${selectedYear}` : ''}`;
+
+  // Example: "Black: 1,234 arrests. White: 567 arrests. …"
+  const descText =
+    fundingSources.length
+      ? fundingSources
+          .map((race, i) => `${race}: ${Number(amounts[i]).toLocaleString()} arrests`)
+          .join('. ') + '.'
+      : 'No data available.';
+
   return (
     <div style={{ width: '100%', height: '500px' }}>
       <label htmlFor='yearDropdown'>Select Year: </label>
@@ -142,9 +160,23 @@ const Hbfs = () => {
           </option>
         ))}
       </select>
-      {/* <div className="chart-container"> */}
-      <Bar data={chartData} options={chartOptions as any} />
-      {/* </div> */}
+      <figure className='chart-container' aria-labelledby={titleId} aria-describedby={descId}>
+        <p id={titleId} className='sr-only'>
+          {titleText}
+        </p>
+        <p id={descId} className='sr-only'>
+          {descText}
+        </p>
+
+        <Bar
+          data={chartData}
+          options={chartOptions as any}
+          role='img'
+          aria-labelledby={titleId}
+          aria-describedby={descId}
+          tabIndex={-1}   // not keyboard-interactive
+        />
+      </figure>
     </div>
   );
 };

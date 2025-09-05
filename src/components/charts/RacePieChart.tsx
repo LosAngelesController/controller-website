@@ -96,6 +96,21 @@ const Hbfs = () => {
     },
   };
 
+  // === A11y: name & description for the canvas ===
+  const titleId = 'racePieTitle';
+  const descId = 'racePieDesc';
+
+  // Example: "Share of 41.18 arrests by race, 2023"
+  const titleText = `Share of 41.18 arrests by race${selectedYear ? `, ${selectedYear}` : ''}`;
+
+  // Example: "Black: 42.15%. White: 27.03%. …"
+  const descText =
+    selectedData.length
+      ? selectedData
+          .map((item) => `${item.race}: ${((item.arrests / totalArrests) * 100).toFixed(2)}%`)
+          .join('. ') + '.'
+      : 'No data available.';
+
   return (
     <div style={{ width: '100%', height: '500px' }}>
       <label htmlFor='yearDropdown'>Select Year: </label>
@@ -111,7 +126,23 @@ const Hbfs = () => {
           </option>
         ))}
       </select>
-      <Pie data={chartDataForYear} options={chartOptions as any} />
+      <figure className='chart-container' aria-labelledby={titleId} aria-describedby={descId}>
+        <p id={titleId} className='sr-only'>
+          {titleText}
+        </p>
+        <p id={descId} className='sr-only'>
+          {descText}
+        </p>
+
+        <Pie
+          data={chartDataForYear}
+          options={chartOptions as any}
+          role='img'
+          aria-labelledby={titleId}
+          aria-describedby={descId}
+          tabIndex={-1}   // not keyboard-interactive
+        />
+      </figure>
     </div>
   );
 };

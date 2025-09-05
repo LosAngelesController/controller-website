@@ -101,9 +101,30 @@ const Hbfs = () => {
   };
 
   return (
-    <div className='chart-container'>
-      <Bar data={data} options={chartOptions} />
-    </div>
+    <figure className='chart-container'>
+      {/* sr-only title and summary become the accessible name/description */}
+      <p id="arrestsChartTitle" className='sr-only'>
+        Number of 41.18 arrests per year
+      </p>
+      <p id="arrestsChartDesc" className='sr-only'>
+        {chartLabels.length
+          ? `From ${chartLabels[0]} to ${chartLabels[chartLabels.length - 1]}. ` +
+            chartLabels
+              .map((year, i) => `${year}: ${chartValues[i].toLocaleString()} arrests`)
+              .join('. ') + '.'
+          : 'No data available.'}
+      </p>
+
+      {/* Pass a11y attributes to the canvas via the Bar component */}
+      <Bar
+        data={data}
+        options={chartOptions}
+        role='img'
+        aria-labelledby="arrestsChartTitle"
+        aria-describedby="arrestsChartDesc"
+        tabIndex={-1} // not keyboard interactive
+      />
+    </figure>
   );
 };
 
