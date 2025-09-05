@@ -160,10 +160,11 @@ function CDBar2() {
     <>
       <div>
         <center>
-          <label className='mx-2' style={{ color: isDark ? 'white' : 'black' }}>
+          <label htmlFor='cd-category' className='mx-2' style={{ color: isDark ? 'white' : 'black' }}>
             Category:
           </label>{' '}
           <select
+            id='cd-category'
             className='text-xs text-black sm:text-xs md:text-sm lg:text-base'
             value={category}
             onChange={onCategoryChange}
@@ -183,9 +184,12 @@ function CDBar2() {
             </option>
           </select>
         </center>
+        <p id='cdbar2-desc' className='sr-only'>
+          Visual summary of Council District values for {category}. Refer to the data table above for exact numbers.
+        </p>
       </div>
       <div className='mt-4'>
-        <Bar data={data} height={200} options={options} />
+        <Bar data={data} height={200} options={options} aria-hidden='true' />
       </div>
     </>
   );

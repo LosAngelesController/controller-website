@@ -117,7 +117,11 @@ function HundredKOut() {
         City Employees <b>Inside</b> of City of LA
         <br></br>Making More Than $100K
       </h4>
-      <Pie data={data} height={150} options={options} />
+      <Pie data={data} height={150} options={options} aria-hidden="true" />
+      <ul className="sr-only">
+        <li>Employees with Pay &lt; $100K: 13,335 (73.08% of group)</li>
+        <li>Employees with Pay &gt; $100K: 4,911 (26.92% of group)</li>
+      </ul>
       <p className='mt-3 bg-zinc-900 text-white rounded-md w-64'>
         Total # of Employees: <b>18,246</b>
       </p>

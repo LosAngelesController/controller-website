@@ -116,7 +116,11 @@ function FiftyKPieIn() {
       <h4 className='mb-2 w-96 rounded-md bg-zinc-900 text-white sm:w-80 sm:text-sm md:w-80 md:text-base lg:w-96 lg:text-lg'>
         City Employees <b>Inside</b> of City of LA<br></br>Making More Than $50K
       </h4>
-      <Pie data={data} height={150} options={options} />
+      <Pie data={data} height={150} options={options} aria-hidden="true" />
+      <ul className="sr-only">
+        <li>Employees with Pay &gt; $50K: 9,238 (50.63% of group)</li>
+        <li>Employees with Pay &lt; $50K: 9,008 (49.37% of group)</li>
+      </ul>
       <p className='mt-3 w-64 rounded-md bg-zinc-900 text-white'>
         Total # of Employees: <b>18,246</b>
       </p>

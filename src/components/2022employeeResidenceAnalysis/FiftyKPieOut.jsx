@@ -117,7 +117,11 @@ function FiftyKPie() {
         City Employees <b>Outside</b> of City of LA<br></br>Making More Than
         $50K
       </h4>
-      <Pie data={data} height={150} options={options} />
+      <Pie data={data} height={150} options={options} aria-hidden="true" />
+      <ul className="sr-only">
+        <li>Employees with Pay &gt; $50K: 25,716 (80.20% of group)</li>
+        <li>Employees with Pay &lt; $50K: 6,350 (19.80% of group)</li>
+      </ul>
       <p className='mt-3 w-64 rounded-md bg-zinc-900 text-white'>
         Total # of Employees: <b>32,066</b>
       </p>
