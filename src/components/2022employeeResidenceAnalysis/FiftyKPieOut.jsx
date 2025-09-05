@@ -113,10 +113,9 @@ function FiftyKPie() {
 
   return (
     <div className='mx-2 mb-6'>
-      <h4 className='mb-2 w-96 rounded-md bg-zinc-900 text-white sm:w-80 sm:text-sm md:w-80 md:text-base lg:w-96 lg:text-lg'>
-        City Employees <b>Outside</b> of City of LA<br></br>Making More Than
-        $50K
-      </h4>
+      <h2 className='mb-2 w-96 rounded-md bg-zinc-900 text-white text-base md:text-lg sm:w-80 sm:text-sm md:w-80 lg:w-96'>
+        City Employees <b>Outside</b> of City of LA<br />Making More Than $50K
+      </h2>
       <Pie data={data} height={150} options={options} aria-hidden="true" />
       <ul className="sr-only">
         <li>Employees with Pay &gt; $50K: 25,716 (80.20% of group)</li>

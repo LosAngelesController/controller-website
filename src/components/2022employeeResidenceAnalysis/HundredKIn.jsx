@@ -113,10 +113,10 @@ function HundredKOut() {
 
   return (
     <div className='mx-2 mb-6'>
-      <h4 className='mb-2 bg-zinc-900 text-white rounded-md w-96 sm:w-80 md:w-80 lg:w-96 sm:text-sm md:text-base lg:text-lg'>
+      <h2 className='mb-2 bg-zinc-900 text-white rounded-md w-96 sm:w-80 md:w-80 lg:w-96 text-base md:text-lg'>
         City Employees <b>Inside</b> of City of LA
         <br></br>Making More Than $100K
-      </h4>
+      </h2>
       <Pie data={data} height={150} options={options} aria-hidden="true" />
       <ul className="sr-only">
         <li>Employees with Pay &lt; $100K: 13,335 (73.08% of group)</li>

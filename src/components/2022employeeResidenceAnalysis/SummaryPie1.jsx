@@ -111,9 +111,9 @@ function SummaryPie1() {
 
   return (
     <div className='mx-2 mb-6'>
-      <h4 className='mb-2 bg-zinc-900 text-white rounded-md w-64'>
-        City of LA<br></br>Employee Resident #
-      </h4>
+      <h2 className='mb-2 w-64 rounded-md bg-zinc-900 text-white text-base md:text-lg'>
+        City of LA<br />Employee Resident #
+      </h2>
       <Pie data={data} height={150} options={options} aria-hidden="true"/>
       <ul className="sr-only">
         <li>Outside of City of LA: 32,066 employees (63.73%)</li>

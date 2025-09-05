@@ -120,9 +120,9 @@ function SummaryPie2() {
 
   return (
     <div className='mx-2 mb-6'>
-      <h4 className='mb-2 w-64 rounded-md bg-zinc-900 text-white'>
-      City of LA<br></br>Employee Resident Payroll $
-      </h4>
+      <h2 className='mb-2 w-64 rounded-md bg-zinc-900 text-white text-base md:text-lg'>
+        City of LA<br />Employee Resident Payroll $
+      </h2>
       <canvas ref={chartContainer} height={150} aria-hidden="true"></canvas>
       <ul className="sr-only">
         <li>Outside of City of LA: $3,635,090,608 (75.31% of total payroll)</li>
