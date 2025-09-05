@@ -60,20 +60,18 @@ export default function Bargaining() {
     <div>
       <div className='overflow-x-auto overflow-auto max-h-[600px] bg-white p-2'>
         <table className='w-full table-auto'>
-          <thead
-            className='text-xs font-bold text-black sm:text-sm md:text-base lg:text-lg'
-            style={{ border: '1px solid black', backgroundColor: '#41ffca' }}
+          <caption
+            className='p-2 text-center text-xs font-bold text-black sm:text-sm md:text-base lg:text-lg'
+            style={{
+              border: '1px solid black',
+              borderBottom: 'none',
+              backgroundColor: '#41ffca',
+              captionSide: 'top'
+            }}
           >
-            <tr>
-              <th
-                className='p-2 text-center text-black'
-                style={{ border: '1px solid black' }}
-                colSpan='8'
-              >
-                City Employee Residence Analysis by Bargaining Unit
-              </th>
-            </tr>
-          </thead>
+            City Employee Residence Analysis by Bargaining Unit
+          </caption>
+
           <thead
             className='sticky top-0 text-xs text-black sm:text-xs md:text-sm lg:text-base'
             style={{ border: '1px solid black', backgroundColor: '#41ffca' }}
@@ -82,6 +80,7 @@ export default function Bargaining() {
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 MOU
                 <label htmlFor="mou-select" className="sr-only">
@@ -104,12 +103,14 @@ export default function Bargaining() {
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Bargaining Unit
               </th>
               <th
                 className='sm:p1 flex items-center text-left text-black md:p-2 lg:p-2'
                 // style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Lived in City of LA
                 <div
@@ -123,30 +124,35 @@ export default function Bargaining() {
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 # of Employees
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 % of MOU
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Payroll Amount
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 % of MOU Payroll
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 % of Total Payroll
               </th>

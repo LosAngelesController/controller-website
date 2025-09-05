@@ -47,20 +47,17 @@ export default function HundredK() {
     <div>
       <div className='overflow-x-auto bg-white p-2'>
         <table className='w-full table-auto'>
-          <thead
-            className=' text-xs font-bold text-black sm:text-sm md:text-base lg:text-lg'
-            style={{ border: '1px solid black', backgroundColor: '#41ffca' }}
+          <caption
+            className='p-2 text-center text-xs font-bold text-black sm:text-sm md:text-base lg:text-lg'
+            style={{
+              border: '1px solid black',
+              borderBottom: 'none',        // prevents double border with thead
+              backgroundColor: '#41ffca',
+              captionSide: 'top'
+            }}
           >
-            <tr>
-              <th
-                className='p-2 text-center text-black'
-                style={{ border: '1px solid black' }}
-                colSpan='6'
-              >
-                City Employees Making More Than $100K
-              </th>
-            </tr>
-          </thead>
+            City Employees Making More Than $100K
+          </caption>
           <thead
             className='text-xs text-black sm:text-xs md:text-sm lg:text-base'
             style={{ border: '1px solid black', backgroundColor: '#41ffca' }}
@@ -69,36 +66,42 @@ export default function HundredK() {
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Lived in City of LA
               </th>
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Pay More Than $100K
               </th>
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 # of Employees
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 % of Group
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Total Payroll
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 % of Group
               </th>

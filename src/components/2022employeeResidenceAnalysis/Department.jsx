@@ -60,20 +60,17 @@ export default function Department() {
     <div>
       <div className='overflow-x-auto overflow-auto max-h-[600px] bg-white p-2'>
         <table className='w-full table-auto'>
-          <thead
-            className='text-xs font-bold text-black sm:text-sm md:text-base lg:text-lg'
-            style={{ border: '1px solid black', backgroundColor: '#41ffca' }}
+          <caption
+            className='p-2 text-center text-xs font-bold text-black sm:text-sm md:text-base lg:text-lg'
+            style={{
+              border: '1px solid black',
+              borderBottom: 'none',          // share border with thead to avoid 2px line
+              backgroundColor: '#41ffca',
+              captionSide: 'top'
+            }}
           >
-            <tr>
-              <th
-                className='p-2 text-center text-black'
-                style={{ border: '1px solid black' }}
-                colSpan='8'
-              >
-                City Employee Residence Analysis by Department
-              </th>
-            </tr>
-          </thead>
+            City Employee Residence Analysis by Department
+          </caption>
           <thead
             className='sticky top-0 text-xs text-black sm:text-xs md:text-sm lg:text-base'
             style={{ border: '1px solid black', backgroundColor: '#41ffca' }}
@@ -82,6 +79,7 @@ export default function Department() {
               <th
                 className='sticky top-0 sm:p-1 text-left text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Department
                 <label htmlFor="department-select" className="sr-only">
@@ -104,6 +102,7 @@ export default function Department() {
               <th
                 className='flex items-center sm:p1 text-left text-black md:p-2 lg:p-2'
                 // style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Lived in City of LA
                 <div className="dropdown-arrow" onClick={toggleFilter} style={{ cursor: 'pointer' }}>&#9662;</div>
@@ -111,30 +110,35 @@ export default function Department() {
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 # of Employees
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 % of Dept.
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Payroll Amount
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 % of Dept. Payroll
               </th>
               <th
                 className='sm:p1 text-black md:p-2 lg:p-2'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 % of Total Payroll
               </th>
