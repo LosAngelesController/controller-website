@@ -84,11 +84,15 @@ export default function Department() {
                 style={{ border: '1px solid black' }}
               >
                 Department
+                <label htmlFor="department-select" className="sr-only">
+                  Filter by Department
+                </label>
                 <select
-                className="w-64 rounded p-1 text-xs"
-                onChange={handleDepartmentChange}
-                value={selectedDepartment}
-              >
+                  id="department-select"
+                  className="w-64 rounded p-1 text-xs"
+                  onChange={handleDepartmentChange}
+                  value={selectedDepartment}
+                >
                 <option value="">All</option>
                 {uniqueDepartments.map((dept) => (
                   <option key={dept} value={dept}>

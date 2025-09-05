@@ -84,11 +84,15 @@ export default function Bargaining() {
                 style={{ border: '1px solid black' }}
               >
                 MOU
+                <label htmlFor="mou-select" className="sr-only">
+                  Filter by MOU
+                </label>
                 <select
-                className="w-12 rounded p-1 text-xs"
-                onChange={handleMOUChange}
-                value={selectedBargaining}
-              >
+                  id="mou-select"
+                  className="w-12 rounded p-1 text-xs"
+                  onChange={handleMOUChange}
+                  value={selectedBargaining}
+                >
                 <option value="">All</option>
                 {uniqueMOU.map((dept) => (
                   <option key={dept} value={dept}>
