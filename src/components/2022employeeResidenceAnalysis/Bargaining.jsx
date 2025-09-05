@@ -113,13 +113,15 @@ export default function Bargaining() {
                 scope="col"
               >
                 Lived in City of LA
-                <div
+                <button
+                  type="button"
                   className='dropdown-arrow'
                   onClick={toggleFilter}
-                  style={{ cursor: 'pointer' }}
+                  aria-label='Toggle Lived in City of LA filter'
+                  style={{ cursor: 'pointer', background: 'none', border: 'none', padding: 0 }}
                 >
                   &#9662;
-                </div>
+                </button>
               </th>
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'

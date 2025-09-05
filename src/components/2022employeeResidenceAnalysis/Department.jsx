@@ -105,7 +105,14 @@ export default function Department() {
                 scope="col"
               >
                 Lived in City of LA
-                <div className="dropdown-arrow" onClick={toggleFilter} style={{ cursor: 'pointer' }}>&#9662;</div>
+                <button
+                  type="button"
+                  className="dropdown-arrow"
+                  onClick={toggleFilter}
+                  aria-label="Toggle Lived in City of LA filter"
+                >
+                  &#9662;
+                </button>
               </th>
               <th
                 className='sm:p1 text-left text-black md:p-2 lg:p-2'
