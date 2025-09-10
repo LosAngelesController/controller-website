@@ -35,6 +35,7 @@ export default function Evictions() {
                 className='mb-4 rounded px-4 py-2 font-bold text-black'
                 style={{
                   backgroundColor: '#41ffca',
+                  border: '1px solid #2b9176'
                 }}
               >
                 Table Version
