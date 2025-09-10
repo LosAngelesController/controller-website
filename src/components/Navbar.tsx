@@ -89,9 +89,13 @@ export default function Navbar(props: any) {
     });
   };
   return (
-    <>
+    <><a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-black dark:focus:bg-slate-800 dark:focus:text-white"
+      >
+        Skip to main content
+      </a>
       <Script src='//navbar.lacity.org/global_nav.js'></Script>
-
       <Disclosure
         as='nav'
         className='relative z-50 border-b border-gray-300 drop-shadow-sm dark:bg-whosestreets dark:text-white'
