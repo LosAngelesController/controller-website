@@ -42,18 +42,21 @@ export default function NoticeType() {
               <th
                 className="text-black p-2 text-left text-xl"
                 style={{ border: "1px solid black" }}
+                scope="col"
               >
                 Notice Type
               </th>
               <th
                 className="text-black p-2 text-left text-xl"
                 style={{ border: "1px solid black" }}
+                scope="col"
               >
                 # of Eviction Notices
               </th>
               <th
                 className="text-black p-2 text-xl"
                 style={{ border: "1px solid black" }}
+                scope="col"
               >
                 Pct.
               </th>

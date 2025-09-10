@@ -54,48 +54,56 @@ export default function FairMarketRent() {
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Bedroom Size
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 FY 2023
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 #≤FMR
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 FY 2024
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 #≤FMR
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 FY 2025
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 #≤FMR
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Total
               </th>
