@@ -243,7 +243,7 @@ export default function Evictions() {
               <a
                 href='https://housing2.lacity.org/residents/renters/eviction-notices-filed'
                 target='_blank'
-                className='text-blue-500 underline'
+                className='text-blue-600 underline'
                 rel='noreferrer'
               >
                 {' '}
