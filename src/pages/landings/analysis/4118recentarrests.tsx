@@ -217,8 +217,9 @@ export default function Home() {
               </h2>
             </center>
             <center>
-              <label>{showBarChart ? 'Bar chart' : 'Pie chart'}</label>
+              <label htmlFor='chartTypeToggle'>{showBarChart ? 'Bar chart' : 'Pie chart'}</label>
               <input
+                id='chartTypeToggle'
                 type='checkbox'
                 onChange={toggleChart}
                 checked={showBarChart}
