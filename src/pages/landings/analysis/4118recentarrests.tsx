@@ -58,38 +58,36 @@ export default function Home() {
               href='https://docs.google.com/spreadsheets/d/1llilA7y0LiHjM_0s9lrFJPdZAGfSaOnWjJo_dkKZhHo/edit?usp=sharing'
               target='_blank'
               rel='noopener noreferrer'
+              style={{
+                marginRight: '10px',
+                backgroundColor: '#41ffca',
+                color: 'black',
+                padding: '10px 20px',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                textDecoration: 'none',
+                display: 'inline-block'
+              }}
             >
-              <button
-                style={{
-                  marginRight: '10px',
-                  backgroundColor: '#41ffca',
-                  color: 'black',
-                  padding: '10px 20px',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                }}
-              >
-                TABLE VERSION
-              </button>
+              TABLE VERSION
             </a>
             <a
               href='https://4118recentarrests.lacontroller.app/'
               target='_blank'
               rel='noopener noreferrer'
+              style={{
+                backgroundColor: '#41ffca',
+                color: 'black',
+                padding: '10px 20px',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                textDecoration: 'none',
+                display: 'inline-block'
+              }}
             >
-              <button
-                style={{
-                  backgroundColor: '#41ffca',
-                  color: 'black',
-                  padding: '10px 20px',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                }}
-              >
-                MAP
-              </button>
+              MAP
             </a>
           </div>
 
