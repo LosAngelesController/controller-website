@@ -80,12 +80,15 @@ export default function NoticesByCd(props) {
       },
     },
   };
+  const accessibleLabel =
+    'Bar chart showing the number of eviction notices by Los Angeles council district.';
+
 
   return (
     <div className='relative mt-4 w-full bg-zinc-900 px-5 py-4'>
       {/* <Bar data={data} height={150} width={200} options={options} />*/}
       {data && data.datasets.length > 0 ? (
-        <Bar data={data} height={150} width={200} options={options} />
+        <Bar data={data} height={150} width={200} options={options} aria-label={accessibleLabel} />
       ) : (
         <p>Loading chart…</p>
       )}

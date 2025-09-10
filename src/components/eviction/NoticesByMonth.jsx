@@ -80,10 +80,23 @@ export default function NoticesByMonth() {
     },
   };
 
+  const accessibleLabel =
+    monthNotices.length > 0
+      ? `Bar chart of eviction notices per month from ${monthNotices[0].month} to ${
+          monthNotices[monthNotices.length - 1].month
+        }.`
+      : 'Bar chart of eviction notices per month.';
+
   return (
     <div className='mt-4 bg-zinc-900 px-5 py-4'>
       {data && data.datasets.length > 0 ? (
-        <Bar data={data} height={150} width={200} options={options} />
+        <Bar
+          data={data}
+          height={150}
+          width={200}
+          options={options}
+          aria-label={accessibleLabel}
+        />
       ) : (
         <p>Loading chart…</p>
       )}
