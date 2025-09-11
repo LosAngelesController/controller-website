@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 
 import Navbar from '@/components/Navbar';
@@ -21,6 +22,11 @@ export default function InterimHousing() {
 
   return (
     <>
+      <Head>
+        <title>
+          Homelessness Audit: Interim Housing &amp; Shelter Bed Data
+        </title>
+      </Head>
       <Navbar />
       <main className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'>
         <center>
@@ -45,6 +51,8 @@ export default function InterimHousing() {
           <div className='mb-7 flex flex-row justify-center'>
             <a
               href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/homelessnessaudit-interimhousing.pdf?alt=media&token=9c88b2c7-fd89-4613-be66-b0b4cca9b61a'
+              target='_blank'
+              rel='noopener noreferrer'
               className='text-base sm:text-base md:text-lg lg:text-lg xl:text-lg'
               style={buttonStyle}
             >
