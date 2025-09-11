@@ -28,7 +28,7 @@ export default function InterimHousing() {
         </title>
       </Head>
       <Navbar />
-      <main className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'>
+      <main id="main-content" tabIndex={-1} className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'>
         <center>
           <div className='mt-6'>
             <h1 className="sr-only">Homelessness Audit: Interim Housing &amp; Shelter Bed Data</h1>
