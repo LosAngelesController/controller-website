@@ -207,7 +207,7 @@ export default function InterimHousing() {
               <img
                 src='/images/sig-light.png'
                 className='float-left mb-5 mr-4 h-auto w-40'
-                alt='Signature Image'
+                alt='Signature of Kenneth Mejia, City Controller'
               />
             </div>
               <p className='mb-5 text-left dark:text-white clear-left'>
