@@ -101,18 +101,14 @@ export default function Analysis() {
   return (
     <>
       <Head>
-        <title>Analysis</title>
+        <title>Rent Stablization Ordinance (RSO) Analysis</title>
       </Head>
       <Navbar />
       <center>
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h2 className='pb-4 pt-8 text-center text-3xl font-bold dark:text-white'>
-            Net Change in RSO Units from 2019 to 2024
-          </h2>
-          <h1 className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
+          <h1 className='pb-4 pt-8 text-center text-3xl font-bold dark:text-white'>
             Summary & Analysis
           </h1>
-
           <div
             className='text-left dark:text-white'
             style={{ fontFamily: 'Helvetica' }}
@@ -145,6 +141,9 @@ export default function Analysis() {
 
             <br></br>
           </div>
+          <h2 className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
+            Net Change in RSO Units from 2019 to 2024
+          </h2>
           <UnitsByYear />
           <UnitsByCD />
           {/* <div className="w-full mb-8">
