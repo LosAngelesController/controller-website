@@ -108,16 +108,55 @@ export default function UnitsByYear() {
     },
   };
 
+  function accessibleLabel(labels = []) {
+    if (!labels.length) return 'Bar chart of RSO units by year.';
+    const first = labels[0];
+    const last = labels[labels.length - 1];
+    return `Bar chart of RSO units by year, ${first}–${last}. A data table with all values follows.`;
+  }
+
   return (
     <div className='mb-8 w-full'>
       <p className='pb-4 pt-8 text-center text-xl font-bold dark:text-white'>
         RSO Units by Year
       </p>
       {chartData1.labels ? (
-        <Bar data={chartData1} options={chartOptions} />
+        <div role="img" aria-labelledby="rso-units-by-year-desc">
+          <p id="rso-units-by-year-desc" className="sr-only">
+            {accessibleLabel(chartData1.labels)}
+          </p>
+          <Bar data={chartData1} options={chartOptions} aria-hidden="true" />
+        </div>
       ) : (
         <p>Loading data...</p>
       )}
+      {chartData1.labels && chartData1.datasets?.[0]?.data ? (
+        <div className="sr-only">
+          <table>
+            <caption id="rso-units-by-year-table-caption">
+              RSO units by year — data table
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col">Year</th>
+                <th scope="col">Units</th>
+              </tr>
+            </thead>
+            <tbody>
+              {chartData1.labels.map((year, i) => (
+                <tr key={year}>
+                  <th scope="row">{year}</th>
+                  <td>
+                    {new Intl.NumberFormat('en-US').format(
+                      Number(chartData1.datasets[0].data[i] ?? 0)
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : null}
     </div>
   );
 }
