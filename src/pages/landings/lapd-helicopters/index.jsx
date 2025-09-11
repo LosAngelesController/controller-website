@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import React from 'react';
 
 import Navbar from '@/components/Navbar';
@@ -23,14 +24,20 @@ export default function InterimHousing() {
 
   return (
     <>
+      <Head>
+        <title>
+          LAPD Helicopter Audit
+        </title>
+      </Head>
       <Navbar />
       <main className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'>
         <center>
           <div className='mt-6'>
           {/* images/homelessaudit-sheltercover-site2.png */}
+            <h1 className="sr-only">LAPD Helicopter Audit</h1>
             <img
               src='/images/lapdhelicopter-banner.png'
-              alt='banner image of LAPD Helicopter Audit: LAPD Helicopter Map'
+              alt=''
             />
           </div>
           <div className='mt-7 mb-7 dark:text-white'>
