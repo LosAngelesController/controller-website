@@ -25,9 +25,10 @@ export default function InterimHousing() {
       <main className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'>
         <center>
           <div className='mt-6'>
+            <h1 className="sr-only">Homelessness Audit: Interim Housing &amp; Shelter Bed Data</h1>
             <img
               src='/images/homelessaudit-sheltercover-site2.png'
-              alt='banner image of Homelessness Audit: Interim Housing & Shelter Bed Data'
+              alt=''
             />
           </div>
           <div className='mt-7 mb-7 dark:text-white'>
