@@ -108,24 +108,20 @@ export default function UnitsByYear() {
     },
   };
 
-  function accessibleLabel(labels = []) {
-    if (!labels.length) return 'Bar chart of RSO units by year.';
-    const first = labels[0];
-    const last = labels[labels.length - 1];
-    return `Bar chart of RSO units by year, ${first}–${last}. A data table with all values follows.`;
-  }
-
   return (
     <div className='mb-8 w-full'>
-      <p className='pb-4 pt-8 text-center text-xl font-bold dark:text-white'>
+      <h3 id='rso-units-by-year-heading' className='pb-4 pt-8 text-center text-xl font-bold dark:text-white'>
         RSO Units by Year
+      </h3>
+      <p id='rso-units-by-year-narrative' className='mb-4'>
+        The data reveals that as of 2024, there are <b> 661,851</b> RSO
+        units. From 2019 to 2024, there was a net increase of{' '}
+        <b> 18,345</b> RSO units (a loss of <b>15,754</b> units but a gain
+        of <b>34,099</b> units)
       </p>
       {chartData1.labels ? (
-        <div role="img" aria-labelledby="rso-units-by-year-desc">
-          <p id="rso-units-by-year-desc" className="sr-only">
-            {accessibleLabel(chartData1.labels)}
-          </p>
-          <Bar data={chartData1} options={chartOptions} aria-hidden="true" />
+        <div role='img' aria-labelledby='rso-units-by-year-heading' aria-describedby='rso-units-by-year-narrative rso-units-by-year-table-caption'>
+          <Bar data={chartData1} options={chartOptions} aria-hidden='true' />
         </div>
       ) : (
         <p>Loading data...</p>

@@ -132,12 +132,6 @@ export default function Analysis() {
                 (https://housing2.lacity.org/RSO)
               </a>
             </p>
-            <p className='mb-4'>
-              The data reveals that as of 2024, there are <b> 661,851</b> RSO
-              units. From 2019 to 2024, there was a net increase of{' '}
-              <b> 18,345</b> RSO units (a loss of <b>15,754</b> units but a gain
-              of <b>34,099</b> units)
-            </p>
 
             <br></br>
           </div>

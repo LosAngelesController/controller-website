@@ -71,10 +71,11 @@ export default function UnitsByCD() {
 
   return (
     <div className='mb-8 w-full'>
-      <p className='pb-4 pt-8 text-center text-xl font-bold dark:text-white'>
+      <h3 id="rso-units-by-cd-heading" className='pb-4 pt-8 text-center text-xl font-bold dark:text-white'>
         Number of RSO Units by Council District (2024)
-      </p>
+      </h3>
       <div
+        id="rso-units-by-cd-narrative"
         className='text-left dark:text-white'
         style={{ fontFamily: 'Helvetica' }}
       >
@@ -85,47 +86,59 @@ export default function UnitsByCD() {
         </p>
       </div>
       {chartData2.labels ? (
-        <Bar
-          data={chartData2}
-          options={{
-            scales: {
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  color: isDark ? 'white' : 'black',
+        <>
+          <div
+            role="img"
+            aria-labelledby="rso-units-by-cd-heading"
+            aria-describedby="rso-units-by-cd-narrative rso-units-by-cd-table-caption"
+          >
+            <Bar
+              data={chartData2}
+              options={{
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: { color: isDark ? 'white' : 'black' },
+                    grid: { display: true, color: 'gray' },
+                    title: { display: true, text: 'Number of RSO Units', color: isDark ? 'white' : 'black' },
+                  },
+                  x: {
+                    ticks: { color: isDark ? 'white' : 'black' },
+                    grid: { display: true, color: 'gray' },
+                    title: { display: true, text: 'Council District', color: isDark ? 'white' : 'black' },
+                  },
                 },
-                grid: {
-                  display: true, // Enable grid lines
-                  color: 'gray',
-                },
-                title: {
-                  display: true,
-                  text: 'Number of RSO Units', // Add title to the y-axis
-                  color: isDark ? 'white' : 'black',
-                },
-              },
-              x: {
-                ticks: {
-                  color: isDark ? 'white' : 'black',
-                },
-                grid: {
-                  display: true, // Enable grid lines
-                  color: 'gray',
-                },
-                title: {
-                  display: true,
-                  text: 'Council District', // Add title to the x-axis
-                  color: isDark ? 'white' : 'black',
-                },
-              },
-            },
-            plugins: {
-              legend: {
-                display: false, // Remove legend
-              },
-            },
-          }}
-        />
+                plugins: { legend: { display: false } },
+              }}
+              aria-hidden="true"
+            />
+          </div>
+
+          {/* Screen-reader-only data table to expose values programmatically */}
+          {chartData2.labels && chartData2.datasets?.[0]?.data ? (
+            <div className="sr-only">
+              <table>
+                <caption id="rso-units-by-cd-table-caption">
+                  RSO units by council district (2024) — data table
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Council District</th>
+                    <th scope="col">Units</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {chartData2.labels.map((label, i) => (
+                    <tr key={label}>
+                      <th scope="row">{label}</th>
+                      <td>{new Intl.NumberFormat('en-US').format(Number(chartData2.datasets[0].data[i] ?? 0))}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
+        </>
       ) : (
         <p>Loading data...</p>
       )}
