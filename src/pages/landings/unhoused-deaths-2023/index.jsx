@@ -43,7 +43,7 @@ export default function CashForKeys() {
         className='container mx-auto px-4 dark:text-white sm:container lg:max-w-3xl xl:max-w-4xl'
         style={{ fontFamily: 'Helvetica' }}
       >
-        <center>
+        <main id='main-content' tabIndex={-1} className='mx-auto text-center'>
           <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
             <h1 className='pt-8 pb-4 text-center text-3xl font-bold'>
               Deaths of Unhoused People in the City of LA, 2023
@@ -444,7 +444,7 @@ export default function CashForKeys() {
               </div>
             </div>
           </div>
-        </center>
+        </main>
       </body>
     </>
   );
