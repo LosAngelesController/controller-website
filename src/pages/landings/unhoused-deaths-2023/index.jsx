@@ -1,6 +1,5 @@
 'use client';
 import Head from 'next/head';
-import Link from 'next/link';
 import React, { useEffect } from 'react';
 
 import Navbar from '@/components/Navbar';
@@ -51,34 +50,29 @@ export default function CashForKeys() {
             </h1>
           </div>
           <div className='mb-10'>
-            <Link
+            <a
               href='https://docs.google.com/spreadsheets/d/1d1dfpxcHKBXoqpGhzPxAbwcbovDVKwU5lZHWviwxQsE/edit?usp=sharing'
-              passHref
               target='_blank'
+              rel='noopener noreferrer'
+              className='mx-2 mb-4 inline-block rounded py-2 px-4 font-bold text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600'
+              style={{ backgroundColor: '#41ffca', border: '1px solid black' }}
+              aria-label='Table Version (opens in a new tab)'
             >
-              <button
-                className='mx-2 mb-4 rounded py-2 px-4 font-bold text-black'
-                style={{
-                  backgroundColor: '#41ffca',
-                }}
-              >
-                Table Version
-              </button>
-            </Link>
-            <Link
+              Table Version
+              <span className='sr-only'> — opens in a new tab</span>
+            </a>
+
+            <a
               href='https://unhouseddeaths2023.lacontroller.app/'
-              passHref
               target='_blank'
+              rel='noopener noreferrer'
+              className='mx-2 mb-4 inline-block rounded py-2 px-4 font-bold text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600'
+              style={{ backgroundColor: '#41ffca', border: '1px solid black' }}
+              aria-label='Map (opens in a new tab)'
             >
-              <button
-                className='mx-2 mb-4 rounded py-2 px-4 font-bold text-black'
-                style={{
-                  backgroundColor: '#41ffca',
-                }}
-              >
-                Map
-              </button>
-            </Link>
+              Map
+              <span className='sr-only'> — opens in a new tab</span>
+            </a>
           </div>
           <div>
             <h2 className='mb-10 text-2xl font-bold'>Analysis</h2>
