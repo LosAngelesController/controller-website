@@ -215,12 +215,15 @@ export default function Home() {
               </h2>
             </center>
             <center>
-              <label htmlFor='chartTypeToggle'>{showBarChart ? 'Bar chart' : 'Pie chart'}</label>
+              <label id="chartTypeLabel" htmlFor='chartTypeToggle'>{showBarChart ? 'Bar chart' : 'Pie chart'}</label>
               <input
                 id='chartTypeToggle'
                 type='checkbox'
                 onChange={toggleChart}
                 checked={showBarChart}
+                role="switch"
+                aria-checked={showBarChart}
+                aria-labelledby="chartTypeLabel"
               />
               {showBarChart ? <RaceBarChart /> : <RacePieChart />}
             </center>
