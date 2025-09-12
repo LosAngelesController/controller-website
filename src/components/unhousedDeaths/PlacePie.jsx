@@ -58,8 +58,8 @@ function PlacePie() {
           '#fde047',
           '#f87171',
         ],
-        borderColor: ['#41ffca', '#2563eb', '#7dd3fc', '#fde047', '#f87171'],
-        borderWidth: 1,
+        borderColor: ['#232323', '#232323', '#232323', '#232323', '#232323'],
+        borderWidth: 0.5,
       },
     ],
   };

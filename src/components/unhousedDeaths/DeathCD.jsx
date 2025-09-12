@@ -69,9 +69,9 @@ export default function DeathCD() {
               "#41ffca",
             ],
             borderColor: [
-              "#41ffca",
+              "#232323",
             ],
-            borderWidth: 1,
+            borderWidth: 0.5,
           },
         ],
       };
