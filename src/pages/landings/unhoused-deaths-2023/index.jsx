@@ -292,7 +292,7 @@ export default function CashForKeys() {
                     href='https://www.lahsa.org/data?id=52-homeless-count-by-city-of-la-council-district-2015-2022'
                     target='_blank'
                     rel='noreferrer'
-                    className='text-blue-500 underline'
+                    className='text-blue-700 underline'
                   >
                     according to LAHSA
                   </a>
