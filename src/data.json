@@ -1,13 +1,20 @@
 {
   "data": [
-       {
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2FController%20Immigration.png?alt=media&token=18a49dae-208d-4eb3-b9af-254f7392aefa",
+      "name": "Controller Immigration Resources and City Response",
+      "year": "2025",
+      "dept": "Dashboard",
+      "link": "https://immigration.lacontroller.app/"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/bathrooms-thumbnail.png?alt=media&token=a32e4362-aa08-4553-95e8-9f4ace03c456",
       "name": "City of LA Bathrooms and Drinking Fountains",
       "year": "2025",
       "dept": "Map",
       "link": "https://bathrooms.lacontroller.app/"
     },
-      {
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Homelessness%20Dashboard.png?alt=media&token=9094c66f-d4a1-4749-8e54-b5af8ce73ede",
       "name": "Liability Claims Dashboard",
       "year": "2025",
