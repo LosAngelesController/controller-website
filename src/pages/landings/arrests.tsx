@@ -20,6 +20,105 @@ import Navbar from '@/components/Navbar';
 // Before you begin editing, follow all comments with `STARTERCONF`,
 // to customize the default configuration.
 
+
+// Accessible reusable table for arrests by race
+const RaceTable: React.FC<{
+  year: number;
+  rows: { label: string; count?: string; pct?: string }[];
+  grandTotal?: string;
+  labels?: Partial<{
+    caption: string;
+    source: string;
+    raceColumn: string;
+    countColumn: string;
+    percentColumn: string;
+    grandTotal: string;
+  }>;
+}> = ({ year, rows, grandTotal, labels }) => {
+  const {
+    caption,
+    source,
+    raceColumn,
+    countColumn,
+    percentColumn,
+    grandTotal: grandTotalLabel,
+  } = {
+    caption: `LAPD Arrests by Race, ${year}`,
+    source: 'Source of Data: Los Angeles Police Dept.',
+    raceColumn: 'Race',
+    countColumn: '# of Arrests',
+    percentColumn: '% of Arrests',
+    grandTotal: 'Grand Total',
+    ...(labels ?? {}),
+  };
+
+  return (
+    <figure className='w-full max-w-[400px] mx-auto md:mx-0'>
+      <figcaption className='sr-only'>{caption}</figcaption>
+      <table className='w-full border-collapse border border-black text-xs sm:text-sm md:text-base dark:border-white'>
+        <caption className='mb-2 text-left font-bold dark:text-white'>
+          {caption}
+          <br />
+          <span className='italic font-normal'>{source}</span>
+        </caption>
+        <thead>
+          <tr>
+            <th
+              scope='col'
+              className='bg-mejito border border-black px-2 py-1 text-left dark:border-[#2FA786] dark:ring-1 dark:ring-white'
+            >
+              {raceColumn}
+            </th>
+            <th
+              scope='col'
+              className='bg-mejito border border-black px-2 py-1 text-right dark:border-[#2FA786] dark:ring-1 dark:ring-white'
+            >
+              {countColumn}
+            </th>
+            <th
+              scope='col'
+              className='bg-mejito border border-black px-2 py-1 text-right dark:border-[#2FA786] dark:ring-1 dark:ring-white'
+            >
+              {percentColumn}
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r) => (
+            <tr key={r.label}>
+              <th scope='row' className='border border-black px-2 py-1 text-left font-medium dark:border-white dark:text-white'>
+                {r.label}
+              </th>
+              <td className='border border-black px-2 py-1 text-right dark:border-white dark:text-white'>
+                {r.count ?? '—'}
+              </td>
+              <td className='border border-black px-2 py-1 text-right dark:border-white dark:text-white'>
+                {r.pct ?? '—'}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <th
+              scope='row'
+              className='bg-mejito border border-black px-2 py-1 text-left font-semibold text-black dark:border-[#2FA786] dark:text-black dark:ring-1 dark:ring-white'
+            >
+              {grandTotalLabel}
+            </th>
+            <td className='bg-mejito border border-black px-2 py-1 text-right font-semibold text-black dark:border-[#2FA786] dark:text-black dark:ring-1 dark:ring-white'>
+              {grandTotal ?? '—'}
+            </td>
+            <td className='bg-mejito border border-black px-2 py-1 text-right font-semibold text-black dark:border-[#2FA786] dark:text-black dark:ring-1 dark:ring-white'>
+              100%
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </figure>
+  );
+};
+
 const kirbybutton =
   'w-content rounded-full bg-black px-4 py-2 font-bold text-white dark:bg-white dark:text-black';
 
@@ -209,33 +308,63 @@ export default function Data(props: any) {
               </ul>
             </span>
 
-            <div className='image-container'>
-              <img
-                src='/images/arrests/lapdarrests-race-2019.png'
-                width='400'
-                height='600'
-                alt='A bar chart of LAPD Arrests by Council District, 2019. There are 15 Council Districts. Council District 14 has a much higher number of arrests than any other district, with around 14,000 arrests. There are several other Council Districts with around 7,000 to 9,000 arrests (CDs 1, 6, 8, 9, 13), The rest of the Council Districts have fewer than around 5,000 to 6,000 arrests. CDs 5 and 12 in particular have the fewest number of arrests, at around 2,500 arrests each. Source of data is LAPD.'
+            {/* Accessible race tables replacing images */}
+            <div className='mx-auto grid max-w-[880px] grid-cols-1 gap-4 place-items-center md:grid-cols-2 md:gap-x-6 md:gap-y-6 md:place-items-start mt-8'>
+              <RaceTable
+                year={2019}
+                grandTotal="92,350"
+                rows={[
+                  { label: 'American Indian/Alaskan Native', count: '10', pct: '0.01%' },
+                  { label: 'Asian', count: '514', pct: '0.56%' },
+                  { label: 'Black', count: '26,286', pct: '28.46%' },
+                  { label: 'Hispanic/Latino', count: '44,367', pct: '48.04%' },
+                  { label: 'Other', count: '5,016', pct: '5.43%' },
+                  { label: 'Pacific Islander', count: '39', pct: '0.04%' },
+                  { label: 'Unknown', count: '14', pct: '0.02%' },
+                  { label: 'White', count: '16,104', pct: '17.44%' },
+                ]}
               />
-              <img
-                src='/images/arrests/lapdarrests-race-2020.png'
-                width='400'
-                height='600'
-                alt='A bar chart of LAPD Arrests by Council District, 2020. There are fewer arrests overall compared to 2019. There are 15 Council Districts. Council District 14 has the highest number of arrests, at around 7,500 arrests,  but is also fairly close in number of arrests to districts 8 and 9, which are around 6,000 arrests.  CDs 1, 6, 10, 11, and 13 each have around 5,000 arrests. The rest of the Council Districts have much fewer than 5,000  arrests. CDs 5 and 12 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+              <RaceTable
+                year={2020}
+                grandTotal="66,983"
+                rows={[
+                  { label: 'American Indian/Alaskan Native', count: '1', pct: '0.00%' },
+                  { label: 'Asian', count: '319', pct: '0.48%' },
+                  { label: 'Black', count: '18,523', pct: '27.65%' },
+                  { label: 'Hispanic/Latino', count: '34,333', pct: '51.26%' },
+                  { label: 'Other', count: '3,391', pct: '5.06%' },
+                  { label: 'Pacific Islander', count: '19', pct: '0.03%' },
+                  { label: 'Unknown', count: '9', pct: '0.01%' },
+                  { label: 'White', count: '10,388', pct: '15.51%' },
+                ]}
               />
-            </div>
-
-            <div className='image-container'>
-              <img
-                src='/images/arrests/lapdarrests-race-2021.png'
-                width='400'
-                height='600'
-                alt='A bar chart of LAPD Arrests by Council District, 2021. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts  8 and 14 have the highest number of arrests, at around 6,000  arrests,  and are also fairly close in number of arrests to districts 9, and 11 which are also close to 6,000 arrests.  CDs 1, 6, and 13 each have around 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 5 and 12 again have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+              <RaceTable
+                year={2021}
+                grandTotal="66,814"
+                rows={[
+                  { label: 'American Indian/Alaskan Native', count: '6', pct: '0.01%' },
+                  { label: 'Asian', count: '289', pct: '0.43%' },
+                  { label: 'Black', count: '18,393', pct: '27.53%' },
+                  { label: 'Hispanic/Latino', count: '34,226', pct: '51.23%' },
+                  { label: 'Other', count: '3,402', pct: '5.09%' },
+                  { label: 'Pacific Islander', count: '20', pct: '0.03%' },
+                  { label: 'Unknown', count: '8', pct: '0.01%' },
+                  { label: 'White', count: '10,470', pct: '15.67%' },
+                ]}
               />
-              <img
-                src='/images/arrests/lapdarrests-race-2022.png'
-                width='400'
-                height='600'
-                alt='A bar chart of LAPD Arrests by Council District, 2022. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts 14, 8, and 1 have the highest number of arrests, at around 5,000 to 6,000  arrests,  and are also fairly close in number of arrests to districts 6, 9,  11, and 13 which are also close to 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 4 and 5 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD. '
+              <RaceTable
+                year={2022}
+                grandTotal="61,874"
+                rows={[
+                  { label: 'American Indian/Alaskan Native', count: '5', pct: '0.01%' },
+                  { label: 'Asian', count: '304', pct: '0.49%' },
+                  { label: 'Black', count: '16,192', pct: '26.17%' },
+                  { label: 'Hispanic/Latino', count: '32,614', pct: '52.71%' },
+                  { label: 'Other', count: '3,489', pct: '5.64%' },
+                  { label: 'Pacific Islander', count: '20', pct: '0.03%' },
+                  { label: 'Unknown', count: '10', pct: '0.02%' },
+                  { label: 'White', count: '9,240', pct: '14.93%' },
+                ]}
               />
             </div>
           </div>
@@ -628,33 +757,94 @@ export default function Data(props: any) {
                 </ul>
               </span>
 
-              <div className='image-container'>
-                <img
-                  src='/images/arrests/spanish/Sp-lapdarrests-race-2019.png'
-                  width='400'
-                  height='600'
-                  alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene muchos más arrestos que cualquier otro, con alrededor de 14,000. Varios otros distritos tienen entre 7,000 y 9,000 arrestos (Distritos 1, 6, 8, 9 y 13). El resto tiene menos de aproximadamente 5,000 a 6,000 arrestos. En particular, los Distritos 5 y 12 tienen la menor cantidad, alrededor de 2,500 cada uno. Fuente: LAPD.'
+              <div className='mx-auto grid max-w-[880px] grid-cols-1 gap-4 place-items-center md:grid-cols-2 md:gap-x-6 md:gap-y-6 md:place-items-start mt-8'>
+                <RaceTable
+                  year={2019}
+                  grandTotal="92,350"
+                  labels={{
+                    caption: 'Arrestos del LAPD por raza, 2019',
+                    source: 'Fuente de datos: Departamento de Policía de Los Ángeles',
+                    raceColumn: 'Raza',
+                    countColumn: '# de Arrestos',
+                    percentColumn: '% de Arrestos',
+                    grandTotal: 'Gran total',
+                  }}
+                  rows={[
+                    { label: 'Indígena de las Américas o Nativa de Alaska', count: '10', pct: '0.01%' },
+                    { label: 'Asiático', count: '514', pct: '0.56%' },
+                    { label: 'Negra o Afrodescendiente', count: '26,286', pct: '28.46%' },
+                    { label: 'Hispana/Latina', count: '44,367', pct: '48.04%' },
+                    { label: 'Otra raza', count: '5,016', pct: '5.43%' },
+                    { label: 'Isleña del Pacífico', count: '39', pct: '0.04%' },
+                    { label: 'Desconocido', count: '14', pct: '0.02%' },
+                    { label: 'Blanca', count: '16,104', pct: '17.44%' },
+                  ]}
                 />
-                <img
-                  src='/images/arrests/spanish/Sp-lapdarrests-race-2020.png'
-                  width='400'
-                  height='600'
-                  alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2020. En general hay menos arrestos que en 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene la mayor cantidad, con alrededor de 7,500, aunque está relativamente cerca de los Distritos 8 y 9 (aprox. 6,000). Los Distritos 1, 6, 10, 11 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
+                <RaceTable
+                  year={2020}
+                  grandTotal="66,983"
+                  labels={{
+                    caption: 'Arrestos del LAPD por raza, 2020',
+                    source: 'Fuente de datos: Departamento de Policía de Los Ángeles',
+                    raceColumn: 'Raza',
+                    countColumn: '# de Arrestos',
+                    percentColumn: '% de Arrestos',
+                    grandTotal: 'Gran total',
+                  }}
+                  rows={[
+                    { label: 'Indígena de las Américas o Nativa de Alaska', count: '1', pct: '0.00%' },
+                    { label: 'Asiático', count: '319', pct: '0.48%' },
+                    { label: 'Negra o Afrodescendiente', count: '18,523', pct: '27.65%' },
+                    { label: 'Hispana/Latina', count: '34,333', pct: '51.26%' },
+                    { label: 'Otra raza', count: '3,391', pct: '5.06%' },
+                    { label: 'Isleña del Pacífico', count: '19', pct: '0.03%' },
+                    { label: 'Desconocido', count: '9', pct: '0.01%' },
+                    { label: 'Blanca', count: '10,388', pct: '15.51%' },
+                  ]}
                 />
-              </div>
-
-              <div className='image-container'>
-                <img
-                  src='/images/arrests/spanish/Sp-lapdarrests-race-2021.png'
-                  width='400'
-                  height='600'
-                  alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2021. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 8 y 14 tienen las cifras más altas, cerca de 6,000, y están relativamente cerca de los Distritos 9 y 11 (también cerca de 6,000). Los Distritos 1, 6 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 nuevamente son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
+                <RaceTable
+                  year={2021}
+                  grandTotal="66,814"
+                  labels={{
+                    caption: 'Arrestos del LAPD por raza, 2021',
+                    source: 'Fuente de datos: Departamento de Policía de Los Ángeles',
+                    raceColumn: 'Raza',
+                    countColumn: '# de Arrestos',
+                    percentColumn: '% de Arrestos',
+                    grandTotal: 'Gran total',
+                  }}
+                  rows={[
+                    { label: 'Indígena de las Américas o Nativa de Alaska', count: '6', pct: '0.01%' },
+                    { label: 'Asiático', count: '289', pct: '0.43%' },
+                    { label: 'Negra o Afrodescendiente', count: '18,393', pct: '27.53%' },
+                    { label: 'Hispana/Latina', count: '34,226', pct: '51.23%' },
+                    { label: 'Otra raza', count: '3,402', pct: '5.09%' },
+                    { label: 'Isleña del Pacífico', count: '20', pct: '0.03%' },
+                    { label: 'Desconocido', count: '8', pct: '0.01%' },
+                    { label: 'Blanca', count: '10,470', pct: '15.67%' },
+                  ]}
                 />
-                <img
-                  src='/images/arrests/spanish/Sp-lapdarrests-race-2022.png'
-                  width='400'
-                  height='600'
-                  alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2022. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 14, 8 y 1 registran las cifras más altas, alrededor de 5,000 a 6,000, y están relativamente cerca de los Distritos 6, 9, 11 y 13 (también cerca de 5,000). El resto tiene bastante menos de 5,000. Los Distritos 4 y 5 tienen las cifras más bajas, con menos de 2,500 cada uno. Fuente: LAPD.'
+                <RaceTable
+                  year={2022}
+                  grandTotal="61,874"
+                  labels={{
+                    caption: 'Arrestos del LAPD por raza, 2022',
+                    source: 'Fuente de datos: Departamento de Policía de Los Ángeles',
+                    raceColumn: 'Raza',
+                    countColumn: '# de Arrestos',
+                    percentColumn: '% de Arrestos',
+                    grandTotal: 'Gran total',
+                  }}
+                  rows={[
+                    { label: 'Indígena de las Américas o Nativa de Alaska', count: '5', pct: '0.01%' },
+                    { label: 'Asiático', count: '304', pct: '0.49%' },
+                    { label: 'Negra o Afrodescendiente', count: '16,192', pct: '26.17%' },
+                    { label: 'Hispana/Latina', count: '32,614', pct: '52.71%' },
+                    { label: 'Otra raza', count: '3,489', pct: '5.64%' },
+                    { label: 'Isleña del Pacífico', count: '20', pct: '0.03%' },
+                    { label: 'Desconocido', count: '10', pct: '0.02%' },
+                    { label: 'Blanca', count: '9,240', pct: '14.93%' },
+                  ]}
                 />
               </div>
             </div>
