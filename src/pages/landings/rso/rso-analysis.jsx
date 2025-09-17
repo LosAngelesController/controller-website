@@ -101,18 +101,21 @@ export default function Analysis() {
   return (
     <>
       <Head>
-        <title>Analysis</title>
+        <title>Rent Stablization Ordinance (RSO) Analysis</title>
       </Head>
       <Navbar />
       <center>
-        <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h2 className='pb-4 pt-8 text-center text-3xl font-bold dark:text-white'>
+        <main
+          id='main-content'
+          tabIndex={-1}
+          className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'
+        >
+          <h1 className='pb-4 pt-8 text-center text-3xl font-bold dark:text-white'>
             Net Change in RSO Units from 2019 to 2024
-          </h2>
-          <h1 className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
-            Summary & Analysis
           </h1>
-
+          <h2 className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
+            Summary & Analysis
+          </h2>
           <div
             className='text-left dark:text-white'
             style={{ fontFamily: 'Helvetica' }}
@@ -131,20 +134,15 @@ export default function Analysis() {
               and also compared it with the previous 5 years (2019-2023). The
               data from LAHD can be accessed on the Department’s Report
               Dashboard for RSO
-              <a href='https://housing2.lacity.org/RSO' target='_blank'>
+              <a href='https://housing2.lacity.org/RSO' target='_blank' className='underline hover:text-blue-800'>
                 {' '}
                 (https://housing2.lacity.org/RSO)
               </a>
             </p>
-            <p className='mb-4'>
-              The data reveals that as of 2024, there are <b> 661,851</b> RSO
-              units. From 2019 to 2024, there was a net increase of{' '}
-              <b> 18,345</b> RSO units (a loss of <b>15,754</b> units but a gain
-              of <b>34,099</b> units)
-            </p>
 
             <br></br>
           </div>
+
           <UnitsByYear />
           <UnitsByCD />
           {/* <div className="w-full mb-8">
@@ -257,7 +255,7 @@ export default function Analysis() {
                 codes that are made up of either letters, numbers, or a
                 combination of both. More information can be found on the LA
                 County Assessor’s Portal
-                <a href='https://portal.assessor.lacounty.gov/' target='_blank'>
+                <a href='https://portal.assessor.lacounty.gov/' target='_blank' className='underline hover:text-blue-800'>
                   {' '}
                   (https://portal.assessor.lacounty.gov/){' '}
                 </a>
@@ -494,7 +492,7 @@ export default function Analysis() {
             </div>
           </div>
           <NetUnitsByRange />
-        </div>
+        </main>
       </center>
     </>
   );

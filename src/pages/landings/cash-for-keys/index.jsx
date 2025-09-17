@@ -16,7 +16,7 @@ export default function CashForKeys() {
         <title>Cash for Keys (Jan 2019 - Mar 2025)</title>
       </Head>
       <Navbar />
-      <body className='container mx-auto px-4 sm:container lg:max-w-3xl xl:max-w-4xl'>
+      <main id="main-content" tabIndex={-1} className='container mx-auto px-4 sm:container lg:max-w-3xl xl:max-w-4xl'>
         <center>
           <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
             <h1 className='pb-4 pt-8 text-center text-3xl font-bold dark:text-white'>
@@ -33,6 +33,7 @@ export default function CashForKeys() {
                 className='mb-4 rounded px-4 py-2 font-bold text-black'
                 style={{
                   backgroundColor: '#41ffca',
+                  border: '1px solid #2b9176'
                 }}
               >
                 Table Version
@@ -189,7 +190,7 @@ export default function CashForKeys() {
             </p>
           </div>
         </center>
-      </body>
+      </main>
     </>
   );
 }

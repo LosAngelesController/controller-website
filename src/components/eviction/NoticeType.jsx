@@ -26,22 +26,14 @@ export default function NoticeType() {
     <div>
       <div className="bg-white p-2">
         <table className="table-auto w-full">
-          <thead
-            className=" text-black font-bold text-3xl"
-            style={{ border: "1px solid black", backgroundColor: "#41ffca" }}
+          <caption
+            className="text-black font-bold text-3xl p-2 text-center"
+            style={{ border: "1px solid black", backgroundColor: "#41ffca", borderBottom: "none"}}
           >
-            <tr>
-              <th
-                className="text-black p-2 text-center"
-                style={{ border: "1px solid black" }}
-                colSpan="3" // Set colspan to cover 3 columns
-              >
-                Number of Eviction Notices
-                <br />
-                by Notice Type
-              </th>
-            </tr>
-          </thead>
+            Number of Eviction Notices
+            <br />
+            by Notice Type
+          </caption>
           <thead
             className="text-black"
             style={{ border: "1px solid black", backgroundColor: "#41ffca" }}
@@ -50,18 +42,21 @@ export default function NoticeType() {
               <th
                 className="text-black p-2 text-left text-xl"
                 style={{ border: "1px solid black" }}
+                scope="col"
               >
                 Notice Type
               </th>
               <th
                 className="text-black p-2 text-left text-xl"
                 style={{ border: "1px solid black" }}
+                scope="col"
               >
                 # of Eviction Notices
               </th>
               <th
                 className="text-black p-2 text-xl"
                 style={{ border: "1px solid black" }}
+                scope="col"
               >
                 Pct.
               </th>

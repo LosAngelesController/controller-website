@@ -26,13 +26,20 @@ export default function BuyoutsByZip() {
     return (
       <div className="mt-4 px-1 sm:px-5 md:px-9 lg:px-20 xl:px-24">
         <div className="bg-white p-2">
-          <table className="table-auto w-full" summary="a table of top 20 zipcodes and corresponding communities with highest number of tenant buyout agreements">
+          <table className="table-auto w-full">
+            <caption
+              className="p-2 text-center text-xs font-bold text-black sm:text-sm md:text-base lg:text-lg"
+              style={{ border: '1px solid black', borderBottom: 'none', backgroundColor: '#41ffca', captionSide: 'top' }}
+            >
+              Top 20 ZIP Codes and Communities with Highest Number of Tenant Buyout Agreements
+            </caption>
+
             <thead className="text-black" style={{border: '1px solid black', backgroundColor: '#41ffca'}}>
               <tr>
-              <th className="text-black p-2 text-left" style={{border: '1px solid black'}}>#</th>
-                <th className="text-black p-2 text-left" style={{border: '1px solid black'}}>Zip Code</th>
-                <th className="text-black p-2 text-left" style={{border: '1px solid black'}}>Communities</th>
-                <th className="text-black p-2" style={{border: '1px solid black'}}># of Buyouts</th>
+              <th scope="col" className="text-black p-2 text-left" style={{border: '1px solid black'}}>#</th>
+              <th scope="col" className="text-black p-2 text-left" style={{border: '1px solid black'}}>Zip Code</th>
+              <th scope="col" className="text-black p-2 text-left" style={{border: '1px solid black'}}>Communities</th>
+              <th scope="col" className="text-black p-2" style={{border: '1px solid black'}}># of Buyouts</th>
               </tr>
             </thead>
             <tbody className="text-black" style={{border: '1px solid black'}}>

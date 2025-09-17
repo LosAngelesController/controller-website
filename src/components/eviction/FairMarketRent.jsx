@@ -38,22 +38,14 @@ export default function FairMarketRent() {
     <div className='w-full overflow-x-auto'>
       <div className='min-w-5xl inline-block bg-white p-2'>
         <table className='w-full table-auto'>
-          <thead
-            className='text-3xl font-bold text-black'
-            style={{ border: '1px solid black', backgroundColor: '#41ffca' }}
+          <caption
+            className='text-3xl font-bold text-black p-2 text-center'
+            style={{ border: '1px solid black', borderBottom: 'none', backgroundColor: '#41ffca' }}
           >
-            <tr>
-              <th
-                className='p-2 text-center text-black'
-                style={{ border: '1px solid black' }}
-                colSpan='8' // Set colspan to cover 3 columns
-              >
-                Number of Eviction Notices - Rent Owed
-                <br />
-                Under the Fair Market Rent Limit
-              </th>
-            </tr>
-          </thead>
+            Number of Eviction Notices – Rent Owed
+            <br />
+            Under the Fair Market Rent Limit
+          </caption>
           <thead
             className='text-black'
             style={{ border: '1px solid black', backgroundColor: '#41ffca' }}
@@ -62,48 +54,56 @@ export default function FairMarketRent() {
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Bedroom Size
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 FY 2023
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 #≤FMR
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 FY 2024
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 #≤FMR
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 FY 2025
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 #≤FMR
               </th>
               <th
                 className='p-2 text-xl text-black'
                 style={{ border: '1px solid black' }}
+                scope="col"
               >
                 Total
               </th>

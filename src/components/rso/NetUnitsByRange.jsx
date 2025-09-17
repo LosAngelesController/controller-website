@@ -73,10 +73,11 @@ export default function NetUnitsByRange() {
 
   return (
     <div className='mb-8 w-full'>
-      <h2 className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
+      <h2 id='net-units-range-heading' className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
         Net Change in RSO Units by Unit Range
       </h2>
       <div
+        id='net-units-range-narrative'
         className='text-left dark:text-white'
         style={{ fontFamily: 'Helvetica' }}
       >
@@ -94,68 +95,94 @@ export default function NetUnitsByRange() {
         </p>
       </div>
       {netChangeByUnitRangeData.labels ? (
-        <Bar
-          data={netChangeByUnitRangeData}
-          options={{
-            scales: {
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  color: isDark ? 'white' : 'black',
+        <>
+          <div
+            role="img"
+            aria-labelledby="net-units-range-heading"
+            aria-describedby="net-units-range-narrative net-units-range-table-caption"
+          >
+            <Bar
+              data={netChangeByUnitRangeData}
+              options={{
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: { color: isDark ? 'white' : 'black' },
+                    grid: { display: true, color: 'gray' },
+                    title: {
+                      display: true,
+                      text: 'Net Change in RSO Units',
+                      color: isDark ? 'white' : 'black',
+                    },
+                  },
+                  x: {
+                    ticks: { color: isDark ? 'white' : 'black' },
+                    grid: { display: true, color: 'gray' },
+                    title: {
+                      display: true,
+                      text: 'Unit Range',
+                      color: isDark ? 'white' : 'black',
+                    },
+                  },
                 },
-                grid: {
-                  display: true, // Enable grid lines
-                  color: 'gray',
+                plugins: { legend: { display: false } },
+              }}
+              plugins={[
+                {
+                  id: 'zeroLine',
+                  afterDraw: (chart) => {
+                    const {
+                      ctx,
+                      scales: { y },
+                    } = chart;
+                    const yZero = y.getPixelForValue(0);
+                    ctx.save();
+                    ctx.beginPath();
+                    ctx.moveTo(chart.scales.x.left, yZero);
+                    ctx.lineTo(chart.scales.x.right, yZero);
+                    ctx.lineWidth = 6;
+                    ctx.strokeStyle = 'grey';
+                    ctx.stroke();
+                    ctx.restore();
+                  },
                 },
-                title: {
-                  display: true,
-                  text: 'Net Change in RSO Units',
-                  color: isDark ? 'white' : 'black',
-                },
-              },
-              x: {
-                ticks: {
-                  color: isDark ? 'white' : 'black',
-                },
-                grid: {
-                  display: true, // Enable grid lines
-                  color: 'gray',
-                },
-                title: {
-                  display: true,
-                  text: 'Unit Range',
-                  color: isDark ? 'white' : 'black',
-                },
-              },
-            },
-            plugins: {
-              legend: {
-                display: false, // Remove legend
-              },
-            },
-          }}
-          plugins={[
-            {
-              id: 'zeroLine',
-              afterDraw: (chart) => {
-                const {
-                  ctx,
-                  scales: { y },
-                } = chart;
-                const yZero = y.getPixelForValue(0); // Get pixel position for y=0
+              ]}
+              aria-hidden="true"
+            />
+          </div>
 
-                ctx.save();
-                ctx.beginPath();
-                ctx.moveTo(chart.scales.x.left, yZero);
-                ctx.lineTo(chart.scales.x.right, yZero);
-                ctx.lineWidth = 6;
-                ctx.strokeStyle = 'grey'; // Same color as gridline
-                ctx.stroke();
-                ctx.restore();
-              },
-            },
-          ]}
-        />
+          {/* Screen-reader-only data table */}
+          {netChangeByUnitRangeData.labels &&
+            netChangeByUnitRangeData.datasets?.[0]?.data ? (
+            <div className="sr-only">
+              <table>
+                <caption id="net-units-range-table-caption">
+                  Net change in RSO units by unit range — data table
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Unit Range</th>
+                    <th scope="col">Net Change in Units</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {netChangeByUnitRangeData.labels.map((label, i) => (
+                    <tr key={label}>
+                      <th scope="row">{label}</th>
+                      <td>
+                        {new Intl.NumberFormat('en-US').format(
+                          Number(
+                            netChangeByUnitRangeData.datasets[0].data[i] ?? 0
+                          )
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
+        </>
       ) : (
         <p>Loading data...</p>
       )}

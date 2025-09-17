@@ -1,6 +1,5 @@
 'use client';
 import Head from 'next/head';
-import Link from 'next/link';
 import React, { useEffect } from 'react';
 
 import Navbar from '@/components/Navbar';
@@ -44,41 +43,36 @@ export default function CashForKeys() {
         className='container mx-auto px-4 dark:text-white sm:container lg:max-w-3xl xl:max-w-4xl'
         style={{ fontFamily: 'Helvetica' }}
       >
-        <center>
+        <main id='main-content' tabIndex={-1} className='mx-auto text-center'>
           <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
             <h1 className='pt-8 pb-4 text-center text-3xl font-bold'>
               Deaths of Unhoused People in the City of LA, 2023
             </h1>
           </div>
           <div className='mb-10'>
-            <Link
+            <a
               href='https://docs.google.com/spreadsheets/d/1d1dfpxcHKBXoqpGhzPxAbwcbovDVKwU5lZHWviwxQsE/edit?usp=sharing'
-              passHref
               target='_blank'
+              rel='noopener noreferrer'
+              className='mx-2 mb-4 inline-block rounded py-2 px-4 font-bold text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600'
+              style={{ backgroundColor: '#41ffca', border: '1px solid black' }}
+              aria-label='Table Version (opens in a new tab)'
             >
-              <button
-                className='mx-2 mb-4 rounded py-2 px-4 font-bold text-black'
-                style={{
-                  backgroundColor: '#41ffca',
-                }}
-              >
-                Table Version
-              </button>
-            </Link>
-            <Link
+              Table Version
+              <span className='sr-only'> — opens in a new tab</span>
+            </a>
+
+            <a
               href='https://unhouseddeaths2023.lacontroller.app/'
-              passHref
               target='_blank'
+              rel='noopener noreferrer'
+              className='mx-2 mb-4 inline-block rounded py-2 px-4 font-bold text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600'
+              style={{ backgroundColor: '#41ffca', border: '1px solid black' }}
+              aria-label='Map (opens in a new tab)'
             >
-              <button
-                className='mx-2 mb-4 rounded py-2 px-4 font-bold text-black'
-                style={{
-                  backgroundColor: '#41ffca',
-                }}
-              >
-                Map
-              </button>
-            </Link>
+              Map
+              <span className='sr-only'> — opens in a new tab</span>
+            </a>
           </div>
           <div>
             <h2 className='mb-10 text-2xl font-bold'>Analysis</h2>
@@ -298,7 +292,7 @@ export default function CashForKeys() {
                     href='https://www.lahsa.org/data?id=52-homeless-count-by-city-of-la-council-district-2015-2022'
                     target='_blank'
                     rel='noreferrer'
-                    className='text-blue-500 underline'
+                    className='text-blue-700 underline'
                   >
                     according to LAHSA
                   </a>
@@ -450,7 +444,7 @@ export default function CashForKeys() {
               </div>
             </div>
           </div>
-        </center>
+        </main>
       </body>
     </>
   );

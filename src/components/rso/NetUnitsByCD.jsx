@@ -70,10 +70,11 @@ export default function NetUnitsByCD() {
 
   return (
     <div className='mb-8 w-full'>
-      <h2 className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
+      <h2 id='net-change-by-cd-heading' className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
         Net Change in RSO Units by Council District (CD)
       </h2>
       <div
+        id='net-change-by-cd-narrative'
         className='text-left dark:text-white'
         style={{ fontFamily: 'Helvetica' }}
       >
@@ -91,49 +92,82 @@ export default function NetUnitsByCD() {
         </p>
       </div>
       {netChangeData.labels ? (
-        <Bar
-          data={netChangeData}
-          options={{
-            scales: {
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  color: isDark ? 'white' : 'black',
+        <>
+          <div
+            role="img"
+            aria-labelledby="net-change-by-cd-heading"
+            aria-describedby="net-change-by-cd-narrative net-change-by-cd-table-caption"
+          >
+            <Bar
+              data={netChangeData}
+              options={{
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      color: isDark ? 'white' : 'black',
+                    },
+                    grid: {
+                      display: true,
+                      color: 'gray',
+                    },
+                    title: {
+                      display: true,
+                      text: 'Net Change in RSO Units',
+                      color: isDark ? 'white' : 'black',
+                    },
+                  },
+                  x: {
+                    ticks: {
+                      color: isDark ? 'white' : 'black',
+                    },
+                    grid: {
+                      display: true,
+                      color: 'gray',
+                    },
+                    title: {
+                      display: true,
+                      text: 'Council District',
+                      color: isDark ? 'white' : 'black',
+                    },
+                  },
                 },
-                grid: {
-                  display: true,
-                  color: 'gray',
+                plugins: {
+                  legend: {
+                    display: false,
+                  },
                 },
-                title: {
-                  display: true,
-                  text: 'Net Change in RSO Units',
-                  color: isDark ? 'white' : 'black',
-                },
-              },
-              x: {
-                ticks: {
-                  color: isDark ? 'white' : 'black',
-                },
-                grid: {
-                  display: true,
-                  color: 'gray',
-                },
-                title: {
-                  display: true,
-                  text: 'Council District',
-                  color: isDark ? 'white' : 'black',
-                },
-              },
-            },
-            plugins: {
-              legend: {
-                display: false,
-              },
-            },
-          }}
-        />
+              }}
+              aria-hidden='true'
+            />
+          </div>
+
+          {netChangeData.labels && netChangeData.datasets?.[0]?.data ? (
+            <div className="sr-only">
+              <table>
+                <caption id="net-change-by-cd-table-caption">
+                  Net change in RSO units by council district (2019–2024) — data table
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Council District</th>
+                    <th scope="col">Net Change in Units</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {netChangeData.labels.map((label, i) => (
+                    <tr key={label}>
+                      <th scope="row">{label}</th>
+                      <td>{new Intl.NumberFormat('en-US').format(Number(netChangeData.datasets[0].data[i] ?? 0))}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
+        </>
       ) : (
-        <p className='dark:text-white'>Loading data...</p>
+        <p className="dark:text-white">Loading data...</p>
       )}
     </div>
   );

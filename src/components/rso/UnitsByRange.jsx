@@ -70,10 +70,11 @@ export default function UnitsByRange() {
 
   return (
     <div className='mb-8 w-full'>
-      <h2 className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
+      <h2 id='units-by-range-heading' className='pb-4 pt-8 text-center text-2xl font-bold dark:text-white'>
         Number of RSO Units by Unit Range
       </h2>
       <div
+        id='units-by-range-narrative'
         className='text-left dark:text-white'
         style={{ fontFamily: 'Helvetica' }}
       >
@@ -88,49 +89,82 @@ export default function UnitsByRange() {
         </p>
       </div>
       {unitRangeData.labels ? (
-        <Bar
-          data={unitRangeData}
-          options={{
-            scales: {
-              y: {
-                beginAtZero: true,
-                ticks: {
-                  color: isDark ? 'white' : 'black',
+        <>
+          <div
+            role="img"
+            aria-labelledby="units-by-range-heading"
+            aria-describedby="units-by-range-narrative units-by-range-table-caption"
+          >
+            <Bar
+              data={unitRangeData}
+              options={{
+                scales: {
+                  y: {
+                    beginAtZero: true,
+                    ticks: {
+                      color: isDark ? 'white' : 'black',
+                    },
+                    grid: {
+                      display: true,
+                      color: 'gray',
+                    },
+                    title: {
+                      display: true,
+                      text: 'Number of RSO Units',
+                      color: isDark ? 'white' : 'black',
+                    },
+                  },
+                  x: {
+                    ticks: {
+                      color: isDark ? 'white' : 'black',
+                    },
+                    grid: {
+                      display: true,
+                      color: 'gray',
+                    },
+                    title: {
+                      display: true,
+                      text: 'Unit Range',
+                      color: isDark ? 'white' : 'black',
+                    },
+                  },
                 },
-                grid: {
-                  display: true,
-                  color: 'gray',
+                plugins: {
+                  legend: {
+                    display: false,
+                  },
                 },
-                title: {
-                  display: true,
-                  text: 'Number of RSO Units',
-                  color: isDark ? 'white' : 'black',
-                },
-              },
-              x: {
-                ticks: {
-                  color: isDark ? 'white' : 'black',
-                },
-                grid: {
-                  display: true,
-                  color: 'gray',
-                },
-                title: {
-                  display: true,
-                  text: 'Unit Range',
-                  color: isDark ? 'white' : 'black',
-                },
-              },
-            },
-            plugins: {
-              legend: {
-                display: false,
-              },
-            },
-          }}
-        />
+              }}
+              aria-hidden='true'
+            />
+          </div>
+
+          {unitRangeData.labels && unitRangeData.datasets?.[0]?.data ? (
+            <div className="sr-only">
+              <table>
+                <caption id="units-by-range-table-caption">
+                  Number of RSO units by unit range (2024) — data table
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Unit Range</th>
+                    <th scope="col">Units</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {unitRangeData.labels.map((range, i) => (
+                    <tr key={range}>
+                      <th scope="row">{range}</th>
+                      <td>{new Intl.NumberFormat('en-US').format(Number(unitRangeData.datasets[0].data[i] ?? 0))}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : null}
+        </>
       ) : (
-        <p className='dark:text-white'>Loading data...</p>
+        <p className="dark:text-white">Loading data...</p>
       )}
     </div>
   );

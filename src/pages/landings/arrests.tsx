@@ -586,13 +586,13 @@ infractions carry varying degrees of financial and incarceration consequences.
             src='/images/arrests/spanish/Sp-lapdarrests-race.png'
             width='400'
             height='600'
-            alt='A bar chart of LAPD Arrests by Race, 2019-2022. The tallest bar is Hispanic/Latino, at 51%. Next is Black, at 27%, then White at 16%, then Other at 5%. Total arrests for each of the following 4 race categories are not more than 0%: Asian, Pacific Islander, Unknown, and American Indian/Alaskan Native. The Source of Data is LAPD.'
+            alt='Gráfico de barras de arrestos del LAPD por raza, 2019–2022. La categoría más alta es Hispano/Latino (51%), seguida de Negra/Afrodescendiente (27%), Blanca (16%) y Otras (5%). Fuente: LAPD.'
           />
           <img
             src='/images/arrests/spanish/Sp-lapopulation.png'
             width='400'
             height='600'
-            alt='A bar chart of Los Angeles Population by Race.  Hispanic/Latino is 48%.  Black is 8%. White is 29%. Other is 0%.  Asian is 12%, Pacific Islander is 0%, 2+ races is 3%, and American Indian/Alaskan Native is 0%. Source of Data is American Community Survey, 2021 5-Year Estimate.'
+            alt='Gráfico de barras de la población de Los Ángeles por raza. Hispano/Latino 48%, Negra/Afrodescendiente 8%, Blanca 29%, Asiática 12%, Isla del Pacífico 0%, 2+ razas 3%, Indígena Estadounidense/Nativo de Alaska 0%. Fuente: ACS 2021 (estimación a 5 años).'
           />
         </div>
 
@@ -632,13 +632,13 @@ infractions carry varying degrees of financial and incarceration consequences.
                 src='/images/arrests/spanish/Sp-lapdarrests-race-2019.png'
                 width='400'
                 height='600'
-                alt='A bar chart of LAPD Arrests by Council District, 2019. There are 15 Council Districts. Council District 14 has a much higher number of arrests than any other district, with around 14,000 arrests. There are several other Council Districts with around 7,000 to 9,000 arrests (CDs 1, 6, 8, 9, 13), The rest of the Council Districts have fewer than around 5,000 to 6,000 arrests. CDs 5 and 12 in particular have the fewest number of arrests, at around 2,500 arrests each. Source of data is LAPD.'
+                alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene muchos más arrestos que cualquier otro, con alrededor de 14,000. Varios otros distritos tienen entre 7,000 y 9,000 arrestos (Distritos 1, 6, 8, 9 y 13). El resto tiene menos de aproximadamente 5,000 a 6,000 arrestos. En particular, los Distritos 5 y 12 tienen la menor cantidad, alrededor de 2,500 cada uno. Fuente: LAPD.'
               />
               <img
                 src='/images/arrests/spanish/Sp-lapdarrests-race-2020.png'
                 width='400'
                 height='600'
-                alt='A bar chart of LAPD Arrests by Council District, 2020. There are fewer arrests overall compared to 2019. There are 15 Council Districts. Council District 14 has the highest number of arrests, at around 7,500 arrests,  but is also fairly close in number of arrests to districts 8 and 9, which are around 6,000 arrests.  CDs 1, 6, 10, 11, and 13 each have around 5,000 arrests. The rest of the Council Districts have much fewer than 5,000  arrests. CDs 5 and 12 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+                alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2020. En general hay menos arrestos que en 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene la mayor cantidad, con alrededor de 7,500, aunque está relativamente cerca de los Distritos 8 y 9 (aprox. 6,000). Los Distritos 1, 6, 10, 11 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
               />
             </div>
 
@@ -647,13 +647,13 @@ infractions carry varying degrees of financial and incarceration consequences.
                 src='/images/arrests/spanish/Sp-lapdarrests-race-2021.png'
                 width='400'
                 height='600'
-                alt='A bar chart of LAPD Arrests by Council District, 2021. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts  8 and 14 have the highest number of arrests, at around 6,000  arrests,  and are also fairly close in number of arrests to districts 9, and 11 which are also close to 6,000 arrests.  CDs 1, 6, and 13 each have around 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 5 and 12 again have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+                alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2021. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 8 y 14 tienen las cifras más altas, cerca de 6,000, y están relativamente cerca de los Distritos 9 y 11 (también cerca de 6,000). Los Distritos 1, 6 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 nuevamente son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
               />
               <img
                 src='/images/arrests/spanish/Sp-lapdarrests-race-2022.png'
                 width='400'
                 height='600'
-                alt='A bar chart of LAPD Arrests by Council District, 2022. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts 14, 8, and 1 have the highest number of arrests, at around 5,000 to 6,000  arrests,  and are also fairly close in number of arrests to districts 6, 9,  11, and 13 which are also close to 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 4 and 5 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD. '
+                alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2022. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 14, 8 y 1 registran las cifras más altas, alrededor de 5,000 a 6,000, y están relativamente cerca de los Distritos 6, 9, 11 y 13 (también cerca de 5,000). El resto tiene bastante menos de 5,000. Los Distritos 4 y 5 tienen las cifras más bajas, con menos de 2,500 cada uno. Fuente: LAPD.'
               />
             </div>
           </div>
@@ -676,13 +676,13 @@ infractions carry varying degrees of financial and incarceration consequences.
             src='/images/arrests/spanish/Sp-lapdarrestsCD-2019.png'
             width='400'
             height='600'
-            alt='A bar chart of LAPD Arrests by Council District, 2019. There are 15 Council Districts. Council District 14 has a much higher number of arrests than any other district, with around 14,000 arrests. There are several other Council Districts with around 7,000 to 9,000 arrests (CDs 1, 6, 8, 9, 13), The rest of the Council Districts have fewer than around 5,000 to 6,000 arrests. CDs 5 and 12 in particular have the fewest number of arrests, at around 2,500 arrests each. Source of data is LAPD.'
+            alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene muchos más arrestos que cualquier otro, con alrededor de 14,000. Varios otros distritos tienen entre 7,000 y 9,000 arrestos (Distritos 1, 6, 8, 9 y 13). El resto tiene menos de aproximadamente 5,000 a 6,000 arrestos. En particular, los Distritos 5 y 12 tienen la menor cantidad, alrededor de 2,500 cada uno. Fuente: LAPD.'
           />
           <img
             src='/images/arrests/spanish/Sp-lapdarrestsCD-2020.png'
             width='400'
             height='600'
-            alt='A bar chart of LAPD Arrests by Council District, 2020. There are fewer arrests overall compared to 2019. There are 15 Council Districts. Council District 14 has the highest number of arrests, at around 7,500 arrests,  but is also fairly close in number of arrests to districts 8 and 9, which are around 6,000 arrests.  CDs 1, 6, 10, 11, and 13 each have around 5,000 arrests. The rest of the Council Districts have much fewer than 5,000  arrests. CDs 5 and 12 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+            alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2020. En general hay menos arrestos que en 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene la mayor cantidad, con alrededor de 7,500, aunque está relativamente cerca de los Distritos 8 y 9 (aprox. 6,000). Los Distritos 1, 6, 10, 11 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
           />
         </div>
 
@@ -691,13 +691,13 @@ infractions carry varying degrees of financial and incarceration consequences.
             src='/images/arrests/spanish/Sp-lapdarrestsCD-2021.png'
             width='400'
             height='600'
-            alt='A bar chart of LAPD Arrests by Council District, 2021. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts  8 and 14 have the highest number of arrests, at around 6,000  arrests,  and are also fairly close in number of arrests to districts 9, and 11 which are also close to 6,000 arrests.  CDs 1, 6, and 13 each have around 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 5 and 12 again have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+            alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2021. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 8 y 14 tienen las cifras más altas, cerca de 6,000, y están relativamente cerca de los Distritos 9 y 11 (también cerca de 6,000). Los Distritos 1, 6 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 nuevamente son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
           />
           <img
             src='/images/arrests/spanish/Sp-lapdarrestsCD-2022.png'
             width='400'
             height='600'
-            alt='A bar chart of LAPD Arrests by Council District, 2022. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts 14, 8, and 1 have the highest number of arrests, at around 5,000 to 6,000  arrests,  and are also fairly close in number of arrests to districts 6, 9,  11, and 13 which are also close to 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 4 and 5 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD. '
+            alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2022. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 14, 8 y 1 registran las cifras más altas, alrededor de 5,000 a 6,000, y están relativamente cerca de los Distritos 6, 9, 11 y 13 (también cerca de 5,000). El resto tiene bastante menos de 5,000. Los Distritos 4 y 5 tienen las cifras más bajas, con menos de 2,500 cada uno. Fuente: LAPD.'
           />
         </div>
         <br />
@@ -734,13 +734,13 @@ infractions carry varying degrees of financial and incarceration consequences.
               src='/images/arrests/spanish/Sp-lapdarrests-type2019.png'
               width='400'
               height='600'
-              alt='A bar chart of LAPD Arrests by Council District, 2019. There are 15 Council Districts. Council District 14 has a much higher number of arrests than any other district, with around 14,000 arrests. There are several other Council Districts with around 7,000 to 9,000 arrests (CDs 1, 6, 8, 9, 13), The rest of the Council Districts have fewer than around 5,000 to 6,000 arrests. CDs 5 and 12 in particular have the fewest number of arrests, at around 2,500 arrests each. Source of data is LAPD.'
+              alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene muchos más arrestos que cualquier otro, con alrededor de 14,000. Varios otros distritos tienen entre 7,000 y 9,000 arrestos (Distritos 1, 6, 8, 9 y 13). El resto tiene menos de aproximadamente 5,000 a 6,000 arrestos. En particular, los Distritos 5 y 12 tienen la menor cantidad, alrededor de 2,500 cada uno. Fuente: LAPD.'
             />
             <img
               src='/images/arrests/spanish/Sp-lapdarrests-type2020.png'
               width='400'
               height='600'
-              alt='A bar chart of LAPD Arrests by Council District, 2020. There are fewer arrests overall compared to 2019. There are 15 Council Districts. Council District 14 has the highest number of arrests, at around 7,500 arrests,  but is also fairly close in number of arrests to districts 8 and 9, which are around 6,000 arrests.  CDs 1, 6, 10, 11, and 13 each have around 5,000 arrests. The rest of the Council Districts have much fewer than 5,000  arrests. CDs 5 and 12 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+              alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2020. En general hay menos arrestos que en 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene la mayor cantidad, con alrededor de 7,500, aunque está relativamente cerca de los Distritos 8 y 9 (aprox. 6,000). Los Distritos 1, 6, 10, 11 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
             />
           </div>
 
@@ -749,13 +749,13 @@ infractions carry varying degrees of financial and incarceration consequences.
               src='/images/arrests/spanish/Sp-lapdarrests-type2021.png'
               width='400'
               height='600'
-              alt='A bar chart of LAPD Arrests by Council District, 2021. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts  8 and 14 have the highest number of arrests, at around 6,000  arrests,  and are also fairly close in number of arrests to districts 9, and 11 which are also close to 6,000 arrests.  CDs 1, 6, and 13 each have around 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 5 and 12 again have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+              alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2021. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 8 y 14 tienen las cifras más altas, cerca de 6,000, y están relativamente cerca de los Distritos 9 y 11 (también cerca de 6,000). Los Distritos 1, 6 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 nuevamente son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
             />
             <img
               src='/images/arrests/spanish/Sp-lapdarrests-type2022.png'
               width='400'
               height='600'
-              alt='A bar chart of LAPD Arrests by Council District, 2022. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts 14, 8, and 1 have the highest number of arrests, at around 5,000 to 6,000  arrests,  and are also fairly close in number of arrests to districts 6, 9,  11, and 13 which are also close to 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 4 and 5 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD. '
+              alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2022. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 14, 8 y 1 registran las cifras más altas, alrededor de 5,000 a 6,000, y están relativamente cerca de los Distritos 6, 9, 11 y 13 (también cerca de 5,000). El resto tiene bastante menos de 5,000. Los Distritos 4 y 5 tienen las cifras más bajas, con menos de 2,500 cada uno. Fuente: LAPD.'
             />
           </div>
           {/* <div className="image-container">
