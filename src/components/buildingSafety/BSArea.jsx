@@ -66,8 +66,8 @@ function BSArea() {
         label: '# of Cases',
         data: area.map((x) => x.amount),
         backgroundColor: ['#41ffca'],
-        borderColor: ['#41ffca'],
-        borderWidth: 1,
+        borderColor: ['#000000'],
+        borderWidth: 0.5,
       },
     ],
   };
@@ -137,7 +137,31 @@ function BSArea() {
   return (
     <>
       <div className='mt-4'>
-        <Bar data={data} height={200} options={options} />
+        <Bar
+          data={data}
+          height={200}
+          options={options}
+          aria-label='Building and Safety cases by Area Planning Commission. Bar chart showing case counts by area.'
+        />
+        <div className='sr-only'>
+          <h2>Building and Safety Cases by Area Planning Commission</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Area Planning Commission</th>
+                <th># of Cases</th>
+              </tr>
+            </thead>
+            <tbody>
+              {area.map((x) => (
+                <tr key={x.areaPlanningCommission}>
+                  <td>{x.areaPlanningCommission}</td>
+                  <td>{x.amount.toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );

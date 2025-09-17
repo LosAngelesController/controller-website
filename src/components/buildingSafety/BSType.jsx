@@ -66,8 +66,8 @@ function BSType() {
         label: '# of Cases',
         data: type.map((x) => x.amount),
         backgroundColor: ['#41ffca'],
-        borderColor: ['#41ffca'],
-        borderWidth: 1,
+        borderColor: ['#000000'],
+        borderWidth: 0.5,
       },
     ],
   };
@@ -137,7 +137,31 @@ function BSType() {
   return (
     <>
       <div className='mt-4'>
-        <Bar data={data} height={200} options={options} />
+        <Bar
+          data={data}
+          height={200}
+          options={options}
+          aria-label='Building and Safety cases by case type. Bar chart showing case counts by type.'
+        />
+        <div className='sr-only'>
+          <h2>Building and Safety Cases by Case Type</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Case Type</th>
+                <th># of Cases</th>
+              </tr>
+            </thead>
+            <tbody>
+              {type.map((x) => (
+                <tr key={x.caseType}>
+                  <td>{x.caseType}</td>
+                  <td>{x.amount.toLocaleString()}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </>
   );
