@@ -351,7 +351,7 @@ export default function Data(props: any) {
               src='/images/arrests/lapdarrests-types2020.png'
               width='400'
               height='600'
-              alt='A bar chart of LAPD Arrests by Council District, 2020. There are fewer arrests overall compared to 2019. There are 15 Council Districts. Council District 14 has the highest number of arrests, at around 7,500 arrests,  but is also fairly close in number of arrests to districts 8 and 9, which are around 6,000 arrests.  CDs 1, 6, 10, 11, and 13 each have around 5,000 arrests. The rest of the Council Districts have much fewer than 5,000  arrests. CDs 5 and 12 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+              alt='A donut chart of LAPD Arrests by Type, 2020. Misdemeanor & Infraction: 34,659 arrests (52.8%). Felony: 31,015 arrests (47.2%). Source of Data: LAPD.'
             />
           </div>
 
@@ -360,13 +360,13 @@ export default function Data(props: any) {
               src='/images/arrests/lapdarrests-types2021.png'
               width='400'
               height='600'
-              alt='A bar chart of LAPD Arrests by Council District, 2021. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts  8 and 14 have the highest number of arrests, at around 6,000  arrests,  and are also fairly close in number of arrests to districts 9, and 11 which are also close to 6,000 arrests.  CDs 1, 6, and 13 each have around 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 5 and 12 again have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD.'
+              alt='A donut chart of LAPD Arrests by Type, 2021. Misdemeanor & Infraction: 33,179 arrests (50.4%). Felony: 32,597 arrests (49.6%). Source of Data: LAPD.'
             />
             <img
               src='/images/arrests/lapdarrests-types2022.png'
               width='400'
               height='600'
-              alt='A bar chart of LAPD Arrests by Council District, 2022. There are still fewer arrests overall compared to 2019. There are 15 Council Districts. Council Districts 14, 8, and 1 have the highest number of arrests, at around 5,000 to 6,000  arrests,  and are also fairly close in number of arrests to districts 6, 9,  11, and 13 which are also close to 5,000 arrests. The rest of the Council Districts havemuch fewer than 5,000  arrests. CDs 4 and 5 have the fewest number of arrests, at under 2,500 arrests each. Source of data is LAPD. '
+              alt='A donut chart of LAPD Arrests by Type, 2022. Misdemeanor & Infraction: 30,431 arrests (50%). Felony: 30,378 arrests (50%). Source of Data: LAPD.'
             />
           </div>
           {/* <div className="image-container">
@@ -827,13 +827,13 @@ export default function Data(props: any) {
                 src='/images/arrests/spanish/Sp-lapdarrests-type2019.png'
                 width='400'
                 height='600'
-                alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene muchos más arrestos que cualquier otro, con alrededor de 14,000. Varios otros distritos tienen entre 7,000 y 9,000 arrestos (Distritos 1, 6, 8, 9 y 13). El resto tiene menos de aproximadamente 5,000 a 6,000 arrestos. En particular, los Distritos 5 y 12 tienen la menor cantidad, alrededor de 2,500 cada uno. Fuente: LAPD.'
+                alt="Gráfico circular de arrestos del LAPD por tipo, 2019. Delito menor e infracción: 55,954 arrestos (62.4%). Delito grave: 33,663 arrestos (37.6%). Fuente de datos: LAPD."
               />
               <img
                 src='/images/arrests/spanish/Sp-lapdarrests-type2020.png'
                 width='400'
                 height='600'
-                alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2020. En general hay menos arrestos que en 2019. Hay 15 Distritos del Consejo. El Distrito 14 tiene la mayor cantidad, con alrededor de 7,500, aunque está relativamente cerca de los Distritos 8 y 9 (aprox. 6,000). Los Distritos 1, 6, 10, 11 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
+                alt="Gráfico circular de arrestos del LAPD por tipo, 2020. Delito menor e infracción: 34,659 arrestos (52.8%). Delito grave: 31,015 arrestos (47.2%). Fuente de datos: LAPD."
               />
             </div>
 
@@ -842,13 +842,13 @@ export default function Data(props: any) {
                 src='/images/arrests/spanish/Sp-lapdarrests-type2021.png'
                 width='400'
                 height='600'
-                alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2021. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 8 y 14 tienen las cifras más altas, cerca de 6,000, y están relativamente cerca de los Distritos 9 y 11 (también cerca de 6,000). Los Distritos 1, 6 y 13 tienen alrededor de 5,000 cada uno. El resto tiene bastante menos de 5,000. Los Distritos 5 y 12 nuevamente son los más bajos, con menos de 2,500 cada uno. Fuente: LAPD.'
+                alt="Gráfico circular de arrestos del LAPD por tipo, 2021. Delito menor e infracción: 33,179 arrestos (50.4%). Delito grave: 32,597 arrestos (49.6%). Fuente de datos: LAPD."
               />
               <img
                 src='/images/arrests/spanish/Sp-lapdarrests-type2022.png'
                 width='400'
                 height='600'
-                alt='Gráfico de barras de arrestos del LAPD por Distrito del Consejo, 2022. Aún hay menos arrestos en total que en 2019. Hay 15 Distritos del Consejo. Los Distritos 14, 8 y 1 registran las cifras más altas, alrededor de 5,000 a 6,000, y están relativamente cerca de los Distritos 6, 9, 11 y 13 (también cerca de 5,000). El resto tiene bastante menos de 5,000. Los Distritos 4 y 5 tienen las cifras más bajas, con menos de 2,500 cada uno. Fuente: LAPD.'
+                alt="Gráfico circular de arrestos del LAPD por tipo, 2022. Delito menor e infracción: 30,431 arrestos (50%). Delito grave: 30,378 arrestos (50%). Fuente de datos: LAPD."
               />
             </div>
             {/* <div className="image-container">
