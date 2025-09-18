@@ -345,7 +345,7 @@ export default function Data(props: any) {
               src='/images/arrests/lapdarrests-types2019.png'
               width='400'
               height='600'
-              alt='A bar chart of LAPD Arrests by Council District, 2019. There are 15 Council Districts. Council District 14 has a much higher number of arrests than any other district, with around 14,000 arrests. There are several other Council Districts with around 7,000 to 9,000 arrests (CDs 1, 6, 8, 9, 13), The rest of the Council Districts have fewer than around 5,000 to 6,000 arrests. CDs 5 and 12 in particular have the fewest number of arrests, at around 2,500 arrests each. Source of data is LAPD.'
+              alt='A donut chart of LAPD Arrests by Type, 2019. Misdemeanor & Infraction: 55,954 arrests (62.4%). Felony: 33,663 arrests (37.6%). Source of Data: LAPD.'
             />
             <img
               src='/images/arrests/lapdarrests-types2020.png'
