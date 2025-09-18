@@ -82,21 +82,26 @@ export default function NoticesByMonth() {
 
   const accessibleLabel =
     monthNotices.length > 0
-      ? `Bar chart of eviction notices per month from ${monthNotices[0].month} to ${
-          monthNotices[monthNotices.length - 1].month
-        }.`
+      ? `Bar chart of eviction notices per month from ${monthNotices[0].month} to ${monthNotices[monthNotices.length - 1].month
+      }.`
       : 'Bar chart of eviction notices per month.';
 
   return (
     <div className='mt-4 bg-zinc-900 px-5 py-4'>
       {data && data.datasets.length > 0 ? (
-        <Bar
-          data={data}
-          height={150}
-          width={200}
-          options={options}
-          aria-label={accessibleLabel}
-        />
+        <>
+          <Bar
+            data={data}
+            height={150}
+            width={200}
+            options={options}
+            aria-label={accessibleLabel}
+            aria-describedby='eviction-chart-desc'
+          />
+          <p id='eviction-chart-desc' className='sr-only'>
+            Eviction notices peaked in mid-2023 at over 11,000 per month, then gradually declined to around 5,000–6,000 per month by early 2025.
+          </p>
+        </>
       ) : (
         <p>Loading chart…</p>
       )}

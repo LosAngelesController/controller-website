@@ -88,7 +88,19 @@ export default function NoticesByCd(props) {
     <div className='relative mt-4 w-full bg-zinc-900 px-5 py-4'>
       {/* <Bar data={data} height={150} width={200} options={options} />*/}
       {data && data.datasets.length > 0 ? (
-        <Bar data={data} height={150} width={200} options={options} aria-label={accessibleLabel} />
+        <>
+          <Bar
+            data={data}
+            height={150}
+            width={200}
+            options={options}
+            aria-label={accessibleLabel}
+            aria-describedby='eviction-cd-chart-desc'
+          />
+          <p id='eviction-cd-chart-desc' class='sr-only'>
+            Eviction notices are highest in Districts 13 and 14, with 29,170 and 24,463 notices respectively. Districts 1, 3, and 10 also show elevated counts between 18,000 and 21,000. District 7 has the lowest number with 3,958 notices. Most remaining districts range between 5,000 and 15,000 notices.
+          </p>
+        </>
       ) : (
         <p>Loading chart…</p>
       )}
