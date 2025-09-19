@@ -38,15 +38,29 @@ export function CityActivities() {
   );
 
   React.useEffect(() => {
-    addEventListener('resize', () => {
-      setinnerwidth(window.innerWidth);
-    });
+    const onResize = () => setinnerwidth(window.innerWidth);
+    window.addEventListener('resize', onResize);
 
-    d3.csv('/csvsforpafr22/9cityactivities.csv').then((data: any) => {
-      setCleaneddataset(processcsvcityactivities(data));
+    d3
+      .csv('/csvsforpafr22/9cityactivities.csv')
+      .then((data: any) => {
+        setCleaneddataset(processcsvcityactivities(data));
+      })
+      .catch((err) => {
+        console.error('CityActivities: failed to load CSV', err);
+      });
 
-      // console.log(cleaneddataset, 'cleaneddataset');
-    });
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  React.useEffect(() => {
+    return () => {
+      if (puttheplotsinhere.current) {
+        puttheplotsinhere.current.innerHTML = '';
+      }
+    };
   }, []);
 
   const renderAllChartsForDepartment = () => {
@@ -137,7 +151,7 @@ export function CityActivities() {
 
         const listofplots = Object.values(selecteddepartmentsdata)
           .filter((eachmetric: any) => eachmetric.constant === false)
-          .map((eachMetric: any) => {
+          .map((eachMetric: any, idx: number) => {
             const arrayofmetric: Array<any> = [];
 
             //transform into array
@@ -148,6 +162,74 @@ export function CityActivities() {
                   value: parseInt(eachMetric[eachYear]),
                 });
             });
+
+            const metricTitle = String(
+              eachMetric['OPERATING INDICATOR / ASSET'] || 'City activity'
+            );
+            const yLabel = String(
+              eachMetric['UOM DESCRIPTION'] || 'value'
+            );
+
+            const formatValue = (val: number) =>
+              Number.isInteger(val)
+                ? val.toLocaleString('en-US')
+                : val.toLocaleString('en-US', {
+                    maximumFractionDigits: 1,
+                  });
+
+            let descriptiveSummary = `${metricTitle} by fiscal year. Values represent ${yLabel}.`;
+
+            if (arrayofmetric.length > 0) {
+              const firstPoint = arrayofmetric[0];
+              const lastPoint = arrayofmetric[arrayofmetric.length - 1];
+              const minPoint = arrayofmetric.reduce((acc, cur) =>
+                cur.value < acc.value ? cur : acc
+              , arrayofmetric[0]);
+              const maxPoint = arrayofmetric.reduce((acc, cur) =>
+                cur.value > acc.value ? cur : acc
+              , arrayofmetric[0]);
+
+              if (arrayofmetric.length === 1) {
+                descriptiveSummary = `${metricTitle} only reports ${formatValue(
+                  firstPoint.value
+                )} in fiscal year ${firstPoint.year}.`;
+              } else {
+                let trendSentence = '';
+                const difference = lastPoint.value - firstPoint.value;
+                if (Math.abs(difference) < 0.01) {
+                  trendSentence = `Values stayed nearly the same, at ${formatValue(
+                    firstPoint.value
+                  )} in ${firstPoint.year} and ${formatValue(
+                    lastPoint.value
+                  )} in ${lastPoint.year}.`;
+                } else if (difference > 0) {
+                  trendSentence = `Values increased from ${formatValue(
+                    firstPoint.value
+                  )} in ${firstPoint.year} to ${formatValue(
+                    lastPoint.value
+                  )} in ${lastPoint.year}.`;
+                } else {
+                  trendSentence = `Values decreased from ${formatValue(
+                    firstPoint.value
+                  )} in ${firstPoint.year} to ${formatValue(
+                    lastPoint.value
+                  )} in ${lastPoint.year}.`;
+                }
+
+                const rangeSentence =
+                  minPoint.year === maxPoint.year
+                    ? `Peak and low both occur in ${maxPoint.year} at ${formatValue(
+                        maxPoint.value
+                      )}.`
+                    : `Highest value was ${formatValue(maxPoint.value)} in ${
+                        maxPoint.year
+                      }, while the lowest was ${formatValue(
+                        minPoint.value
+                      )} in ${minPoint.year}.`;
+
+                descriptiveSummary = `${metricTitle} covers fiscal years ${firstPoint.year} to ${lastPoint.year}. ${trendSentence} ${rangeSentence}`;
+              }
+            }
 
             const theplotforthischart = Plot.plot({
               width: getWidthPlot(sizes),
@@ -230,6 +312,37 @@ export function CityActivities() {
               },
             });
 
+            // Observable Plot returns an <svg> element (no nested <svg>)
+            const svgEl = (theplotforthischart as any).tagName?.toLowerCase() === 'svg'
+              ? (theplotforthischart as SVGSVGElement)
+              : (theplotforthischart.querySelector('svg') as SVGSVGElement | null);
+
+            // Create a wrapper <figure> so we can place an sr-only HTML description next to the SVG
+            const fig = document.createElement('figure');
+            fig.style.margin = '0';
+
+            if (svgEl) {
+              const descId = `city-activity-desc-${String(selectedDepartment).replace(/\W+/g, '-').toLowerCase()}-${metricTitle.replace(/\W+/g, '-').toLowerCase()}-${idx}`;
+              svgEl.setAttribute('role', 'img');
+              svgEl.setAttribute('aria-label', `${metricTitle} over time`);
+              svgEl.setAttribute('aria-describedby', descId);
+
+              // Always create a fresh hidden textual description as a sibling to the SVG.
+              // Using document.getElementById here can fail during rebuilds because old charts are still in the DOM
+              // until we clear the container; then the new figure would be missing the <p>. Creating it unconditionally fixes that.
+              const p = document.createElement('p');
+              p.id = descId;
+              p.className = 'sr-only';
+              p.textContent = descriptiveSummary;
+              
+              fig.appendChild(svgEl);
+              fig.appendChild(p);
+
+            } else {
+              // Fallback: if Plot ever returns a container, append it to the figure
+              fig.appendChild(theplotforthischart);
+            }
+
             //create p tag
             const ptag = document.createElement('p');
             ptag.innerHTML = eachMetric['OPERATING INDICATOR / ASSET'];
@@ -238,7 +351,7 @@ export function CityActivities() {
             ptag.className =
               'text-lg font-semibold dark:text-white px-4 sm:px-0';
             divforplots.append(ptag);
-            divforplots.append(theplotforthischart);
+            divforplots.append(fig);
 
             return true;
           });
@@ -316,7 +429,7 @@ export function CityActivities() {
         </>
       )}
 
-      <div ref={puttheplotsinhere} className='mt-2'></div>
+      <div id='city-activities-plots' ref={puttheplotsinhere} className='mt-2'></div>
     </>
   );
 }

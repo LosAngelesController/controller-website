@@ -293,7 +293,7 @@ export function Changeinnetpos() {
         className='h-3 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700 sm:max-w-md'
       ></input>
       <br />
-      <div ref={refOfBoxToChange} />
+      <div ref={refOfBoxToChange} aria-hidden="true" />
       {tablefiltered && (
         <div className='flex flex-col' key='key'>
           <div className=' overflow-x-auto  border-b border-gray-200 shadow dark:border-gray-700 sm:rounded-lg'>

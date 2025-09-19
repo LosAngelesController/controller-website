@@ -109,6 +109,39 @@ export function BondsOverTime() {
         console.log('current ref', bondsovertimeref.current);
         bondsovertimeref.current.innerHTML = '';
         bondsovertimeref.current.append(plotforbondsovertimeelem);
+
+        bondsovertimeref.current
+          .querySelectorAll('.plot-d6a7b5-swatch')
+          .forEach((el: Element) => {
+            (el as HTMLElement).setAttribute('aria-hidden', 'true');
+            (el as HTMLElement).setAttribute('role', 'presentation');
+          });
+
+        const svg = bondsovertimeref.current?.querySelector('svg');
+        if (svg) {
+          const descId = 'bondschart4pafr-desc';
+          svg.setAttribute('role', 'img');
+          svg.setAttribute(
+            'aria-label',
+            'Bonded debt over time, stacked by activity type with a totals line'
+          );
+          svg.setAttribute('aria-describedby', descId);
+
+          let desc = document.getElementById(descId);
+          if (!desc) {
+            desc = document.createElement('p');
+            desc.id = descId;
+            desc.className = 'sr-only';
+            desc.textContent = `Stacked bar chart showing bonded debt and long-term notes payable
+                                from fiscal year 2010 to 2022. Bars are divided into governmental
+                                debt, which stays relatively flat at around 3 to 4 billion each year,
+                                and business-type debt, which grows steadily from about 15 billion in
+                                2010 to over 34 billion in 2022. The total debt increases overall, with
+                                a line overlay showing totals rising from 19.37 billion in 2010 to 37.32
+                                billion in 2022, nearly doubling over the period.`;
+            bondsovertimeref.current.append(desc);
+          }
+        }
       }
     }
   };
@@ -136,5 +169,7 @@ export function BondsOverTime() {
     }
   }, []);
 
-  return <div ref={bondsovertimeref} id='bondschart4pafr'></div>;
+  return <>
+    <div ref={bondsovertimeref} id='bondschart4pafr'></div>;
+  </>
 }
