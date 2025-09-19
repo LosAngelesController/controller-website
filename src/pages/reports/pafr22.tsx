@@ -166,7 +166,7 @@ export default function pafr22(props: any) {
                 change.
                 <br />
                 <br />
-                All this impels us to "link arms" (as Mayor Karen Bass has
+                All this impels us to <q>link arms</q> (as Mayor Karen Bass has
                 advocated) to undertake the difficult, long-term changes that
                 will not only ensure financial stability, but address the urgent
                 need to make Los Angeles a more equitable and sustainable city.
@@ -358,8 +358,8 @@ export default function pafr22(props: any) {
                 className='float-left mb-1 mr-1 w-32'
                 alt=''
               />
-              <p>
-                <h2 className='mt-3'>Key Terms</h2>
+              <section aria-labelledby="key-terms-heading">
+                <h2 id="key-terms-heading" className='mt-3'>Key Terms</h2>
                 <span className='font-bold'>Governmental Activities:</span>{' '}
                 Functions of the City that are primarily supported by taxes and
                 intergovernmental revenues. These include general government,
@@ -393,11 +393,11 @@ export default function pafr22(props: any) {
                 the City owns. The City uses these capital assets to provide
                 services to its citizens; consequently, these assets are not
                 available for future spending.
-              </p>
+              </section>
             </div>
           </div>
           <div className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100  sm:px-4 lg:mx-auto lg:max-w-7xl'>
-            <h1 className='mt-3'>Management's Discussion and Analysis</h1>
+            <h2 className='mt-3'>Management's Discussion and Analysis</h2>
 
             <p className='mt-2 lg:max-w-5xl'>
               For the fiscal year that ended on June 30, 2022, total City
@@ -438,7 +438,7 @@ export default function pafr22(props: any) {
               <br />
             </p>
 
-            <h2>Business-Type Activities</h2>
+            <h3>Business-Type Activities</h3>
             <p className='mt-4 lg:max-w-5xl'>
               The $9.0 billion combined operating revenues of the City’s six
               business-type activities were $1.6 billion more than the $7.4
@@ -447,7 +447,7 @@ export default function pafr22(props: any) {
               <br />
             </p>
 
-            <h2> Business-Type Activities: Change in Net Position</h2>
+            <h4 className='text-xl'>Business-Type Activities: Change in Net Position</h4>
             <p className='mt-4 lg:max-w-5xl'>
               Enterprise funds are used to report the functions presented as
               business-type activities in the government-wide financial
@@ -463,10 +463,10 @@ export default function pafr22(props: any) {
             <Changeinnetpos />
           </div>
           <div className='container mx-0 px-4 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
-            <h3 className='mt-3'>Bonded Debt and Long-Term Notes Payable</h3>
-            <h4>$37.3 billion, 9.0% increase from FY 21</h4>
+            <h3 className='mt-6'>Bonded Debt and Long-Term Notes Payable</h3>
+            <p className='text-lg'>$37.3 billion, 9.0% increase from FY 21</p>
             <BondsOverTime />
-            <h3 className='mt-3'>
+            <h3 className='mt-6'>
               Ratings of the City's Debts by Rating Agencies
             </h3>
             <Credit />
@@ -507,7 +507,7 @@ export default function pafr22(props: any) {
             </p>
           </div>
           <div className='container mx-0 px-4 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
-            <h2>Net Position</h2>
+            <h3>Net Position</h3>
             <p className='mt-2 lg:max-w-5xl'>
               The <span className='font-bold'>net position</span> is the
               financial position of the City – assets and deferred outflows of
@@ -553,12 +553,10 @@ export default function pafr22(props: any) {
               </div>
             </div>
 
-            <h3>
-              <br />
-              <br />
+            <h4 className='text-xl mt-8'>
               Net Position: $28.5 billion, $3.4 billion (13.6%) increase from FY
               21
-            </h3>
+            </h4>
             <p>
               The net position of $28.5 billion consisted of:
               <br />
@@ -595,7 +593,7 @@ export default function pafr22(props: any) {
               <ChangeinnetposGen />
             </p>
             {/*Net Pos Generally */}
-            <h2 className='mt-3'>General Fund</h2>
+            <h3 className='mt-6'>General Fund</h3>
             <p>
               The General Fund is the general operating fund of the City and
               includes transactions of the Reserve Fund and other accounts that
@@ -614,16 +612,16 @@ export default function pafr22(props: any) {
                 million.
               </span>
             </p>
-            <h2 className='mt-3'>General Fund Revenues</h2>
-            <h4 className='font-bold'>
+            <h4 className='mt-6 text-xl'>General Fund Revenues</h4>
+            <p className='font-bold'>
               FY 22 Total General Fund Revenues: $6.2 billion, $498.5 million
               8.8% increase from FY 21
-            </h4>
+            </p>
             {/*Revenues  vis */}
 
             <GeneralRevenue />
             {/* revenues text */}
-            <ul className='list-disc'>
+            <ul className='list-disc list-inside mt-4'>
               <li>
                 <span className='font-bold'>Tax Revenues</span>, increased by
                 $571.0 million or 11.9% from FY 21 due primarily to property tax
@@ -682,15 +680,14 @@ export default function pafr22(props: any) {
             </ul>
 
             <br />
-            <h2 className='mt-3'>General Fund Expenses</h2>
-            <h4 className='font-bold'>
+            <h4 className='mt-3 text-xl'>General Fund Expenses</h4>
+            <p className='font-bold'>
               FY 22 General Fund Expenses: $5.8 billion, $465.6 million (8.8%)
               increase over FY 21
-            </h4>
+            </p>
             {/*Expenses  vis */}
             <GeneralExpenditures />
-            <br />
-            <ul className='list-disc'>
+            <ul className='list-disc list-inside mt-4'>
               <li>
                 <span className='font-bold'>
                   Salaries and Benefits increased by $319.1 million (9.3%)
