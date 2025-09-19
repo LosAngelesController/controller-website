@@ -1,7 +1,28 @@
 import * as React from 'react';
 
 // Accessible reusable table for arrests by race
-const RaceTable = ({ year, rows = [], grandTotal, labels }) => {
+
+interface RaceRow {
+  label: string;
+  count?: string;
+  pct?: string;
+}
+
+interface RaceTableProps {
+  year: number;
+  rows?: RaceRow[];
+  grandTotal?: string;
+  labels?: {
+    caption?: string;
+    source?: string;
+    raceColumn?: string;
+    countColumn?: string;
+    percentColumn?: string;
+    grandTotal?: string;
+  };
+}
+
+const RaceTable: React.FC<RaceTableProps> = ({ year, rows = [], grandTotal, labels }) => {
   const {
     caption,
     source,
