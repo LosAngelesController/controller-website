@@ -386,7 +386,7 @@ export function CityActivities() {
 
   return (
     <>
-      <div className='flex flex-wrap gap-x-2 gap-y-1'>
+      <div className='flex flex-wrap gap-x-2 gap-y-1 px-4 sm:px-0'>
         {listofdepartments.sort().map((eachdept: string) => (
           <button
             key={eachdept}
