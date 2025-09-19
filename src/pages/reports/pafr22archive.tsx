@@ -463,10 +463,10 @@ export default function pafr22(props: any) {
             <Changeinnetpos />
           </div>
           <div className='container mx-0 px-4 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
-            <h3 className='mt-3 text-xl'>Bonded Debt and Long-Term Notes Payable</h3>
+            <h3 className='mt-6'>Bonded Debt and Long-Term Notes Payable</h3>
             <p className='text-lg'>$37.3 billion, 9.0% increase from FY 21</p>
             <BondsOverTime />
-            <h3 className='mt-3 text-xl'>
+            <h3 className='mt-6'>
               Ratings of the City's Debts by Rating Agencies
             </h3>
             <Credit />
@@ -553,11 +553,8 @@ export default function pafr22(props: any) {
               </div>
             </div>
 
-            <h4 className='text-xl'>
-              <br />
-              <br />
-              Net Position: $28.5 billion, $3.4 billion (13.6%) increase from FY
-              21
+            <h4 className='text-xl mt-8'>
+              Net Position: $28.5 billion, $3.4 billion (13.6%) increase from FY 21
             </h4>
             <p>
               The net position of $28.5 billion consisted of:
@@ -623,7 +620,7 @@ export default function pafr22(props: any) {
 
             <GeneralRevenue />
             {/* revenues text */}
-            <ul className='list-disc'>
+            <ul className='list-disc list-inside mt-4'>
               <li>
                 <span className='font-bold'>Tax Revenues</span>, increased by
                 $571.0 million or 11.9% from FY 21 due primarily to property tax
@@ -689,8 +686,7 @@ export default function pafr22(props: any) {
             </p>
             {/*Expenses  vis */}
             <GeneralExpenditures />
-            <br />
-            <ul className='list-disc'>
+            <ul className='list-disc list-inside mt-4'>
               <li>
                 <span className='font-bold'>
                   Salaries and Benefits increased by $319.1 million (9.3%)
