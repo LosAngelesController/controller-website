@@ -193,6 +193,8 @@ export function Changeinnetpos() {
             x: 'Value',
             y: 'Business Type',
             fill: (d: any) => (d.Value >= 0 ? 'gain' : 'loss'),
+            stroke: 'black',
+            strokeWidth: 0.5
           }),
           Plot.textX(
             changeinnetposyear.filter((d: any) => d.Value > 0),

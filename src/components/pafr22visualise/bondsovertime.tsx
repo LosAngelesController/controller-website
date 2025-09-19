@@ -100,6 +100,8 @@ export function BondsOverTime() {
                 value: elem.Value,
                 digits: 2,
               })}`,
+            stroke: 'black',
+            strokeWidth: 0.5
           }),
           Plot.ruleY([0]),
         ],
