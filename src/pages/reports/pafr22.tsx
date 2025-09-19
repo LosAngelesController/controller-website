@@ -206,10 +206,12 @@ export default function pafr22(props: any) {
               <img
                 className='float-left mr-1 mb-1 w-32 dark:hidden md:w-48 lg:w-64'
                 src='/images/award21pafr.png'
+                alt='Certificate awarded by the Government Finance Officers Association to the City of Los Angeles for excellence in financial reporting, fiscal year ending June 30, 2021.'
               ></img>
               <img
                 className='float-left mr-1 mb-1 hidden w-32 dark:block md:w-48 lg:w-64'
                 src='/images/award21pafr-dark.png'
+                alt='Certificate awarded by the Government Finance Officers Association to the City of Los Angeles for excellence in financial reporting, fiscal year ending June 30, 2021.'
               />
               The Government Finance Officers Association of the United States
               and Canada (GFOA) has given an Award for Outstanding Achievement
@@ -354,6 +356,7 @@ export default function pafr22(props: any) {
               <img
                 src='/sherlockcorgi.png'
                 className='float-left mb-1 mr-1 w-32'
+                alt=''
               />
               <p>
                 <h2 className='mt-3'>Key Terms</h2>

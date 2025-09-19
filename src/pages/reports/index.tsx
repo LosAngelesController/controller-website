@@ -36,9 +36,9 @@ export default function ReportsIndex(props: any) {
         />
 
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h1 className='dark:text-gray-50'>Financial Reports</h1>
+          <h1 className='dark:text-gray-50 mt-4'>Financial Reports</h1>
 
-          <div className='md:hidden'>
+          <div className='md:hidden mt-6'>
             {finance.map((eachreport: any, eachreportnum: number) => (
               <LineItem
                 key={eachreportnum}
@@ -52,19 +52,21 @@ export default function ReportsIndex(props: any) {
             ))}
           </div>
 
-          <div className='hidden md:block'>
+          <div className='hidden md:block mt-6'>
             <div className='grid grid-cols-3 gap-x-6 gap-y-4 lg:grid-cols-3'>
               {finance.map((eachreport: any, eachreportnum: number) => (
                 <div
                   key={eachreportnum}
-                  className='mb-2 w-full max-w-xs rounded-lg bg-gray-200  dark:bg-zinc-800 dark:text-white'
+                  className='mb-2 w-full max-w-xs rounded-lg bg-gray-200  dark:bg-zinc-800 dark:text-white
+                  shadow'
                 >
                   <a
                     href={`${eachreport.pre === false ? '' : '/reports/'}${
                       eachreport.link
                     }`}
+                    className="block focus:outline-none focus:ring-2 focus:ring-black       focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-white dark:focus:ring-offset-zinc-900 rounded-lg"
                   >
-                    <img src={eachreport.image} className='w-full'></img>
+                    <img src={eachreport.image} className='w-full rounded-t-lg'></img>
                     <div className=' px-2 py-2'>
                       <p className='dark:text-white'>
                         {eachreport.year} |{' '}
