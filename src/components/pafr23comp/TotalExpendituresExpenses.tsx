@@ -67,6 +67,8 @@ const BarChart: React.FC = () => {
     label: activityType,
     data: Object.values(data),
     backgroundColor: getColor(activityType),
+    borderColor: "black",
+    borderWidth: "0.5",
     stack: "stack",
   }));
 

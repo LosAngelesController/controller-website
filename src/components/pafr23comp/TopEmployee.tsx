@@ -3,7 +3,6 @@ import {
   BarElement,
   CategoryScale,
   Chart,
-  ChartOptions,
   LinearScale,
   Title,
   Tooltip,
@@ -79,6 +78,8 @@ const TopEmployeeChart: React.FC = () => {
       label: '2023 Employees',
       data: chartData.map((data) => data.employees22),
       backgroundColor: '#41ffca',
+      borderColor: 'black',
+      borderWidth: '0.5',
       stack: 'stack',
     },
   ];

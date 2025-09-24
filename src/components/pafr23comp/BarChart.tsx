@@ -70,12 +70,6 @@ const BarChart: React.FC = () => {
   const labels = chartData.map((data) => data.fiscalYear.toString());
   const datasets = [
     {
-      label: 'Estimated Population',
-      data: chartData.map((data) => data.estimatedPopulation),
-      backgroundColor: '#41ffca',
-      type: 'bar',
-    },
-    {
       label: 'Personal Income Per Capita',
       data: chartData.map((data) => data.personalIncomePerCapita),
       borderColor: 'purple',
@@ -85,9 +79,19 @@ const BarChart: React.FC = () => {
       yAxisID: 'incomeYAxis',
     },
     {
+      label: 'Estimated Population',
+      data: chartData.map((data) => data.estimatedPopulation),
+      backgroundColor: '#41ffca',
+      borderColor: 'black',
+      borderWidth: '0.5',
+      type: 'bar',
+    },
+    {
       label: category,
       data: chartData.map((data) => data.unemploymentRate),
       backgroundColor: '#FFCA41',
+      borderColor: 'black',
+      borderWidth: '0.5',
       yAxisID: 'percentageYAxis',
       type: 'bar',
     },

@@ -15,9 +15,10 @@ import {
   Tooltip,
 } from "chart.js";
 import { csvParse } from "d3";
-import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+
+import getAccessibleRandomColor from "../getAccessibleRandomColor";
 Chart.register(
   CategoryScale,
   LinearScale,
@@ -47,7 +48,6 @@ const LineChart: React.FC = () => {
     null
   );
 
-  const { theme, setTheme } = useTheme()
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -115,14 +115,9 @@ const LineChart: React.FC = () => {
     const datasets = dataForAsset.map((data) => ({
       label: `${data.Department} - ${data.Asset}`,
       data: labels.map((year) => data[year]),
-      borderColor: getRandomColor(),
+      borderColor: getAccessibleRandomColor(),
       fill: false,
     }));
-
-    function getRandomColor() {
-      return `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255
-        }, 0.7)`;
-    }
 
 
     function isDarkMode() {

@@ -73,6 +73,8 @@ const BarChart: React.FC = () => {
     label: revenue,
     data: Object.values(data),
     backgroundColor: getRandomColor(),
+    borderColor: "black",
+    borderWidth: "0.25",
     stack: "stack",
   }));
 
