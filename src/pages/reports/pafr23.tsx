@@ -127,34 +127,36 @@ export default function pafr23(props: any) {
                 <br />
                 Even as we look back on the positive results from the prior
                 year, the warning signs were there:
-                <ul>
-                  <li>
-                    As previously reported, despite widespread staff vacancies,
-                    General Fund departmental spending actually exceeded last
-                    year’s adopted budget by nearly $200 million. Had the
-                    vacancy rate been closer to normal, the budget would have
-                    been in the red.
-                  </li>
-                  <li>
-                    As our Office has consistently pointed out, citywide
-                    deferred maintenance of vital infrastructure requires urgent
-                    attention. Last year’s underspending of $316 million in
-                    budgeted capital expenditures underscores that the City
-                    continues to fall behind – which means even higher costs in
-                    the long run.
-                  </li>
-                  <br></br>
-                  <li>
-                    Again, as we have warned, current staff shortages and
-                    long-term underinvestment in the training, technology,
-                    equipment and facilities for our workforce hobbles
-                    productivity and shortchanges our residents. The
-                    homelessness crisis and the reality of a changing climate
-                    put even further strain on City resources.
-                  </li>
-                </ul>
+              </p>
+              <ul>
+                <li>
+                  As previously reported, despite widespread staff vacancies,
+                  General Fund departmental spending actually exceeded last
+                  year’s adopted budget by nearly $200 million. Had the
+                  vacancy rate been closer to normal, the budget would have
+                  been in the red.
+                </li>
+                <li>
+                  As our Office has consistently pointed out, citywide
+                  deferred maintenance of vital infrastructure requires urgent
+                  attention. Last year’s underspending of $316 million in
+                  budgeted capital expenditures underscores that the City
+                  continues to fall behind – which means even higher costs in
+                  the long run.
+                </li>
+                <br></br>
+                <li>
+                  Again, as we have warned, current staff shortages and
+                  long-term underinvestment in the training, technology,
+                  equipment and facilities for our workforce hobbles
+                  productivity and shortchanges our residents. The
+                  homelessness crisis and the reality of a changing climate
+                  put even further strain on City resources. 
+                </li>
+              </ul>
                 <br />
                 <br />
+              <p>
                 The contract for rank-and-file police staff ratified last fall
                 will add nearly a billion dollars in additional costs over the
                 next four years, with the likelihood of commensurate increases
@@ -225,12 +227,12 @@ export default function pafr23(props: any) {
                 <br />
                 <img
                   src='/images/sig-light.png'
-                  aria-label="Kenneth Mejia\'s Signature"
+                  alt="Kenneth Mejia\'s Signature"
                   className='w-64 dark:hidden'
                 />
                 <img
                   src='/images/sig-dark.png'
-                  aria-label="Kenneth Mejia\'s Signature"
+                  alt="Kenneth Mejia\'s Signature"
                   className='hidden w-64 dark:block'
                 />
                 Kenneth Mejia
@@ -391,7 +393,7 @@ export default function pafr23(props: any) {
           </div>
           <div className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100 sm:px-4 lg:mx-auto lg:max-w-7xl'>
             <h2 className='mt-3'>City Organization</h2>
-            <div className='clear: both;'></div>
+            <div className='clear-both'></div>
 
             <div className='mt-2 lg:max-w-5xl'>
               <p>
@@ -451,8 +453,8 @@ export default function pafr23(props: any) {
                 className='float-left mb-1 mr-1 w-32'
                 alt=''
               />
-              <p>
-                <h2 className='mt-3'>Key Terms</h2>
+              <section aria-labelledby='key-terms-heading'>
+                <h2 id='key-terms-heading' className='mt-3'>Key Terms</h2>
                 <span className='font-bold'>Governmental Activities:</span>{' '}
                 Functions of the City that are primarily supported by taxes and
                 intergovernmental revenues. These include general government,
@@ -488,12 +490,13 @@ export default function pafr23(props: any) {
                 capital assets to provide services to its citizens;
                 consequently, these assets are not available for future
                 spending.
-              </p>
+              </section>
             </div>
           </div>
 
           <div className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100  sm:px-4 lg:mx-auto lg:max-w-7xl'>
             <div className='PortraitofCityOfLA-23 lg:max-w-5xl'></div>
+            <h2 className='mt-3'>City Revenues and Expenses (FY 2023)</h2>
 
             <h3 className='mt-3'>Total City Revenues: $21.6 billion</h3>
 
@@ -551,60 +554,61 @@ export default function pafr23(props: any) {
           <div className='container mx-0 px-4 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
             <div className='laportrait lg:max-w-5xl'></div>
             <br></br>
-            <h2>Net Position</h2>
-            <p className='mt-2 lg:max-w-5xl'>
-              City of Los Angeles’s Net position provides insight into the
-              City’s financial position as of June 30, 2023. It includes a
-              summary of what the City owns (assets and deferred outflows){' '}
-              <b>minus</b> what the City owes (liabilities and deferred
-              inflows).
-              <br />
-              <br />
-            </p>
-            <div className='flex flex-col gap-y-2 md:flex-row md:gap-x-3 lg:max-w-5xl'>
-              <div className=' rounded-lg bg-gray-100 px-3 py-3 dark:bg-gray-800 md:w-1/2'>
-                <p className='font-bold'>
-                  Assets represent what the City owns:
-                </p>
-                <ul className='list-disc px-4'>
-                  <li>Cash and pooled investments</li>
-                  <li>Receivables</li>
-                  <li>Capital assets (land, buildings and infrastructure)</li>
-                </ul>
-                <br></br>
-                Total City Assets: $86.9 billion.
-                <br />
-                Deferred Outflows of Resources: $5.2 billion.
-                <br />
-                <span className='font-bold'>Total: $92.1 billion.</span>
-                <br />
-                <br />
-              </div>
-              <div className='rounded-lg bg-gray-100 px-3 py-3 dark:bg-gray-800   md:w-1/2'>
-                <p className='font-bold'>
-                  Liabilities represent what the City owes:
-                </p>
-                <ul className='list-disc  px-4'>
-                  <li>Bonds and notes</li>
-                  <li>Claims and judgments</li>
-                  <li>Unearned revenue</li>
-                  <li>Accounts payable and accrued expenses</li>
-                </ul>
-                <br></br>
-                Total City Liabilities: $58.8 billion. <br />
-                Deferred Inflows of Resources: $2.7 billion.
-                <br />
-                <span className='font-bold'>Total: $61.5 billion.</span>
-              </div>
-            </div>
-            <h3>
-              <br />
-              <br />
-              Net Position: $30.6 billion, $2.0 billion, 7.1% increase from FY
-              22
-            </h3>
-            The City’s net position is illustrated in the table below:
+
             <div className='lg:max-w-5xl'>
+              <h2>Net Position</h2>
+              <p className='mt-2 lg:max-w-5xl'>
+                City of Los Angeles’s Net position provides insight into the
+                City’s financial position as of June 30, 2023. It includes a
+                summary of what the City owns (assets and deferred outflows){' '}
+                <b>minus</b> what the City owes (liabilities and deferred
+                inflows).
+                <br />
+                <br />
+              </p>
+              <div className='flex flex-col gap-y-2 md:flex-row md:gap-x-3 lg:max-w-5xl'>
+                <div className=' rounded-lg bg-gray-100 px-3 py-3 dark:bg-gray-800 md:w-1/2'>
+                  <p className='font-bold'>
+                    Assets represent what the City owns:
+                  </p>
+                  <ul className='list-disc px-4'>
+                    <li>Cash and pooled investments</li>
+                    <li>Receivables</li>
+                    <li>Capital assets (land, buildings and infrastructure)</li>
+                  </ul>
+                  <br></br>
+                  Total City Assets: $86.9 billion.
+                  <br />
+                  Deferred Outflows of Resources: $5.2 billion.
+                  <br />
+                  <span className='font-bold'>Total: $92.1 billion.</span>
+                  <br />
+                  <br />
+                </div>
+                <div className='rounded-lg bg-gray-100 px-3 py-3 dark:bg-gray-800   md:w-1/2'>
+                  <p className='font-bold'>
+                    Liabilities represent what the City owes:
+                  </p>
+                  <ul className='list-disc  px-4'>
+                    <li>Bonds and notes</li>
+                    <li>Claims and judgments</li>
+                    <li>Unearned revenue</li>
+                    <li>Accounts payable and accrued expenses</li>
+                  </ul>
+                  <br></br>
+                  Total City Liabilities: $58.8 billion. <br />
+                  Deferred Inflows of Resources: $2.7 billion.
+                  <br />
+                  <span className='font-bold'>Total: $61.5 billion.</span>
+                </div>
+              </div>
+              <p className="font-bold text-2xl">
+                <br />
+                <br />
+                Net Position: $30.6 billion, $2.0 billion, 7.1% increase from FY
+                22
+              </p>
+              The City’s net position is illustrated in the table below:
               <NetPosition />
             </div>
             <br></br>
@@ -641,6 +645,11 @@ export default function pafr23(props: any) {
                 $844.7 million.
                 <br />
                 <br />
+              </p>
+            </div>
+            <br></br>
+            <div className='lg:max-w-5xl'>
+              <p>
                 <h2 className='mt-3'>Dollars In – General Fund Revenues:</h2>
                 City of Los Angeles’ government resources and services are
                 funded through several different revenue streams. In FY 2023,
@@ -671,11 +680,12 @@ export default function pafr23(props: any) {
               <br />
               <br /> */}
 
-              <span className='font-bold  '>
+              <p className='font-bold text-xl'>
                 In FY 23, General Fund revenues of $6.7 billion was a 9.3%
                 increase from FY 22, and exceeds General Fund expenditures by
                 $745.5 million.
-              </span>
+              </p>
+              <br />
 
               {/* </p> */}
               {/* <h2 className='mt-3'>General Fund Revenues</h2> */}
@@ -730,20 +740,20 @@ export default function pafr23(props: any) {
                   offset by the reduction of $100.4 million in Documentary
                   Transfer Tax revenue due to continued real estate sales volume
                   and pricing declines.
-                  <li>
-                    <span className='font-bold'>Charges for services</span>,
-                    provided to Enterprise Funds increased by $49.9 million or
-                    15.2% over prior fiscal year.
-                  </li>
-                  <li>
-                    <span className='font-bold'>Net investment</span> earnings
-                    and other revenues increased by $131.4 million due to a
-                    total increase of $147.2 million in investment earnings and
-                    a change in the fair value of investments resulting from the
-                    higher interest rates, partially offset by a $15.7 million
-                    decrease in other revenues.
-                  </li>{' '}
                 </li>
+                <li>
+                  <span className='font-bold'>Charges for services</span>,
+                  provided to Enterprise Funds increased by $49.9 million or
+                  15.2% over prior fiscal year.
+                </li>
+                <li>
+                  <span className='font-bold'>Net investment</span> earnings
+                  and other revenues increased by $131.4 million due to a
+                  total increase of $147.2 million in investment earnings and
+                  a change in the fair value of investments resulting from the
+                  higher interest rates, partially offset by a $15.7 million
+                  decrease in other revenues.
+                </li>{' '}
               </ul>
             </div>
             <br />
@@ -763,18 +773,14 @@ export default function pafr23(props: any) {
                 The operating fund from which the City accounts for the money
                 coming in and the expenditures paid out is the General Fund.
               </p>
-            </div>
-            <br></br>
-            <br></br>
-            <div className='lg:max-w-5xl'>
+              <br></br>
+              <br></br>
               <GeneralFundExpenses />
-            </div>
-            <div className='lg:max-w-5xl'>
-              <h4 className='font-bold'>
+              <p className='font-bold text-xl'>
                 In FY 23, General Fund Expenditures was $6.0 billion, $238.7
                 million (4.1%) increase over FY 22, primarily due to the
                 following:
-              </h4>
+              </p>
               {/*Expenses  vis */}
 
               <br />
@@ -810,12 +816,12 @@ export default function pafr23(props: any) {
                 </li>
               </ul>
             </div>
-            <div className='container mx-0 px-4 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
-              <h3 className='mt-3'>How Much Does The City Owe?</h3>
-              <h4>
+            <div className='container mx-0 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
+              <h2 className='mt-3'>How Much Does The City Owe?</h2>
+              <p className='font-bold text-xl'>
                 Bonded Debt and Long-Term Notes Payable: $39.2 billion, 5.0%
                 increase from FY 22
-              </h4>
+              </p>
               <div className='lg:max-w-5xl'>
                 <BondedDebtandLongTermNotesPayable />
               </div>
