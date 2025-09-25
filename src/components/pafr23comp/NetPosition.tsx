@@ -116,12 +116,14 @@ const NetPosition: React.FC = () => {
   return (
     <div style={{ width: '100%' }}>
       <div style={{ margin: '20px 0' }}>
+        <label for='fiscalYearRange'>Select Fiscal Year: </label>
         <input
           type="range"
           min={yearRange.min}
           max={yearRange.max}
           value={selectedYear}
           onChange={(e) => setSelectedYear(Number(e.target.value))}
+          id='fiscalYearRange'
         />
         <p>Selected Year: {selectedYear}</p>
       </div>

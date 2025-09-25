@@ -244,10 +244,13 @@ export default function pafr23(props: any) {
               <img
                 className='float-left mb-4 mr-1 w-32 dark:hidden md:w-48 lg:w-64'
                 src='/images/Award-1.png'
+                alt='Certificate awarded by the Government Finance Officers Association to the City of Los Angeles for excellence in financial reporting, fiscal year ending June 30, 2022.'
               ></img>
               <img
                 className='float-left mb-4 mr-1 hidden w-32 dark:block md:w-48 lg:w-64'
                 src='/images/Award-1.png'
+                alt='Certificate awarded by the Government Finance Officers Association to the City of Los Angeles for excellence in financial reporting, fiscal year ending June 30, 2022.'
+
               />
               <div style={{ paddingLeft: '18rem' }}>
                 Government Finance Officers Association of the United States and
@@ -420,9 +423,9 @@ export default function pafr23(props: any) {
                   independent boards.
                 </p>
                 <img
-                  className='w-80 md:w-48 lg:w-64'
+                  className='hidden md:block w-80 md:w-48 lg:w-64'
                   src='/images/vistahermosa.png'
-                  alt='Vista Hermosa'
+                  alt=''
                 />
               </div>
               <br />
@@ -446,6 +449,7 @@ export default function pafr23(props: any) {
               <img
                 src='/sherlockcorgi.png'
                 className='float-left mb-1 mr-1 w-32'
+                alt=''
               />
               <p>
                 <h2 className='mt-3'>Key Terms</h2>
