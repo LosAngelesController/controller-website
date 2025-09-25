@@ -3,17 +3,18 @@ import {
   BarElement,
   CategoryScale,
   Chart,
+  Legend,
   LinearScale,
   Title,
   Tooltip,
-} from "chart.js";
-import { csvParse } from "d3";
-import React, { useEffect, useState } from "react";
-import { Bar } from "react-chartjs-2";
+} from 'chart.js';
+import { csvParse } from 'd3';
+import React, { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
 
-import getAccessibleRandomColor from "../getAccessibleRandomColor";
+import getAccessibleRandomColor from '../getAccessibleRandomColor';
 
-Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
+Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface ChartData {
   Revenue: string;
@@ -27,18 +28,20 @@ const BarChart: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/csvsforpafr23/7fygeneralfundtotalrevenues.csv");
+        const response = await fetch('/csvsforpafr23/7fygeneralfundtotalrevenues.csv');
         const csvData = await response.text();
 
         const dataArray: ChartData[] = csvParse(csvData, (d) => ({
-          Revenue: String(d["Revenue"]),
-          Value: parseFloat(String(d["Value"]).replace(/,/g, "").trim()) || 0,
-          "Fiscal Year": String(d["Fiscal Year"]).trim(),
+          Revenue: String(d['Revenue']).trim(),
+          Value: parseFloat(String(d['Value']).replace(/,/g, '').trim()) || 0,
+          'Fiscal Year': String(d['Fiscal Year']).trim(),
         }));
-        const filteredData = dataArray.filter((data) => data["Fiscal Year"] >= "2019" && data["Fiscal Year"] <= "2024");
+        const filteredData = dataArray.filter(
+          (data) => data['Fiscal Year'] >= '2019' && data['Fiscal Year'] <= '2024'
+        );
         setChartData(filteredData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
       }
     };
 
@@ -54,7 +57,7 @@ const BarChart: React.FC = () => {
 
   chartData.forEach((data) => {
     const revenue = data.Revenue;
-    const year = data["Fiscal Year"];
+    const year = data['Fiscal Year'];
     if (!aggregatedData[revenue]) {
       aggregatedData[revenue] = {};
     }
@@ -70,29 +73,19 @@ const BarChart: React.FC = () => {
     }
   });
 
-  const labels = Object.keys(aggregatedData[Object.keys(aggregatedData)[0]]);
+  const labels = Array.from(new Set(chartData.map((entry) => entry['Fiscal Year']))).sort();
 
   const toTransparent = (color: string, alpha: number) =>
     color.replace("rgb(", "rgba(").replace(")", `, ${alpha})`);
 
   const datasets = Object.entries(aggregatedData).map(([revenue, data]) => ({
     label: revenue,
-    data: Object.values(data),
+    data: labels.map((year) => data[year] ?? 0),
     backgroundColor: toTransparent(getAccessibleRandomColor(), 0.7),
-    borderColor: "black",
-    borderWidth: "0.25",
-    stack: "stack",
+    borderColor: 'black',
+    borderWidth: 0.25,
+    stack: 'stack',
   }));
-
-  const lineDataset = {
-    label: "Yearly Sum",
-    data: labels.map((year) => yearlySum[year]),
-    fill: false,
-    borderColor: "gray",
-    type: 'line',
-  };
-
-  const allDatasets = [...datasets, lineDataset];
 
   const formatNumber = (value: number) =>
     Number.isFinite(value) ? value.toLocaleString(undefined, { maximumFractionDigits: 0 }) : "0";
@@ -166,43 +159,46 @@ const BarChart: React.FC = () => {
   };
 
   return (
-    <div>
-      <div style={{ width: "100%", height: "500px", overflowX: "auto" }}>
+    <>
+      <div className='sr-only'>
+        <table>
+          <caption>General Fund revenues by fiscal year</caption>
+          <thead>
+            <tr>
+              <th scope='col'>Revenue</th>
+              {labels.map((year) => (
+                <th scope='col' key={year}>
+                  {year}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(aggregatedData).map(([revenue, data]) => (
+              <tr key={revenue}>
+                <th scope='row'>{revenue}</th>
+                {labels.map((year) => (
+                  <td key={year}>{formatNumber(data[year] ?? 0)}</td>
+                ))}
+              </tr>
+            ))}
+            <tr>
+              <th scope='row'>Yearly sum</th>
+              {labels.map((year) => (
+                <td key={year}>{formatNumber(yearlySum[year] ?? 0)}</td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style={{ width: '100%', height: '500px', overflowX: 'auto' }}
+        aria-hidden='true'
+      >
         <Bar data={{ labels, datasets }} options={options} />
       </div>
-      <table className="sr-only">
-        <caption>General Fund revenues by fiscal year</caption>
-        <thead>
-          <tr>
-            <th scope="col">Revenue</th>
-            {labels.map((year) => (
-              <th scope="col" key={year}>
-                {year}
-              </th>
-            ))}
-            <th scope="col">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {Object.entries(aggregatedData).map(([revenue, data]) => (
-            <tr key={revenue}>
-              <th scope="row">{revenue}</th>
-              {labels.map((year) => (
-                <td key={year}>{formatNumber(data[year] ?? 0)}</td>
-              ))}
-              <td>{formatNumber(labels.reduce((sum, year) => sum + (data[year] ?? 0), 0))}</td>
-            </tr>
-          ))}
-          <tr>
-            <th scope="row">Yearly sum</th>
-            {labels.map((year) => (
-              <td key={year}>{formatNumber(yearlySum[year] ?? 0)}</td>
-            ))}
-            <td>{formatNumber(Object.values(yearlySum).reduce((sum, value) => sum + value, 0))}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    </>
   );
 };
 

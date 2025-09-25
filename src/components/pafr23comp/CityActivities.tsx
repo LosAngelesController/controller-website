@@ -16,9 +16,9 @@ import {
 } from "chart.js";
 import { csvParse } from "d3";
 import React, { useEffect, useState } from "react";
-import { Line } from "react-chartjs-2";
+import { Line } from 'react-chartjs-2';
 
-import getAccessibleRandomColor from "../getAccessibleRandomColor";
+import getAccessibleRandomColor from '../getAccessibleRandomColor';
 Chart.register(
   CategoryScale,
   LinearScale,
@@ -83,9 +83,10 @@ const LineChart: React.FC = () => {
 
   const departments = [
     ...new Set(chartData?.map((data) => data?.Department)),
-  ].filter((department) => department !== "");
+  ].filter((department) => department !== '');
   const assets = [...new Set(chartData?.map((data) => data?.Asset))].filter(
-    (asset) => asset !== "");
+    (asset) => asset !== ''
+  );
 
   const handleDepartmentClick = (department: string) => {
     setSelectedDepartment(department);
@@ -105,16 +106,67 @@ const LineChart: React.FC = () => {
     (asset) => filteredData.some((data) => data.Asset === asset)
   );
 
-  const charts = departmentAssets.map((asset) => {
-    const dataForAsset = filteredData.filter((data) => data.Asset === asset);
+  const accessibleTables = departmentAssets
+    .map((asset) => {
+      const dataForAsset = filteredData.filter((data) => data.Asset === asset);
+      if (dataForAsset.length === 0) {
+        return null;
+      }
 
-    const labels = Object.keys(chartData[0]).filter(
-      (key) => key !== "Department" && key !== "Asset"
+      const labels = Object.keys(dataForAsset[0]).filter(
+        (key) => key !== 'Department' && key !== 'Asset'
+      );
+      const sortedYears = [...labels].sort();
+
+      return (
+        <div key={`table-${asset}`}>
+          <table>
+            <caption>{`${asset} metrics for ${selectedDepartment ?? 'department'}`}</caption>
+            <thead>
+              <tr>
+                <th scope='col'>Year</th>
+                {dataForAsset.map((data, index) => (
+                  <th scope='col' key={`${asset}-dataset-${index}`}>
+                    {data.Asset}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {sortedYears.map((year) => (
+                <tr key={`${asset}-${year}`}>
+                  <th scope='row'>{year}</th>
+                  {dataForAsset.map((data, index) => (
+                    <td key={`${asset}-${index}-${year}`}>
+                      {(Number(data[year]) || 0)
+                        .toLocaleString()
+                        .replace(/\.0+$/, '')}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    })
+    .filter(Boolean) as JSX.Element[];
+
+  const charts = departmentAssets
+    .map((asset) => {
+      const dataForAsset = filteredData.filter((data) => data.Asset === asset);
+      if (dataForAsset.length === 0) {
+        return null;
+      }
+
+    const labels = Object.keys(dataForAsset[0]).filter(
+      (key) => key !== 'Department' && key !== 'Asset'
     );
+    const sortedYears = [...labels].sort();
 
     const datasets = dataForAsset.map((data) => ({
       label: `${data.Department} - ${data.Asset}`,
-      data: labels.map((year) => data[year]),
+      data: sortedYears.map((year) => Number(data[year]) || 0),
       borderColor: getAccessibleRandomColor(),
       fill: false,
     }));
@@ -158,8 +210,8 @@ const LineChart: React.FC = () => {
           beginAtZero: true,
           title: {
             display: true,
-            text: "Year",
-            color: isDark ? 'white' : 'black',
+          text: 'Year',
+          color: isDark ? 'white' : 'black',
           },
           ticks: {
             color: isDark ? 'white' : 'black',
@@ -169,8 +221,8 @@ const LineChart: React.FC = () => {
           beginAtZero: true,
           title: {
             display: true,
-            text: "Values",
-            color: isDark ? 'white' : 'black',
+          text: 'Values',
+          color: isDark ? 'white' : 'black',
           },
           ticks: {
             color: isDark ? 'white' : 'black',
@@ -189,15 +241,19 @@ const LineChart: React.FC = () => {
       },
     };
 
-    return (
-      <div key={asset} style={{ marginBottom: "20px" }}>
-        <h3>{asset}</h3>
-        <div style={{ width: "100%", height: "300px" }}>
-          <Line data={{ labels, datasets }} options={options} />
+      return (
+        <div key={asset} style={{ marginBottom: '20px' }}>
+          <h3>{asset}</h3>
+          <div
+            style={{ width: '100%', height: '300px' }}
+            aria-hidden='true'
+          >
+            <Line data={{ labels: sortedYears, datasets }} options={options} />
+          </div>
         </div>
-      </div>
-    );
-  });
+      );
+    })
+    .filter(Boolean) as JSX.Element[];
 
   return (
     <div>
@@ -224,8 +280,8 @@ const LineChart: React.FC = () => {
           </button>
         ))}
       </div>
-
-      <div >{charts}</div>
+      <div key={`tables-${selectedDepartment}`} className='sr-only'>{accessibleTables}</div>
+      <div aria-hidden='true'>{charts}</div>
     </div>
   );
 };

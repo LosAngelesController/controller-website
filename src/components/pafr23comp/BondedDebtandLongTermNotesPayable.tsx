@@ -3,15 +3,16 @@ import {
   BarElement,
   CategoryScale,
   Chart,
+  Legend,
   LinearScale,
   Title,
   Tooltip,
-} from "chart.js";
-import { csvParse } from "d3";
-import React, { useEffect, useState } from "react";
-import { Bar } from "react-chartjs-2";
+} from 'chart.js';
+import { csvParse } from 'd3';
+import React, { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
 
-Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
+Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface ChartData {
   Year: string;
@@ -26,16 +27,18 @@ const BarChart: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("/csvsforpafr23/4bondeddebtandlongtermnotespayable.csv");
+        const response = await fetch('/csvsforpafr23/4bondeddebtandlongtermnotespayable.csv');
         const csvData = await response.text();
 
         const dataArray: ChartData[] = csvParse(csvData, (d, i) => {
           try {
             return {
-              Year: String(d["Fiscal Year"]).trim(),
-              "Activity Type": String(d["Activity Type"]),
-              Total: parseFloat(String(d["Total"]).replace(/,/g, "").trim()) || 0,
-              Value: parseFloat(String(d["Value "]).replace(/,/g, "").trim()) || 0,
+              Year: String(d['Fiscal Year']).trim(),
+              'Activity Type': String(d['Activity Type']).trim(),
+              Total:
+                parseFloat(String(d['Total']).replace(/,/g, '').trim()) || 0,
+              Value:
+                parseFloat(String(d['Value ']).replace(/,/g, '').trim()) || 0,
             } as ChartData;
           } catch (error) {
             console.error(`Error parsing row ${i + 1}:`, error);
@@ -44,10 +47,12 @@ const BarChart: React.FC = () => {
           }
         }).filter((d) => d !== null);
 
-        const filteredData = dataArray.filter((data) => data["Year"] >= "2019" && data["Year"] <= "2023");
+        const filteredData = dataArray.filter(
+          (data) => data['Year'] >= '2019' && data['Year'] <= '2023'
+        );
         setChartData(filteredData);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
       }
     };
 
@@ -61,7 +66,7 @@ const BarChart: React.FC = () => {
   const aggregatedData: { [activityType: string]: { [year: string]: number } } = {};
   const activitiesSum: { [year: string]: number } = {};
   chartData.forEach((data) => {
-    const activityType = data["Activity Type"];
+    const activityType = data['Activity Type'];
     const year = data.Year;
     if (!aggregatedData[activityType]) {
       aggregatedData[activityType] = {};
@@ -81,22 +86,12 @@ const BarChart: React.FC = () => {
   const labels = Object.keys(aggregatedData[Object.keys(aggregatedData)[0]]);
   const datasets = Object.entries(aggregatedData).map(([activityType, data]) => ({
     label: activityType,
-    data: Object.values(data),
+    data: labels.map((year) => data[year] ?? 0),
     backgroundColor: getColor(activityType),
-    borderColor: "black",
-    borderWidth: "0.5",
-    stack: "stack",
+    borderColor: 'black',
+    borderWidth: 0.5,
+    stack: 'stack',
   }));
-
-  const lineDataset = {
-    label: "Yearly Sum",
-    data: labels.map((year) => activitiesSum[year]),
-    fill: false,
-    borderColor: "gray",
-    type: 'line',
-  };
-
-  const allDatasets = [...datasets, lineDataset];
 
   function getColor(activityType: string) {
     return activityType === 'Governmental' ? '#41ffca' : '#ffca41';
@@ -141,7 +136,7 @@ const BarChart: React.FC = () => {
         beginAtZero: true,
         title: {
           display: true,
-          text: "Fiscal Year",
+          text: 'Fiscal Year',
           color: isDark ? 'white' : 'black',
         },
         ticks: {
@@ -152,7 +147,7 @@ const BarChart: React.FC = () => {
         beginAtZero: true,
         title: {
           display: true,
-          text: "Values",
+          text: 'Values',
           color: isDark ? 'white' : 'black',
         },
         ticks: {
@@ -173,9 +168,47 @@ const BarChart: React.FC = () => {
   };
 
   return (
-    <div style={{ width: "100%", height: "500px", overflowX: "auto" }}>
-      <Bar data={{ labels, datasets }} options={options} />
-    </div>
+    <>
+      <div className='sr-only'>
+        <table>
+          <caption>
+            Bonded debt and long-term notes payable by activity type and fiscal
+            year (FY 2019-2023).
+          </caption>
+          <thead>
+            <tr>
+              <th scope='col'>Fiscal Year</th>
+              {Object.keys(aggregatedData).map((activity) => (
+                <th scope='col' key={activity}>
+                  {activity} Balance (USD)
+                </th>
+              ))}
+              <th scope='col'>Overall Balance (USD)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {labels.map((year) => (
+              <tr key={year}>
+                <th scope='row'>{year}</th>
+                {Object.keys(aggregatedData).map((activity) => (
+                  <td key={`${year}-${activity}`}>
+                    {(aggregatedData[activity][year] ?? 0).toLocaleString()}
+                  </td>
+                ))}
+                <td>{(activitiesSum[year] ?? 0).toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style={{ width: '100%', height: '500px', overflowX: 'auto' }}
+        aria-hidden='true'
+      >
+        <Bar data={{ labels, datasets }} options={options} />
+      </div>
+    </>
   );
 };
 

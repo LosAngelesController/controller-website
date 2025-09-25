@@ -3,15 +3,16 @@ import {
   BarElement,
   CategoryScale,
   Chart,
+  Legend,
   LinearScale,
   Title,
   Tooltip,
-} from "chart.js";
+} from 'chart.js';
 import { csvParse } from 'd3';
-import React, { useEffect, useState } from "react";
-import { Bar } from "react-chartjs-2";
+import React, { useEffect, useState } from 'react';
+import { Bar } from 'react-chartjs-2';
 
-Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
+Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 interface ChartData {
   employer: string;
@@ -32,15 +33,32 @@ const TopEmployeeChart: React.FC = () => {
         const response = await fetch('/csvsforpafr23/employers-1.csv');
         const csvData = await response.text();
 
-        const dataArray = csvParse(csvData, (d) => ({
-          employer: d.Employer,
-          employees22: +d["22 Employees"]?.replace(/,/g, '') || 0,
-          rank22: +d["22 Rank"] || 0,
-          percent22: +(d["22 % of Total"]?.replace('%', '') || 0),
-          employees13: +d["13 Employees"]?.replace(/,/g, '') || 0,
-          rank13: +d["13 Rank"] || 0,
-          percent13: +(d["13 % of Total"]?.replace('%', '') || 0),
-        }));
+        const parseNumber = (value?: string | null) => {
+          if (!value) return null;
+          const cleaned = value.replace(/,/g, '').replace(/%/g, '').trim();
+          if (cleaned === '--' || cleaned === '') {
+            return null;
+          }
+          const parsed = Number(cleaned);
+          return Number.isFinite(parsed) ? parsed : null;
+        };
+
+        const dataArray = csvParse(csvData, (d) => {
+          const employer = d.Employer?.trim();
+          if (!employer) {
+            return null;
+          }
+
+          return {
+            employer,
+            employees22: parseNumber(d['22 Employees']) ?? 0,
+            rank22: parseNumber(d['22 Rank']) ?? 0,
+            percent22: parseNumber(d['22 % of Total']) ?? 0,
+            employees13: parseNumber(d['13 Employees']) ?? 0,
+            rank13: parseNumber(d['13 Rank']) ?? 0,
+            percent13: parseNumber(d['13 % of Total']) ?? 0,
+          };
+        });
 
 
         // const dataArray = csvParse(csvData, (d) => ({
@@ -79,7 +97,7 @@ const TopEmployeeChart: React.FC = () => {
       data: chartData.map((data) => data.employees22),
       backgroundColor: '#41ffca',
       borderColor: 'black',
-      borderWidth: '0.5',
+      borderWidth: 0.5,
       stack: 'stack',
     },
   ];
@@ -166,9 +184,33 @@ const TopEmployeeChart: React.FC = () => {
 
 
   return (
-    <div style={{ width: '100%', height: '500px', overflowX: 'auto' }}>
-      <Bar data={{ labels, datasets }} options={options} />
-    </div>
+    <>
+      <div className='sr-only'>
+        <table>
+          <caption>
+            Top 10 Los Angeles employers by 2023 employee count.
+          </caption>
+          <thead>
+            <tr>
+              <th scope='col'>Employer</th>
+              <th scope='col'>Employees (2023)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.map((data) => (
+              <tr key={data.employer}>
+                <th scope='row'>{data.employer}</th>
+                <td>{data.employees22.toLocaleString()}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div style={{ width: '100%', height: '500px', overflowX: 'auto' }} aria-hidden='true'>
+        <Bar data={{ labels, datasets }} options={options} />
+      </div>
+    </>
   );
 };
 

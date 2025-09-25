@@ -814,7 +814,7 @@ export default function pafr23(props: any) {
             </div>
             <div className='container mx-0 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
               <h2 className='mt-3'>How Much Does The City Owe?</h2>
-              <p className='font-bold text-xl'>
+              <p className='mt-3 font-bold text-xl'>
                 Bonded Debt and Long-Term Notes Payable: $39.2 billion, 5.0%
                 increase from FY 22
               </p>
@@ -862,7 +862,7 @@ export default function pafr23(props: any) {
                 </li>
               </ul>
 
-              <h3 className='mt-3'>
+              <h3 className='mt-6'>
                 Ratings of the City’s General Obligation Bonds
               </h3>
               <Credit />
