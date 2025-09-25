@@ -3,15 +3,26 @@ import {
   BarElement,
   CategoryScale,
   Chart,
+  Legend,
   LinearScale,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
 } from 'chart.js';
 import { csvParse } from 'd3';
-import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
-import { Bar } from 'react-chartjs-2';
-Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
+import { Bar, Line } from 'react-chartjs-2';
+Chart.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  LineElement,
+  PointElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 interface ChartData {
   fiscalYear: number;
@@ -23,8 +34,6 @@ interface ChartData {
 
 const BarChart: React.FC = () => {
   const [chartData, setChartData] = useState<ChartData[] | null>(null);
-  const category = 'Unemployment Rate';
-  const { theme, setTheme } = useTheme();
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -66,36 +75,6 @@ const BarChart: React.FC = () => {
   if (!chartData) {
     return null;
   }
-  const isDark = isDarkMode();
-  const labels = chartData.map((data) => data.fiscalYear.toString());
-  const datasets = [
-    {
-      label: 'Personal Income Per Capita',
-      data: chartData.map((data) => data.personalIncomePerCapita),
-      borderColor: 'purple',
-      backgroundColor: 'rgba(0,0,0,0)',
-      type: 'line',
-      fill: false,
-      yAxisID: 'incomeYAxis',
-    },
-    {
-      label: 'Estimated Population',
-      data: chartData.map((data) => data.estimatedPopulation),
-      backgroundColor: '#41ffca',
-      borderColor: 'black',
-      borderWidth: '0.5',
-      type: 'bar',
-    },
-    {
-      label: category,
-      data: chartData.map((data) => data.unemploymentRate),
-      backgroundColor: '#FFCA41',
-      borderColor: 'black',
-      borderWidth: '0.5',
-      yAxisID: 'percentageYAxis',
-      type: 'bar',
-    },
-  ];
 
   function isDarkMode() {
     if (typeof window !== 'undefined') {
@@ -125,93 +104,211 @@ const BarChart: React.FC = () => {
 
   updateChartLabelColor();
 
-  const options = {
+  const isDark = isDarkMode();
+  const axisColor = isDark ? 'white' : 'black';
+  const gridColor = isDark
+    ? 'rgba(148, 163, 184, 0.2)'
+    : 'rgba(15, 23, 42, 0.1)';
+
+  const labels = chartData.map((data) => data.fiscalYear.toString());
+  const populationData = chartData.map((data) => data.estimatedPopulation);
+  const incomeData = chartData.map((data) => data.personalIncomePerCapita);
+  const unemploymentData = chartData.map((data) => data.unemploymentRate);
+  const tableId = 'pafr23-demographics-summary';
+
+  const createOptions = (
+    yTitle: string,
+    tickFormatter: (value: number | string) => string,
+    tooltipFormatter: (value: number) => string,
+    { legendDisplay = true }: { legendDisplay?: boolean } = {}
+  ) => ({
     maintainAspectRatio: false,
+    interaction: {
+      mode: 'index' as const,
+      intersect: false,
+    },
     scales: {
       x: {
         beginAtZero: true,
         title: {
           display: true,
           text: 'Fiscal Year',
-          color: isDark ? 'white' : 'black',
+          color: axisColor,
         },
         ticks: {
-          color: isDark ? 'white' : 'black',
+          color: axisColor,
+        },
+        grid: {
+          color: gridColor,
         },
       },
       y: {
         beginAtZero: true,
-        // title: {
-        //   display: true,
-        //   text: "Values",
-        //   color: isDark ? 'white' : 'black',
-        // },
-        ticks: {
-          color: isDark ? 'white' : 'black',
-        },
-        labels: {
-          color: isDark ? 'white' : 'black',
-        },
-      },
-      incomeYAxis: {
-        // beginAtZero: true,
-        // title: {
-        //   display: true,
-        //   text: "Values",
-        //   color: isDark ? 'white' : 'black',
-        // },
-        ticks: {
-          color: isDark ? 'white' : 'black',
-        },
-        labels: {
-          color: isDark ? 'white' : 'black',
-        },
-      },
-      percentageYAxis: {
-        // beginAtZero: true,
         title: {
           display: true,
-          text: 'Values',
-          color: isDark ? 'white' : 'black',
+          text: yTitle,
+          color: axisColor,
         },
         ticks: {
-          color: isDark ? 'white' : 'black',
-          callback: function (value: any) {
-            return `${value}%`; // Add percentage sign
-          },
+          color: axisColor,
+          callback: (value: number | string) => tickFormatter(value),
         },
-        labels: {
-          color: isDark ? 'white' : 'black',
+        grid: {
+          color: gridColor,
         },
       },
     },
     plugins: {
       legend: {
+        display: legendDisplay,
         labels: {
-          color: isDark ? 'white' : 'black',
+          color: axisColor,
         },
       },
       tooltip: {
         callbacks: {
           label: function (context: any) {
-            const label = context.dataset.label || '';
-            const value = context.parsed.y.toLocaleString();
+            const datasetLabel = context.dataset.label || '';
+            const rawValue = context.parsed.y as number;
+            const formattedValue = tooltipFormatter(rawValue);
 
-            if (label === 'Unemployment Rate') {
-              return `${label}: ${(value * 100).toFixed(2)}%`;
-            } else {
-              return `${label}: ${value}`;
-            }
+            return datasetLabel
+              ? `${datasetLabel}: ${formattedValue}`
+              : formattedValue;
           },
         },
       },
     },
+  });
+
+  const populationOptions = createOptions(
+    'Estimated Population',
+    (value) => Number(value).toLocaleString(),
+    (value) => Math.round(value).toLocaleString()
+  );
+
+  const incomeOptions = createOptions(
+    'Personal Income Per Capita (USD)',
+    (value) => `$${Number(value).toLocaleString()}`,
+    (value) => `$${Math.round(value).toLocaleString()}`
+  );
+
+  const unemploymentOptions = {
+    ...createOptions(
+      'Unemployment Rate (%)',
+      (value) => `${Number(value).toFixed(1)}%`,
+      (value) => `${value.toFixed(1)}%`
+    ),
+    elements: {
+      line: {
+        tension: 0.3,
+      },
+      point: {
+        radius: 4,
+        hoverRadius: 5,
+      },
+    },
+  };
+
+  const populationChartData = {
+    labels,
+    datasets: [
+      {
+        label: 'Estimated Population',
+        data: populationData,
+        backgroundColor: '#41ffca',
+        borderColor: 'black',
+        borderWidth: 0.5,
+      },
+    ],
+  };
+
+  const incomeChartData = {
+    labels,
+    datasets: [
+      {
+        label: 'Personal Income Per Capita',
+        data: incomeData,
+        backgroundColor: '#60a5fa',
+        borderColor: 'black',
+        borderWidth: 0.5,
+      },
+    ],
+  };
+
+  const unemploymentChartData = {
+    labels,
+    datasets: [
+      {
+        label: 'Unemployment Rate (%)',
+        data: unemploymentData,
+        borderColor: '#7c3aed',
+        backgroundColor: 'rgba(124, 58, 237, 0.2)',
+        pointBackgroundColor: '#7c3aed',
+        pointBorderColor: isDark ? '#f8fafc' : '#1f2937',
+        borderWidth: 2,
+        fill: false,
+      },
+    ],
   };
 
   return (
-    <div style={{ width: '100%', height: '500px', overflowX: 'auto' }}>
-      <Bar data={{ labels, datasets } as any} options={options} />
-    </div>
+    <>
+      <div className='sr-only' id={tableId}>
+        <table>
+          <caption>
+            Fiscal Year overview of Estimated Population, Personal Income Per
+            Capita, and Unemployment Rate.
+          </caption>
+          <thead>
+            <tr>
+              <th scope='col'>Fiscal Year</th>
+              <th scope='col'>Estimated Population</th>
+              <th scope='col'>Personal Income Per Capita (USD)</th>
+              <th scope='col'>Unemployment Rate (%)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.map((data) => (
+              <tr key={data.fiscalYear}>
+                <th scope='row'>{data.fiscalYear}</th>
+                <td>{data.estimatedPopulation.toLocaleString()}</td>
+                <td>
+                  {Number.isFinite(data.personalIncomePerCapita)
+                    ? `$${Math.round(data.personalIncomePerCapita).toLocaleString()}`
+                    : '-'}
+                </td>
+                <td>{data.unemploymentRate.toFixed(1)}%</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        className='flex flex-col gap-y-8 lg:flex-row lg:gap-x-6 mt-3'
+        aria-hidden='true'
+      >
+        <div className='w-full lg:w-1/3'>
+          <div style={{ width: '100%', height: '400px', overflowX: 'auto' }}>
+            <Bar data={populationChartData as any} options={populationOptions} />
+          </div>
+        </div>
+        <div className='w-full lg:w-1/3'>
+          <div style={{ width: '100%', height: '400px', overflowX: 'auto' }}>
+            <Bar data={incomeChartData as any} options={incomeOptions} />
+          </div>
+        </div>
+        <div className='w-full lg:w-1/3'>
+          <div style={{ width: '100%', height: '400px', overflowX: 'auto' }}>
+            <Line
+              data={unemploymentChartData as any}
+              options={unemploymentOptions}
+            />
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
