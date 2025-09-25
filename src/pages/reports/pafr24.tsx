@@ -118,11 +118,11 @@ export default function pafr24(props: any) {
               basic services to make up for the overspending.
               <br />
               <br />
-              In last year’s letter, we predicted “deficits for years to come
+              In last year’s letter, we predicted <q>deficits for years to come
               (that) will force wrenching choices that threaten the vital
               services Angelenos rely on. This is not the result of a sudden
               economic downturn, but the culmination of years of short-term
-              budget balancing at the cost of long-term fiscal sustainability.”
+              budget balancing at the cost of long-term fiscal sustainability.</q>
               <br />
               <br />
               Short-term budget balancing resulted in the elimination of 1700 then-vacant positions, which included a majority of
@@ -150,13 +150,13 @@ export default function pafr24(props: any) {
               for wastewater revenue bonds rating from stable to negative.
               <br />
               <br />
-              Last year at this time we noted that, “The contract for rank and
+              Last year at this time we noted that, <q>The contract for rank and
               file police staff ratified last fall will add nearly a billion
               dollars in additional costs over the next four years, with the
               likelihood of commensurate increases in compensation for police
               management. The new five year contracts negotiated with civilian
               bargaining units will have an even larger budget impact, putting
-              budget projections deeply in the red for the next five years.”
+              budget projections deeply in the red for the next five years.</q>
               <br />
               <br />
               Unfortunately, those sober predictions proved accurate last fiscal
@@ -243,8 +243,8 @@ export default function pafr24(props: any) {
               </ul>
               <br />
               The late Dr. Herbert Stein, who chaired the President’s
-              Council of Economic Advisors, wrote, “Things that can’t go on
-              forever, don’t.” Given the grim fiscal prospects for the years
+              Council of Economic Advisors, wrote, <q>Things that can’t go on
+              forever, don’t.</q> Given the grim fiscal prospects for the years
               ahead, it is time for fundamental change to the City’s
               unsustainable budgetary practices.
               <br />
@@ -259,10 +259,10 @@ export default function pafr24(props: any) {
               <br />
               I strongly commend the Mayor’s capital infrastructure vision
               outlined in her Executive Directive No. 9 which lays out a
-              comprehensive approach to “making our neighborhoods more resilient
+              comprehensive approach to <q>making our neighborhoods more resilient
               and equitable by revitalizing our streets and tackling years of
               deferred maintenance and underinvestment in our most vulnerable
-              communities.”
+              communities.</q>
               <br />
               <br />
               In that spirit, we have advocated for a transition to a two-year
