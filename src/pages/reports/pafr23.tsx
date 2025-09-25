@@ -127,8 +127,10 @@ export default function pafr23(props: any) {
                 <br />
                 Even as we look back on the positive results from the prior
                 year, the warning signs were there:
+                <br />
+                <br />
               </p>
-              <ul>
+            <ul className='pl-5 md:pl-6'>
                 <li>
                   As previously reported, despite widespread staff vacancies,
                   General Fund departmental spending actually exceeded last
@@ -136,6 +138,7 @@ export default function pafr23(props: any) {
                   vacancy rate been closer to normal, the budget would have
                   been in the red.
                 </li>
+                <br></br>
                 <li>
                   As our Office has consistently pointed out, citywide
                   deferred maintenance of vital infrastructure requires urgent
@@ -151,10 +154,9 @@ export default function pafr23(props: any) {
                   equipment and facilities for our workforce hobbles
                   productivity and shortchanges our residents. The
                   homelessness crisis and the reality of a changing climate
-                  put even further strain on City resources. 
+                  put even further strain on City resources.
                 </li>
               </ul>
-                <br />
                 <br />
               <p>
                 The contract for rank-and-file police staff ratified last fall
@@ -242,19 +244,18 @@ export default function pafr23(props: any) {
             </div>
             <br />
             <h2>About Popular Annual Financial Reporting</h2>
-            <p className='mt-2  lg:max-w-5xl'>
+            <div className='mt-6 lg:max-w-5xl'>
               <img
-                className='float-left mb-4 mr-1 w-32 dark:hidden md:w-48 lg:w-64'
+                className='float-left mr-1 mb-1 w-32 dark:hidden md:w-48 lg:w-64'
                 src='/images/Award-1.png'
                 alt='Certificate awarded by the Government Finance Officers Association to the City of Los Angeles for excellence in financial reporting, fiscal year ending June 30, 2022.'
-              ></img>
-              <img
-                className='float-left mb-4 mr-1 hidden w-32 dark:block md:w-48 lg:w-64'
-                src='/images/Award-1.png'
-                alt='Certificate awarded by the Government Finance Officers Association to the City of Los Angeles for excellence in financial reporting, fiscal year ending June 30, 2022.'
-
               />
-              <div style={{ paddingLeft: '18rem' }}>
+              <img
+                className='float-left mr-1 mb-1 hidden w-32 dark:block md:w-48 lg:w-64'
+                src='/images/Award-1.png'
+                alt='Certificate awarded by the Government Finance Officers Association to the City of Los Angeles for excellence in financial reporting, fiscal year ending June 30, 2022.'
+              />
+              <p className=''>
                 Government Finance Officers Association of the United States and
                 Canada (GFOA) has given an Award for Outstanding Achievement in
                 Popular Annual Financial Reporting to the City of Los Angeles
@@ -263,10 +264,8 @@ export default function pafr23(props: any) {
                 Popular Annual Financial Reporting is a prestigious national
                 award recognizing conformance with the highest standards for
                 preparation of state and local government popular reports.
-              </div>
-              <br />
-              <br />
-              <div style={{ paddingLeft: '18rem' }}>
+              </p>
+              <p className='mt-3'>
                 In order to receive an Award for Outstanding Achievement in
                 Popular Annual Financial Reporting, a government unit must
                 publish a Popular Annual Financial Report, whose contents
@@ -277,9 +276,10 @@ export default function pafr23(props: any) {
                 to conform to the Popular Annual Financial Reporting
                 requirements, and we are submitting it to GFOA to determine its
                 eligibility for another Award.
-              </div>
-            </p>
-            <br></br>
+              </p>
+              <div className='clear-both'></div>
+            </div>
+
             <h2 className='mt-3'>Local Economy</h2>
 
             <p className='mt-2 lg:max-w-5xl'>
@@ -408,13 +408,13 @@ export default function pafr23(props: any) {
                 independently elected citywide.
               </p>
               <br />
-              <div className='flex items-center space-x-4'>
+              <div className='mb-4'>
                 <img
-                  className='w-80 md:w-48 lg:w-64'
+                  className='mx-auto mb-4 w-64 max-w-full md:float-left md:mr-4 md:mb-2 md:w-48 lg:w-64'
                   src='/images/vistahermosa.png'
                   alt='Vista Hermosa'
                 />
-                <p className='max-w-prose text-center'>
+                <p className='text-center md:text-left'>
                   The City has 46 departments, bureaus, commissions, and
                   offices, 39 of which have their operating funds annually
                   budgeted by the City Council. The Department of Water and
@@ -424,11 +424,7 @@ export default function pafr23(props: any) {
                   departments are fiscally independent or under the control of
                   independent boards.
                 </p>
-                <img
-                  className='hidden md:block w-80 md:w-48 lg:w-64'
-                  src='/images/vistahermosa.png'
-                  alt=''
-                />
+                <div className='clear-both'></div>
               </div>
               <br />
               <br />
@@ -571,7 +567,7 @@ export default function pafr23(props: any) {
                   <p className='font-bold'>
                     Assets represent what the City owns:
                   </p>
-                  <ul className='list-disc px-4'>
+                <ul className='list-disc px-4 pl-5 md:pl-6'>
                     <li>Cash and pooled investments</li>
                     <li>Receivables</li>
                     <li>Capital assets (land, buildings and infrastructure)</li>
@@ -589,7 +585,7 @@ export default function pafr23(props: any) {
                   <p className='font-bold'>
                     Liabilities represent what the City owes:
                   </p>
-                  <ul className='list-disc  px-4'>
+                <ul className='list-disc px-4 pl-5 md:pl-6'>
                     <li>Bonds and notes</li>
                     <li>Claims and judgments</li>
                     <li>Unearned revenue</li>
@@ -680,7 +676,7 @@ export default function pafr23(props: any) {
               <br />
               <br /> */}
 
-              <p className='font-bold text-xl'>
+              <p className='font-bold md:text-xl'>
                 In FY 23, General Fund revenues of $6.7 billion was a 9.3%
                 increase from FY 22, and exceeds General Fund expenditures by
                 $745.5 million.
@@ -696,7 +692,7 @@ export default function pafr23(props: any) {
               {/*Revenues  vis */}
 
               {/* revenues text */}
-              <ul className='list-disc'>
+              <ul className='list-disc pl-5 md:pl-6'>
                 <li>
                   <span className='font-bold'>Property taxes</span>, which
                   represent 39.4% of General Fund revenue, increased by $166.1
@@ -776,7 +772,7 @@ export default function pafr23(props: any) {
               <br></br>
               <br></br>
               <GeneralFundExpenses />
-              <p className='font-bold text-xl'>
+              <p className='font-bold md:text-xl'>
                 In FY 23, General Fund Expenditures was $6.0 billion, $238.7
                 million (4.1%) increase over FY 22, primarily due to the
                 following:
@@ -784,7 +780,7 @@ export default function pafr23(props: any) {
               {/*Expenses  vis */}
 
               <br />
-              <ul className='list-disc'>
+              <ul className='list-disc pl-5 md:pl-6'>
                 <li>
                   <span className='font-bold'>Salaries and Benefits</span>{' '}
                   increased by $69.6 million (1.9%), due to payment to certain
@@ -845,7 +841,7 @@ export default function pafr23(props: any) {
                   ceiling shall not be exceeded for more than one year.
                 </p>
               </div>
-              <ul>
+              <ul className='pl-5 md:pl-6'>
                 <br></br>
                 <li>
                   <span className='font-bold'>For Fiscal Year 2023,</span> the
