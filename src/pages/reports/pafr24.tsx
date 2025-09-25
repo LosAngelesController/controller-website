@@ -337,10 +337,12 @@ export default function pafr24(props: any) {
             <img
               className='float-left mb-4 mr-1 w-32 dark:hidden md:w-48 lg:w-64'
               src='/images/award24.png'
+              alt='Certificate awarded by the Government Finance Officers Association for excellence in FY2023 financial reporting'
             ></img>
             <img
               className='float-left mb-4 mr-1 hidden w-32 dark:block md:w-48 lg:w-64'
               src='/images/award24.png'
+              alt='Certificate awarded by the Government Finance Officers Association for excellence in FY2023 financial reporting'
             />
             <div className='mt-3' style={{ paddingLeft: '18rem' }}>
               Government Finance Officers Association of the United States and
@@ -686,6 +688,7 @@ export default function pafr24(props: any) {
             <img
               className='float-left mb-1 mr-1 w-80 dark:hidden md:w-48 lg:w-64'
               src='/images/vistahermosa.png'
+              alt='Vista Hermosa Park overlooking downtown Los Angeles'
             ></img>
             <br />
             The City has 46 departments, bureaus, commissions and offices, 39 of
@@ -713,6 +716,7 @@ export default function pafr24(props: any) {
             <img
               src='/sherlockcorgi.png'
               className='float-left mb-1 mr-1 w-32'
+              alt=''
             />
             <p>
               <h2 className='mt-3'>Key Terms</h2>
