@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from 'next/link';
 import * as React from 'react';
 
@@ -15,6 +16,9 @@ import TotalRevnues from '@/components/pafr24comp/TotalRevnues';
 export default function pafr24(props: any) {
   return (
     <>
+      <Head>
+        <title>Popular Annual Financial Report FY24 | LA City Controller</title>
+      </Head>
       {/* <Navbar /> */}
       {/* <Seo
         title='Popular Annual Financial Report FY24'
@@ -307,7 +311,7 @@ export default function pafr24(props: any) {
               Should you have questions or require additional information,
               please contact my Director of Financial Analysis and Reporting,
               Wally Oyewole at{' '}
-              <u className='text-blue-400'>rahoof.oyewole@lacity.org</u>
+              <u className='text-blue-600'>rahoof.oyewole@lacity.org</u>
               .
               <br />
               <br />
@@ -881,7 +885,7 @@ export default function pafr24(props: any) {
           <p className='mt-6 text-lg md:text-2xl font-bold'>
             Net Position: $31.7 billion, $1.1 billion, 3.6% increase from FY23
           </p>
-          <p>
+          <p className='mt-3'>
             The City’s net position is illustrated in the table below:
           </p>
           <div className='lg:max-w-5xl'>
@@ -927,7 +931,6 @@ export default function pafr24(props: any) {
               through several different revenue streams. In FY24, the City
               collected General Fund revenues of <b>$6.9 billion</b> with $5.7
               billion or 82% coming from taxes.</p>
-              <br></br>
               <br></br>
               <GeneralFundRevenues />
               {/* <ChangeinnetposGen /> */}
@@ -1049,13 +1052,11 @@ export default function pafr24(props: any) {
               parks, community development, etc.{' '}
             </p>
             <br></br>
-            <br></br>
             <p>
               The operating fund from which the City accounts for the money
               coming in and the expenditures paid out is the General Fund.
             </p>
           </div>
-          <br></br>
           <br></br>
           <div className='lg:max-w-5xl'>
             <GeneralFundExpenses />

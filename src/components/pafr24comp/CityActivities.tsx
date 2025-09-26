@@ -290,7 +290,7 @@ const LineChart: React.FC = () => {
 
       <div className='sr-only'>{accessibleTables}</div>
 
-      <div >{charts}</div>
+      <div className='mt-6'>{charts}</div>
     </div>
   );
 };

@@ -1,139 +1,185 @@
 import { csvParse } from 'd3';
-import React, { useEffect, useState } from 'react';
-import DataTable from 'react-data-table-component';
+import React, { useEffect, useMemo, useState } from 'react';
 
-// Define the data structure for your data
-interface Data {
-  year: string;
+interface NetPositionRow {
   category: string;
-  desc: string;
-  businessType: string;
+  description: string;
+  businessType: number;
   governmental: number;
   total: number;
 }
 
-// Define the structure for your table columns
-interface TableColumn<T> {
-  name: string;
-  selector?: (row: T) => string | number;
-  sortable?: boolean;
-  cell?: (row: T) => React.ReactNode;
-  width?: string
-}
-
 const NetPosition: React.FC = () => {
-  const [data, setData] = useState<Data[]>([]);
-  const [selectedYear, setSelectedYear] = useState<number>(2024); // Starting year, change as needed
-  const [yearRange, setYearRange] = useState<{ min: number; max: number }>({ min: 2023, max: 2024 }); // Change as needed
+  const [dataByYear, setDataByYear] = useState<Record<number, NetPositionRow[]>>({});
+  const [selectedYear, setSelectedYear] = useState<number | null>(null);
 
-  // Currency formatting function
-  function formatCurrency(number: number) {
-    const billion = 1e9;
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    }).format(number / billion) + 'B';
-  }
-
-  // Fetch and process data
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('/csvsforpafr24/6condensedstatementofnetposition1.csv');
-      const csvData = await response.text();
-      const sanitizedCsvData = csvData.replace(/"(.*?)"/g, (_, g) => g.replace(/,/g, ''));
-      const dataArray: Data[] = csvParse(sanitizedCsvData, (d) => ({
-        year: d.Year || '',
-        category: d.Category || '',
-        desc: d.Description || '',
-        businessType: d['Business-Type'] || '',
-        governmental: d.Governmental ? +d.Governmental.replace(/,/g, '') : 0,
-        total: d.Total ? +d.Total.replace(/,/g, '').replace(/\(|\)/g, '') * (d.Total.includes('(') ? -1 : 1) : 0,
-      }));
+      try {
+        const response = await fetch(
+          '/csvsforpafr24/6condensedstatementofnetposition1.csv'
+        );
+        const csvData = await response.text();
 
-      const years = dataArray.map(item => parseInt(item.year, 10));
-      setYearRange({ min: Math.min(...years), max: Math.max(...years) });
-      setData(dataArray);
+        const rows = csvParse(csvData, (d) => {
+          const year = Number(d.Year);
+          if (!Number.isFinite(year)) {
+            return null;
+          }
+
+          const parseNumeric = (value?: string | null) => {
+            if (!value) {
+              return 0;
+            }
+
+            const cleaned = value.replace(/,/g, '').trim();
+            if (cleaned === '') {
+              return 0;
+            }
+
+            const isNegative = cleaned.startsWith('(') && cleaned.endsWith(')');
+            const numeric = Number(cleaned.replace(/[()]/g, ''));
+
+            if (!Number.isFinite(numeric)) {
+              return 0;
+            }
+
+            return isNegative ? -numeric : numeric;
+          };
+
+          return {
+            year,
+            category: String(d.Category || '').trim(),
+            description: String(d.Description || '').trim(),
+            businessType: parseNumeric(d['Business-Type']),
+            governmental: parseNumeric(d.Governmental),
+            total: parseNumeric(d.Total),
+          };
+        }).filter((row): row is Required<NetPositionRow> & { year: number } => row !== null);
+
+        const grouped: Record<number, NetPositionRow[]> = {};
+        rows.forEach((row) => {
+          if (!grouped[row.year]) {
+            grouped[row.year] = [];
+          }
+
+          grouped[row.year].push({
+            category: row.category,
+            description: row.description,
+            businessType: row.businessType,
+            governmental: row.governmental,
+            total: row.total,
+          });
+        });
+
+        const validYears = Object.keys(grouped)
+          .map((yearString) => Number(yearString))
+          .filter((year) => Number.isFinite(year))
+          .sort((a, b) => a - b);
+
+        setDataByYear(grouped);
+        setSelectedYear((prev) => prev ?? validYears[validYears.length - 1] ?? null);
+      } catch (error) {
+        console.error('Error fetching net position data:', error);
+      }
     };
 
     fetchData();
   }, []);
 
-  // Define the columns for the DataTable
-  const columns: TableColumn<Data>[] = [
-    {
-      name: 'Category',
-      selector: row => row.category,
-      sortable: true,
-    },
-    {
-      name: 'Description',
-      selector: row => row.desc,
-      sortable: true,
-      width: '300px'
-    },
-    {
-      name: 'Business-Type',
-      cell: (row) => formatCurrency(parseFloat(row.businessType)),
-      sortable: true,
-    },
-    {
-      name: 'Governmental',
-      cell: (row) => formatCurrency(row.governmental),
-      sortable: true,
-    },
-    {
-      name: 'Total',
-      cell: (row) => formatCurrency(row.total),
-      sortable: true,
-    },
-  ];
+  const availableYears = useMemo(() => {
+    return Object.keys(dataByYear)
+      .map((yearString) => Number(yearString))
+      .filter((year) => Number.isFinite(year))
+      .sort((a, b) => a - b);
+  }, [dataByYear]);
 
-  // Custom styles for the DataTable
-  const customStyles = {
-    rows: {
-      style: {
-        minHeight: '50px', // Adjust this value if needed
-      },
-    },
-    headCells: {
-      style: {
-        paddingLeft: '8px',
-        paddingRight: '8px',
-        backgroundColor: '#f9f7f7',
-        fontWeight: 700,
-        fontSize: '16px',
-      },
-    },
-    cells: {
-      style: {
-        paddingLeft: '8px',
-        paddingRight: '8px',
-      },
-    },
+  const formatCurrency = (value: number) => {
+    const billion = 1e9;
+    return (
+      new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 2,
+      }).format(value / billion) + 'B'
+    );
   };
 
-  // Render the component
+  if (!selectedYear || !dataByYear[selectedYear]) {
+    return null;
+  }
+
   return (
-    <div style={{ width: '100%' }}>
-      <div style={{ margin: '20px 0' }}>
-        <input
-          type="range"
-          min={yearRange.min}
-          max={yearRange.max}
+    <div className='space-y-4'>
+      <div className='flex flex-wrap items-center gap-2'>
+        <label className='font-semibold' htmlFor='net-position-year'>
+          Select Fiscal Year:
+        </label>
+        <select
+          id='net-position-year'
+          className='rounded border border-gray-300 px-3 py-1 pr-8'
           value={selectedYear}
-          onChange={(e) => setSelectedYear(Number(e.target.value))}
-        />
-        <p>Selected Year: {selectedYear}</p>
+          onChange={(event) => setSelectedYear(Number(event.target.value))}
+        >
+          {availableYears.map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
       </div>
-      <div>
-        <DataTable
-          columns={columns}
-          data={data.filter((item) => parseInt(item.year, 10) === selectedYear)}
-          customStyles={customStyles}
-          pagination={false} // Disable pagination
-        />
+
+      <div className='overflow-x-auto'>
+        <table className='min-w-full border border-gray-300 text-sm'>
+          <caption className='sr-only'>{`Condensed statement of net position for fiscal year ${selectedYear}`}</caption>
+          <thead>
+            <tr className='bg-gray-100 text-left'>
+              <th scope='col' className='border border-gray-300 px-3 py-2 text-center'>
+                Category
+              </th>
+              <th scope='col' className='border border-gray-300 px-3 py-2'>
+                Description
+              </th>
+              <th scope='col' className='border border-gray-300 px-3 py-2 text-center'>
+                Business-Type
+              </th>
+              <th scope='col' className='border border-gray-300 px-3 py-2 text-center'>
+                Governmental
+              </th>
+              <th scope='col' className='border border-gray-300 px-3 py-2 text-center'>
+                Total
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {dataByYear[selectedYear]?.map((row, index) => (
+              <tr
+                key={`${selectedYear}-${row.category}-${row.description}-${index}`}
+                className='odd:bg-white even:bg-gray-50'
+              >
+                <th
+                  scope='row'
+                  className='border border-gray-300 px-3 py-2 text-center font-semibold'
+                >
+                  {row.category}
+                </th>
+                <td className='border border-gray-300 px-3 py-2 text-left'>
+                  {row.description}
+                </td>
+                <td className='border border-gray-300 px-3 py-2 text-center'>
+                  {formatCurrency(row.businessType)}
+                </td>
+                <td className='border border-gray-300 px-3 py-2 text-center'>
+                  {formatCurrency(row.governmental)}
+                </td>
+                <td className='border border-gray-300 px-3 py-2 text-center'>
+                  {formatCurrency(row.total)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );
