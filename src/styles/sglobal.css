@@ -7,10 +7,16 @@
 .lapotrait {
   background-image: url("/images/funfact.jpg");
   height: 500px;
-  background-position: center;
+  background-position: -25px center;
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .lapotrait {
+    background-position: -25px center;
+  }
 }
 
 .PortraitofCityOfLA {
