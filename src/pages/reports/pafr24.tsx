@@ -840,7 +840,7 @@ export default function pafr24(props: any) {
             City of Los Angeles’s Net position provides insight into the City’s
             financial position as of June 30, 2024. It includes a summary of
             what the City owns (assets and deferred outflows)
-            <span style={{ color: 'red', fontWeight: 'bold' }}>
+            <span style={{ color: '#df0404', fontWeight: 'bold' }}>
               {' '}
               minus
             </span>{' '}
