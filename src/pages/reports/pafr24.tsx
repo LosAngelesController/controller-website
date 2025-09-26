@@ -105,7 +105,7 @@ export default function pafr24(props: any) {
               budget (when compared on a cash basis) included:
               <br />
               <br />
-              <ul className='mb-4 ml-12 list-disc'>
+              <ul className='mb-4 list-disc pl-5 md:pl-6'>
                 <li>
                   Liability Claims by $153 million (largest shares include
                   Police at $75.1 million and Miscellaneous at $71.6 million)
@@ -175,7 +175,7 @@ export default function pafr24(props: any) {
               expenditures. While property taxes (which represent 40.2% of
               General Fund revenue) increased by $136.4 million (5.1%),
               economy-sensitive revenues declined overall versus prior year:
-              <ul className='my-4 ml-12 list-disc'>
+              <ul className='my-4 list-disc pl-5 md:pl-6'>
                 <li className='mb-2'>
                   The ongoing inflation, higher interest rates, and the impacts
                   of the entertainment industry strike negatively affected local
@@ -203,7 +203,7 @@ export default function pafr24(props: any) {
               While revenues lagged, General Fund expenditures jumped to $6.8
               billion, $841 million or 14.0% increase over FY23, primarily due
               to the following:
-              <ul className='my-4 ml-12 list-disc'>
+              <ul className='my-4 list-disc pl-5 md:pl-6'>
                 <li className='mb-2'>
                   Salaries and Benefits increased by $343.6 million (11.2%) with
                   increases for sworn and civilian employees from new labor
@@ -333,18 +333,18 @@ export default function pafr24(props: any) {
           </div>
           <br />
           <h2 className='mt-3'>About Popular Annual Financial Reporting</h2>
-          <p className='mt-2  lg:max-w-5xl '>
+          <div className='mt-6 lg:max-w-5xl'>
             <img
-              className='float-left mb-4 mr-1 w-32 dark:hidden md:w-48 lg:w-64'
-              src='/images/award24.png'
-              alt='Certificate awarded by the Government Finance Officers Association for excellence in FY2023 financial reporting'
-            ></img>
-            <img
-              className='float-left mb-4 mr-1 hidden w-32 dark:block md:w-48 lg:w-64'
+              className='float-left mr-1 mb-1 w-32 dark:hidden md:w-48 lg:w-64'
               src='/images/award24.png'
               alt='Certificate awarded by the Government Finance Officers Association for excellence in FY2023 financial reporting'
             />
-            <div className='mt-3' style={{ paddingLeft: '18rem' }}>
+            <img
+              className='float-left mr-1 mb-1 hidden w-32 dark:block md:w-48 lg:w-64'
+              src='/images/award24.png'
+              alt='Certificate awarded by the Government Finance Officers Association for excellence in FY2023 financial reporting'
+            />
+            <p>
               Government Finance Officers Association of the United States and
               Canada (GFOA) has given an Award for Outstanding Achievement in
               Popular Annual Financial Reporting to the City of Los Angeles for
@@ -353,9 +353,8 @@ export default function pafr24(props: any) {
               Financial Reporting is a prestigious national award recognizing
               conformance with the highest standards for preparation of state
               and local government popular reports.
-            </div>
-            <br />
-            <div className='mt-3' style={{ paddingLeft: '18rem' }}>
+            </p>
+            <p className='mt-3'>
               In order to receive an Award for Outstanding Achievement in
               Popular Annual Financial Reporting, a government unit must publish
               a Popular Annual Financial Report, whose contents conform to
@@ -365,8 +364,9 @@ export default function pafr24(props: any) {
               We believe our current report continues to conform to the Popular
               Annual Financial Reporting requirements, and we are submitting it
               to GFOA to determine its eligibility for another Award.
-            </div>
-          </p>
+            </p>
+            <div className='clear-both'></div>
+          </div>
 
           <br></br>
           <h2 className='mt-3'>Local Economy</h2>
@@ -671,94 +671,98 @@ export default function pafr24(props: any) {
             <br />
             <Employers /> */}
         </div>
-        <div className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100 sm:px-4 lg:mx-auto lg:max-w-7xl'>
-          <h2 className='mt-3'>City Organization</h2>
-          <div className='clear: both;'></div>
+      <div className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100 sm:px-4 lg:mx-auto lg:max-w-7xl'>
+        <h2 className='mt-3'>City Organization</h2>
+        <div className='clear: both;'></div>
 
-          <p className='mt-2 lg:max-w-5xl'>
-            The City operates under a Mayor-Council form of government. The
-            Mayor supervises the administrative processes of the City and works
-            with the City Council in matters relating to legislation, budget and
-            finance. The 15-member City Council enacts ordinances, levies taxes,
-            authorizes contracts and public improvements, adopts zoning and
-            other land use contracts, and provides necessary resources for the
-            budgetary departments and offices of the City. The City Controller
-            and City Attorney are independently elected citywide.
-            <br />
+        <div className='mt-2 lg:max-w-5xl'>
+          <p>
+            The City operates under a Mayor-Council form of government. The Mayor
+            supervises the administrative processes of the City and works with the
+            City Council in matters relating to legislation, budget and finance. The
+            15-member City Council enacts ordinances, levies taxes, authorizes
+            contracts and public improvements, adopts zoning and other land use
+            contracts, and provides necessary resources for the budgetary
+            departments and offices of the City. The City Controller and City
+            Attorney are independently elected citywide.
+          </p>
+          <div className='mb-4'>
             <img
-              className='float-left mb-1 mr-1 w-80 dark:hidden md:w-48 lg:w-64'
+              className='mx-auto mb-4 w-64 max-w-full md:float-left md:mr-4 md:mb-2 md:w-48 lg:w-64'
               src='/images/vistahermosa.png'
               alt='Vista Hermosa Park overlooking downtown Los Angeles'
-            ></img>
-            <br />
-            The City has 46 departments, bureaus, commissions and offices, 39 of
-            which have their operating funds annually budgeted by the City
-            Council. The Department of Water and Power, Harbor Department, and
-            the Department of Airports are publicly-owned entities under the
-            control of boards appointed by the Mayor and confirmed by the City
-            Council. Several other departments are fiscally independent or under
-            the control of independent boards.
-            <br />
-            <br />
+            />
+            <p className='text-center md:text-left'>
+              The City has 46 departments, bureaus, commissions, and offices, 39 of
+              which have their operating funds annually budgeted by the City Council.
+              The Department of Water and Power, Harbor Department, and the Department
+              of Airports are publicly-owned entities under the control of boards
+              appointed by the Mayor and confirmed by the City Council. Several other
+              departments are fiscally independent or under the control of independent
+              boards.
+            </p>
+            <div className='clear-both'></div>
+          </div>
+          <p>
             Public services provided by the City include police, fire and
             paramedics, residential refuse collection and disposal, wastewater
             collection and treatment, street maintenance and traffic management,
-            enforcement of building safety laws, libraries, recreation and
-            parks, community development, housing and services for seniors,
-            planning; two airports, harbor, power and water services, and the
-            convention center. Performance data on some of these services is
-            collected below in the “City Activities” section.
+            enforcement of building safety laws, libraries, recreation and parks,
+            community development, housing and services for seniors, planning; two
+            airports, harbor, power and water services, and the convention center.
+            Performance data on some of these services is collected below in the
+            “City Activities” section.
           </p>
-          <br />
-
-          <div className='mt-2 rounded-lg border-4 border-mejito bg-mejito bg-opacity-30 px-2 py-2 dark:bg-opacity-20 lg:max-w-5xl'>
-            {/* Pick of sherlock killa of the left side insert here later */}
-            <img
-              src='/sherlockcorgi.png'
-              className='float-left mb-1 mr-1 w-32'
-              alt=''
-            />
-            <p>
-              <h2 className='mt-3'>Key Terms</h2>
-              <span className='font-bold'>Governmental Activities:</span>{' '}
-              Functions of the City that are primarily supported by taxes and
-              intergovernmental revenues. These include general government,
-              police, fire and paramedics, public works, health and sanitation
-              (other than sewer services), transportation, cultural and
-              recreational services, and community development.
-              <br />
-              <br />
-              <span className='font-bold'>Business-Type Activities:</span>{' '}
-              Functions and services provided to the general public, that are
-              intended to recover all or a portion of their costs through user
-              fees and charges. These include airports, harbor, power, water,
-              sewer and convention center services.
-              <br />
-              <br />
-              <span className='font-bold'>Net Position:</span> The difference
-              between the value of what the City owns minus the value of what
-              the City owes. One can look at net position as the City’s "net
-              worth."
-              <br />
-              <br />
-              <span className='font-bold'>General Fund:</span> The main
-              operating fund of the City, which is used to finance general
-              government operations.
-              <br />
-              <br />
-              <span className='font-bold'>Capital Assets:</span> These include
-              land, buildings, facilities, equipment, infrastructure,
-              intangibles, construction in progress, nuclear fuel and a natural
-              gas field that the city owns. The City uses these capital assets
-              to provide services to its citizens; consequently, these assets
-              are not available for future spending.
-            </p>
-          </div>
         </div>
+        <br />
+
+        <div className='mt-2 rounded-lg border-4 border-mejito bg-mejito bg-opacity-30 px-2 py-2 dark:bg-opacity-20 lg:max-w-5xl'>
+          <img
+            src='/sherlockcorgi.png'
+            className='float-left mb-1 mr-1 w-32'
+            alt=''
+          />
+          <section aria-labelledby='key-terms-heading'>
+            <h2 id='key-terms-heading' className='mt-3'>Key Terms</h2>
+            <span className='font-bold'>Governmental Activities:</span>{' '}
+            Functions of the City that are primarily supported by taxes and
+            intergovernmental revenues. These include general government, police,
+            fire and paramedics, public works, health and sanitation (other than
+            sewer services), transportation, cultural and recreational services,
+            and community development.
+            <br />
+            <br />
+            <span className='font-bold'>Business-Type Activities:</span>{' '}
+            Functions and services provided to the general public, that are
+            intended to recover all or a portion of their costs through user fees
+            and charges. These include airports, harbor, power, water, sewer and
+            convention center services.
+            <br />
+            <br />
+            <span className='font-bold'>Net Position:</span> The difference
+            between the value of what the City owns minus the value of what the
+            City owes. One can look at net position as the City’s "net worth."
+            <br />
+            <br />
+            <span className='font-bold'>General Fund:</span> The main operating
+            fund of the City, which is used to finance general government
+            operations.
+            <br />
+            <br />
+            <span className='font-bold'>Capital Assets:</span> These include land,
+            buildings, facilities, equipment, infrastructure, intangibles,
+            construction in progress, nuclear fuel and a natural gas field that
+            the city owns. The City uses these capital assets to provide services
+            to its citizens; consequently, these assets are not available for
+            future spending.
+          </section>
+          <div className='clear-both'></div>
+        </div>
+      </div>
 
         <div className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100  sm:px-4 lg:mx-auto lg:max-w-7xl'>
           <div className='PortraitofCityOfLA lg:max-w-5xl'></div>
-
+          <h2 className='mt-3'>City Revenues and Expenses (FY 2024)</h2>
           <h3 className='mt-3'>Total City Revenues: $21.9 billion</h3>
 
           <p className='mt-2 lg:max-w-5xl'>
@@ -843,7 +847,7 @@ export default function pafr24(props: any) {
           <div className='flex flex-col gap-y-2 md:flex-row md:gap-x-3 lg:max-w-5xl'>
             <div className=' rounded-lg bg-gray-100 px-3 py-3 dark:bg-gray-800 md:w-1/2'>
               <p className='font-bold'>Assets represent what the City owns:</p>
-              <ul className='list-disc px-4'>
+              <ul className='list-disc px-4 pl-5 md:pl-6'>
                 <li>Cash and pooled investments</li>
                 <li>Receivables</li>
                 <li>Capital assets (land, buildings and infrastructure)</li>
@@ -861,7 +865,7 @@ export default function pafr24(props: any) {
               <p className='font-bold'>
                 Liabilities represent what the City owes:
               </p>
-              <ul className='list-disc  px-4'>
+              <ul className='list-disc px-4 pl-5 md:pl-6'>
                 <li>Bonds and notes</li>
                 <li>Claims and judgments</li>
                 <li>Unearned revenue</li>
@@ -874,15 +878,12 @@ export default function pafr24(props: any) {
               <span className='font-bold'>Total: $62.6 billion.</span>
             </div>
           </div>
-          <h3>
-            <br />
-            <br />
-            <b>
-              {' '}
-              Net Position: $31.7 billion, $1.1 billion, 3.6% increase from FY23
-            </b>
-          </h3>
-          The City’s net position is illustrated in the table below:
+          <p className='mt-6 text-lg md:text-2xl font-bold'>
+            Net Position: $31.7 billion, $1.1 billion, 3.6% increase from FY23
+          </p>
+          <p>
+            The City’s net position is illustrated in the table below:
+          </p>
           <div className='lg:max-w-5xl'>
             <NetPosition />
           </div>
@@ -950,14 +951,9 @@ export default function pafr24(props: any) {
               <br />
               <br /> */}
 
-            <span className='font-bold  '>
-              <b>In FY24,</b> General Fund revenues was{' '}
-              <b>
-                {' '}
-                $6.9 billion, $200.7 million (3.0%) increase over FY23, and
-                exceeds General Fund expenditures by $105.4 million.
-              </b>
-            </span>
+            <p className='font-bold md:text-xl'>
+              In FY24, General Fund revenues was $6.9 billion, $200.7 million (3.0%) increase over FY23, and exceeds General Fund expenditures by $105.4 million.
+            </p>
 
             {/* </p> */}
             {/* <h2 className='mt-3'>General Fund Revenues</h2> */}
@@ -968,7 +964,7 @@ export default function pafr24(props: any) {
             {/*Revenues  vis */}
 
             {/* revenues text */}
-            <ul className='list-disc'>
+            <ul className='list-disc mt-6 pl-5 md:pl-6'>
               <li>
                 <span className='font-bold'>Property taxes</span>,which
                 represent 40.2% of General Fund revenue, increased by $136.4
@@ -1065,14 +1061,14 @@ export default function pafr24(props: any) {
             <GeneralFundExpenses />
           </div>
           <div className='lg:max-w-5xl'>
-            <h4 className='font-bold'>
+            <p className='font-bold md:text-xl'>
               In FY24 General Fund Expenditures was $6.8 billion, $840.7 million
               (14.0%) increase over FY23, primarily due to the following:
-            </h4>
+            </p>
             {/*Expenses  vis */}
 
             <br />
-            <ul className='list-disc'>
+            <ul className='list-disc pl-5 md:pl-6'>
               <li>
                 <span className='font-bold'>Salaries and Benefits</span>{' '}
                 increased by $343.6 million (11.2%), due to compensation
@@ -1125,12 +1121,12 @@ export default function pafr24(props: any) {
               </li>
             </ul>
           </div>
-          <div className='container mx-0 px-4 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
-            <h3 className='mt-3'>How Much Does The City Owe?</h3>
-            <h4>
+          <div className='container mx-0 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
+            <h2 className='mt-3'>How Much Does The City Owe?</h2>
+            <p className='font-bold mt-3'>
               Bonded Debt and Long-Term Notes Payable: $39.4 billion, an
               increase of $180.8 million or 0.5% from FY23
-            </h4>
+            </p>
             <div className='lg:max-w-5xl'>
               <BondedDebtandLongTermNotesPayable />
             </div>
@@ -1153,7 +1149,7 @@ export default function pafr24(props: any) {
                 but the 6% ceiling shall not be exceeded for more than one year.
               </p>
             </div>
-            <ul>
+            <ul className='pl-5 md:pl-6'>
               <br></br>
               <li>
                 <span className='font-bold'>For Fiscal Year 2024,</span> the
@@ -1188,7 +1184,7 @@ export default function pafr24(props: any) {
             <h3 className='mt-3'>
               Ratings of the City’s Debts by Rating Agencies
             </h3>
-            <span className='font-bold'>
+            <span className='font-bold mt-3'>
               By maintaining good (above median average) credit ratings, the
               City is able to obtain favorable lending terms on City’s debts,
               thereby saving taxpayers money on City’s long-term debts.
