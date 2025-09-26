@@ -54,9 +54,19 @@ const BarChart: React.FC = () => {
           personalIncomePerCapita: d['Personal Income Per Capita']
             ? parseInt(d['Personal Income Per Capita'].replace(/,/g, ''), 10)
             : 0,
-          unemploymentRate: d['Unemployment Rate']
-            ? parseFloat(d['Unemployment Rate'].replace(/%/, ''))
-            : 0,
+          unemploymentRate: (() => {
+            const rawValue = d['Unemployment Rate'];
+            if (!rawValue) {
+              return 0;
+            }
+
+            const parsedValue = parseFloat(String(rawValue).replace(/%/, ''));
+            if (!Number.isFinite(parsedValue)) {
+              return 0;
+            }
+
+            return parsedValue > 1 ? parsedValue : parsedValue * 100;
+          })(),
         }));
         const filteredData = dataArray.filter(
           (data) => data.fiscalYear >= 2019 && data.fiscalYear <= 2024
@@ -273,13 +283,23 @@ const BarChart: React.FC = () => {
             {chartData.map((data) => (
               <tr key={data.fiscalYear}>
                 <th scope='row'>{data.fiscalYear}</th>
-                <td>{data.estimatedPopulation.toLocaleString()}</td>
                 <td>
-                  {Number.isFinite(data.personalIncomePerCapita)
+                  {data.estimatedPopulation > 0
+                    ? data.estimatedPopulation.toLocaleString()
+                    : '-'}
+                </td>
+                <td>
+                  {Number.isFinite(data.personalIncomePerCapita) &&
+                  data.personalIncomePerCapita > 0
                     ? `$${Math.round(data.personalIncomePerCapita).toLocaleString()}`
                     : '-'}
                 </td>
-                <td>{data.unemploymentRate.toFixed(1)}%</td>
+                <td>
+                  {Number.isFinite(data.unemploymentRate) &&
+                  data.unemploymentRate > 0
+                    ? `${data.unemploymentRate.toFixed(1)}%`
+                    : '-'}
+                </td>
               </tr>
             ))}
           </tbody>

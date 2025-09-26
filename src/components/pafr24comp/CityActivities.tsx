@@ -18,6 +18,8 @@ import { csvParse } from "d3";
 import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
+
+import getAccessibleRandomColor from "../getAccessibleRandomColor";
 Chart.register(
   CategoryScale,
   LinearScale,
@@ -105,6 +107,57 @@ const LineChart: React.FC = () => {
     (asset) => filteredData.some((data) => data.Asset === asset)
   );
 
+  const accessibleTables = departmentAssets
+    .map((asset) => {
+      const dataForAsset = filteredData.filter((data) => data.Asset === asset);
+      if (dataForAsset.length === 0) {
+        return null;
+      }
+
+      const labels = Object.keys(chartData[0])
+        .filter((key) => /^\d{4}$/.test(key))
+        .sort();
+
+      const formatValue = (value: unknown) => {
+        const numeric = Number(value);
+        if (!Number.isFinite(numeric)) {
+          return '-';
+        }
+        return numeric.toLocaleString().replace(/\.0+$/, '');
+      };
+
+      return (
+        <div key={`table-${asset}`}>
+          <table>
+            <caption>{`${asset} metrics for ${selectedDepartment ?? 'department'}`}</caption>
+            <thead>
+              <tr>
+                <th scope="col">Year</th>
+                {dataForAsset.map((data, index) => (
+                  <th scope="col" key={`${asset}-dataset-${index}`}>
+                    {data.Asset}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {labels.map((year) => (
+                <tr key={`${asset}-${year}`}>
+                  <th scope="row">{year}</th>
+                  {dataForAsset.map((data, index) => (
+                    <td key={`${asset}-${index}-${year}`}>
+                      {formatValue(data[year])}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    })
+    .filter(Boolean) as JSX.Element[];
+
   const charts = departmentAssets.map((asset) => {
     const dataForAsset = filteredData.filter((data) => data.Asset === asset);
 
@@ -112,20 +165,22 @@ const LineChart: React.FC = () => {
     //   (key) => key !== "Department" && key !== "Asset"
     // );
     const labels = Object.keys(chartData[0])
-      .filter((key) => /^\d{4}$/.test(key)); // Only include keys that are 4-digit years
+      .filter((key) => /^\d{4}$/.test(key))
+      .sort(); // Only include keys that are 4-digit years
 
 
-    const datasets = dataForAsset.map((data) => ({
-      label: `${data.Department} - ${data.Asset}`,
-      data: labels.map((year) => data[year]),
-      borderColor: getRandomColor(),
-      fill: false,
-    }));
-
-    function getRandomColor() {
-      return `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255
-        }, 0.7)`;
-    }
+    const datasets = dataForAsset.map((data) => {
+      const color = getAccessibleRandomColor();
+      return {
+        label: `${data.Department} - ${data.Asset}`,
+        data: labels.map((year) => Number(data[year]) || 0),
+        borderColor: color,
+        backgroundColor: color,
+        pointBorderColor: color,
+        pointBackgroundColor: color,
+        fill: false,
+      };
+    });
 
 
     function isDarkMode() {
@@ -200,7 +255,7 @@ const LineChart: React.FC = () => {
     return (
       <div key={asset} style={{ marginBottom: "20px" }}>
         <h3>{asset}</h3>
-        <div style={{ width: "100%", height: "300px" }}>
+        <div style={{ width: "100%", height: "300px" }} aria-hidden="true">
           <Line data={{ labels, datasets }} options={options} />
         </div>
       </div>
@@ -232,6 +287,8 @@ const LineChart: React.FC = () => {
           </button>
         ))}
       </div>
+
+      <div className='sr-only'>{accessibleTables}</div>
 
       <div >{charts}</div>
     </div>

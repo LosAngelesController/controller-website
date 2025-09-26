@@ -67,9 +67,13 @@ const TopEmployeeChart: React.FC = () => {
       label: '2024 Employees(Non-Government)',
       data: chartData.map((data) => data.employees22),
       backgroundColor: '#41ffca',
+      borderColor: 'black',
+      borderWidth: 0.5,
       stack: 'stack',
     },
   ];
+
+  const tableId = 'pafr24-top-employers-summary';
 
   function isDarkMode() {
     if (typeof window !== 'undefined') {
@@ -143,9 +147,51 @@ const TopEmployeeChart: React.FC = () => {
   };
 
   return (
-    <div style={{ width: '100%', height: '500px', overflowX: 'auto' }}>
-      <Bar data={{ labels, datasets }} options={options} />
-    </div>
+    <>
+      <div className="sr-only" id={tableId}>
+        <table>
+          <caption>
+            Top non-government employers by employee count for fiscal year 2024.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Employer</th>
+              <th scope="col">2024 Employees (Non-Government)</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.map((data, index) => {
+              const rank = Number.isFinite(data.rank22) && data.rank22 > 0
+                ? data.rank22
+                : index + 1;
+              const employees = Number.isFinite(data.employees22)
+                ? data.employees22
+                : null;
+
+              return (
+                <tr key={data.employer}>
+                  <td>{rank.toLocaleString()}</td>
+                  <th scope="row">{data.employer}</th>
+                  <td>
+                    {employees !== null
+                      ? employees.toLocaleString()
+                      : '-'}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style={{ width: '100%', height: '500px', overflowX: 'auto' }}
+        aria-hidden="true"
+      >
+        <Bar data={{ labels, datasets }} options={options} />
+      </div>
+    </>
   );
 };
 

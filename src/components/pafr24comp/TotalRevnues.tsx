@@ -70,6 +70,8 @@ const BarChart: React.FC = () => {
           label: activityType,
           data: labels.map((year) => data[year] || 0),
           backgroundColor: activityType === "Governmental" ? "#41ffca" : "#ffca41",
+          borderColor: "black",
+          borderWidth: 0.5,
           stack: "stack",
         }));
 
@@ -146,10 +148,71 @@ const BarChart: React.FC = () => {
     },
   };
 
+  const tableId = "pafr24-total-revenues-summary";
+  const tableLabels = (chartData.labels || []) as string[];
+  const chartDatasets = chartData.datasets as Array<any>;
+  const barDatasets = chartDatasets.filter(
+    (dataset) => dataset.type !== "line"
+  );
+  const lineDataset = chartDatasets.find((dataset) => dataset.type === "line");
+
+  const formatValue = (value: number | undefined) => {
+    if (!Number.isFinite(value) || value === 0) {
+      return "-";
+    }
+    const billions = Number(value) / 1_000_000_000;
+    const formatted = billions.toLocaleString(undefined, {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
+    return `$${formatted}B`;
+  };
+
   return (
-    <div style={{ width: "100%", height: "500px", overflowX: "auto" }}>
-      <Bar data={chartData} options={options} />
-    </div>
+    <>
+      <div className="sr-only" id={tableId}>
+        <table>
+          <caption>
+            Stacked revenues by activity type with yearly totals for fiscal years 2019-2024.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Fiscal Year</th>
+              {barDatasets.map((dataset) => (
+                <th scope="col" key={dataset.label}>
+                  {dataset.label}
+                </th>
+              ))}
+              {lineDataset ? (
+                <th scope="col">{lineDataset.label}</th>
+              ) : null}
+            </tr>
+          </thead>
+          <tbody>
+            {tableLabels.map((year, index) => (
+              <tr key={year}>
+                <th scope="row">{year}</th>
+                {barDatasets.map((dataset) => (
+                  <td key={`${year}-${dataset.label}`}>
+                    {formatValue(dataset.data?.[index])}
+                  </td>
+                ))}
+                {lineDataset ? (
+                  <td>{formatValue(lineDataset.data?.[index])}</td>
+                ) : null}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style={{ width: "100%", height: "500px", overflowX: "auto" }}
+        aria-hidden="true"
+      >
+        <Bar data={chartData} options={options} />
+      </div>
+    </>
   );
 };
 

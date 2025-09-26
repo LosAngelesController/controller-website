@@ -11,6 +11,8 @@ import { csvParse } from "d3";
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
+import getAccessibleRandomColor from "../getAccessibleRandomColor";
+
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
 
 interface ChartData {
@@ -69,11 +71,16 @@ const BarChart: React.FC = () => {
   });
 
   const labels = Object.keys(aggregatedData[Object.keys(aggregatedData)[0]]);
+  const toTransparent = (color: string, alpha: number) =>
+    color.replace("rgb(", "rgba(").replace(")", `, ${alpha})`);
+
   const datasets = Object.entries(aggregatedData).map(([revenue, data]) => ({
     label: revenue,
-    data: Object.values(data),
-    backgroundColor: getRandomColor(),
-    stack: "stack",
+    data: labels.map((year) => data[year] || 0),
+    backgroundColor: toTransparent(getAccessibleRandomColor(), 0.7),
+    borderColor: 'black',
+    borderWidth: 0.25,
+    stack: 'stack',
   }));
 
   const lineDataset = {
@@ -85,10 +92,6 @@ const BarChart: React.FC = () => {
   };
 
   const allDatasets = [...datasets, lineDataset];
-
-  function getRandomColor() {
-    return `rgba(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}, 0.7)`;
-  }
 
   function isDarkMode() {
     if (typeof window !== 'undefined') {
@@ -158,10 +161,63 @@ const BarChart: React.FC = () => {
     },
   };
 
+  const tableId = 'pafr24-general-fund-revenues-summary';
+
+  const formatValue = (value: number | undefined) => {
+    if (!Number.isFinite(value) || value === 0) {
+      return '-';
+    }
+
+    return Number(value).toLocaleString();
+  };
+
   return (
-    <div style={{ width: "100%", height: "500px", overflowX: "auto" }}>
-      <Bar data={{ labels, datasets }} options={options} />
-    </div>
+    <>
+      <div className="sr-only" id={tableId}>
+        <table>
+          <caption>
+            General Fund revenues by category for fiscal years 2019-2024.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Revenue Type</th>
+              {labels.map((year) => (
+                <th scope="col" key={year}>
+                  {year}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {datasets.map((dataset) => (
+              <tr key={dataset.label}>
+                <th scope="row">{dataset.label}</th>
+                {labels.map((year, index) => (
+                  <td key={`${dataset.label}-${year}`}>
+                    {formatValue(dataset.data[index])}
+                  </td>
+                ))}
+              </tr>
+            ))}
+            <tr>
+              <th scope="row">Yearly Sum</th>
+              {labels.map((year) => (
+                <td key={`yearly-sum-${year}`}>
+                  {formatValue(yearlySum[year])}
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style={{ width: '100%', height: '500px', overflowX: 'auto' }}
+        aria-hidden="true"
+      >
+        <Bar data={{ labels, datasets }} options={options} />
+      </div>
+    </>
   );
 };
 

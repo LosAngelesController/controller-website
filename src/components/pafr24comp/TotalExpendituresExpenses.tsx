@@ -65,6 +65,8 @@ const BarChart: React.FC = () => {
           )?.Value || 0
       ),
       backgroundColor: "#41ffca", // Color for Governmental
+      borderColor: "black",
+      borderWidth: 0.5,
       stack: "stack", // Grouped stacking
     },
     {
@@ -77,6 +79,8 @@ const BarChart: React.FC = () => {
           )?.Value || 0
       ),
       backgroundColor: "#ffca41", // Color for Business-Type
+      borderColor: "black",
+      borderWidth: 0.5,
       stack: "stack", // Grouped stacking
     },
   ];
@@ -131,10 +135,59 @@ const BarChart: React.FC = () => {
     },
   };
 
+  const tableId = "pafr24-total-expenditures-summary";
+
+  const formatValue = (value: number) => {
+    if (!Number.isFinite(value) || value === 0) {
+      return "-";
+    }
+    const billions = Number(value) / 1_000_000_000;
+    const formatted = billions.toLocaleString(undefined, {
+      minimumFractionDigits: 1,
+      maximumFractionDigits: 1,
+    });
+    return `$${formatted}B`;
+  };
+
   return (
-    <div style={{ width: "100%", height: "500px", overflowX: "auto" }}>
-      <Bar data={{ labels, datasets }} options={options} />
-    </div>
+    <>
+      <div className="sr-only" id={tableId}>
+        <table>
+          <caption>
+            Stacked expenditures by activity type for fiscal years 2019-2024.
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Fiscal Year</th>
+              {datasets.map((dataset) => (
+                <th scope="col" key={dataset.label}>
+                  {dataset.label}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {labels.map((year, columnIndex) => (
+              <tr key={year}>
+                <th scope="row">{year}</th>
+                {datasets.map((dataset) => (
+                  <td key={`${year}-${dataset.label}`}>
+                    {formatValue(dataset.data[columnIndex])}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div
+        style={{ width: "100%", height: "500px", overflowX: "auto" }}
+        aria-hidden="true"
+      >
+        <Bar data={{ labels, datasets }} options={options} />
+      </div>
+    </>
   );
 };
 
