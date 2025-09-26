@@ -1,16 +1,16 @@
 import Link from 'next/link';
 import * as React from 'react';
 
-import BarChart from '@/components/BarChart';
-import BondedDebtandLongTermNotesPayable from '@/components/BondedDebtandLongTermNotesPayable';
-import CityActivities from '@/components/CityActivities';
-import GeneralFundExpenses from '@/components/GeneralFundExpenses';
-import GeneralFundRevenues from '@/components/GeneralFundRevenues';
-import NetPosition from '@/components/NetPosition';
 import { Credit } from '@/components/pafr23visualise/credit';
-import TopEmployeeChart from '@/components/TopEmployee';
-import TotalExpenditure from '@/components/TotalExpendituresExpenses';
-import TotalRevnues from '@/components/TotalRevnues';
+import BarChart from '@/components/pafr24comp/BarChart';
+import BondedDebtandLongTermNotesPayable from '@/components/pafr24comp/BondedDebtandLongTermNotesPayable';
+import CityActivities from '@/components/pafr24comp/CityActivities';
+import GeneralFundExpenses from '@/components/pafr24comp/GeneralFundExpenses';
+import GeneralFundRevenues from '@/components/pafr24comp/GeneralFundRevenues';
+import NetPosition from '@/components/pafr24comp/NetPosition';
+import TopEmployeeChart from '@/components/pafr24comp/TopEmployee';
+import TotalExpenditure from '@/components/pafr24comp/TotalExpendituresExpenses';
+import TotalRevnues from '@/components/pafr24comp/TotalRevnues';
 
 export default function pafr24(props: any) {
   return (
@@ -923,10 +923,10 @@ export default function pafr24(props: any) {
               <br />
               <br />
               <h2 className='mt-3'>Dollars In – General Fund Revenues:</h2>
-              City of Los Angeles’ government resources and services are funded
+              <p className='mt-3'>City of Los Angeles’ government resources and services are funded
               through several different revenue streams. In FY24, the City
               collected General Fund revenues of <b>$6.9 billion</b> with $5.7
-              billion or 82% coming from taxes.
+              billion or 82% coming from taxes.</p>
               <br></br>
               <br></br>
               <GeneralFundRevenues />
@@ -1040,7 +1040,7 @@ export default function pafr24(props: any) {
           <br />
           <div className='lg:max-w-5xl'>
             <h2 className='mt-3'>Dollars Out – General Fund Expenditures </h2>
-            <p>
+            <p className='mt-3'>
               The City of Los Angeles provides a wide range of services to
               residents ranging from public safety, fire and paramedics,
               residential refuse collection and disposal, wastewater collection
@@ -1123,7 +1123,7 @@ export default function pafr24(props: any) {
           </div>
           <div className='container mx-0 pb-3 pt-3  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
             <h2 className='mt-3'>How Much Does The City Owe?</h2>
-            <p className='font-bold mt-3'>
+            <p className='font-bold mt-3 md:text-xl'>
               Bonded Debt and Long-Term Notes Payable: $39.4 billion, an
               increase of $180.8 million or 0.5% from FY23
             </p>
@@ -1149,30 +1149,25 @@ export default function pafr24(props: any) {
                 but the 6% ceiling shall not be exceeded for more than one year.
               </p>
             </div>
-            <ul className='pl-5 md:pl-6'>
-              <br></br>
-              <li>
-                <span className='font-bold'>For Fiscal Year 2024,</span> the
-                ratios were{' '}
-                <b>
-                  {' '}
-                  4.3% for overall debt and 2.6% for non-voter approved debt.
-                </b>{' '}
-                As of June 30, 2024, the City was in compliance with its Debt
-                Policies.
-              </li>
-              <br></br>
-              <li>
-                <span className='font-bold'>
-                  Of the <b>$39.4 billion long-term bonds and notes payable,</b>{' '}
-                  $960.2 million were General Obligation bonds backed by the
-                  City. The remaining $38.4 billion are backed by Enterprise
-                  Funds and other specified Special Revenue sources.
-                </span>{' '}
-                {/* $1.1 billion were General Obligation bonds. */}
-              </li>
-              <br></br>
-              {/* <li>
+            <div className='mt-6 lg:max-w-5xl'>
+              <ul className='list-disc space-y-6 pl-5 md:pl-6'>
+                <li>
+                  <span className='font-bold'>For Fiscal Year 2024,</span> the
+                  ratios were <b>4.3% for overall debt and 2.6% for non-voter
+                  approved debt.</b> As of June 30, 2024, the City was in
+                  compliance with its Debt Policies.
+                </li>
+                <li>
+                  <span className='font-bold'>
+                    Of the <b>$39.4 billion long-term bonds and notes payable,</b>{' '}
+                    $960.2 million were General Obligation bonds backed by the
+                    City.
+                  </span>{' '}
+                  The remaining $38.4 billion are backed by Enterprise Funds and
+                  other specified Special Revenue sources.
+                  {/* $1.1 billion were General Obligation bonds. */}
+                </li>
+                {/* <li>
                   <span className='font-bold'>
                     As of June 30, 2024,
 
@@ -1180,61 +1175,60 @@ export default function pafr24(props: any) {
                   the City was in compliance with its Debt Policies.
 
                 </li> */}
-            </ul>
-            <h3 className='mt-3'>
-              Ratings of the City’s Debts by Rating Agencies
-            </h3>
-            <span className='font-bold mt-3'>
-              By maintaining good (above median average) credit ratings, the
-              City is able to obtain favorable lending terms on City’s debts,
-              thereby saving taxpayers money on City’s long-term debts.
-            </span>{' '}
-            <br></br>
-            <br></br>
-            <br></br>
-            <Credit />
-            <br></br>
-            <span>
-              In January 2025, three rating agencies, S&P Global Ratings, Fitch
-              Ratings, and Kroll Bond Rating Agency, placed the City's ratings
-              on watch negative status, indicating that the City's ratings are
-              under review and that there is meaningful potential for a negative
-              rating change. The actions reflect the risk of potential exposure
-              of the City's General Fund to wildfire liability claims and the
-              potential impact of recovery and response on the City's unbudgeted
-              expenditures and available liquidity.
-              {/* Additionally, Moody's Ratings revised the
+              </ul>
+            </div>
+            <div className='mt-6 lg:max-w-5xl'>
+              <h3>
+                Ratings of the City’s Debts by Rating Agencies
+              </h3>
+              <p className='mt-3 font-bold'>
+                By maintaining good (above median average) credit ratings, the
+                City is able to obtain favorable lending terms on City’s debts,
+                thereby saving taxpayers money on City’s long-term debts.
+              </p>
+              <div className='mt-6'>
+                <Credit />
+              </div>
+              <p className='mt-6'>
+                In January 2025, three rating agencies, S&P Global Ratings, Fitch
+                Ratings, and Kroll Bond Rating Agency, placed the City's ratings
+                on watch negative status, indicating that the City's ratings are
+                under review and that there is meaningful potential for a negative
+                rating change. The actions reflect the risk of potential exposure
+                of the City's General Fund to wildfire liability claims and the
+                potential impact of recovery and response on the City's unbudgeted
+                expenditures and available liquidity.
+                {/* Additionally, Moody's Ratings revised the
                 outlooks on the City's issuer rating for Sewer's senior and
                 subordinate wastewater revenue bonds rating from stable to
                 negative. */}
-            </span>{' '}
-            <br></br><br />
-            <span>
-              S&P Global Ratings placed the City's general obligation bonds and
-              MICLA's lease revenue bonds on CreditWatch with negative
-              implications. S&P Global Ratings expects to complete its review by
-              April 15, 2025. Similarly, Kroll Bond Rating Agency placed both
-              bonds on Watch Downgrade and expects to complete its review by
-              April 16, 2025. Moody's Ratings also revised the outlooks on the
-              City's issuer rating, general obligation bond rating, MICLA lease
-              revenue bond rating, wastewater system senior and subordinate
-              revenue bond ratings, and solid waste resources revenue bond
-              rating from stable to negative. Fitch Ratings placed the City's
-              Issuer Default Rating on Rating Watch Negative and expects to
-              complete its review by July 17, 2025.
-            </span>
-            <br></br><br />
-            <span>
-              S&P Global Ratings lowered its long-term and underlying ratings on
-              Power's revenue bonds outstanding from 'AA-' to 'A' and Water's
-              revenue bonds outstanding from 'AA+' to 'AA-'. Both Power and
-              Water ratings were placed on CreditWatch with negative
-              implications in connection with the increasing frequency and
-              severity of highly destructive wildfires within the DWP service
-              territory. Additionally, Moody's Ratings revised the outlooks on
-              the City's issuer rating for Sewer's senior and subordinate
-              wastewater revenue bonds rating from stable to negative.
-            </span>
+              </p>
+              <p className='mt-6'>
+                S&P Global Ratings placed the City's general obligation bonds and
+                MICLA's lease revenue bonds on CreditWatch with negative
+                implications. S&P Global Ratings expects to complete its review by
+                April 15, 2025. Similarly, Kroll Bond Rating Agency placed both
+                bonds on Watch Downgrade and expects to complete its review by
+                April 16, 2025. Moody's Ratings also revised the outlooks on the
+                City's issuer rating, general obligation bond rating, MICLA lease
+                revenue bond rating, wastewater system senior and subordinate
+                revenue bond ratings, and solid waste resources revenue bond
+                rating from stable to negative. Fitch Ratings placed the City's
+                Issuer Default Rating on Rating Watch Negative and expects to
+                complete its review by July 17, 2025.
+              </p>
+              <p className='mt-6'>
+                S&P Global Ratings lowered its long-term and underlying ratings on
+                Power's revenue bonds outstanding from 'AA-' to 'A' and Water's
+                revenue bonds outstanding from 'AA+' to 'AA-'. Both Power and
+                Water ratings were placed on CreditWatch with negative
+                implications in connection with the increasing frequency and
+                severity of highly destructive wildfires within the DWP service
+                territory. Additionally, Moody's Ratings revised the outlooks on
+                the City's issuer rating for Sewer's senior and subordinate
+                wastewater revenue bonds rating from stable to negative.
+              </p>
+            </div>
             {/* <p className='mt-4 lg:max-w-5xl'>
               The City has established guidelines for the structure and
               management of the City’s debt, which include target and ceiling
