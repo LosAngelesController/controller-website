@@ -48,6 +48,23 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Preliminary Financial Report FY 22-23 Web Summary</title>
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@lacontroller' />
+        <meta
+          name='twitter:title'
+          content='Preliminary Financial Report 2022-23'
+        />
+        <meta
+          name='twitter:description'
+          content='Preliminary Financial Report Web Summary'
+        />
+        <meta
+          name='twitter:image'
+          content='https://controller.lacity.gov/images/pfr-banner.png'
+        />
+      </Helmet>
       <Navbar />
       <Layout>
         <div
@@ -68,6 +85,9 @@ const Home = () => {
         <center>
           <br></br>
 
+          <h1 className='sr-only'>
+            Preliminary Financial Report Fiscal Year 2022-23 Web Summary
+          </h1>
           <br />
           <br />
           <div
@@ -135,7 +155,7 @@ const Home = () => {
           >
             <br />
             <br />
-            <h1 className='mb-4'>Controller’s Cover Letter</h1>
+            <h2 className='mb-4'>Controller’s Cover Letter</h2>
             <p className='mb-4'>
               <b>Preliminary Financial Report for Fiscal Year 2022-2023</b>
               <br></br>
@@ -329,7 +349,7 @@ const Home = () => {
           className='container mx-auto dark:text-white'
           style={{ fontFamily: 'Helvetica', maxWidth: '1500px' }}
         >
-          <h1>Revenues</h1>
+          <h2>Revenues</h2>
           <br></br>
           <p className='mb-4'>
             During the 2022-23 fiscal year, total revenues in budgeted funds
@@ -350,7 +370,7 @@ const Home = () => {
           <Revenue />
           <br></br>
           <br></br>
-          <h1>Expenditures</h1>
+          <h2>Expenditures</h2>
           <br></br>
           <p className='mb-4'>
             Total expenditures, including encumbrances were $10.6 billion, which
@@ -364,7 +384,7 @@ const Home = () => {
           <Expenditures />
           <br></br>
           <br></br>
-          <h1>Reserves</h1>
+          <h2>Reserves</h2>
           <br></br>
           <p className='mb-4'>
             The Reserve Fund is established to ensure that funds are available
@@ -389,7 +409,7 @@ const Home = () => {
           </p>
           <Reserve />
           <br></br>
-          <h1>Debt</h1>
+          <h2>Debt</h2>
           <br></br>
 
           <p className='mb-4'>
@@ -403,22 +423,6 @@ const Home = () => {
           <Debt />
         </div>
       </div>
-      <Helmet>
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:site' content='@lacontroller' />
-        <meta
-          name='twitter:title'
-          content='Preliminary Financial Report 2022-23'
-        />
-        <meta
-          name='twitter:description'
-          content='Preliminary Financial Report Web Summary'
-        />
-        <meta
-          name='twitter:image'
-          content='https://controller.lacity.gov/images/pfr-banner.png'
-        />
-      </Helmet>
     </>
   );
 };
