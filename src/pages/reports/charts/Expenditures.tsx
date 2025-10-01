@@ -67,8 +67,27 @@ function Expenditures() {
   const [totalExpendituresData, setTotalExpendituresData] = useState<
     TotalExpenditure[]
   >([]);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   const isDark = isDarkMode();
+
+  const formatAbbreviatedCurrency = (value: number) => {
+    const absValue = Math.abs(value);
+
+    if (absValue >= 1_000_000_000) {
+      return `$${(value / 1_000_000_000).toFixed(value % 1_000_000_000 === 0 ? 0 : 1)}B`;
+    }
+
+    if (absValue >= 1_000_000) {
+      return `$${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
+    }
+
+    if (absValue >= 1_000) {
+      return `$${(value / 1_000).toFixed(value % 1_000 === 0 ? 0 : 1)}K`;
+    }
+
+    return `$${value.toLocaleString()}`;
+  };
 
   useEffect(() => {
     axios
@@ -92,6 +111,23 @@ function Expenditures() {
       .catch((error) => {
         console.error('Error fetching total expenditures data:', error);
       });
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleResize = () => {
+      setIsMobileViewport(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const getFilteredRevenueData = () => {
@@ -198,6 +234,7 @@ function Expenditures() {
             <option value='Budgetary Department'>Budgetary Department</option>
             <option value='Non_Departmental'>Non-Departmental</option>
           </select>
+          {isMobileViewport && <div style={{ height: '12px' }} />}
           <label style={{ marginRight: '10px' }}>Fiscal Year:</label>
           <select
             value={fiscalYear}
@@ -222,12 +259,13 @@ function Expenditures() {
         <div className='chart-container'>
           <div>
             <h2>Total Expenditures by Department</h2>
-            <Bar
-              data={{
-                labels: getFilteredRevenueData()
-                  .sort((a, b) => b.totalExpenditures - a.totalExpenditures) // Sort the data in descending order
-                  .map((item) => item.department),
-                datasets: [
+            <div style={{ width: '100%', height: '600px' }}>
+              <Bar
+                data={{
+                  labels: getFilteredRevenueData()
+                    .sort((a, b) => b.totalExpenditures - a.totalExpenditures) // Sort the data in descending order
+                    .map((item) => item.department),
+                  datasets: [
                   {
                     label: 'Total Expenditures',
                     data: getFilteredRevenueData()
@@ -239,48 +277,56 @@ function Expenditures() {
                   },
                 ],
               }}
-              options={{
-                scales: {
-                  x: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+                options={{
+                  indexAxis: 'y', // Set the chart to have horizontal bars
+                  maintainAspectRatio: false,
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+                      },
+                      ticks: {
+                        color: isDark ? 'white' : 'black',
+                        callback: (value) =>
+                          typeof value === 'number'
+                            ? formatAbbreviatedCurrency(value)
+                            : formatAbbreviatedCurrency(Number(value ?? 0)),
+                      },
                     },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
+                    y: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+                      },
+                      ticks: {
+                        autoSkip: false,
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
                   },
-                  y: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
-                    },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
+                  plugins: {
+                    legend: {
+                      labels: {
+                        color: isDark ? 'white' : 'black', // Set legend text color to white in dark mode
+                      },
                     },
                   },
-                },
-                indexAxis: 'y', // Set the chart to have horizontal bars
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: isDark ? 'white' : 'black', // Set legend text color to white in dark mode
-                    },
-                  },
-                },
-              }}
-            />
+                }}
+              />
+            </div>
           </div>
           <br></br>
           <br></br>
           <div>
             <h2>Total Expenditures Over Time</h2>
-            <Bar
-              data={{
-                labels: totalExpendituresData
-                  .map((item) => `${item.fiscalYears}`)
-                  .filter(
-                    (value, index, self) => self.indexOf(value) === index
+            <div style={{ width: '100%', height: '450px' }}>
+              <Bar
+                data={{
+                  labels: totalExpendituresData
+                    .map((item) => `${item.fiscalYears}`)
+                    .filter(
+                      (value, index, self) => self.indexOf(value) === index
                   ), // Filter out repeated years
                 datasets: [
                   {
@@ -292,47 +338,54 @@ function Expenditures() {
                   },
                 ],
               }}
-              options={{
-                scales: {
-                  x: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+                options={{
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+                      },
+                      ticks: {
+                        color: isDark ? 'white' : 'black',
+                        callback: (value) =>
+                          typeof value === 'number'
+                            ? formatAbbreviatedCurrency(value)
+                            : formatAbbreviatedCurrency(Number(value ?? 0)),
+                      },
+                      title: {
+                        display: true,
+                        text: 'Fiscal Year',
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
-                    },
-                    title: {
-                      display: true,
-                      text: 'Fiscal Year',
-                      color: isDark ? 'white' : 'black',
-                    },
-                  },
-                  y: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
-                    },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
-                    },
-                    title: {
-                      display: true,
-                      text: 'Total Expenditures',
-                      color: isDark ? 'white' : 'black',
-                    },
-                  },
-                },
-                indexAxis: 'y',
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: isDark ? 'white' : 'black',
+                    y: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+                      },
+                      ticks: {
+                        autoSkip: false,
+                        color: isDark ? 'white' : 'black',
+                      },
+                      title: {
+                        display: true,
+                        text: 'Total Expenditures',
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
                   },
-                },
-              }}
-            />
+                  indexAxis: 'y',
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      labels: {
+                        color: isDark ? 'white' : 'black',
+                      },
+                    },
+                  },
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

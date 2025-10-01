@@ -86,6 +86,24 @@ const BarChart: React.FC = () => {
 
   const isDark = isDarkMode();
 
+  const formatAbbreviatedCurrency = (value: number) => {
+    const absValue = Math.abs(value);
+
+    if (absValue >= 1_000_000_000) {
+      return `$${(value / 1_000_000_000).toFixed(value % 1_000_000_000 === 0 ? 0 : 1)}B`;
+    }
+
+    if (absValue >= 1_000_000) {
+      return `$${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
+    }
+
+    if (absValue >= 1_000) {
+      return `$${(value / 1_000).toFixed(value % 1_000 === 0 ? 0 : 1)}K`;
+    }
+
+    return `$${value.toLocaleString()}`;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -215,7 +233,9 @@ const BarChart: React.FC = () => {
           color: isDark ? 'white' : 'black',
           callback: function (value) {
             if (selectedOption === 'debt') {
-              return '$' + value.toLocaleString();
+              const numericValue =
+                typeof value === 'number' ? value : Number(value ?? 0);
+              return formatAbbreviatedCurrency(numericValue);
             } else {
               return value + '%';
             }
@@ -234,6 +254,7 @@ const BarChart: React.FC = () => {
         },
         ticks: {
           color: isDark ? 'white' : 'black',
+          autoSkip: false,
         },
       },
     },

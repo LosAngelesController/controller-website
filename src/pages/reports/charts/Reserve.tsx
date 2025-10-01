@@ -74,6 +74,24 @@ const BarChartForDebt = () => {
 
   const isDark = isDarkMode();
 
+  const formatAbbreviatedCurrency = (value: number) => {
+    const absValue = Math.abs(value);
+
+    if (absValue >= 1_000_000_000) {
+      return `$${(value / 1_000_000_000).toFixed(value % 1_000_000_000 === 0 ? 0 : 1)}B`;
+    }
+
+    if (absValue >= 1_000_000) {
+      return `$${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
+    }
+
+    if (absValue >= 1_000) {
+      return `$${(value / 1_000).toFixed(value % 1_000 === 0 ? 0 : 1)}K`;
+    }
+
+    return `$${value.toLocaleString()}`;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -182,7 +200,9 @@ const BarChartForDebt = () => {
           color: isDark ? 'white' : 'black',
           callback: function (value) {
             if (selectedOption === 'reserveFund') {
-              return '$' + value.toLocaleString();
+              const numericValue =
+                typeof value === 'number' ? value : Number(value ?? 0);
+              return formatAbbreviatedCurrency(numericValue);
             } else {
               return value + '%';
             }
@@ -201,13 +221,14 @@ const BarChartForDebt = () => {
         },
         ticks: {
           color: isDark ? 'white' : 'black',
+          autoSkip: false,
         },
       },
     },
   };
 
   return (
-    <div className='p-10 text-center'>
+    <div className='text-center px-2 sm:px-4 md:px-10 py-10'>
       <br></br>
       <label style={{ marginRight: '10px' }}> Scale by % or $</label>
       <select
@@ -223,7 +244,7 @@ const BarChartForDebt = () => {
       </select>
 
       <div
-        className='px-10'
+        className='px-2 sm:px-4 md:px-10 mt-4'
         style={{ width: '100%', height: '500px', overflowX: 'auto' }}
       >
         <Bar options={options} data={selectedData} />
