@@ -234,8 +234,8 @@ function Expenditures() {
                       .sort((a, b) => b.totalExpenditures - a.totalExpenditures) // Sort the data in descending order
                       .map((item) => item.totalExpenditures),
                     backgroundColor: '#41ffca',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
                   },
                 ],
               }}
@@ -287,6 +287,8 @@ function Expenditures() {
                     label: 'Total Expenditures',
                     data: totalExpendituresData.map((item) => item.amounts),
                     backgroundColor: '#41ffca',
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
                   },
                 ],
               }}

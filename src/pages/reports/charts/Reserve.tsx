@@ -102,11 +102,15 @@ const BarChartForDebt = () => {
               label: 'Reserve Fund',
               data: reserveData?.map((item) => item.reserveFund),
               backgroundColor: '#ffca41',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
             {
               label: 'Budget Stabilization Fund',
               data: reserveData?.map((item) => item.budgetStabilizationFund),
               backgroundColor: '#41ffca',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
           ],
         }
@@ -119,6 +123,8 @@ const BarChartForDebt = () => {
                 (item) => item.reserveFundPercentage * 100
               ),
               backgroundColor: '#ffca41',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
             {
               label: 'Budget Stabilization Fund Percentage',
@@ -126,6 +132,8 @@ const BarChartForDebt = () => {
                 (item) => item.budgetStabilizationFundPercentage * 100
               ),
               backgroundColor: '#41ffca',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
           ],
         };

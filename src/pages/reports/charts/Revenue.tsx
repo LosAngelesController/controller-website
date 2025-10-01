@@ -167,8 +167,8 @@ function Revenue() {
                     // data: sortedRevenueData.map((item) => item.amount),
                     data: getFilteredRevenueData().map((item) => item.amount),
                     backgroundColor: '#41ffca',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
                     barPercentage: 0.8,
                     categoryPercentage: 1
                   },
@@ -248,8 +248,8 @@ function Revenue() {
                       .map((item) => item.totalRevenues)
                       .sort((a, b) => b - a), // Sort data in descending order
                     backgroundColor: '#41ffca',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
                   },
                 ],
               }}

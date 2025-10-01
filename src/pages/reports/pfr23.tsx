@@ -40,6 +40,7 @@ const Home = () => {
     textDecoration: 'none',
     borderRadius: '5px',
     display: 'inline-block',
+    border: '0.5px solid black',
   };
 
   const pdfLink =

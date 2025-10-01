@@ -116,8 +116,8 @@ const BarChart: React.FC = () => {
               label: '$ Total Debt Cap',
               type: 'line',
               data: debtData?.map((item) => item.capMoney),
-              borderColor: 'cyan',
-              backgroundColor: 'cyan',
+              borderColor: 'rgb(38, 157, 187)',
+              backgroundColor: 'rgb(38, 157, 187)',
             },
 
             {
@@ -125,12 +125,16 @@ const BarChart: React.FC = () => {
               data: debtData?.map((item) => item.voterApproveds),
               backgroundColor: 'green',
               type: 'bar',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
             {
               label: 'Non Voter Approved',
               type: 'bar',
               data: debtData?.map((item) => item.nonVoterApproved),
               backgroundColor: '#bb0000',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
           ],
         }
@@ -141,14 +145,16 @@ const BarChart: React.FC = () => {
               label: '% Total Debt Cap',
               type: 'line',
               data: debtData?.map((item) => item.totalPercent * 100),
-              borderColor: 'cyan',
-              backgroundColor: 'cyan',
+              borderColor: 'rgb(38, 157, 187)',
+              backgroundColor: 'rgb(38, 157, 187)',
             },
 
             {
               label: 'Voter Approved',
               data: debtData?.map((item) => item.voterXApproved * 100),
               backgroundColor: '#ffca41',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
             {
               label: 'Non-Voter Approved',
@@ -158,6 +164,8 @@ const BarChart: React.FC = () => {
                   100
               ),
               backgroundColor: '#41ffca',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
           ],
         };
