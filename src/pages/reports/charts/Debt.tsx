@@ -89,19 +89,34 @@ const BarChart: React.FC = () => {
   const formatAbbreviatedCurrency = (value: number) => {
     const absValue = Math.abs(value);
 
+    const formatWithSuffix = (divisor: number, suffix: string) => {
+      const amount = value / divisor;
+      const decimals = Number.isInteger(amount) ? 0 : 2;
+      return `$${amount.toFixed(decimals)}${suffix}`;
+    };
+
     if (absValue >= 1_000_000_000) {
-      return `$${(value / 1_000_000_000).toFixed(value % 1_000_000_000 === 0 ? 0 : 1)}B`;
+      return formatWithSuffix(1_000_000_000, 'B');
     }
 
     if (absValue >= 1_000_000) {
-      return `$${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
+      return formatWithSuffix(1_000_000, 'M');
     }
 
     if (absValue >= 1_000) {
-      return `$${(value / 1_000).toFixed(value % 1_000 === 0 ? 0 : 1)}K`;
+      return formatWithSuffix(1_000, 'K');
     }
 
-    return `$${value.toLocaleString()}`;
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `$${value.toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
+  };
+
+  const formatPercentage = (value: number) => {
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `${value.toFixed(decimals)}%`;
   };
 
   useEffect(() => {
@@ -276,19 +291,80 @@ const BarChart: React.FC = () => {
           <option value='debtPercentage'>Debt - %</option>
         </select>
       </div>
-      <div className='text-center font-bold'>
-        {selectedOption === 'debt'
-          ? 'Debt Service Requirements'
-          : 'Ratio of Debt Service Requirements to General Funds Receipts'}
-      </div>
-      <div
-        className='px-10'
-        style={{ width: '100%', height: '500px', overflowX: 'auto' }}
-      >
-        <Bar
-          options={options as ChartOptions}
-          data={selectedData as ChartData<'bar'>}
-        />
+      <table className='sr-only'>
+        <caption>
+          {selectedOption === 'debt'
+            ? 'Debt service requirements by fiscal year (dollars)'
+            : 'Debt service requirements by fiscal year (percentage of general fund receipts)'}
+        </caption>
+        <thead>
+          <tr>
+            <th scope='col'>Fiscal Year</th>
+            {selectedOption === 'debt' ? (
+              <>
+                <th scope='col'>$ Total Debt Cap</th>
+                <th scope='col'>Voter Approved Debt</th>
+                <th scope='col'>Non-Voter Approved Debt</th>
+              </>
+            ) : (
+              <>
+                <th scope='col'>% Total Debt Cap</th>
+                <th scope='col'>Voter Approved Debt %</th>
+                <th scope='col'>Non-Voter Approved Debt %</th>
+              </>
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {debtData?.map((item) => {
+            if (selectedOption === 'debt') {
+              const totalCap = Number(item.capMoney ?? 0);
+              const voterApproved = Number(item.voterApproveds ?? 0);
+              const nonVoterApproved = Number(item.nonVoterApproved ?? 0);
+
+              return (
+                <tr key={`debt-${item.fiscalYear}`}>
+                  <th scope='row'>{item.fiscalYear}</th>
+                  <td>{formatAbbreviatedCurrency(totalCap)}</td>
+                  <td>{formatAbbreviatedCurrency(voterApproved)}</td>
+                  <td>{formatAbbreviatedCurrency(nonVoterApproved)}</td>
+                </tr>
+              );
+            }
+
+            const totalPercent = (item.totalPercent ?? 0) * 100;
+            const voterPercent = (item.voterXApproved ?? 0) * 100;
+            const nonVoterPercent =
+              (item.ratioOfDebtServiceRequirementsToGeneralFundReceiptsNonVoterApproved ?? 0) *
+              100;
+
+            return (
+              <tr key={`percent-${item.fiscalYear}`}>
+                <th scope='row'>{item.fiscalYear}</th>
+                <td>{formatPercentage(totalPercent)}</td>
+                <td>{formatPercentage(voterPercent)}</td>
+                <td>{formatPercentage(nonVoterPercent)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <div aria-hidden='true'>
+        <div className='text-center font-bold'>
+          {selectedOption === 'debt'
+            ? 'Debt Service Requirements'
+            : 'Ratio of Debt Service Requirements to General Funds Receipts'}
+        </div>
+        <div
+          className='px-10'
+          style={{ width: '100%', height: '500px', overflowX: 'auto' }}
+        >
+          <Bar
+            options={options as ChartOptions}
+            data={selectedData as ChartData<'bar'>}
+            aria-hidden='true'
+          />
+        </div>
       </div>
     </>
   );

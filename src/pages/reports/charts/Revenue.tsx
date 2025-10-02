@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import type { ScriptableContext } from 'chart.js';
 interface RevenueSource {
   fiscalYear: number;
   category: string;
@@ -162,19 +161,29 @@ function Revenue() {
   const formatAbbreviatedCurrency = (value: number) => {
     const absValue = Math.abs(value);
 
+    const formatWithSuffix = (divisor: number, suffix: string) => {
+      const amount = value / divisor;
+      const decimals = Number.isInteger(amount) ? 0 : 2;
+      return `$${amount.toFixed(decimals)}${suffix}`;
+    };
+
     if (absValue >= 1_000_000_000) {
-      return `$${(value / 1_000_000_000).toFixed(value % 1_000_000_000 === 0 ? 0 : 1)}B`;
+      return formatWithSuffix(1_000_000_000, 'B');
     }
 
     if (absValue >= 1_000_000) {
-      return `$${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
+      return formatWithSuffix(1_000_000, 'M');
     }
 
     if (absValue >= 1_000) {
-      return `$${(value / 1_000).toFixed(value % 1_000 === 0 ? 0 : 1)}K`;
+      return formatWithSuffix(1_000, 'K');
     }
 
-    return `$${value.toLocaleString()}`;
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `$${value.toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
   };
 
   // const { theme, setTheme, resolvedTheme } = useTheme();
@@ -223,6 +232,35 @@ function Revenue() {
           <div style={{ width: '100%', height: '600px' }}>
             <br></br>
             <h2>Revenue Sources</h2>
+            <table className='sr-only'>
+              <caption>
+                Revenue sources for {category} in fiscal year {fiscalYear}
+              </caption>
+              <thead>
+                <tr>
+                  <th scope='col'>Revenue Source</th>
+                  <th scope='col'>Adopted Budget</th>
+                  <th scope='col'>Actual Receipts</th>
+                </tr>
+              </thead>
+              <tbody>
+                {revenueSources.map((source) => (
+                  <tr key={source}>
+                    <th scope='row'>{source}</th>
+                    <td>
+                      {formatAbbreviatedCurrency(
+                        revenueSourceMap[source].adopted ?? 0
+                      )}
+                    </td>
+                    <td>
+                      {formatAbbreviatedCurrency(
+                        revenueSourceMap[source].actual ?? 0
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
             <Bar
               data={{
                 labels: revenueSources,
@@ -247,6 +285,7 @@ function Revenue() {
                   },
                 ],
               }}
+              aria-hidden='true'
               options={{
                 indexAxis: 'y',
                 maintainAspectRatio: false,
@@ -311,7 +350,25 @@ function Revenue() {
           <br></br>
           <div>
             <h2>Revenues Over Time</h2>
-
+            <table className='sr-only'>
+              <caption>Actual receipts by fiscal year</caption>
+              <thead>
+                <tr>
+                  <th scope='col'>Fiscal Year</th>
+                  <th scope='col'>Actual Receipts</th>
+                </tr>
+              </thead>
+              <tbody>
+                {getFilteredTotalRevenuesData()
+                  .sort((a, b) => b.fiscalYear - a.fiscalYear)
+                  .map((item) => (
+                    <tr key={item.id}>
+                      <th scope='row'>{item.fiscalYear}</th>
+                      <td>{formatAbbreviatedCurrency(item.totalRevenues)}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
             <div style={{ width: '100%', height: '450px' }}>
               <Bar
                 data={{
@@ -330,6 +387,7 @@ function Revenue() {
                   },
                 ],
               }}
+                aria-hidden='true'
                 options={{
                   indexAxis: 'y',
                   maintainAspectRatio: false,

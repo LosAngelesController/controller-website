@@ -74,19 +74,29 @@ function Expenditures() {
   const formatAbbreviatedCurrency = (value: number) => {
     const absValue = Math.abs(value);
 
+    const formatWithSuffix = (divisor: number, suffix: string) => {
+      const amount = value / divisor;
+      const decimals = Number.isInteger(amount) ? 0 : 2;
+      return `$${amount.toFixed(decimals)}${suffix}`;
+    };
+
     if (absValue >= 1_000_000_000) {
-      return `$${(value / 1_000_000_000).toFixed(value % 1_000_000_000 === 0 ? 0 : 1)}B`;
+      return formatWithSuffix(1_000_000_000, 'B');
     }
 
     if (absValue >= 1_000_000) {
-      return `$${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
+      return formatWithSuffix(1_000_000, 'M');
     }
 
     if (absValue >= 1_000) {
-      return `$${(value / 1_000).toFixed(value % 1_000 === 0 ? 0 : 1)}K`;
+      return formatWithSuffix(1_000, 'K');
     }
 
-    return `$${value.toLocaleString()}`;
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `$${value.toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
   };
 
   useEffect(() => {
@@ -260,6 +270,27 @@ function Expenditures() {
           <div>
             <h2>Total Expenditures by Department</h2>
             <div style={{ width: '100%', height: '600px' }}>
+              <table className='sr-only'>
+                <caption>
+                  Total expenditures by department for {category} in fiscal year {fiscalYear}
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope='col'>Department</th>
+                    <th scope='col'>Total Expenditures</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {getFilteredRevenueData()
+                    .sort((a, b) => b.totalExpenditures - a.totalExpenditures)
+                    .map((item) => (
+                      <tr key={item.id}>
+                        <th scope='row'>{item.department}</th>
+                        <td>{formatAbbreviatedCurrency(item.totalExpenditures)}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
               <Bar
                 data={{
                   labels: getFilteredRevenueData()
@@ -313,6 +344,7 @@ function Expenditures() {
                     },
                   },
                 }}
+                aria-hidden='true'
               />
             </div>
           </div>
@@ -321,6 +353,23 @@ function Expenditures() {
           <div>
             <h2>Total Expenditures Over Time</h2>
             <div style={{ width: '100%', height: '450px' }}>
+              <table className='sr-only'>
+                <caption>Total expenditures over time</caption>
+                <thead>
+                  <tr>
+                    <th scope='col'>Fiscal Year</th>
+                    <th scope='col'>Total Expenditures</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {totalExpendituresData.map((item) => (
+                    <tr key={item.id}>
+                      <th scope='row'>{item.fiscalYears}</th>
+                      <td>{formatAbbreviatedCurrency(item.amounts)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
               <Bar
                 data={{
                   labels: totalExpendituresData
@@ -384,6 +433,7 @@ function Expenditures() {
                     },
                   },
                 }}
+                aria-hidden='true'
               />
             </div>
           </div>

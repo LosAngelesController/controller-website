@@ -77,19 +77,34 @@ const BarChartForDebt = () => {
   const formatAbbreviatedCurrency = (value: number) => {
     const absValue = Math.abs(value);
 
+    const formatWithSuffix = (divisor: number, suffix: string) => {
+      const amount = value / divisor;
+      const decimals = Number.isInteger(amount) ? 0 : 2;
+      return `$${amount.toFixed(decimals)}${suffix}`;
+    };
+
     if (absValue >= 1_000_000_000) {
-      return `$${(value / 1_000_000_000).toFixed(value % 1_000_000_000 === 0 ? 0 : 1)}B`;
+      return formatWithSuffix(1_000_000_000, 'B');
     }
 
     if (absValue >= 1_000_000) {
-      return `$${(value / 1_000_000).toFixed(value % 1_000_000 === 0 ? 0 : 1)}M`;
+      return formatWithSuffix(1_000_000, 'M');
     }
 
     if (absValue >= 1_000) {
-      return `$${(value / 1_000).toFixed(value % 1_000 === 0 ? 0 : 1)}K`;
+      return formatWithSuffix(1_000, 'K');
     }
 
-    return `$${value.toLocaleString()}`;
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `$${value.toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
+  };
+
+  const formatPercentage = (value: number) => {
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `${value.toFixed(decimals)}%`;
   };
 
   useEffect(() => {
@@ -243,11 +258,54 @@ const BarChartForDebt = () => {
         </option>
       </select>
 
-      <div
-        className='px-2 sm:px-4 md:px-10 mt-4'
-        style={{ width: '100%', height: '500px', overflowX: 'auto' }}
-      >
-        <Bar options={options} data={selectedData} />
+      <table className='sr-only'>
+        <caption>
+          {selectedOption === 'reserveFund'
+            ? 'Reserve Fund and Budget Stabilization Fund balances by fiscal year'
+            : 'Reserve Fund and Budget Stabilization Fund percentages by fiscal year'}
+        </caption>
+        <thead>
+          <tr>
+            <th scope='col'>Fiscal Year</th>
+            {selectedOption === 'reserveFund' ? (
+              <>
+                <th scope='col'>Reserve Fund</th>
+                <th scope='col'>Budget Stabilization Fund</th>
+              </>
+            ) : (
+              <>
+                <th scope='col'>Reserve Fund Percentage</th>
+                <th scope='col'>Budget Stabilization Fund Percentage</th>
+              </>
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {reserveData?.map((item) => (
+            <tr key={item.fiscalYear}>
+              <th scope='row'>{item.fiscalYear}</th>
+              {selectedOption === 'reserveFund' ? (
+                <>
+                  <td>{formatAbbreviatedCurrency(item.reserveFund)}</td>
+                  <td>{formatAbbreviatedCurrency(item.budgetStabilizationFund)}</td>
+                </>
+              ) : (
+                <>
+                  <td>{formatPercentage(item.reserveFundPercentage * 100)}</td>
+                  <td>{formatPercentage(item.budgetStabilizationFundPercentage * 100)}</td>
+                </>
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div aria-hidden='true'>
+        <div
+          className='px-2 sm:px-4 md:px-10 mt-4'
+          style={{ width: '100%', height: '500px', overflowX: 'auto' }}
+        >
+          <Bar options={options} data={selectedData} aria-hidden='true' />
+        </div>
       </div>
     </div>
   );
