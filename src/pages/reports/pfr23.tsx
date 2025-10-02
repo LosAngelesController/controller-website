@@ -1,4 +1,5 @@
 import { Chart, registerables } from 'chart.js';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -51,6 +52,9 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>Preliminary Financial Report FY 22-23 Web Summary</title>
+      </Head>
       <Helmet>
         <title>Preliminary Financial Report FY 22-23 Web Summary</title>
         <meta name='twitter:card' content='summary_large_image' />
@@ -158,10 +162,9 @@ const Home = () => {
 
           <div className='mt-12 text-left'>
             <h2 className='mb-4'>Controller’s Cover Letter</h2>
-            <p className='mb-4'>
-              <b>Preliminary Financial Report for Fiscal Year 2022-2023</b>
-              <br></br>
-            </p>
+            <h3 className='mb-4 text-base font-semibold'>
+              Preliminary Financial Report for Fiscal Year 2022-2023
+            </h3>
 
             <p className='mb-4'>
               Each year at this time, the Controller’s Office submits the
@@ -189,10 +192,8 @@ const Home = () => {
               finances – as well as to address future challenges.
             </p>
 
+            <h3 className='mb-4 text-base font-semibold'>Continued Recovery</h3>
             <p className='mb-4'>
-              <b>Continued Recovery </b>
-              <br></br>
-              <br></br>
               General Fund revenues were marked by strong 9% growth over the
               previous fiscal year. That performance exceeded the adopted budget
               projections by $135.7 million. General Fund budgetary department’s
@@ -216,9 +217,9 @@ const Home = () => {
               projects.
             </p>
 
-            <p className='mb-4'>
-              <b>The report highlights a number of key indicators:</b>
-            </p>
+            <h3 className='mb-4 text-base font-semibold'>
+              The report highlights a number of key indicators:
+            </h3>
             <ul className='mb-6 list-disc pl-6'>
               <li className='mb-2'>
                 Major contributors to the strong revenue increase include Utility
@@ -262,9 +263,7 @@ const Home = () => {
               </li>
             </ul>
             <br></br>
-            <p className='mb-4'>
-              <b>Hard choices lie ahead</b>
-            </p>
+            <h3 className='mb-4 text-base font-semibold'>Hard choices lie ahead</h3>
             <p className='mb-4'>
               Despite widespread staff vacancies, General Fund departmental
               spending actually exceeded last year’s adopted budget by nearly
