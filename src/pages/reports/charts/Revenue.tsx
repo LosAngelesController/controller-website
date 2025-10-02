@@ -277,20 +277,9 @@ function Revenue() {
                     ticks: {
                       autoSkip: false,
                       color: isDark ? 'white' : 'black',
-                      font: (context: ScriptableContext<'bar'>) => {
-                        if (!isMobileViewport) {
-                          return { size: 12 };
-                        }
-
-                        const rawLabel = context.tick?.label;
-                        const label = Array.isArray(rawLabel)
-                          ? rawLabel.join(' ')
-                          : String(rawLabel ?? '');
-
-                        return {
-                          size: label.length > 30 ? 10 : 12,
-                        };
-                      },
+                      font: () => ({
+                        size: isMobileViewport ? 10 : 12,
+                      }),
                     },
                     title: {
                       display: true,

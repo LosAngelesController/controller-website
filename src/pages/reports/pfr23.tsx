@@ -217,82 +217,95 @@ const Home = () => {
             </p>
 
             <p className='mb-4'>
-              <b> The report highlights a number of key indicators:</b>
-              <br></br>
-              <br></br>● Major contributors to the strong revenue increase
-              include Utility Users Tax revenue ($93 million above budget)
-              primarily from higher natural gas and electric prices; franchise
-              income ($53.7 million above); Transient Occupancy (Hotel) Tax
-              $46.8 million above); and Business Tax ($38.9 million above).
-              <br></br>
-              <br></br>● Some revenue sources fell below budget projections:
-              Documentary Transfer Tax ($77.3 million below); Licenses, Permits
-              and Fines ($40.8 million below); Parking Fines ($21.million
-              below); and Grant Receipts ($15.6 million below).
-              <br></br>
-              <br></br>● While staff vacancies resulted in $118 million in
-              savings among civilian employees, Police and Fire salaries were
-              $29 million over their budgeted amount. The overspending was
-              attributed to increased overtime, unbudgeted salary payouts
-              associated with agreements with sworn employee unions and excess
-              sick payouts.
-              <br></br>
-              <br></br>● Liability pay-outs of $172.5 million exceeded budget by
-              nearly 100%.
-              <br></br>
-              <br></br>● The City’s debt ratio remains well below the limits
-              under City policy, providing the potential for expanded capital
-              investment if revenue flows can support new borrowing.
-              <br></br>
-              <br></br>● The City is not spending what it is budgeting for which
-              means less services, resources, and infrastructure are being
-              provided for Angelenos.
-              <br></br>
-              <br></br>● While chronic staffing shortages reduce compensation
-              outlays, retaining and attracting staff to fill those jobs puts a
-              double strain on finances going forward as raises and new hires
-              absorb higher revenues.
+              <b>The report highlights a number of key indicators:</b>
             </p>
+            <ul className='mb-6 list-disc pl-6'>
+              <li className='mb-2'>
+                Major contributors to the strong revenue increase include Utility
+                Users Tax revenue ($93 million above budget) primarily from
+                higher natural gas and electric prices; franchise income ($53.7
+                million above); Transient Occupancy (Hotel) Tax ($46.8 million
+                above); and Business Tax ($38.9 million above).
+              </li>
+              <li className='mb-2'>
+                Some revenue sources fell below budget projections: Documentary
+                Transfer Tax ($77.3 million below); Licenses, Permits and Fines
+                ($40.8 million below); Parking Fines ($21 million below); and
+                Grant Receipts ($15.6 million below).
+              </li>
+              <li className='mb-2'>
+                While staff vacancies resulted in $118 million in savings among
+                civilian employees, Police and Fire salaries were $29 million over
+                their budgeted amount. The overspending was attributed to
+                increased overtime, unbudgeted salary payouts associated with
+                agreements with sworn employee unions and excess sick payouts.
+              </li>
+              <li className='mb-2'>
+                Liability pay-outs of $172.5 million exceeded budget by nearly
+                100%.
+              </li>
+              <li className='mb-2'>
+                The City’s debt ratio remains well below the limits under City
+                policy, providing the potential for expanded capital investment if
+                revenue flows can support new borrowing.
+              </li>
+              <li className='mb-2'>
+                The City is not spending what it is budgeting for which means less
+                services, resources, and infrastructure are being provided for
+                Angelenos.
+              </li>
+              <li>
+                While chronic staffing shortages reduce compensation outlays,
+                retaining and attracting staff to fill those jobs puts a double
+                strain on finances going forward as raises and new hires absorb
+                higher revenues.
+              </li>
+            </ul>
             <br></br>
             <p className='mb-4'>
               <b>Hard choices lie ahead</b>
-              <br></br>
-              <br></br>
+            </p>
+            <p className='mb-4'>
               Despite widespread staff vacancies, General Fund departmental
               spending actually exceeded last year’s adopted budget by nearly
               $200 million, meaning that rebuilding the City’s workforce will
               make it more difficult to balance the General Fund budget in the
               future.
-              <br></br>
-              <br></br>● Major contributors to the strong revenue increase
-              include Utility Users Tax revenue ($93 million above budget)
-              primarily from higher natural gas and electric prices; franchise
-              income ($53.7 million above); Transient Occupancy (Hotel) Tax
-              $46.8 million above); and Business Tax ($38.9 million above).
-              <br></br>
-              <br></br>● The contract for rank and file police staff will add
-              nearly a billion dollars in additional costs over the next four
-              years, with the likelihood of commensurate increases in
-              compensation for police management and the larger civilian
-              workforce. All by themselves, these adjustments tilt future
-              budgets into structural deficits.
-              <br></br>
-              <br></br>● As our Office has consistently pointed out, pension
-              debt and citywide deferred maintenance of vital infrastructure
-              require urgent attention. Last year’s underspending of $316
-              million in budgeted capital expenditures underscores that the City
-              continues to fall behind – which means even higher costs in the
-              long run.
-              <br></br>
-              <br></br>● Again, as we have warned, staff shortages and
-              underinvestment in the training, technology, equipment and
-              facilities for our workforce hobbles productivity and shortchanges
-              our residents. All these pressures will tempt decision-makers to
-              utilize the City’s reserves for short-term fixes, dashing the
-              hard-won gains of fiscal prudence for maintaining those funds to
-              protect against genuine emergencies and maintain strong credit
-              ratings to minimize the cost of capital bonding.
             </p>
+            <ul className='mb-6 list-disc pl-6'>
+              <li className='mb-2'>
+                Major contributors to the strong revenue increase include Utility
+                Users Tax revenue ($93 million above budget) primarily from
+                higher natural gas and electric prices; franchise income ($53.7
+                million above); Transient Occupancy (Hotel) Tax ($46.8 million
+                above); and Business Tax ($38.9 million above).
+              </li>
+              <li className='mb-2'>
+                The contract for rank and file police staff will add nearly a
+                billion dollars in additional costs over the next four years, with
+                the likelihood of commensurate increases in compensation for
+                police management and the larger civilian workforce. All by
+                themselves, these adjustments tilt future budgets into structural
+                deficits.
+              </li>
+              <li className='mb-2'>
+                As our Office has consistently pointed out, pension debt and
+                citywide deferred maintenance of vital infrastructure require
+                urgent attention. Last year’s underspending of $316 million in
+                budgeted capital expenditures underscores that the City continues
+                to fall behind – which means even higher costs in the long run.
+              </li>
+              <li>
+                Again, as we have warned, staff shortages and underinvestment in
+                the training, technology, equipment and facilities for our
+                workforce hobbles productivity and shortchanges our residents. All
+                these pressures will tempt decision-makers to utilize the City’s
+                reserves for short-term fixes, dashing the hard-won gains of
+                fiscal prudence for maintaining those funds to protect against
+                genuine emergencies and maintain strong credit ratings to
+                minimize the cost of capital bonding.
+              </li>
+            </ul>
 
             <p className='mb-4'>
               To address these sobering concerns, this Office continues to
