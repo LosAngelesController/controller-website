@@ -1,6 +1,13 @@
 {
   "data": [
     {
+      "image": "/images/FY202526AdoptedBudget.png",
+      "name": "FY2025-26 Adoped Budget",
+      "year": "2025",
+      "dept": "Charts",
+      "link": "https://budget.lacontroller.app/"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2FController%20Immigration.png?alt=media&token=18a49dae-208d-4eb3-b9af-254f7392aefa",
       "name": "Controller Immigration Resources and City Response",
       "year": "2025",
@@ -90,13 +97,6 @@
       "year": "2024",
       "dept": "Dashboard",
       "link": "https://homelessdashboard.lacontroller.app/"
-    },
-    {
-      "image": "/images/FY2024-25proposed-budget.png",
-      "name": "FY2024-25 Proposed Budget",
-      "year": "2024",
-      "dept": "Data Site",
-      "link": "https://budget.lacontroller.app/"
     },
     {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/2023-unhoused.png?alt=media&token=1d7fb3ae-12cc-46c4-94aa-f87557307705",

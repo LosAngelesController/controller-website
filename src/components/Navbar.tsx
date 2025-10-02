@@ -89,9 +89,10 @@ export default function Navbar(props: any) {
     });
   };
   return (
-    <><a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-black dark:focus:bg-slate-800 dark:focus:text-white"
+    <>
+      <a
+        href='#main-content'
+        className='sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-black dark:focus:bg-slate-800 dark:focus:text-white'
       >
         Skip to main content
       </a>
