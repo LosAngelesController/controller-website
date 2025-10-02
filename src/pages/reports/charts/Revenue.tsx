@@ -65,6 +65,8 @@ function Revenue() {
   const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   const isDark = isDarkMode();
+  const categorySelectId = 'revenue-category-select';
+  const fiscalYearSelectId = 'revenue-fiscal-year-select';
 
   useEffect(() => {
     axios
@@ -197,8 +199,11 @@ function Revenue() {
     <div>
       <div>
         <center>
-          <label style={{ marginRight: '10px' }}>Category:</label>{' '}
+          <label htmlFor={categorySelectId} style={{ marginRight: '10px' }}>
+            Category:
+          </label>{' '}
           <select
+            id={categorySelectId}
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             style={{ color: 'black', marginRight: '10px' }}
@@ -207,8 +212,11 @@ function Revenue() {
             <option value='Special Funds'>Special Fund Receipts</option>
           </select>
           {isMobileViewport && <div style={{ height: '12px' }} />}
-          <label style={{ marginRight: '10px' }}>Fiscal Year:</label>{' '}
+          <label htmlFor={fiscalYearSelectId} style={{ marginRight: '10px' }}>
+            Fiscal Year:
+          </label>{' '}
           <select
+            id={fiscalYearSelectId}
             value={fiscalYear}
             onChange={(e) => setFiscalYear(parseInt(e.target.value))}
             style={{ color: 'black' }}

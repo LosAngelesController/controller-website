@@ -70,6 +70,8 @@ function Expenditures() {
   const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   const isDark = isDarkMode();
+  const departmentSelectId = 'expenditures-department-select';
+  const expendituresFiscalYearSelectId = 'expenditures-fiscal-year-select';
 
   const formatAbbreviatedCurrency = (value: number) => {
     const absValue = Math.abs(value);
@@ -235,8 +237,11 @@ function Expenditures() {
       <br></br>
       <div>
         <center>
-          <label style={{ marginRight: '10px' }}>Budgetary Department:</label>
+          <label htmlFor={departmentSelectId} style={{ marginRight: '10px' }}>
+            Budgetary Department:
+          </label>
           <select
+            id={departmentSelectId}
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             style={{ color: 'black', marginRight: '10px' }}
@@ -245,8 +250,14 @@ function Expenditures() {
             <option value='Non_Departmental'>Non-Departmental</option>
           </select>
           {isMobileViewport && <div style={{ height: '12px' }} />}
-          <label style={{ marginRight: '10px' }}>Fiscal Year:</label>
+          <label
+            htmlFor={expendituresFiscalYearSelectId}
+            style={{ marginRight: '10px' }}
+          >
+            Fiscal Year:
+          </label>
           <select
+            id={expendituresFiscalYearSelectId}
             value={fiscalYear}
             onChange={(e) => setFiscalYear(parseInt(e.target.value, 10))}
             style={{ color: 'black', marginRight: '10px' }}

@@ -85,6 +85,7 @@ const BarChart: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<SelectedOption>('debt'); // Default selection
 
   const isDark = isDarkMode();
+  const debtScaleSelectId = 'debt-scale-select';
 
   const formatAbbreviatedCurrency = (value: number) => {
     const absValue = Math.abs(value);
@@ -280,8 +281,11 @@ const BarChart: React.FC = () => {
     <>
       <div className='p-10 text-center'>
         <br></br>
-        <label style={{ marginRight: '10px' }}>Scale by % or $</label>
+        <label htmlFor={debtScaleSelectId} style={{ marginRight: '10px' }}>
+          Scale by % or $
+        </label>
         <select
+          id={debtScaleSelectId}
           value={selectedOption}
           onChange={(e) => setSelectedOption(e.target.value as SelectedOption)}
           className='w-30 border-2 '

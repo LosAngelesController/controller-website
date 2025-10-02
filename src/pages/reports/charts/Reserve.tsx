@@ -73,6 +73,7 @@ const BarChartForDebt = () => {
     useState<SelectedOption>('reserveFund'); // Default selection
 
   const isDark = isDarkMode();
+  const reserveScaleSelectId = 'reserve-scale-select';
 
   const formatAbbreviatedCurrency = (value: number) => {
     const absValue = Math.abs(value);
@@ -245,8 +246,11 @@ const BarChartForDebt = () => {
   return (
     <div className='text-center px-2 sm:px-4 md:px-10 py-10'>
       <br></br>
-      <label style={{ marginRight: '10px' }}> Scale by % or $</label>
+      <label htmlFor={reserveScaleSelectId} style={{ marginRight: '10px' }}>
+        Scale by % or $
+      </label>
       <select
+        id={reserveScaleSelectId}
         value={selectedOption}
         onChange={(e) => setSelectedOption(e.target.value as SelectedOption)}
         className='w-38 border-2'
