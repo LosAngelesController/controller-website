@@ -13,13 +13,16 @@ Chart.register(...registerables);
 
 const Home = () => {
   const [backgroundSize, setBackgroundSize] = useState('cover');
+  const [backgroundPosition, setBackgroundPosition] = useState('center bottom');
 
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth >= 1200) {
         setBackgroundSize('90% auto');
+        setBackgroundPosition('center bottom');
       } else {
         setBackgroundSize('cover');
+        setBackgroundPosition('right -20px bottom');
       }
     }
 
@@ -67,33 +70,35 @@ const Home = () => {
       </Helmet>
       <Navbar />
       <Layout>
-        <div
-          className='banner'
-          style={{
-            background: 'url(/images/pfr-banner.png)',
-            backgroundRepeat: 'no-repeat',
-            // backgroundSize: 'cover',
-            backgroundSize,
-            backgroundPosition: 'bottom',
-            width: '100%',
-            paddingBottom: '30%', // Set a responsive aspect ratio (adjust as needed)
-          }}
-        ></div>
+        <div className='pt-6 sm:pt-8 lg:pt-12'>
+          <div
+            className='relative flex w-full min-h-[220px] items-center text-white sm:min-h-[320px]'
+            style={{
+              background: 'url(/images/pfr-banner.png)',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize,
+              backgroundPosition,
+            }}
+          >
+            <div className='container mx-auto px-4 py-16 sm:px-6 sm:py-20 lg:max-w-5xl lg:py-32'>
+              <h1 className='inline-block rounded-lg bg-black/70 px-3 py-2 text-left text-sm font-semibold shadow-lg md:text-2xl lg:text-4xl'>
+                <span className='block lg:inline'>Preliminary Financial Report</span>
+                <span className='block lg:ml-2 lg:inline'>FY 2022-23</span>
+                <span className='mt-2 block text-base font-medium sm:text-lg md:text-xl'>
+                  Web Summary
+                </span>
+              </h1>
+            </div>
+          </div>
+        </div>
       </Layout>
 
-      <div className='mx-3 text-black dark:text-white'>
-        <center>
-          <br></br>
-
-          <h1 className='sr-only'>
-            Preliminary Financial Report Fiscal Year 2022-23 Web Summary
-          </h1>
-          <br />
-          <br />
-          <div
-            className='text-left dark:text-white'
-            style={{ fontFamily: 'Helvetica', maxWidth: '1500px' }}
-          >
+      <div className='text-black dark:text-white'>
+        <section
+          className='container mx-auto px-4 py-12 sm:px-6 lg:max-w-5xl'
+          style={{ fontFamily: 'Helvetica' }}
+        >
+          <div className='text-left'>
             <p className='mb-4'>
               One of the City Controller’s primary responsibilities is analyzing
               and reporting on the City’s financial health. The Preliminary
@@ -140,21 +145,18 @@ const Home = () => {
               full report by clicking here:
             </p>
           </div>
-          <a
-            href={pdfLink}
-            target='_blank'
-            rel='noopener noreferrer'
-            style={buttonStyle}
-          >
-            Click to View Full Report
-          </a>
+          <div className='mt-8 flex justify-center'>
+            <a
+              href={pdfLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              style={buttonStyle}
+            >
+              Click to View Full Report
+            </a>
+          </div>
 
-          <div
-            className='text-left dark:text-white'
-            style={{ fontFamily: 'Helvetica', maxWidth: '1500px' }}
-          >
-            <br />
-            <br />
+          <div className='mt-12 text-left'>
             <h2 className='mb-4'>Controller’s Cover Letter</h2>
             <p className='mb-4'>
               <b>Preliminary Financial Report for Fiscal Year 2022-2023</b>
@@ -339,15 +341,12 @@ const Home = () => {
               <br></br>
               City Controller
             </p>
-
-            <br></br>
           </div>
-        </center>
-        <br />
+        </section>
 
-        <div
-          className='container mx-auto dark:text-white'
-          style={{ fontFamily: 'Helvetica', maxWidth: '1500px' }}
+        <section
+          className='container mx-auto px-4 pb-16 sm:px-6 lg:max-w-5xl'
+          style={{ fontFamily: 'Helvetica' }}
         >
           <h2>Revenues</h2>
           <br></br>
@@ -421,7 +420,7 @@ const Home = () => {
             year.
           </p>
           <Debt />
-        </div>
+        </section>
       </div>
     </>
   );
