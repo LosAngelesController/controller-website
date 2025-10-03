@@ -207,6 +207,22 @@ export function HistoricalRevAll(props: any) {
         const generalboxplot = generateSubPlot('General Fund');
         const specialboxplot = generateSubPlot('Special Funds');
 
+        const generalSvg = generalboxplot.querySelector('svg');
+        if (generalSvg) {
+          generalSvg.setAttribute(
+            'aria-label',
+            'Line chart showing Los Angeles General Fund revenue: actual budget and receipts rise from about $4.3B in FY2007 to roughly $7.0B in FY2022, with projected values extending to just over $7.5B by FY2024.'
+          );
+        }
+
+        const specialSvg = specialboxplot.querySelector('svg');
+        if (specialSvg) {
+          specialSvg.setAttribute(
+            'aria-label',
+            'Line chart showing Los Angeles Special Funds revenues: budget and receipts rise from about $1.9B in FY2007 to almost $4.7B actual/$5.0B budgeted in FY2022, with projected receipts settling near $3.4B for FY2023–FY2024.'
+          );
+        }
+
         if (generalbox.current) {
           console.log('current ref', generalbox.current);
 
@@ -231,7 +247,10 @@ export function HistoricalRevAll(props: any) {
   return (
     <div className='mx-auto max-w-5xl'>
       <h3>General Fund Historical Summary</h3>
-      <div className='mt-2 mb-4 flex justify-center gap-4'>
+      <div
+        className='mt-2 mb-4 flex justify-center gap-4'
+        aria-hidden='true'
+      >
         {LEGEND_ITEMS.map((item) => (
           <div className='flex items-center' key={`gf-${item.label}`}>
             <span
@@ -244,7 +263,10 @@ export function HistoricalRevAll(props: any) {
       </div>
       <div className='my-4 flex justify-center overflow-x-auto' ref={generalbox}></div>
       <h3>Special Funds Historical Summary</h3>
-      <div className='mt-2 mb-4 flex justify-center gap-4'>
+      <div
+        className='mt-2 mb-4 flex justify-center gap-4'
+        aria-hidden='true'
+      >
         {LEGEND_ITEMS.map((item) => (
           <div className='flex items-center' key={`sf-${item.label}`}>
             <span

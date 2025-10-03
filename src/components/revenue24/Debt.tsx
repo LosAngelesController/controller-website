@@ -31,7 +31,7 @@ const TOTAL_LIMIT_LEGEND: LegendItem[] = [
 
 function Legend({ items }: { items: LegendItem[] }) {
   return (
-    <div className='mb-4 flex justify-center gap-4'>
+    <div className='mb-4 flex justify-center gap-4' aria-hidden='true'>
       {items.map((item) => {
         const baseStyle: React.CSSProperties = { borderRadius: '9999px' };
 
@@ -300,11 +300,35 @@ export function Debt(props: any) {
         debtbox.current.innerHTML = '';
         debtbox.current.append(plot);
 
+        const debtBoxSvg = debtbox.current.querySelector('svg');
+        if (debtBoxSvg) {
+          debtBoxSvg.setAttribute(
+            'aria-label',
+            'Line chart showing Los Angeles debt service requirements for voter- and non-voter-approved debt from FY2007 to FY2024. Non-voter-approved debt holds near $200M, dipping to $184M in FY2021 before easing to $165M by FY2024. Voter-approved debt declines from roughly $185M in FY2014 to about $115M in FY2023, with a modest rise to $138M in FY2024.'
+          );
+        }
+
         debtboxlimitsix.current.innerHTML = '';
         debtboxlimitsix.current.append(plotsix);
 
+        const debtLimitSixSvg = debtboxlimitsix.current.querySelector('svg');
+        if (debtLimitSixSvg) {
+          debtLimitSixSvg.setAttribute(
+            'aria-label',
+            'Line chart comparing Los Angeles non-voter-approved debt service requirements with the 6% policy limit from FY2007 to FY2024. Annual requirements range from about $219M in FY2014 down to $165M in FY2024, while the limit climbs steadily from roughly $298M to $454M, leaving a widening gap between spending and the cap.'
+          );
+        }
+
         debtboxlimittotal.current.innerHTML = '';
         debtboxlimittotal.current.append(plotlimittotal);
+
+        const debtLimitTotalSvg = debtboxlimittotal.current.querySelector('svg');
+        if (debtLimitTotalSvg) {
+          debtLimitTotalSvg.setAttribute(
+            'aria-label',
+            'Stacked area chart showing Los Angeles voter- and non-voter-approved debt service requirements against the 15% total debt limit from FY2007 to FY2024. Combined debt eases from about $404M in FY2014 to $303M in FY2024, with the stacked areas showing the non-voter-approved portion slightly larger than the voter-approved portion across the period. The 15% limit line climbs steadily from roughly $744M to $1.13B, remaining well above the total debt throughout.'
+          );
+        }
       }
     });
   }, []);
@@ -312,10 +336,7 @@ export function Debt(props: any) {
   return (
     <div className='mx-auto max-w-5xl'>
       <h3>Debt over Time</h3>
-      {/*Make a legend with 2 items, 
-      - Red Dot that say Non-Voter Approved
-      - Blue Dot that say Voter Approved
-      */}
+      {/*Make a legend with 2 items, */}
       <Legend items={PRIMARY_LEGEND} />
       <div className='my-4 flex justify-center overflow-x-auto' ref={debtbox}></div>
 
