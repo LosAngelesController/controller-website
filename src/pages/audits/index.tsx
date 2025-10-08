@@ -189,7 +189,10 @@ export default function Audits(props: any) {
                   key={index}
                   className='mb-2 w-full max-w-xs rounded-lg bg-gray-200 dark:bg-zinc-800 dark:text-white'
                 >
-                  <a href={`${audit.pre === false ? '' : ''}${audit.link}`}>
+                  <a
+                    href={`${audit.pre === false ? '' : ''}${audit.link}`}
+                    className='block rounded-lg focus:outline-none'
+                  >
                     <img
                       src={audit.image}
                       className='w-full'

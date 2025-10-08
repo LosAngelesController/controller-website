@@ -28,18 +28,15 @@ export default function Evictions() {
           <div>
             <Link
               href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTwkKXHVAsJjGwuEuzY7ILdmYtN_rCmZZsxjECdHK8kG1jGEMjpDa0VWR1UFy97vTNlgtfyysbDYQJL/pubhtml'
-              passHref
               target='_blank'
+              rel='noopener noreferrer'
+              className='mb-4 inline-block rounded px-4 py-2 font-bold text-black focus:outline-none'
+              style={{
+                backgroundColor: '#41ffca',
+                border: '1px solid #2b9176'
+              }}
             >
-              <button
-                className='mb-4 rounded px-4 py-2 font-bold text-black'
-                style={{
-                  backgroundColor: '#41ffca',
-                  border: '1px solid #2b9176'
-                }}
-              >
-                Table Version
-              </button>
+              Table Version
             </Link>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>

@@ -8,10 +8,7 @@ export default function LineItem(props: any) {
         key={props.key}
         className='mb-2 rounded-lg bg-gray-200 px-2 py-2 border-[0.5px] border-black dark:border-white dark:bg-zinc-800 dark:text-white'
       >
-        <a
-          href={props.link}
-          className='block rounded-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-black focus-visible:ring-offset-gray-200 dark:focus-visible:ring-white dark:focus-visible:ring-offset-zinc-800'
-        >
+        <a href={props.link} className='block rounded-lg focus:outline-none'>
           <p className='dark:text-white'>
             {props.year}{' '}
             {props.dept && (

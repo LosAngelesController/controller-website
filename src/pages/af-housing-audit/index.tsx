@@ -32,7 +32,7 @@ const Index = () => {
             <li>
               <a
                 href='#about'
-                className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'
+                className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus-visible:outline-none'
               >
                 About
               </a>
@@ -40,7 +40,7 @@ const Index = () => {
             <li>
               <a
                 href='#findings'
-                className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'
+                className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus-visible:outline-none'
               >
                 Findings
               </a>
@@ -48,7 +48,7 @@ const Index = () => {
             <li>
               <a
                 href='#recommendations'
-                className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'
+                className='rounded px-2 py-1 text-gray-300 transition-colors hover:text-white focus-visible:outline-none'
               >
                 Recommendations
               </a>
@@ -76,7 +76,7 @@ const Index = () => {
             <div className='flex gap-4'>
               <Button
                 asChild
-                className='font-semibold text-black hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-gray-900'
+                className='font-semibold text-black hover:opacity-90 focus-visible:outline-none'
                 style={{ backgroundColor: '#41ffca' }}
               >
                 <a

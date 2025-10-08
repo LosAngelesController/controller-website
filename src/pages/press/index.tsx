@@ -69,6 +69,7 @@ export default function Press(props: any) {
                     href={`${eachaudit.link}`}
                     target='_blank'
                     rel='noreferrer'
+                    className='block rounded-lg focus:outline-none'
                   >
                     <div className=' px-2 py-2'>
                       <p className='dark:text-white'>
