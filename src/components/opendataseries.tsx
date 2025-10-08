@@ -5,7 +5,12 @@ import * as React from 'react';
 function EachDataButton(props: any) {
   return (
     <div>
-      <Link href={props.link} target='_blank' rel='noopener noreferrer'>
+      <Link
+        href={props.link}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='block rounded-lg focus:outline-none'
+      >
         <div className='w-full'>
           <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
             {props.icon && (

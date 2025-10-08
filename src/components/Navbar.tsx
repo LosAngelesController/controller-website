@@ -92,7 +92,7 @@ export default function Navbar(props: any) {
     <>
       <a
         href='#main-content'
-        className='sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:rounded focus:bg-white focus:px-3 focus:py-2 focus:text-black dark:focus:bg-slate-800 dark:focus:text-white'
+        className='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black'
       >
         Skip to main content
       </a>

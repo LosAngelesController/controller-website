@@ -466,4 +466,14 @@ a {
   .animated-underline:focus-visible {
     background-size: 0 2px, 100% 2px;
   }
+
+  :focus-visible {
+    outline: none;
+    border-radius: 0.375rem;
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006eff;
+  }
+
+  .dark :focus-visible {
+    box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006eff;
+  }
 }
