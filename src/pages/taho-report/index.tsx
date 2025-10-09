@@ -7,7 +7,11 @@ const Index = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen bg-[#1a1a1a] font-['Inter'] text-white">
+      <div
+        id='main-content'
+        tabIndex={-1}
+        className="min-h-screen bg-[#1a1a1a] font-['Inter'] text-white"
+      >
         <Hero />
         <KeyFindings />
         <Recommendations />

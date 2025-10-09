@@ -1,6 +1,4 @@
 import { motion } from 'framer-motion';
-import { Circle } from 'lucide-react';
-
 const KeyFindings = () => {
   return (
     <section className='bg-[#41ffca] py-20'>
@@ -16,53 +14,35 @@ const KeyFindings = () => {
           </h2>
 
           <div className='grid grid-cols-1 items-stretch gap-x-20 lg:grid-cols-2'>
-            <div className='space-y-6 pr-4 text-xl text-black'>
-              <div className='flex items-start gap-4'>
-                <Circle className='mt-2.5 h-3 w-3 flex-shrink-0 fill-black' />
-                <p className='text-xl leading-relaxed'>
-                  Of over 11,000 TAHO complaints, only 23 were referred to the
-                  City Attorney to consider enforcement beyond sending an
-                  educational letter. 4 citations were issued - all to one
-                  landlord.
-                </p>
-              </div>
+            <ul className='space-y-6 pr-4 text-xl text-black list-none'>
+              <li className='relative pl-8 text-xl leading-relaxed before:absolute before:left-0 before:top-2.5 before:h-3 before:w-3 before:rounded-full before:bg-black'>
+                Of over 11,000 TAHO complaints, only 23 were referred to the City
+                Attorney to consider enforcement beyond sending an educational
+                letter. 4 citations were issued - all to one landlord.
+              </li>
 
-              <div className='flex items-start gap-4'>
-                <Circle className='mt-2.5 h-3 w-3 flex-shrink-0 fill-black' />
-                <p className='text-xl leading-relaxed'>
-                  72% of respondents to our audit survey (tenants who had
-                  recently submitted TAHO complaints) reported that their
-                  landlord continued to harass them even after their TAHO case
-                  was closed.
-                </p>
-              </div>
+              <li className='relative pl-8 text-xl leading-relaxed before:absolute before:left-0 before:top-2.5 before:h-3 before:w-3 before:rounded-full before:bg-black'>
+                72% of respondents to our audit survey (tenants who had recently
+                submitted TAHO complaints) reported that their landlord continued
+                to harass them even after their TAHO case was closed.
+              </li>
 
-              <div className='flex items-start gap-4'>
-                <Circle className='mt-2.5 h-3 w-3 flex-shrink-0 fill-black' />
-                <p className='text-xl leading-relaxed'>
-                  LAHD has not provided its housing investigators with adequate
-                  guidance for managing TAHO complaints.
-                </p>
-              </div>
+              <li className='relative pl-8 text-xl leading-relaxed before:absolute before:left-0 before:top-2.5 before:h-3 before:w-3 before:rounded-full before:bg-black'>
+                LAHD has not provided its housing investigators with adequate
+                guidance for managing TAHO complaints.
+              </li>
 
-              <div className='flex items-start gap-4'>
-                <Circle className='mt-2.5 h-3 w-3 flex-shrink-0 fill-black' />
-                <p className='text-xl leading-relaxed'>
-                  Inadequate staffing and resources have limited LAHD's ability
-                  to carry out investigations and enforcement of TAHO.
-                </p>
-              </div>
+              <li className='relative pl-8 text-xl leading-relaxed before:absolute before:left-0 before:top-2.5 before:h-3 before:w-3 before:rounded-full before:bg-black'>
+                Inadequate staffing and resources have limited LAHD's ability to
+                carry out investigations and enforcement of TAHO.
+              </li>
 
-              <div className='flex items-start gap-4'>
-                <Circle className='mt-2.5 h-3 w-3 flex-shrink-0 fill-black' />
-                <p className='text-xl leading-relaxed'>
-                  LAHD's ability to enforce TAHO has mainly consisted of sending
-                  educational letters to offending landlords. For enforcement
-                  beyond that, it has heavily relied on the City Attorney's
-                  Office.
-                </p>
-              </div>
-            </div>
+              <li className='relative pl-8 text-xl leading-relaxed before:absolute before:left-0 before:top-2.5 before:h-3 before:w-3 before:rounded-full before:bg-black'>
+                LAHD's ability to enforce TAHO has mainly consisted of sending
+                educational letters to offending landlords. For enforcement beyond
+                that, it has heavily relied on the City Attorney's Office.
+              </li>
+            </ul>
 
             <div className='mt-12 grid gap-8 lg:mt-0'>
               <div className='rounded-lg bg-white/90 p-8'>

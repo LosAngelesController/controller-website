@@ -46,9 +46,9 @@ const Hero = () => {
           </p>
 
           <div className='mb-8'>
-            <h3 className='mb-4 text-lg font-semibold text-[#41ffca]'>
+            <p className='mb-4 text-lg font-semibold text-[#41ffca]'>
               Examples of Tenant Harassment
-            </h3>
+            </p>
             <ul className='list-none space-y-2 text-gray-300'>
               <li className='flex items-start gap-2'>
                 <span className='text-[#41ffca]'>•</span>
