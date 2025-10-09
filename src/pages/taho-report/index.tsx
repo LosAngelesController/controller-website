@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 import Navbar from '../../components/Navbar';
 import Hero from '../../components/taho/Hero';
 import KeyFindings from '../../components/taho/KeyFindings';
@@ -6,6 +8,9 @@ import Recommendations from '../../components/taho/Recommendations';
 const Index = () => {
   return (
     <>
+      <Head>
+        <title>Tenant Anti-Harassment Ordinance Audit | LA City Controller</title>
+      </Head>
       <Navbar />
       <div
         id='main-content'
