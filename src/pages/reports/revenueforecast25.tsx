@@ -30,15 +30,15 @@ export default function pafr22(props: any) {
               backgroundPosition: 'bottom',
             }}
           >
-            <div className=' container mx-0 px-2 pb-3 pt-5 dark:text-gray-100  sm:px-4 lg:mx-auto lg:max-w-7xl'>
+            <div className='mx-auto px-4 pb-3 pt-5 dark:text-gray-100 sm:px-6 lg:max-w-5xl'>
               <div className='xl:mt-64'>
                 <span className='xl:py-1'></span>
               </div>
-              <h1 className='w-content mt-64 mb-64 ml-2 px-2 px-2  text-2xl text-white sm:px-4 sm:py-4 sm:text-3xl md:text-4xl lg:mb-96 lg:mt-96 xl:mb-32'>
-                <span className='rounded-lg bg-black bg-opacity-60 px-2 py-1'>
+              <h1 className='mt-64 mb-64 px-2 text-2xl text-white sm:px-4 sm:py-4 sm:text-3xl md:text-4xl lg:mb-40 lg:mt-40 xl:mb-32'>
+                <span className='rounded-lg bg-black/70 px-2 py-1'>
                   Revenue Forecast 2024-2025 Web Summary
                 </span>
-                <br></br>
+                <br />
               </h1>
             </div>
           </div>
@@ -46,7 +46,7 @@ export default function pafr22(props: any) {
             style={{ marginRight: '15px' }}
             className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100 sm:px-4 lg:mx-auto lg:max-w-7xl'
           > */}
-          <div className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100  sm:px-4 lg:mx-auto lg:max-w-7xl'>
+          <div className='mx-auto w-full px-4 pb-3 pt-5 dark:text-gray-100 sm:px-6 lg:max-w-5xl'>
             <br />
             <p>
               Each year, in accordance with City Charter Section 311(c), my
@@ -76,7 +76,7 @@ export default function pafr22(props: any) {
               </Link>
             </p>
             <br />
-            <div className='lg:max-w-5xl'>
+            <div className='lg:max-w-4xl'>
               <p>
                 Explore below actual receipts for fiscal year 2023, projected
                 revenues and their sources for fiscal years 2024 and 2025, and
@@ -88,17 +88,17 @@ export default function pafr22(props: any) {
               </p>
             </div>
             <br />
-            <div className='lg:max-w-5xl'>
+            <div className='lg:max-w-4xl'>
               <h2>Revenue</h2>
               <br />
               <h3>FY 2024 ESTIMATE</h3>
-              <br></br>
+              <br />
               The City’s adopted budget for fiscal year 2024, totals $13.1
               billion. General Fund Revenues represent 60% of that ($7.90
               billion), while the rest, close to $5.2 billion, comes from
               numerous special purpose funds and available balances.
-              <br></br>
-              <br></br>
+              <br />
+              <br />
               The Los Angeles County economy has overcome most of the
               challenges it faced during the COVID-19 pandemic. Following the
               recovery, population decline, housing supply and affordability,
@@ -107,8 +107,8 @@ export default function pafr22(props: any) {
               possibility the county avoids a recession in favor of a modest,
               sustained growth in the coming years. Our estimates for fiscal
               year 2023-24 were based on current trends.
-              <br></br>
-              <br></br>
+              <br />
+              <br />
               We estimate that total General Fund revenue will be $7.7 billion
               (including the $136.4 million transfer from the Reserve Fund),
               lower than the Budget by $160.0 million (2.0 percent), and
@@ -117,7 +117,7 @@ export default function pafr22(props: any) {
               <br />
               <br />
               <h3>Lower Revenues, Higher Expenses Force Emergency Action</h3>
-              <br></br>
+              <br />
               <p>
                 <b>
                   {' '}
@@ -139,7 +139,7 @@ export default function pafr22(props: any) {
               </p>
               <br />
               <h3>MEASURE ULA</h3>
-              <br></br>
+              <br />
               <p>
                 Effective April 1, 2023, a new transfer tax, United to House
                 LA (Measure ULA) was imposed on residential and commercial
@@ -155,8 +155,8 @@ export default function pafr22(props: any) {
                 intended to be used to fund affordable housing and tenant
                 assistance programs, including development, construction,
                 acquisition, rehabilitation, and operation of housing.
-                <br></br>
-                <br></br>
+                <br />
+                <br />
                 The future of ULA still remains unclear due to pending
                 litigations and a November 2024 statewide ballot measure that
                 threatens to invalidate the Measure. Due to these uncertain
@@ -174,7 +174,7 @@ export default function pafr22(props: any) {
                 <br />
               </p>
               <h3>FY 2025 PROJECTION</h3>
-              <br></br>
+              <br />
               <p>
                 The future remains uncertain, and it is difficult to predict
                 the direction of the economy. The national economy has so far
@@ -192,7 +192,8 @@ export default function pafr22(props: any) {
                 Our estimate of $7.738 billion in General Fund revenue next
                 year falls well short of the sharp rise in City expenses due
                 to negotiated labor agreements and other cost increases.
-                <br></br>
+                <br />
+                <br />
                 The largest revenue increase is projected to come from a 4.1%
                 increase in Property Taxes ($83M growth). Vehicle License
                 Replacement fee is expected to grow by 5.4%, adding $34
@@ -208,7 +209,7 @@ export default function pafr22(props: any) {
             <p>
               Explore historical total City revenue by source or category:
             </p>
-            <br></br>
+            <br />
             <HistoricalRevAll></HistoricalRevAll>
             <br />
             <p className='font-semibold'>
@@ -220,7 +221,7 @@ export default function pafr22(props: any) {
             </p>
             <br />
             <h3>THE NEED FOR A LONG-TERM STRATEGY</h3>
-            <br></br>
+            <br />
             <p>
               General Fund expenses are on track to increase considerably next
               fiscal year. The State is experiencing its own severe budget
@@ -233,14 +234,6 @@ export default function pafr22(props: any) {
               need to modernize our aging infrastructure.
             </p>
             <br />
-            <p>
-              All of this means that short-term fixes and budget gimmickry
-              will only prolong pain and lead to “an inexorable decline in
-              public services, undermining our quality of life and the
-              economic prospects of our residents” as our Office warned in
-              January when releasing the City’s Annual Comprehensive Financial
-              Report.
-            </p>
 
             <p>
               All of this means that short-term fixes and budget gimmickry
@@ -250,7 +243,7 @@ export default function pafr22(props: any) {
               January when releasing the City’s Annual Comprehensive Financial
               Report.
             </p>
-
+            <br />
             <p>
               I summarized last year’s March Revenue Forecast with this
               advice: “The voters of Los Angeles expressed their choices for
@@ -260,6 +253,7 @@ export default function pafr22(props: any) {
               high road will be essential to making a more equitable, livable
               and resilient city for our four million residents.”
             </p>
+            <br />
             <p>
               Our residents deserve to have their City’s fiscal house put in
               order so that not only their City government lives within its
@@ -267,6 +261,7 @@ export default function pafr22(props: any) {
               to a brighter future for themselves and their families based on
               a strong economy that leaves no one behind.
             </p>
+            <br />
             <p>
               <b>
                 {' '}
@@ -278,8 +273,8 @@ export default function pafr22(props: any) {
               <br />
             </p>
             <h2>Debt</h2>
-            <br></br>
-            {/* <br></br> */}
+            <br />
+            {/* <br /> */}
             <p>
               The estimated debt service requirement for 2024-25 on the City’s
               long-term debt is $549.8 million, which is $22.8 million less
@@ -291,12 +286,13 @@ export default function pafr22(props: any) {
               Corporation of Los Angeles (MICLA), the Wastewater system, the
               Solid Waste Resources Programs, and Site-Specific Tax Revenue
               Debt.
-              <br></br>
+              <br />
+              <br />
               In total, debt service is projected to be 3.68 percent of
               projected 2024-25 General Fund receipts, well under the 15
               percent limit set by the City’s Debt Policy.
             </p>
-            <br></br>
+            <br />
             <Debt />
           </div>
         </div>
