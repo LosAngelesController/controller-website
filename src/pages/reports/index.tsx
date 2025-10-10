@@ -66,7 +66,7 @@ export default function ReportsIndex(props: any) {
                     }`}
                     className='block rounded-lg focus:outline-none'
                   >
-                    <img src={eachreport.image} className='w-full rounded-t-lg'></img>
+                    <img src={eachreport.image} className='w-full rounded-t-lg' alt=''></img>
                     <div className=' px-2 py-2'>
                       <p className='dark:text-white'>
                         {eachreport.year} |{' '}
