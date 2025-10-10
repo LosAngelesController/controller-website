@@ -68,7 +68,9 @@ export default function Audits(props: any) {
                     }
                     className="block rounded-lg focus:outline-none"
                   >
-                    <img src={eachaudit.image} className='w-full'></img>
+                    {eachaudit.image ? (
+                      <img src={eachaudit.image} className='w-full' />
+                    ) : null}
                     <div className=' px-2 py-2'>
                       <p className='dark:text-white'>
                         {eachaudit.year} |{' '}
