@@ -38,7 +38,7 @@ export default function Audits(props: any) {
         <div className=' flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
           <h1 className='dark:text-white'>Upcoming Audits & Reports</h1>
 
-          <div className='md:hidden'>
+          <div className='md:hidden mt-3'>
             {audits.map((eachaudit: any, eachauditnum: number) => (
               <LineItem
                 key={eachauditnum}
@@ -52,7 +52,7 @@ export default function Audits(props: any) {
             ))}
           </div>
 
-          <div className='hidden md:block'>
+          <div className='hidden md:block mt-3'>
             <div className='grid grid-cols-3 gap-x-6 gap-y-4 lg:grid-cols-3'>
               {props.audits.map((eachaudit: any, eachauditnum: number) => (
                 <div
@@ -66,6 +66,7 @@ export default function Audits(props: any) {
                         ? eachaudit.link
                         : `${eachaudit.link}`
                     }
+                    className="block rounded-lg focus:outline-none"
                   >
                     <img src={eachaudit.image} className='w-full'></img>
                     <div className=' px-2 py-2'>
