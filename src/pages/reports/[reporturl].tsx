@@ -84,7 +84,7 @@ export default function Report(props: auditinterface) {
                   </span>
                 )}
               </h3>
-              <div className='flex flex-row gap-x-2'>
+              <div className='flex flex-row gap-x-2 mt-3'>
                 <Link href={props.report.pdflink}>
                   <button className='rounded-full bg-black px-3 py-1 font-semibold text-white'>
                     View PDF
@@ -92,7 +92,7 @@ export default function Report(props: auditinterface) {
                 </Link>
                 <Link download={true} href={props.report.pdflink}>
                   <button className='rounded-full bg-black p-1.5 text-white md:p-2'>
-                    <svg className='l-4 h-4' viewBox='0 0 24 24'>
+                    <svg className='l-4 h-4' viewBox='0 0 24 24' alt=''>
                       <path
                         fill='currentColor'
                         d='M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z'
@@ -102,7 +102,7 @@ export default function Report(props: auditinterface) {
                 </Link>
               </div>
 
-              <div className='legacycontentgal'>
+              <div className='legacycontentgal mt-3'>
                 <div
                   dangerouslySetInnerHTML={{
                     __html: props.report.htmlofpage,
