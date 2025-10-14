@@ -18,12 +18,7 @@ const Hero = () => {
           </h1>
 
           <div className='mb-8 flex space-x-4'>
-            <a
-              href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/audits%2FImplementation%20of%20TAHO_FINAL_4.3.25.pdf?alt=media&token=3f7910e9-afe4-423a-818a-609690e97897'
-              target='_blank'
-              rel='noopener noreferrer'
-              download
-            >
+            <a href='' target='_blank' rel='noopener noreferrer' download>
               <Button
                 size='lg'
                 className='flex items-center gap-2 bg-[#41ffca] px-6 text-base font-medium text-black hover:bg-[#41ffca]/90'
