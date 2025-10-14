@@ -16,10 +16,19 @@ export function CurrentRevListSources(props: any) {
     d3.csv('/csvsrevenueforecast24/gf-current.csv').then((data: any) => {
       console.log(data);
 
+      if (!tableRef.current) {
+        return;
+      }
+
+      tableRef.current.innerHTML = '';
+
       const table = d3
         .select(tableRef.current)
         .append('table')
-        .attr('class', 'divide-y divide-gray-200 dark:divide-gray-500');
+        .attr(
+          'class',
+          'mx-auto w-full max-w-4xl table-auto divide-y divide-gray-200 text-left dark:divide-gray-500'
+        );
 
       const thead = table
         .append('thead')
@@ -37,10 +46,10 @@ export function CurrentRevListSources(props: any) {
         .data(headcolumns)
         .enter()
         .append('th')
-        .attr('class', 'px-2 text-wrap max-w-xs ')
-        .text((d: any) => {
-          return d;
-        });
+        .attr('class', (_, idx) =>
+          `px-2 text-wrap max-w-xs ${idx === 0 ? 'text-left' : 'text-right'}`
+        )
+        .text((d: any) => d);
 
       const rows = tbody
         .selectAll('tr')
@@ -92,7 +101,11 @@ export function CurrentRevListSources(props: any) {
 
   return (
     <>
-      <div ref={tableRef} id='tableofrevenues'></div>
+      <div
+        ref={tableRef}
+        id='tableofrevenues'
+        className='mt-8 w-full overflow-x-auto'
+      ></div>
     </>
   );
 }

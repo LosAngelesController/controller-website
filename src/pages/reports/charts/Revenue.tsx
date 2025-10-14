@@ -62,8 +62,11 @@ function Revenue() {
   const [totalRevenuesData, setTotalRevenuesData] = useState<TotalRevenue[]>(
     []
   );
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   const isDark = isDarkMode();
+  const categorySelectId = 'revenue-category-select';
+  const fiscalYearSelectId = 'revenue-fiscal-year-select';
 
   useEffect(() => {
     axios
@@ -89,6 +92,23 @@ function Revenue() {
       });
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleResize = () => {
+      setIsMobileViewport(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const getFilteredRevenueData = () => {
     // return revenueSourcesData.filter(
     //   (item) => item.category === category && item.fiscalYear === fiscalYear
@@ -108,9 +128,65 @@ function Revenue() {
     );
   };
 
-  const sortedRevenueData = getFilteredRevenueData().sort(
-    (a, b) => b.amount - a.amount
+  const filteredRevenueData = getFilteredRevenueData();
+
+  const revenueSourceMap = filteredRevenueData.reduce<
+    Record<string, { actual?: number; adopted?: number }>
+  >((acc, item) => {
+    if (!acc[item.revenueSource]) {
+      acc[item.revenueSource] = {};
+    }
+
+    if (item.budgetActual === 'Actual Receipts') {
+      acc[item.revenueSource].actual = item.amount;
+    }
+
+    if (item.budgetActual === 'Adopted Budget') {
+      acc[item.revenueSource].adopted = item.amount;
+    }
+
+    return acc;
+  }, {});
+
+  const revenueSources = Object.keys(revenueSourceMap);
+
+  const adoptedBudgetData = revenueSources.map(
+    (source) => revenueSourceMap[source].adopted ?? 0
   );
+
+  const actualReceiptsData = revenueSources.map(
+    (source) => revenueSourceMap[source].actual ?? 0
+  );
+
+  const formatCurrency = (value: number) => `$${value.toLocaleString()}`;
+
+  const formatAbbreviatedCurrency = (value: number) => {
+    const absValue = Math.abs(value);
+
+    const formatWithSuffix = (divisor: number, suffix: string) => {
+      const amount = value / divisor;
+      const decimals = Number.isInteger(amount) ? 0 : 2;
+      return `$${amount.toFixed(decimals)}${suffix}`;
+    };
+
+    if (absValue >= 1_000_000_000) {
+      return formatWithSuffix(1_000_000_000, 'B');
+    }
+
+    if (absValue >= 1_000_000) {
+      return formatWithSuffix(1_000_000, 'M');
+    }
+
+    if (absValue >= 1_000) {
+      return formatWithSuffix(1_000, 'K');
+    }
+
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `$${value.toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
+  };
 
   // const { theme, setTheme, resolvedTheme } = useTheme();
 
@@ -123,8 +199,11 @@ function Revenue() {
     <div>
       <div>
         <center>
-          <label style={{ marginRight: '10px' }}>Category:</label>{' '}
+          <label htmlFor={categorySelectId} style={{ marginRight: '10px' }}>
+            Category:
+          </label>{' '}
           <select
+            id={categorySelectId}
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             style={{ color: 'black', marginRight: '10px' }}
@@ -132,8 +211,12 @@ function Revenue() {
             <option value='General Fund'>General Fund Receipts</option>
             <option value='Special Funds'>Special Fund Receipts</option>
           </select>
-          <label style={{ marginRight: '10px' }}>Fiscal Year:</label>
+          {isMobileViewport && <div style={{ height: '12px' }} />}
+          <label htmlFor={fiscalYearSelectId} style={{ marginRight: '10px' }}>
+            Fiscal Year:
+          </label>{' '}
           <select
+            id={fiscalYearSelectId}
             value={fiscalYear}
             onChange={(e) => setFiscalYear(parseInt(e.target.value))}
             style={{ color: 'black' }}
@@ -154,28 +237,66 @@ function Revenue() {
         </center>
 
         <div className='chart-container'>
-          <div>
+          <div style={{ width: '100%', height: '600px' }}>
             <br></br>
             <h2>Revenue Sources</h2>
+            <table className='sr-only'>
+              <caption>
+                Revenue sources for {category} in fiscal year {fiscalYear}
+              </caption>
+              <thead>
+                <tr>
+                  <th scope='col'>Revenue Source</th>
+                  <th scope='col'>Adopted Budget</th>
+                  <th scope='col'>Actual Receipts</th>
+                </tr>
+              </thead>
+              <tbody>
+                {revenueSources.map((source) => (
+                  <tr key={source}>
+                    <th scope='row'>{source}</th>
+                    <td>
+                      {formatAbbreviatedCurrency(
+                        revenueSourceMap[source].adopted ?? 0
+                      )}
+                    </td>
+                    <td>
+                      {formatAbbreviatedCurrency(
+                        revenueSourceMap[source].actual ?? 0
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
             <Bar
               data={{
-                // labels: sortedRevenueData.map((item) => item.revenueSource),
-                labels: getFilteredRevenueData().map((item) => item.revenueSource),
+                labels: revenueSources,
                 datasets: [
                   {
-                    label: 'Amount',
-                    // data: sortedRevenueData.map((item) => item.amount),
-                    data: getFilteredRevenueData().map((item) => item.amount),
-                    backgroundColor: '#41ffca',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
+                    label: 'Adopted Budget',
+                    data: adoptedBudgetData,
+                    backgroundColor: '#ffca41',
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
                     barPercentage: 0.8,
-                    categoryPercentage: 1
+                    categoryPercentage: 1,
+                  },
+                  {
+                    label: 'Actual Receipts',
+                    data: actualReceiptsData,
+                    backgroundColor: '#41ffca',
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
+                    barPercentage: 0.8,
+                    categoryPercentage: 1,
                   },
                 ],
               }}
+              aria-hidden='true'
               options={{
                 indexAxis: 'y',
+                maintainAspectRatio: false,
                 scales: {
                   x: {
                     beginAtZero: true,
@@ -184,6 +305,10 @@ function Revenue() {
                     },
                     ticks: {
                       color: isDark ? 'white' : 'black',
+                      callback: (value) =>
+                        typeof value === 'number'
+                          ? formatAbbreviatedCurrency(value)
+                          : formatAbbreviatedCurrency(Number(value ?? 0)),
                     },
                     title: {
                       display: true,
@@ -197,9 +322,11 @@ function Revenue() {
                       color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
                     },
                     ticks: {
-                      // autoSkip: false,
-                      maxTicksLimit: category === 'General Fund' ? undefined : Math.ceil(getFilteredRevenueData().length / 2),
+                      autoSkip: false,
                       color: isDark ? 'white' : 'black',
+                      font: () => ({
+                        size: isMobileViewport ? 10 : 12,
+                      }),
                     },
                     title: {
                       display: true,
@@ -218,12 +345,8 @@ function Revenue() {
                     callbacks: {
                       label: function (context) {
                         const label = context.dataset.label || '';
-                        const value =
-                          getFilteredRevenueData()[context.dataIndex].amount;
-                        const budgetActual =
-                          getFilteredRevenueData()[context.dataIndex].budgetActual;
-
-                        return `${label}: $${value.toLocaleString()} | ${budgetActual}`;
+                        const rawValue = context.raw as number;
+                        return `${label}: ${formatCurrency(rawValue)}`;
                       },
                     },
                   },
@@ -235,27 +358,48 @@ function Revenue() {
           <br></br>
           <div>
             <h2>Revenues Over Time</h2>
-
-            <Bar
-              data={{
-                labels: getFilteredTotalRevenuesData()
-                  .map((item) => item.fiscalYear)
-                  .reverse(), // Reverse the labels to display in descending order
-                datasets: [
+            <table className='sr-only'>
+              <caption>Actual receipts by fiscal year</caption>
+              <thead>
+                <tr>
+                  <th scope='col'>Fiscal Year</th>
+                  <th scope='col'>Actual Receipts</th>
+                </tr>
+              </thead>
+              <tbody>
+                {getFilteredTotalRevenuesData()
+                  .sort((a, b) => b.fiscalYear - a.fiscalYear)
+                  .map((item) => (
+                    <tr key={item.id}>
+                      <th scope='row'>{item.fiscalYear}</th>
+                      <td>{formatAbbreviatedCurrency(item.totalRevenues)}</td>
+                    </tr>
+                  ))}
+              </tbody>
+            </table>
+            <div style={{ width: '100%', height: '450px' }}>
+              <Bar
+                data={{
+                  labels: getFilteredTotalRevenuesData()
+                    .map((item) => item.fiscalYear)
+                    .reverse(), // Reverse the labels to display in descending order
+                  datasets: [
                   {
                     label: 'Actual Receipts',
                     data: getFilteredTotalRevenuesData()
                       .map((item) => item.totalRevenues)
                       .sort((a, b) => b - a), // Sort data in descending order
                     backgroundColor: '#41ffca',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
                   },
                 ],
               }}
-              options={{
-                indexAxis: 'y',
-                scales: {
+                aria-hidden='true'
+                options={{
+                  indexAxis: 'y',
+                  maintainAspectRatio: false,
+                  scales: {
                   x: {
                     beginAtZero: true,
                     grid: {
@@ -263,37 +407,43 @@ function Revenue() {
                     },
                     ticks: {
                       color: isDark ? 'white' : 'black',
+                      callback: (value) =>
+                        typeof value === 'number'
+                          ? formatAbbreviatedCurrency(value)
+                          : formatAbbreviatedCurrency(Number(value ?? 0)),
                     },
                     title: {
                       display: true,
                       text: 'Amount',
                       color: isDark ? 'white' : 'black',
+                      },
+                    },
+                    y: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+                      },
+                      ticks: {
+                        autoSkip: false,
+                        color: isDark ? 'white' : 'black',
+                      },
+                      title: {
+                        display: true,
+                        text: 'Fiscal Year',
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
                   },
-                  y: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
-                    },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
-                    },
-                    title: {
-                      display: true,
-                      text: 'Fiscal Year',
-                      color: isDark ? 'white' : 'black',
+                  plugins: {
+                    legend: {
+                      labels: {
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
                   },
-                },
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: isDark ? 'white' : 'black',
-                    },
-                  },
-                },
-              }}
-            />
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>

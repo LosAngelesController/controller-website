@@ -85,6 +85,40 @@ const BarChart: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<SelectedOption>('debt'); // Default selection
 
   const isDark = isDarkMode();
+  const debtScaleSelectId = 'debt-scale-select';
+
+  const formatAbbreviatedCurrency = (value: number) => {
+    const absValue = Math.abs(value);
+
+    const formatWithSuffix = (divisor: number, suffix: string) => {
+      const amount = value / divisor;
+      const decimals = Number.isInteger(amount) ? 0 : 2;
+      return `$${amount.toFixed(decimals)}${suffix}`;
+    };
+
+    if (absValue >= 1_000_000_000) {
+      return formatWithSuffix(1_000_000_000, 'B');
+    }
+
+    if (absValue >= 1_000_000) {
+      return formatWithSuffix(1_000_000, 'M');
+    }
+
+    if (absValue >= 1_000) {
+      return formatWithSuffix(1_000, 'K');
+    }
+
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `$${value.toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
+  };
+
+  const formatPercentage = (value: number) => {
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `${value.toFixed(decimals)}%`;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -116,8 +150,8 @@ const BarChart: React.FC = () => {
               label: '$ Total Debt Cap',
               type: 'line',
               data: debtData?.map((item) => item.capMoney),
-              borderColor: 'cyan',
-              backgroundColor: 'cyan',
+              borderColor: 'rgb(38, 157, 187)',
+              backgroundColor: 'rgb(38, 157, 187)',
             },
 
             {
@@ -125,12 +159,16 @@ const BarChart: React.FC = () => {
               data: debtData?.map((item) => item.voterApproveds),
               backgroundColor: 'green',
               type: 'bar',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
             {
               label: 'Non Voter Approved',
               type: 'bar',
               data: debtData?.map((item) => item.nonVoterApproved),
               backgroundColor: '#bb0000',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
           ],
         }
@@ -141,14 +179,16 @@ const BarChart: React.FC = () => {
               label: '% Total Debt Cap',
               type: 'line',
               data: debtData?.map((item) => item.totalPercent * 100),
-              borderColor: 'cyan',
-              backgroundColor: 'cyan',
+              borderColor: 'rgb(38, 157, 187)',
+              backgroundColor: 'rgb(38, 157, 187)',
             },
 
             {
               label: 'Voter Approved',
               data: debtData?.map((item) => item.voterXApproved * 100),
               backgroundColor: '#ffca41',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
             {
               label: 'Non-Voter Approved',
@@ -158,6 +198,8 @@ const BarChart: React.FC = () => {
                   100
               ),
               backgroundColor: '#41ffca',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
           ],
         };
@@ -207,7 +249,9 @@ const BarChart: React.FC = () => {
           color: isDark ? 'white' : 'black',
           callback: function (value) {
             if (selectedOption === 'debt') {
-              return '$' + value.toLocaleString();
+              const numericValue =
+                typeof value === 'number' ? value : Number(value ?? 0);
+              return formatAbbreviatedCurrency(numericValue);
             } else {
               return value + '%';
             }
@@ -226,6 +270,7 @@ const BarChart: React.FC = () => {
         },
         ticks: {
           color: isDark ? 'white' : 'black',
+          autoSkip: false,
         },
       },
     },
@@ -236,8 +281,11 @@ const BarChart: React.FC = () => {
     <>
       <div className='p-10 text-center'>
         <br></br>
-        <label style={{ marginRight: '10px' }}>Scale by % or $</label>
+        <label htmlFor={debtScaleSelectId} style={{ marginRight: '10px' }}>
+          Scale by % or $
+        </label>
         <select
+          id={debtScaleSelectId}
           value={selectedOption}
           onChange={(e) => setSelectedOption(e.target.value as SelectedOption)}
           className='w-30 border-2 '
@@ -247,19 +295,80 @@ const BarChart: React.FC = () => {
           <option value='debtPercentage'>Debt - %</option>
         </select>
       </div>
-      <div className='text-center font-bold'>
-        {selectedOption === 'debt'
-          ? 'Debt Service Requirements'
-          : 'Ratio of Debt Service Requirements to General Funds Receipts'}
-      </div>
-      <div
-        className='px-10'
-        style={{ width: '100%', height: '500px', overflowX: 'auto' }}
-      >
-        <Bar
-          options={options as ChartOptions}
-          data={selectedData as ChartData<'bar'>}
-        />
+      <table className='sr-only'>
+        <caption>
+          {selectedOption === 'debt'
+            ? 'Debt service requirements by fiscal year (dollars)'
+            : 'Debt service requirements by fiscal year (percentage of general fund receipts)'}
+        </caption>
+        <thead>
+          <tr>
+            <th scope='col'>Fiscal Year</th>
+            {selectedOption === 'debt' ? (
+              <>
+                <th scope='col'>$ Total Debt Cap</th>
+                <th scope='col'>Voter Approved Debt</th>
+                <th scope='col'>Non-Voter Approved Debt</th>
+              </>
+            ) : (
+              <>
+                <th scope='col'>% Total Debt Cap</th>
+                <th scope='col'>Voter Approved Debt %</th>
+                <th scope='col'>Non-Voter Approved Debt %</th>
+              </>
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {debtData?.map((item) => {
+            if (selectedOption === 'debt') {
+              const totalCap = Number(item.capMoney ?? 0);
+              const voterApproved = Number(item.voterApproveds ?? 0);
+              const nonVoterApproved = Number(item.nonVoterApproved ?? 0);
+
+              return (
+                <tr key={`debt-${item.fiscalYear}`}>
+                  <th scope='row'>{item.fiscalYear}</th>
+                  <td>{formatAbbreviatedCurrency(totalCap)}</td>
+                  <td>{formatAbbreviatedCurrency(voterApproved)}</td>
+                  <td>{formatAbbreviatedCurrency(nonVoterApproved)}</td>
+                </tr>
+              );
+            }
+
+            const totalPercent = (item.totalPercent ?? 0) * 100;
+            const voterPercent = (item.voterXApproved ?? 0) * 100;
+            const nonVoterPercent =
+              (item.ratioOfDebtServiceRequirementsToGeneralFundReceiptsNonVoterApproved ?? 0) *
+              100;
+
+            return (
+              <tr key={`percent-${item.fiscalYear}`}>
+                <th scope='row'>{item.fiscalYear}</th>
+                <td>{formatPercentage(totalPercent)}</td>
+                <td>{formatPercentage(voterPercent)}</td>
+                <td>{formatPercentage(nonVoterPercent)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      <div aria-hidden='true'>
+        <div className='text-center font-bold'>
+          {selectedOption === 'debt'
+            ? 'Debt Service Requirements'
+            : 'Ratio of Debt Service Requirements to General Funds Receipts'}
+        </div>
+        <div
+          className='px-10'
+          style={{ width: '100%', height: '500px', overflowX: 'auto' }}
+        >
+          <Bar
+            options={options as ChartOptions}
+            data={selectedData as ChartData<'bar'>}
+            aria-hidden='true'
+          />
+        </div>
       </div>
     </>
   );

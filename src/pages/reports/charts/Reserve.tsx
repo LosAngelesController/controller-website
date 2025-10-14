@@ -73,6 +73,40 @@ const BarChartForDebt = () => {
     useState<SelectedOption>('reserveFund'); // Default selection
 
   const isDark = isDarkMode();
+  const reserveScaleSelectId = 'reserve-scale-select';
+
+  const formatAbbreviatedCurrency = (value: number) => {
+    const absValue = Math.abs(value);
+
+    const formatWithSuffix = (divisor: number, suffix: string) => {
+      const amount = value / divisor;
+      const decimals = Number.isInteger(amount) ? 0 : 2;
+      return `$${amount.toFixed(decimals)}${suffix}`;
+    };
+
+    if (absValue >= 1_000_000_000) {
+      return formatWithSuffix(1_000_000_000, 'B');
+    }
+
+    if (absValue >= 1_000_000) {
+      return formatWithSuffix(1_000_000, 'M');
+    }
+
+    if (absValue >= 1_000) {
+      return formatWithSuffix(1_000, 'K');
+    }
+
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `$${value.toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
+  };
+
+  const formatPercentage = (value: number) => {
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `${value.toFixed(decimals)}%`;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -102,11 +136,15 @@ const BarChartForDebt = () => {
               label: 'Reserve Fund',
               data: reserveData?.map((item) => item.reserveFund),
               backgroundColor: '#ffca41',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
             {
               label: 'Budget Stabilization Fund',
               data: reserveData?.map((item) => item.budgetStabilizationFund),
               backgroundColor: '#41ffca',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
           ],
         }
@@ -119,6 +157,8 @@ const BarChartForDebt = () => {
                 (item) => item.reserveFundPercentage * 100
               ),
               backgroundColor: '#ffca41',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
             {
               label: 'Budget Stabilization Fund Percentage',
@@ -126,6 +166,8 @@ const BarChartForDebt = () => {
                 (item) => item.budgetStabilizationFundPercentage * 100
               ),
               backgroundColor: '#41ffca',
+              borderColor: '#000000',
+              borderWidth: 0.5,
             },
           ],
         };
@@ -174,7 +216,9 @@ const BarChartForDebt = () => {
           color: isDark ? 'white' : 'black',
           callback: function (value) {
             if (selectedOption === 'reserveFund') {
-              return '$' + value.toLocaleString();
+              const numericValue =
+                typeof value === 'number' ? value : Number(value ?? 0);
+              return formatAbbreviatedCurrency(numericValue);
             } else {
               return value + '%';
             }
@@ -193,16 +237,20 @@ const BarChartForDebt = () => {
         },
         ticks: {
           color: isDark ? 'white' : 'black',
+          autoSkip: false,
         },
       },
     },
   };
 
   return (
-    <div className='p-10 text-center'>
+    <div className='text-center px-2 sm:px-4 md:px-10 py-10'>
       <br></br>
-      <label style={{ marginRight: '10px' }}> Scale by % or $</label>
+      <label htmlFor={reserveScaleSelectId} style={{ marginRight: '10px' }}>
+        Scale by % or $
+      </label>
       <select
+        id={reserveScaleSelectId}
         value={selectedOption}
         onChange={(e) => setSelectedOption(e.target.value as SelectedOption)}
         className='w-38 border-2'
@@ -214,11 +262,54 @@ const BarChartForDebt = () => {
         </option>
       </select>
 
-      <div
-        className='px-10'
-        style={{ width: '100%', height: '500px', overflowX: 'auto' }}
-      >
-        <Bar options={options} data={selectedData} />
+      <table className='sr-only'>
+        <caption>
+          {selectedOption === 'reserveFund'
+            ? 'Reserve Fund and Budget Stabilization Fund balances by fiscal year'
+            : 'Reserve Fund and Budget Stabilization Fund percentages by fiscal year'}
+        </caption>
+        <thead>
+          <tr>
+            <th scope='col'>Fiscal Year</th>
+            {selectedOption === 'reserveFund' ? (
+              <>
+                <th scope='col'>Reserve Fund</th>
+                <th scope='col'>Budget Stabilization Fund</th>
+              </>
+            ) : (
+              <>
+                <th scope='col'>Reserve Fund Percentage</th>
+                <th scope='col'>Budget Stabilization Fund Percentage</th>
+              </>
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {reserveData?.map((item) => (
+            <tr key={item.fiscalYear}>
+              <th scope='row'>{item.fiscalYear}</th>
+              {selectedOption === 'reserveFund' ? (
+                <>
+                  <td>{formatAbbreviatedCurrency(item.reserveFund)}</td>
+                  <td>{formatAbbreviatedCurrency(item.budgetStabilizationFund)}</td>
+                </>
+              ) : (
+                <>
+                  <td>{formatPercentage(item.reserveFundPercentage * 100)}</td>
+                  <td>{formatPercentage(item.budgetStabilizationFundPercentage * 100)}</td>
+                </>
+              )}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div aria-hidden='true'>
+        <div
+          className='px-2 sm:px-4 md:px-10 mt-4'
+          style={{ width: '100%', height: '500px', overflowX: 'auto' }}
+        >
+          <Bar options={options} data={selectedData} aria-hidden='true' />
+        </div>
       </div>
     </div>
   );

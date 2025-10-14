@@ -19,28 +19,25 @@ export default function pafr22(props: any) {
       <Layout>
         <div className='flex flex-col pb-2 dark:text-white'>
           <div
-            className=''
             style={{
-              //url
               background: 'url(/images/revforecastcoverpic-yee.jpg)',
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
               backgroundPosition: 'bottom',
             }}
           >
-            <div className=' container mx-0 px-2 pb-3 pt-5 dark:text-gray-100  sm:px-4 lg:mx-auto lg:max-w-7xl'>
+            <div className='mx-auto px-4 pb-3 pt-5 dark:text-gray-100 sm:px-6 lg:max-w-5xl'>
               <div className='xl:mt-64'>
                 <span className='xl:py-1'></span>
               </div>
-              <h1 className='w-content mt-64 mb-64 ml-2 px-2 text-2xl text-white sm:px-4 sm:py-4 sm:text-3xl md:text-4xl lg:mb-96 lg:mt-96 xl:mb-32'>
-                <span className='rounded-lg bg-black bg-opacity-60 px-2 py-1'>
+              <h1 className='mt-64 mb-64 px-2 text-2xl text-white sm:px-4 sm:py-4 sm:text-3xl md:text-4xl lg:mb-40 lg:mt-40 xl:mb-32'>
+                <span className='rounded-lg bg-black/70 px-2 py-1'>
                   Revenue Forecast 2023-2024 Web Summary
                 </span>
-                <br></br>
               </h1>
             </div>
           </div>
-          <div className='container mx-0 px-2 pb-3 pt-5 dark:text-gray-100  sm:px-4 lg:mx-auto lg:max-w-7xl'>
+          <div className='mx-auto w-full px-4 pb-3 pt-5 dark:text-gray-100 sm:px-6 lg:max-w-5xl'>
             <br />
             <p>
               Each year, in accordance with City Charter Section 311(c), my
@@ -67,26 +64,19 @@ export default function pafr22(props: any) {
               </Link>
             </p>
             <br />
-            <div className='lg:max-w-5xl'>
+            <div className='lg:max-w-4xl'>
               <p>
                 Explore actual receipts for fiscal year 2022, projected revenues
                 and their sources for fiscal years 2023 and 2024, and compare
                 last year’s revenues to the estimates for this and next fiscal
                 year.
-                <br />
-                <br />
-                {/*
-                  Add visuals –
-o Revenue by Fund Type
- Revenue Sources for FY 2024 (separate visual for GF &amp; SF sources)
- Revenue Sources Over Three Years
- – General Fund, Special Funds &amp; Total
-                  */}
-                <CurrentRevListSources />
               </p>
+              <div className='my-6'>
+                <CurrentRevListSources />
+              </div>
             </div>
             <br />
-            <div className='lg:max-w-5xl'>
+            <div className='lg:max-w-4xl'>
               <h2>Revenue</h2>
               <br />
               <h3>FY 2023 Estimate</h3>

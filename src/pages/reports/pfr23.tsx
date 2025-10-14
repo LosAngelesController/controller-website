@@ -1,4 +1,5 @@
 import { Chart, registerables } from 'chart.js';
+import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -13,13 +14,16 @@ Chart.register(...registerables);
 
 const Home = () => {
   const [backgroundSize, setBackgroundSize] = useState('cover');
+  const [backgroundPosition, setBackgroundPosition] = useState('center bottom');
 
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth >= 1200) {
         setBackgroundSize('90% auto');
+        setBackgroundPosition('center bottom');
       } else {
         setBackgroundSize('cover');
+        setBackgroundPosition('right -20px bottom');
       }
     }
 
@@ -40,6 +44,7 @@ const Home = () => {
     textDecoration: 'none',
     borderRadius: '5px',
     display: 'inline-block',
+    border: '0.5px solid black',
   };
 
   const pdfLink =
@@ -47,32 +52,57 @@ const Home = () => {
 
   return (
     <>
+      <Head>
+        <title>Preliminary Financial Report FY 22-23 Web Summary</title>
+      </Head>
+      <Helmet>
+        <title>Preliminary Financial Report FY 22-23 Web Summary</title>
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta name='twitter:site' content='@lacontroller' />
+        <meta
+          name='twitter:title'
+          content='Preliminary Financial Report 2022-23'
+        />
+        <meta
+          name='twitter:description'
+          content='Preliminary Financial Report Web Summary'
+        />
+        <meta
+          name='twitter:image'
+          content='https://controller.lacity.gov/images/pfr-banner.png'
+        />
+      </Helmet>
       <Navbar />
       <Layout>
-        <div
-          className='banner'
-          style={{
-            background: 'url(/images/pfr-banner.png)',
-            backgroundRepeat: 'no-repeat',
-            // backgroundSize: 'cover',
-            backgroundSize,
-            backgroundPosition: 'bottom',
-            width: '100%',
-            paddingBottom: '30%', // Set a responsive aspect ratio (adjust as needed)
-          }}
-        ></div>
+        <div className='pt-6 sm:pt-8 lg:pt-12'>
+          <div
+            className='relative flex w-full min-h-[220px] items-center text-white sm:min-h-[320px]'
+            style={{
+              background: 'url(/images/pfr-banner.png)',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize,
+              backgroundPosition,
+            }}
+          >
+            <div className='container mx-auto px-4 py-16 sm:px-6 sm:py-20 lg:max-w-5xl lg:py-32'>
+              <h1 className='inline-block rounded-lg bg-black/70 px-3 py-2 text-left text-sm font-semibold shadow-lg md:text-2xl lg:text-4xl'>
+                <span className='block lg:inline'>Preliminary Financial Report</span>
+                <span className='block lg:ml-2 lg:inline'>FY 2022-23</span>
+                <span className='mt-2 block text-base font-medium sm:text-lg md:text-xl'>
+                  Web Summary
+                </span>
+              </h1>
+            </div>
+          </div>
+        </div>
       </Layout>
 
-      <div className='mx-3 text-black dark:text-white'>
-        <center>
-          <br></br>
-
-          <br />
-          <br />
-          <div
-            className='text-left dark:text-white'
-            style={{ fontFamily: 'Helvetica', maxWidth: '1500px' }}
-          >
+      <div className='text-black dark:text-white'>
+        <section
+          className='container mx-auto px-4 py-12 sm:px-6 lg:max-w-5xl'
+          style={{ fontFamily: 'Helvetica' }}
+        >
+          <div className='text-left'>
             <p className='mb-4'>
               One of the City Controller’s primary responsibilities is analyzing
               and reporting on the City’s financial health. The Preliminary
@@ -119,26 +149,22 @@ const Home = () => {
               full report by clicking here:
             </p>
           </div>
-          <a
-            href={pdfLink}
-            target='_blank'
-            rel='noopener noreferrer'
-            style={buttonStyle}
-          >
-            Click to View Full Report
-          </a>
+          <div className='mt-8 flex justify-center'>
+            <a
+              href={pdfLink}
+              target='_blank'
+              rel='noopener noreferrer'
+              style={buttonStyle}
+            >
+              Click to View Full Report
+            </a>
+          </div>
 
-          <div
-            className='text-left dark:text-white'
-            style={{ fontFamily: 'Helvetica', maxWidth: '1500px' }}
-          >
-            <br />
-            <br />
-            <h1 className='mb-4'>Controller’s Cover Letter</h1>
-            <p className='mb-4'>
-              <b>Preliminary Financial Report for Fiscal Year 2022-2023</b>
-              <br></br>
-            </p>
+          <div className='mt-12 text-left'>
+            <h2 className='mb-4'>Controller’s Cover Letter</h2>
+            <h3 className='mb-4 text-base font-semibold'>
+              Preliminary Financial Report for Fiscal Year 2022-2023
+            </h3>
 
             <p className='mb-4'>
               Each year at this time, the Controller’s Office submits the
@@ -166,10 +192,8 @@ const Home = () => {
               finances – as well as to address future challenges.
             </p>
 
+            <h3 className='mb-4 text-base font-semibold'>Continued Recovery</h3>
             <p className='mb-4'>
-              <b>Continued Recovery </b>
-              <br></br>
-              <br></br>
               General Fund revenues were marked by strong 9% growth over the
               previous fiscal year. That performance exceeded the adopted budget
               projections by $135.7 million. General Fund budgetary department’s
@@ -193,83 +217,94 @@ const Home = () => {
               projects.
             </p>
 
-            <p className='mb-4'>
-              <b> The report highlights a number of key indicators:</b>
-              <br></br>
-              <br></br>● Major contributors to the strong revenue increase
-              include Utility Users Tax revenue ($93 million above budget)
-              primarily from higher natural gas and electric prices; franchise
-              income ($53.7 million above); Transient Occupancy (Hotel) Tax
-              $46.8 million above); and Business Tax ($38.9 million above).
-              <br></br>
-              <br></br>● Some revenue sources fell below budget projections:
-              Documentary Transfer Tax ($77.3 million below); Licenses, Permits
-              and Fines ($40.8 million below); Parking Fines ($21.million
-              below); and Grant Receipts ($15.6 million below).
-              <br></br>
-              <br></br>● While staff vacancies resulted in $118 million in
-              savings among civilian employees, Police and Fire salaries were
-              $29 million over their budgeted amount. The overspending was
-              attributed to increased overtime, unbudgeted salary payouts
-              associated with agreements with sworn employee unions and excess
-              sick payouts.
-              <br></br>
-              <br></br>● Liability pay-outs of $172.5 million exceeded budget by
-              nearly 100%.
-              <br></br>
-              <br></br>● The City’s debt ratio remains well below the limits
-              under City policy, providing the potential for expanded capital
-              investment if revenue flows can support new borrowing.
-              <br></br>
-              <br></br>● The City is not spending what it is budgeting for which
-              means less services, resources, and infrastructure are being
-              provided for Angelenos.
-              <br></br>
-              <br></br>● While chronic staffing shortages reduce compensation
-              outlays, retaining and attracting staff to fill those jobs puts a
-              double strain on finances going forward as raises and new hires
-              absorb higher revenues.
-            </p>
+            <h3 className='mb-4 text-base font-semibold'>
+              The report highlights a number of key indicators:
+            </h3>
+            <ul className='mb-6 list-disc pl-6'>
+              <li className='mb-2'>
+                Major contributors to the strong revenue increase include Utility
+                Users Tax revenue ($93 million above budget) primarily from
+                higher natural gas and electric prices; franchise income ($53.7
+                million above); Transient Occupancy (Hotel) Tax ($46.8 million
+                above); and Business Tax ($38.9 million above).
+              </li>
+              <li className='mb-2'>
+                Some revenue sources fell below budget projections: Documentary
+                Transfer Tax ($77.3 million below); Licenses, Permits and Fines
+                ($40.8 million below); Parking Fines ($21 million below); and
+                Grant Receipts ($15.6 million below).
+              </li>
+              <li className='mb-2'>
+                While staff vacancies resulted in $118 million in savings among
+                civilian employees, Police and Fire salaries were $29 million over
+                their budgeted amount. The overspending was attributed to
+                increased overtime, unbudgeted salary payouts associated with
+                agreements with sworn employee unions and excess sick payouts.
+              </li>
+              <li className='mb-2'>
+                Liability pay-outs of $172.5 million exceeded budget by nearly
+                100%.
+              </li>
+              <li className='mb-2'>
+                The City’s debt ratio remains well below the limits under City
+                policy, providing the potential for expanded capital investment if
+                revenue flows can support new borrowing.
+              </li>
+              <li className='mb-2'>
+                The City is not spending what it is budgeting for which means less
+                services, resources, and infrastructure are being provided for
+                Angelenos.
+              </li>
+              <li>
+                While chronic staffing shortages reduce compensation outlays,
+                retaining and attracting staff to fill those jobs puts a double
+                strain on finances going forward as raises and new hires absorb
+                higher revenues.
+              </li>
+            </ul>
             <br></br>
+            <h3 className='mb-4 text-base font-semibold'>Hard choices lie ahead</h3>
             <p className='mb-4'>
-              <b>Hard choices lie ahead</b>
-              <br></br>
-              <br></br>
               Despite widespread staff vacancies, General Fund departmental
               spending actually exceeded last year’s adopted budget by nearly
               $200 million, meaning that rebuilding the City’s workforce will
               make it more difficult to balance the General Fund budget in the
               future.
-              <br></br>
-              <br></br>● Major contributors to the strong revenue increase
-              include Utility Users Tax revenue ($93 million above budget)
-              primarily from higher natural gas and electric prices; franchise
-              income ($53.7 million above); Transient Occupancy (Hotel) Tax
-              $46.8 million above); and Business Tax ($38.9 million above).
-              <br></br>
-              <br></br>● The contract for rank and file police staff will add
-              nearly a billion dollars in additional costs over the next four
-              years, with the likelihood of commensurate increases in
-              compensation for police management and the larger civilian
-              workforce. All by themselves, these adjustments tilt future
-              budgets into structural deficits.
-              <br></br>
-              <br></br>● As our Office has consistently pointed out, pension
-              debt and citywide deferred maintenance of vital infrastructure
-              require urgent attention. Last year’s underspending of $316
-              million in budgeted capital expenditures underscores that the City
-              continues to fall behind – which means even higher costs in the
-              long run.
-              <br></br>
-              <br></br>● Again, as we have warned, staff shortages and
-              underinvestment in the training, technology, equipment and
-              facilities for our workforce hobbles productivity and shortchanges
-              our residents. All these pressures will tempt decision-makers to
-              utilize the City’s reserves for short-term fixes, dashing the
-              hard-won gains of fiscal prudence for maintaining those funds to
-              protect against genuine emergencies and maintain strong credit
-              ratings to minimize the cost of capital bonding.
             </p>
+            <ul className='mb-6 list-disc pl-6'>
+              <li className='mb-2'>
+                Major contributors to the strong revenue increase include Utility
+                Users Tax revenue ($93 million above budget) primarily from
+                higher natural gas and electric prices; franchise income ($53.7
+                million above); Transient Occupancy (Hotel) Tax ($46.8 million
+                above); and Business Tax ($38.9 million above).
+              </li>
+              <li className='mb-2'>
+                The contract for rank and file police staff will add nearly a
+                billion dollars in additional costs over the next four years, with
+                the likelihood of commensurate increases in compensation for
+                police management and the larger civilian workforce. All by
+                themselves, these adjustments tilt future budgets into structural
+                deficits.
+              </li>
+              <li className='mb-2'>
+                As our Office has consistently pointed out, pension debt and
+                citywide deferred maintenance of vital infrastructure require
+                urgent attention. Last year’s underspending of $316 million in
+                budgeted capital expenditures underscores that the City continues
+                to fall behind – which means even higher costs in the long run.
+              </li>
+              <li>
+                Again, as we have warned, staff shortages and underinvestment in
+                the training, technology, equipment and facilities for our
+                workforce hobbles productivity and shortchanges our residents. All
+                these pressures will tempt decision-makers to utilize the City’s
+                reserves for short-term fixes, dashing the hard-won gains of
+                fiscal prudence for maintaining those funds to protect against
+                genuine emergencies and maintain strong credit ratings to
+                minimize the cost of capital bonding.
+              </li>
+            </ul>
 
             <p className='mb-4'>
               To address these sobering concerns, this Office continues to
@@ -318,17 +353,14 @@ const Home = () => {
               <br></br>
               City Controller
             </p>
-
-            <br></br>
           </div>
-        </center>
-        <br />
+        </section>
 
-        <div
-          className='container mx-auto dark:text-white'
-          style={{ fontFamily: 'Helvetica', maxWidth: '1500px' }}
+        <section
+          className='container mx-auto px-4 pb-16 sm:px-6 lg:max-w-5xl'
+          style={{ fontFamily: 'Helvetica' }}
         >
-          <h1>Revenues</h1>
+          <h2>Revenues</h2>
           <br></br>
           <p className='mb-4'>
             During the 2022-23 fiscal year, total revenues in budgeted funds
@@ -349,7 +381,7 @@ const Home = () => {
           <Revenue />
           <br></br>
           <br></br>
-          <h1>Expenditures</h1>
+          <h2>Expenditures</h2>
           <br></br>
           <p className='mb-4'>
             Total expenditures, including encumbrances were $10.6 billion, which
@@ -363,7 +395,7 @@ const Home = () => {
           <Expenditures />
           <br></br>
           <br></br>
-          <h1>Reserves</h1>
+          <h2>Reserves</h2>
           <br></br>
           <p className='mb-4'>
             The Reserve Fund is established to ensure that funds are available
@@ -388,7 +420,7 @@ const Home = () => {
           </p>
           <Reserve />
           <br></br>
-          <h1>Debt</h1>
+          <h2>Debt</h2>
           <br></br>
 
           <p className='mb-4'>
@@ -400,24 +432,8 @@ const Home = () => {
             year.
           </p>
           <Debt />
-        </div>
+        </section>
       </div>
-      <Helmet>
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:site' content='@lacontroller' />
-        <meta
-          name='twitter:title'
-          content='Preliminary Financial Report 2022-23'
-        />
-        <meta
-          name='twitter:description'
-          content='Preliminary Financial Report Web Summary'
-        />
-        <meta
-          name='twitter:image'
-          content='https://controller.lacity.gov/images/pfr-banner.png'
-        />
-      </Helmet>
     </>
   );
 };

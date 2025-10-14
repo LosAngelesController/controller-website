@@ -67,8 +67,39 @@ function Expenditures() {
   const [totalExpendituresData, setTotalExpendituresData] = useState<
     TotalExpenditure[]
   >([]);
+  const [isMobileViewport, setIsMobileViewport] = useState(false);
 
   const isDark = isDarkMode();
+  const departmentSelectId = 'expenditures-department-select';
+  const expendituresFiscalYearSelectId = 'expenditures-fiscal-year-select';
+
+  const formatAbbreviatedCurrency = (value: number) => {
+    const absValue = Math.abs(value);
+
+    const formatWithSuffix = (divisor: number, suffix: string) => {
+      const amount = value / divisor;
+      const decimals = Number.isInteger(amount) ? 0 : 2;
+      return `$${amount.toFixed(decimals)}${suffix}`;
+    };
+
+    if (absValue >= 1_000_000_000) {
+      return formatWithSuffix(1_000_000_000, 'B');
+    }
+
+    if (absValue >= 1_000_000) {
+      return formatWithSuffix(1_000_000, 'M');
+    }
+
+    if (absValue >= 1_000) {
+      return formatWithSuffix(1_000, 'K');
+    }
+
+    const decimals = value % 1 === 0 ? 0 : 2;
+    return `$${value.toLocaleString('en-US', {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: decimals,
+    })}`;
+  };
 
   useEffect(() => {
     axios
@@ -92,6 +123,23 @@ function Expenditures() {
       .catch((error) => {
         console.error('Error fetching total expenditures data:', error);
       });
+  }, []);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const handleResize = () => {
+      setIsMobileViewport(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const getFilteredRevenueData = () => {
@@ -189,8 +237,11 @@ function Expenditures() {
       <br></br>
       <div>
         <center>
-          <label style={{ marginRight: '10px' }}>Budgetary Department:</label>
+          <label htmlFor={departmentSelectId} style={{ marginRight: '10px' }}>
+            Budgetary Department:
+          </label>
           <select
+            id={departmentSelectId}
             value={category}
             onChange={(e) => setCategory(e.target.value)}
             style={{ color: 'black', marginRight: '10px' }}
@@ -198,8 +249,15 @@ function Expenditures() {
             <option value='Budgetary Department'>Budgetary Department</option>
             <option value='Non_Departmental'>Non-Departmental</option>
           </select>
-          <label style={{ marginRight: '10px' }}>Fiscal Year:</label>
+          {isMobileViewport && <div style={{ height: '12px' }} />}
+          <label
+            htmlFor={expendituresFiscalYearSelectId}
+            style={{ marginRight: '10px' }}
+          >
+            Fiscal Year:
+          </label>
           <select
+            id={expendituresFiscalYearSelectId}
             value={fiscalYear}
             onChange={(e) => setFiscalYear(parseInt(e.target.value, 10))}
             style={{ color: 'black', marginRight: '10px' }}
@@ -222,115 +280,173 @@ function Expenditures() {
         <div className='chart-container'>
           <div>
             <h2>Total Expenditures by Department</h2>
-            <Bar
-              data={{
-                labels: getFilteredRevenueData()
-                  .sort((a, b) => b.totalExpenditures - a.totalExpenditures) // Sort the data in descending order
-                  .map((item) => item.department),
-                datasets: [
+            <div style={{ width: '100%', height: '600px' }}>
+              <table className='sr-only'>
+                <caption>
+                  Total expenditures by department for {category} in fiscal year {fiscalYear}
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope='col'>Department</th>
+                    <th scope='col'>Total Expenditures</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {getFilteredRevenueData()
+                    .sort((a, b) => b.totalExpenditures - a.totalExpenditures)
+                    .map((item) => (
+                      <tr key={item.id}>
+                        <th scope='row'>{item.department}</th>
+                        <td>{formatAbbreviatedCurrency(item.totalExpenditures)}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+              <Bar
+                data={{
+                  labels: getFilteredRevenueData()
+                    .sort((a, b) => b.totalExpenditures - a.totalExpenditures) // Sort the data in descending order
+                    .map((item) => item.department),
+                  datasets: [
                   {
                     label: 'Total Expenditures',
                     data: getFilteredRevenueData()
                       .sort((a, b) => b.totalExpenditures - a.totalExpenditures) // Sort the data in descending order
                       .map((item) => item.totalExpenditures),
                     backgroundColor: '#41ffca',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
                   },
                 ],
               }}
-              options={{
-                scales: {
-                  x: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+                options={{
+                  indexAxis: 'y', // Set the chart to have horizontal bars
+                  maintainAspectRatio: false,
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+                      },
+                      ticks: {
+                        color: isDark ? 'white' : 'black',
+                        callback: (value) =>
+                          typeof value === 'number'
+                            ? formatAbbreviatedCurrency(value)
+                            : formatAbbreviatedCurrency(Number(value ?? 0)),
+                      },
                     },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
+                    y: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+                      },
+                      ticks: {
+                        autoSkip: false,
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
                   },
-                  y: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
-                    },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
+                  plugins: {
+                    legend: {
+                      labels: {
+                        color: isDark ? 'white' : 'black', // Set legend text color to white in dark mode
+                      },
                     },
                   },
-                },
-                indexAxis: 'y', // Set the chart to have horizontal bars
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: isDark ? 'white' : 'black', // Set legend text color to white in dark mode
-                    },
-                  },
-                },
-              }}
-            />
+                }}
+                aria-hidden='true'
+              />
+            </div>
           </div>
           <br></br>
           <br></br>
           <div>
             <h2>Total Expenditures Over Time</h2>
-            <Bar
-              data={{
-                labels: totalExpendituresData
-                  .map((item) => `${item.fiscalYears}`)
-                  .filter(
-                    (value, index, self) => self.indexOf(value) === index
+            <div style={{ width: '100%', height: '450px' }}>
+              <table className='sr-only'>
+                <caption>Total expenditures over time</caption>
+                <thead>
+                  <tr>
+                    <th scope='col'>Fiscal Year</th>
+                    <th scope='col'>Total Expenditures</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {totalExpendituresData.map((item) => (
+                    <tr key={item.id}>
+                      <th scope='row'>{item.fiscalYears}</th>
+                      <td>{formatAbbreviatedCurrency(item.amounts)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+              <Bar
+                data={{
+                  labels: totalExpendituresData
+                    .map((item) => `${item.fiscalYears}`)
+                    .filter(
+                      (value, index, self) => self.indexOf(value) === index
                   ), // Filter out repeated years
                 datasets: [
                   {
                     label: 'Total Expenditures',
                     data: totalExpendituresData.map((item) => item.amounts),
                     backgroundColor: '#41ffca',
+                    borderColor: '#000000',
+                    borderWidth: 0.5,
                   },
                 ],
               }}
-              options={{
-                scales: {
-                  x: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+                options={{
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+                      },
+                      ticks: {
+                        color: isDark ? 'white' : 'black',
+                        callback: (value) =>
+                          typeof value === 'number'
+                            ? formatAbbreviatedCurrency(value)
+                            : formatAbbreviatedCurrency(Number(value ?? 0)),
+                      },
+                      title: {
+                        display: true,
+                        text: 'Fiscal Year',
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
-                    },
-                    title: {
-                      display: true,
-                      text: 'Fiscal Year',
-                      color: isDark ? 'white' : 'black',
-                    },
-                  },
-                  y: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
-                    },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
-                    },
-                    title: {
-                      display: true,
-                      text: 'Total Expenditures',
-                      color: isDark ? 'white' : 'black',
-                    },
-                  },
-                },
-                indexAxis: 'y',
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: isDark ? 'white' : 'black',
+                    y: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+                      },
+                      ticks: {
+                        autoSkip: false,
+                        color: isDark ? 'white' : 'black',
+                      },
+                      title: {
+                        display: true,
+                        text: 'Total Expenditures',
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
                   },
-                },
-              }}
-            />
+                  indexAxis: 'y',
+                  maintainAspectRatio: false,
+                  plugins: {
+                    legend: {
+                      labels: {
+                        color: isDark ? 'white' : 'black',
+                      },
+                    },
+                  },
+                }}
+                aria-hidden='true'
+              />
+            </div>
           </div>
         </div>
       </div>
