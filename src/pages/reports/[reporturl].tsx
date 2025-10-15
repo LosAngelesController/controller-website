@@ -72,7 +72,7 @@ export default function Report(props: auditinterface) {
           {props.report && (
             <div className=' container mx-4 px-4 pb-3 pt-5  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
               <h1 className='font-sm'>{props.report.name}</h1>
-              <h3>
+              <div className='text-2xl font-semibold'>
                 <span className='font-normal'>{props.report.year} </span>
                 {props.report.dept && (
                   <span>
@@ -83,7 +83,7 @@ export default function Report(props: auditinterface) {
                     )}
                   </span>
                 )}
-              </h3>
+              </div>
               <div className='flex flex-row gap-x-2 mt-3'>
                 <Link href={props.report.pdflink}>
                   <button className='rounded-full bg-black px-3 py-1 font-semibold text-white'>
