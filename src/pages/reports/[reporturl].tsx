@@ -85,20 +85,29 @@ export default function Report(props: auditinterface) {
                 )}
               </div>
               <div className='flex flex-row gap-x-2 mt-3'>
-                <Link href={props.report.pdflink}>
-                  <button className='rounded-full bg-black px-3 py-1 font-semibold text-white'>
+                <Link legacyBehavior href={props.report.pdflink}>
+                  <a className='rounded-full bg-black px-3 py-1 font-semibold text-white'>
                     View PDF
-                  </button>
+                  </a>
                 </Link>
-                <Link download={true} href={props.report.pdflink}>
-                  <button className='rounded-full bg-black p-1.5 text-white md:p-2'>
-                    <svg className='l-4 h-4' viewBox='0 0 24 24' alt=''>
+                <Link legacyBehavior href={props.report.pdflink}>
+                  <a
+                    download
+                    className='rounded-full bg-black p-1.5 text-white md:p-2'
+                    aria-label='Download PDF'
+                  >
+                    <svg
+                      aria-hidden='true'
+                      focusable='false'
+                      className='l-4 h-4'
+                      viewBox='0 0 24 24'
+                    >
                       <path
                         fill='currentColor'
                         d='M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z'
                       />
                     </svg>
-                  </button>
+                  </a>
                 </Link>
               </div>
 
