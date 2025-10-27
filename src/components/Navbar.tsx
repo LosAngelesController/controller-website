@@ -3,7 +3,6 @@ import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
 import { Fragment, useEffect, useState } from 'react';
 
 import NewTranslate from '@/components/NewTranslate';
@@ -96,7 +95,7 @@ export default function Navbar(props: any) {
       >
         Skip to main content
       </a>
-      <Script src='//navbar.lacity.org/global_nav.js'></Script>
+      {/* <Script src='//navbar.lacity.org/global_nav.js'></Script> */}
       <Disclosure
         as='nav'
         className='relative z-50 border-b border-gray-300 drop-shadow-sm dark:bg-whosestreets dark:text-white'
