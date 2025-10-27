@@ -1,6 +1,14 @@
 {
   "audits": [
     {
+      "name": "On The Sideline: Assessing LAPD's Mental Evaluation Unit & Smart Co-Response Model",
+      "Year": 2025,
+      "document": "Report",
+      "category": "LAPD",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Report%20Images%2Fmeu%2FLAPD-MEU-cover.jpg?alt=media&token=d439b22f-0f6b-4a59-ae63-37dc3c02fe46",
+      "link": "https://controller.lacity.gov/meu"
+    },
+    {
       "name": "Fraud, Waste and Abuse Annual Report",
       "Year": 2025,
       "document": "FWA Investigative Report",
