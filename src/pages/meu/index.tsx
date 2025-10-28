@@ -47,7 +47,7 @@ const Index = () => {
       </Head>
 
       <Navbar />
-      <div className="min-h-screen bg-[#1a1a1a] font-['Inter'] text-white">
+      <div className='min-h-screen bg-[#1a1a1a] font-["Inter"] text-white'>
         <Hero />
         <KeyFindings />
         <Recommendations />

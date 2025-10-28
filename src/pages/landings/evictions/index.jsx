@@ -14,15 +14,19 @@ export default function Evictions() {
     <>
       <Head>
         <title>
-          Eviction Notices (February 2023 - April 2025) Summary and Analysis
+          Eviction Notices (February 2023 - September 2025) Summary and Analysis
         </title>
       </Head>
       <Navbar />
-      <main id="main-content" tabIndex={-1} className='container mx-auto mb-12 px-4 sm:container lg:max-w-3xl xl:max-w-4xl'>
+      <main
+        id='main-content'
+        tabIndex={-1}
+        className='container mx-auto mb-12 px-4 sm:container lg:max-w-3xl xl:max-w-4xl'
+      >
         <center>
           <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
             <h1 className='pb-4 pt-8 text-center text-3xl font-bold dark:text-white'>
-              Eviction Notices (February 2023 - April 2025)
+              Eviction Notices (February 2023 - September 2025)
             </h1>
           </div>
           <div>
@@ -35,7 +39,7 @@ export default function Evictions() {
                 className='mb-4 rounded px-4 py-2 font-bold text-black'
                 style={{
                   backgroundColor: '#41ffca',
-                  border: '1px solid #2b9176'
+                  border: '1px solid #2b9176',
                 }}
               >
                 Table Version
@@ -52,27 +56,28 @@ export default function Evictions() {
             style={{ fontFamily: 'Helvetica' }}
           >
             <p className='mb-2'>
-              [May 2025 Update] We analyzed updated data from the Los Angeles
-              Housing Department (LAHD) from February 2023 through April 2025.
+              [October 2025 Update] We analyzed updated data from the Los
+              Angeles Housing Department (LAHD) from February 2023 through
+              September 2025.
             </p>
             <p className='mb-4'>
-              The data reveals that from February 2023 to April 2025, LAHD
+              The data reveals that from February 2023 to September 2025, LAHD
               received a total of
-              <b> 210,901</b> eviction notices. <b>5,427</b> notices were filed
-              for April 2025.
+              <b> 245,599</b> eviction notices. <b>6,337</b> notices were filed
+              for September 2025.
             </p>
             <ul className='mb-10 ml-10 list-outside list-disc'>
               <li>
-                <b>210,901 eviction notices were filed</b>
+                <b>245,599 eviction notices were filed</b>
               </li>
               <li>
-                <b>94% of eviction notices were for “non-payment of rent”</b>
+                <b>93% of eviction notices were for “non-payment of rent”</b>
               </li>
               <li>
                 <b>89% came with a 3-day notice</b>
               </li>
               <li>
-                <b>$3,987.85 is the average amount of rent owed</b>
+                <b>$3,972.26 is the average amount of rent owed</b>
               </li>
             </ul>
 
@@ -117,13 +122,13 @@ export default function Evictions() {
             <p className='mb-4'>
               The table above shows the top 20 Zip Codes with the highest number
               of eviction notices filed with the City from February 2023 to
-              April 2025.
+              September 2025.
             </p>
             <p className='mb-4'>
               Units located within <b>90028 </b>(Hollywood area) had the highest
-              number of eviction notices filed from February 2023 to April 2025
-              with <b>12,651</b> followed by <b>90012</b> (Downtown LA,
-              Chinatown area) with <b>10,053</b>.
+              number of eviction notices filed from February 2023 to September
+              2025 with <b>14,585</b> followed by <b>90012</b> (Downtown LA,
+              Chinatown area) with <b>11,673</b>.
             </p>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
@@ -177,11 +182,9 @@ export default function Evictions() {
                   months.
                 </li>
                 <li className='mb-4 text-left'>
-                  The allowable rent increase of 4% still in effect started on{' '}
-                  <b>July 1, 2024</b> through <b>June 30, 2025</b>. The
-                  additional 1-2% is still applicable if the tenant is provided
-                  with electric service and/or gas by the landlord, totaling
-                  5-6%.
+                  The allowable rent increase of 3% is in effect from July 1,
+                  2025 through June 30, 2026. If the landlord provides gas and
+                  electric service to the tenant, an additional 1% can be added.
                 </li>
               </ul>
               <li className='mb-4 text-left'>
