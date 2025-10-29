@@ -180,8 +180,9 @@ export default function Evictions() {
                 </li>
                 <li className='mb-4 text-left'>
                   The allowable rent increase of 3% is in effect from July 1,
-                  2025 through June 30, 2026. If the landlord provides gas and
-                  electric service to the tenant, an additional 1% can be added.
+                  2025 through June 30, 2026. If the landlord pays gas and/or
+                  electricity, they can increase up to another 2% (1% for each
+                  they pay).
                 </li>
               </ul>
               <li className='mb-4 text-left'>
