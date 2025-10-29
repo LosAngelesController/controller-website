@@ -50,7 +50,10 @@ function LineCard(props: any) {
       key={props.key}
       className='mb-2 w-full  max-w-sm rounded-lg border border-gray-500 bg-gray-100 dark:border-gray-300 dark:bg-zinc-800 dark:text-gray-100'
     >
-      <a href={`${props.link}`} className=' dark:text-gray-50'>
+      <a
+        href={`${props.link}`}
+        className='block rounded-lg focus:outline-none dark:text-gray-50'
+      >
         <div className=' px-2 py-2  dark:text-gray-50'>
           <p>
             {props.year} <span>{props.dept}</span>
@@ -70,7 +73,7 @@ function BigCard(props: bigcardprops) {
     ${props.key === 4 ? ' hidden md:block ' : ''}
     ${props.key === 5 ? ' hidden lg:block ' : ''}`}
     >
-      <a href={`${props.link}`}>
+      <a href={`${props.link}`} className='block rounded-lg focus:outline-none'>
         <img src={props.image} className='w-full' alt={props.alt}></img>
         <div className=' px-2 py-2  dark:text-gray-100'>
           <p>
@@ -91,7 +94,7 @@ function UpcomingBigCard(props: bigcardprops) {
     ${props.key === 4 ? ' hidden md:block ' : ''}
     ${props.key === 5 ? ' hidden lg:block ' : ''}`}
     >
-      <a href={`${props.link}`}>
+      <a href={`${props.link}`} className='block rounded-lg focus:outline-none'>
         {/* <img src={props.image} className='w-full' alt={props.alt}></img> */}
         <div className=' px-2 py-2  dark:text-gray-100'>
           <p>

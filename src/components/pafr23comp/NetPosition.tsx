@@ -109,12 +109,12 @@ const NetPosition: React.FC = () => {
   return (
     <div className='space-y-4'>
       <div className='flex flex-wrap items-center gap-2'>
-        <label className='font-semibold' htmlFor='net-position-year'>
+        <label className='font-semibold dark:text-white' htmlFor='net-position-year'>
           Select Fiscal Year:
         </label>
         <select
           id='net-position-year'
-          className='rounded border border-gray-300 px-3 py-1 pr-8'
+          className='rounded border border-gray-300 px-3 py-1 pr-8 dark:border-gray-500 dark:bg-zinc-900 dark:text-white'
           value={selectedYear}
           onChange={(event) => setSelectedYear(Number(event.target.value))}
         >
@@ -127,46 +127,49 @@ const NetPosition: React.FC = () => {
       </div>
 
       <div className='overflow-x-auto'>
-        <table className='min-w-full border border-gray-300 text-sm'>
+        <table className='min-w-full border border-gray-300 text-sm dark:border-gray-500 dark:text-white'>
           <caption className='sr-only'>{`Condensed statement of net position for fiscal year ${selectedYear}`}</caption>
           <thead>
-            <tr className='bg-gray-100 text-left'>
-              <th scope='col' className='border border-gray-300 px-3 py-2 text-center'>
+            <tr className='bg-gray-100 text-left dark:bg-zinc-800'>
+              <th scope='col' className='border border-gray-300 px-3 py-2 text-center dark:border-gray-500'>
                 Category
               </th>
-              <th scope='col' className='border border-gray-300 px-3 py-2'>
+              <th scope='col' className='border border-gray-300 px-3 py-2 dark:border-gray-500'>
                 Description
               </th>
-              <th scope='col' className='border border-gray-300 px-3 py-2 text-center'>
+              <th scope='col' className='border border-gray-300 px-3 py-2 text-center dark:border-gray-500'>
                 Business-Type
               </th>
-              <th scope='col' className='border border-gray-300 px-3 py-2 text-center'>
+              <th scope='col' className='border border-gray-300 px-3 py-2 text-center dark:border-gray-500'>
                 Governmental
               </th>
-              <th scope='col' className='border border-gray-300 px-3 py-2 text-center'>
+              <th scope='col' className='border border-gray-300 px-3 py-2 text-center dark:border-gray-500'>
                 Total
               </th>
             </tr>
           </thead>
           <tbody>
             {dataByYear[selectedYear]?.map((row, index) => (
-              <tr key={`${selectedYear}-${row.category}-${row.description}-${index}`} className='odd:bg-white even:bg-gray-50'>
+              <tr
+                key={`${selectedYear}-${row.category}-${row.description}-${index}`}
+                className='odd:bg-white even:bg-gray-50 dark:odd:bg-zinc-900 dark:even:bg-zinc-800'
+              >
                 <th
                   scope='row'
-                  className='border border-gray-300 px-3 py-2 text-center font-semibold'
+                  className='border border-gray-300 px-3 py-2 text-center font-semibold dark:border-gray-500'
                 >
                   {row.category}
                 </th>
-                <td className='border border-gray-300 px-3 py-2 text-left'>
+                <td className='border border-gray-300 px-3 py-2 text-left dark:border-gray-500'>
                   {row.description}
                 </td>
-                <td className='border border-gray-300 px-3 py-2 text-center'>
+                <td className='border border-gray-300 px-3 py-2 text-center dark:border-gray-500'>
                   {formatCurrency(row.businessType)}
                 </td>
-                <td className='border border-gray-300 px-3 py-2 text-center'>
+                <td className='border border-gray-300 px-3 py-2 text-center dark:border-gray-500'>
                   {formatCurrency(row.governmental)}
                 </td>
-                <td className='border border-gray-300 px-3 py-2 text-center'>
+                <td className='border border-gray-300 px-3 py-2 text-center dark:border-gray-500'>
                   {formatCurrency(row.total)}
                 </td>
               </tr>

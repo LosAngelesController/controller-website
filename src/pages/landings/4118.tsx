@@ -41,6 +41,7 @@ export default function Data(props: any) {
               href='https://4118arrests.lacontroller.app'
               target='_blank'
               rel='noopener noreferrer'
+              className='block rounded-lg focus:outline-none'
             >
               <img
                 src='/images/4118/year-animated-gif.gif'

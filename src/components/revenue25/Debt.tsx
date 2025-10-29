@@ -2,25 +2,69 @@ import * as Plot from '@observablehq/plot';
 import * as d3 from 'd3';
 import * as React from 'react';
 
-export function LegendDebt() {
-  return (
-    <div className='flex flex-row'>
-      <div className='flex flex-row gap-x-1'>
-        <div className='flex flex-row'>
-          <div className='h-4 w-4 rounded-full' style={{ backgroundColor: '#41ffca' }}></div>
-          <p className='ml-2' style={{ color: '#41ffca' }}>
-            Non-Voter Approved
-          </p>
-        </div>
-        <div className='flex flex-row'>
-          <div className='h-4 w-4 rounded-full' style={{ backgroundColor: '#ffca41' }}></div>
-          <p className='ml-2' style={{ color: '#ffca41' }}>
-            Voter Approved
-          </p>
-        </div>
-      </div>
-    </div>
+type LegendItem = {
+  label: string;
+  color: string;
+  variant?: 'solid' | 'dashed' | 'fill';
+};
 
+const PRIMARY_LEGEND: LegendItem[] = [
+  { label: 'Non-Voter Approved', color: '#2BA784' },
+  { label: 'Voter Approved', color: '#D0824A' },
+];
+
+const LIMIT_LEGEND: LegendItem[] = [
+  { label: 'Non-Voter Approved', color: '#D0824A' },
+  { label: 'Limit', color: '#178666', variant: 'dashed' },
+];
+
+const TOTAL_LIMIT_LEGEND: LegendItem[] = [
+  { label: 'Non-Voter Approved', color: '#41ffca', variant: 'fill' },
+  { label: 'Voter Approved', color: '#ffca41', variant: 'fill' },
+  { label: 'Limit', color: '#178666', variant: 'dashed' },
+];
+
+function Legend({ items }: { items: LegendItem[] }) {
+  return (
+    <div className='mb-4 flex justify-center gap-4' aria-hidden='true'>
+      {items.map((item) => {
+        const baseStyle: React.CSSProperties = { borderRadius: '9999px' };
+
+        if (item.variant === 'dashed') {
+          return (
+            <div className='flex items-center' key={`legend-${item.label}`}>
+              <svg className='mr-2 h-3 w-8' viewBox='0 0 80 10' aria-hidden='true'>
+                <line
+                  x1='0'
+                  y1='5'
+                  x2='80'
+                  y2='5'
+                  stroke={item.color}
+                  strokeWidth='3'
+                  strokeDasharray='10'
+                />
+              </svg>
+              <span className='text-sm text-black dark:text-white'>{item.label}</span>
+            </div>
+          );
+        }
+
+        if (item.variant === 'fill') {
+          baseStyle.backgroundColor = item.color;
+          baseStyle.border = '0.5px solid #000';
+        } else {
+          baseStyle.backgroundColor = item.color;
+          baseStyle.border = '0.5px solid #000';
+        }
+
+        return (
+          <div className='flex items-center' key={`legend-${item.label}`}>
+            <span className='mr-2 h-3 w-8 rounded-full' style={baseStyle}></span>
+            <span className='text-sm text-black dark:text-white'>{item.label}</span>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
@@ -46,9 +90,8 @@ export function Debt(props: any) {
           d[column] = d[column] * 1000;
         });
 
-        d['NonVoterApprovedLimit'] = 0.06 * d['General Fund Receipts'];
-
-        d['TotalLimit'] = 0.15 * d['General Fund Receipts'];
+        d['NonVoterApprovedLimit'] = nonVoterMaxRatio * d['General Fund Receipts'];
+        d['TotalLimit'] = combinedMaxRatio * d['General Fund Receipts'];
 
         return d;
       });
@@ -75,33 +118,26 @@ export function Debt(props: any) {
         height: 400,
         marginTop: 50,
         marginLeft: 80,
+        marginRight: 70,
         x: {
-          domain: [
-            d3.min(datacleaned, (d: any) => d['Fiscal Year']),
-            d3.max(datacleaned, (d: any) => d['Fiscal Year'])
-          ],
-          ticks: datacleaned.map((d: any) => d['Fiscal Year']),
+          label: 'Fiscal Year',
+          tickFormat: d3.format('d'),
         },
-        // x: {
-        //   label: 'Fiscal Year',
-        //   tickFormat: d3.format('d'),
-        // },
         y: {
-          label: 'Debt Service Amount ($)',
+          label: 'Amount of Debt ($)',
           tickFormat: (tick: any) => d3.format('~s')(tick).replace('G', 'B'),
         },
         marks: [
           Plot.line(datacleaned, {
             x: 'Fiscal Year',
             y: 'Debt Service Requirement-Non-Voter Approved',
-            stroke: '#41ffca',
+            stroke: '#2BA784',
           }),
           Plot.line(datacleaned, {
             x: 'Fiscal Year',
             y: 'Debt Service Requirement-Voter Approved',
-            stroke: '#ffca41',
+            stroke: '#D0824A',
           }),
-          //label each year with numbers in their corrosponding colours
           Plot.text(datacleaned, {
             x: 'Fiscal Year',
             y: 'Debt Service Requirement-Non-Voter Approved',
@@ -110,8 +146,8 @@ export function Debt(props: any) {
                 .format('.4s')(d['Debt Service Requirement-Non-Voter Approved'])
                 .replace('G', 'B'),
             dy: 10,
-            dx: 5,
-            fill: '#41ffca',
+            dx: 0,
+            fill: '#178666',
           }),
           Plot.text(datacleaned, {
             x: 'Fiscal Year',
@@ -121,8 +157,8 @@ export function Debt(props: any) {
                 .format('.4s')(d['Debt Service Requirement-Voter Approved'])
                 .replace('G', 'B'),
             dy: -10,
-            dx: 5,
-            fill: '#ffca41',
+            dx: 0,
+            fill: '#B45214',
           }),
           Plot.ruleY([0], {
             stroke: 'grey',
@@ -135,54 +171,45 @@ export function Debt(props: any) {
         height: 400,
         marginTop: 50,
         marginLeft: 80,
+        marginRight: 70,
         x: {
-          domain: [
-            d3.min(datacleaned, (d: any) => d['Fiscal Year']),
-            d3.max(datacleaned, (d: any) => d['Fiscal Year'])
-          ],
-          ticks: datacleaned.map((d: any) => d['Fiscal Year']),
+          label: 'Fiscal Year',
+          tickFormat: d3.format('d'),
         },
-        // x: {
-        //   label: 'Fiscal Year',
-        //   tickFormat: d3.format('d'),
-        // },
         y: {
-          label: 'Debt Service Amount ($)',
+          label: 'Amount of Debt ($)',
           tickFormat: (tick: any) => d3.format('~s')(tick).replace('G', 'B'),
         },
         marks: [
           Plot.line(datacleaned, {
             x: 'Fiscal Year',
             y: 'Debt Service Requirement-Non-Voter Approved',
-            stroke: '#ffca41',
+            stroke: '#D0824A',
           }),
           Plot.line(datacleaned, {
             x: 'Fiscal Year',
             y: 'NonVoterApprovedLimit',
-            stroke: '#41ffca',
-            //dotted line
+            stroke: '#178666',
             strokeDasharray: '5 5',
           }),
-          //add text
           Plot.text(datacleaned, {
             x: 'Fiscal Year',
             y: 'Debt Service Requirement-Non-Voter Approved',
             text: (d: any) =>
-              d3.format('.4s')(
-                d['Debt Service Requirement-Non-Voter Approved']
-              ),
+              d3
+                .format('.4s')(d['Debt Service Requirement-Non-Voter Approved'])
+                .replace('G', 'B'),
             dy: 10,
-            dx: 5,
-            fill: '#ffca41',
+            dx: 0,
+            fill: '#B45214',
           }),
-          //add limit text
           Plot.text(datacleaned, {
             x: 'Fiscal Year',
             y: 'NonVoterApprovedLimit',
             text: (d: any) => d3.format('.4s')(d['NonVoterApprovedLimit']),
             dy: 10,
-            dx: 5,
-            fill: '#41ffca',
+            dx: 0,
+            fill: '#178666',
           }),
           Plot.ruleY([0], {
             stroke: 'grey',
@@ -195,36 +222,22 @@ export function Debt(props: any) {
         height: 400,
         marginTop: 50,
         marginLeft: 80,
+        marginRight: 70,
         x: {
-          domain: [
-            d3.min(datacleaned, (d: any) => d['Fiscal Year']),
-            d3.max(datacleaned, (d: any) => d['Fiscal Year'])
-          ],
-          ticks: datacleaned.map((d: any) => d['Fiscal Year']),
+          label: 'Fiscal Year',
+          tickFormat: d3.format('d'),
         },
-        // x: {
-        //   label: 'Fiscal Year',
-        //   tickFormat: d3.format('d'),
-        // },
         y: {
-          label: 'Debt Service Amount ($)',
+          label: 'Amount of Debt ($)',
           tickFormat: (tick: any) => d3.format('~s')(tick).replace('G', 'B'),
         },
         marks: [
-          /*
-          Plot.line(datacleaned, {
-            x: 'Fiscal Year',
-            y: 'Debt Service Requirement-Total',
-            stroke: '#10b981',
-          }),*/
           Plot.line(datacleaned, {
             x: 'Fiscal Year',
             y: 'TotalLimit',
-            stroke: '#10b981',
-            //dotted line
+            stroke: '#178666',
             strokeDasharray: '5 5',
           }),
-          //add text
           Plot.text(datacleaned, {
             x: 'Fiscal Year',
             y: 'Debt Service Requirement-Total',
@@ -233,26 +246,25 @@ export function Debt(props: any) {
                 .format('.4s')(d['Debt Service Requirement-Total'])
                 .replace('G', 'B'),
             dy: -10,
-            dx: 5,
-            fill: '#10b981',
+            dx: 0,
+            fill: '#178666',
           }),
-          //add limit text
           Plot.text(datacleaned, {
             x: 'Fiscal Year',
             y: 'TotalLimit',
             text: (d: any) =>
               d3.format('.4s')(d['TotalLimit']).replace('G', 'B'),
             dy: 10,
-            dx: 5,
-            fill: '#10b981',
+            dx: 0,
+            fill: '#178666',
           }),
-          //area chart
           Plot.areaY(stackabledata, {
             x: 'Fiscal Year',
             y: 'Amount',
             fill: 'color',
+            stroke: '#000000',
+            strokeWidth: 0.5,
           }),
-          //add ruler at 0
           Plot.ruleY([0], {
             stroke: 'grey',
           }),
@@ -263,34 +275,53 @@ export function Debt(props: any) {
         debtbox.current.innerHTML = '';
         debtbox.current.append(plot);
 
+        const debtBoxSvg = debtbox.current.querySelector('svg');
+        if (debtBoxSvg) {
+          debtBoxSvg.setAttribute(
+            'aria-label',
+            'Line chart showing Los Angeles debt service requirements for non-voter- and voter-approved debt from FY2014 through FY2025. Non-voter-approved payments begin around $219M in FY2014 and steadily ease to roughly $176M by FY2025, while voter-approved payments decline from about $185M in FY2014 to just over $109M in FY2025.'
+          );
+        }
+
         debtboxlimitsix.current.innerHTML = '';
         debtboxlimitsix.current.append(plotsix);
 
+        const debtLimitSixSvg = debtboxlimitsix.current.querySelector('svg');
+        if (debtLimitSixSvg) {
+          debtLimitSixSvg.setAttribute(
+            'aria-label',
+            'Line chart comparing Los Angeles non-voter-approved debt service requirements with the 6% policy limit from FY2014 through FY2025. Non-voter-approved costs ease from about $219M to $176M over the period, while the limit rises from roughly $298M to $465M, leaving nearly $290M of headroom by FY2025.'
+          );
+        }
+
         debtboxlimittotal.current.innerHTML = '';
         debtboxlimittotal.current.append(plotlimittotal);
+
+        const debtLimitTotalSvg = debtboxlimittotal.current.querySelector('svg');
+        if (debtLimitTotalSvg) {
+          debtLimitTotalSvg.setAttribute(
+            'aria-label',
+            'Stacked area chart showing Los Angeles voter- and non-voter-approved debt service requirements against the 15% total debt limit from FY2014 through FY2025. Combined debt falls from just over $400M in FY2014 to about $285M in FY2025, while the 15% limit rises from roughly $744M to $1.16B and stays well above the stacked debt throughout.'
+          );
+        }
       }
     });
   }, []);
 
   return (
-    <div>
-      <h3>Debt Service over Time</h3>
-      {/*Make a legend with 2 items, 
-      - Red Dot that say Non-Voter Approved
-      - Blue Dot that say Voter Approved
-      */}
-      <LegendDebt />
-      <div className='' ref={debtbox}></div>
+    <div className='mx-auto max-w-5xl'>
+      <h3>Debt over Time</h3>
+      <Legend items={PRIMARY_LEGEND} />
+      <div className='my-4 flex justify-center overflow-x-auto' ref={debtbox}></div>
 
       <h3>Limits on Debt</h3>
       <h4>6% Non-Voter Approved Limit</h4>
-      <p>Dashed: Limit</p>
-      <div className='' ref={debtboxlimitsix}></div>
+      <Legend items={LIMIT_LEGEND} />
+      <div className='my-4 flex justify-center overflow-x-auto' ref={debtboxlimitsix}></div>
 
       <h4>15% Total Limit</h4>
-      <p>Dashed: Limit</p>
-      <LegendDebt />
-      <div className='' ref={debtboxlimittotal}></div>
+      <Legend items={TOTAL_LIMIT_LEGEND} />
+      <div className='my-4 flex justify-center overflow-x-auto' ref={debtboxlimittotal}></div>
       <p></p>
     </div>
   );

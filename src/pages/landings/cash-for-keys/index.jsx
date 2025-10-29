@@ -26,18 +26,15 @@ export default function CashForKeys() {
           <div>
             <Link
               href='https://docs.google.com/spreadsheets/d/1z8fp_xtRXbuXbO03dobT8lsh7y0Dlvg0ouZDKZR3K7U/edit?usp=sharing'
-              passHref
               target='_blank'
+              rel='noopener noreferrer'
+              className='mb-4 inline-block rounded px-4 py-2 font-bold text-black focus:outline-none'
+              style={{
+                backgroundColor: '#41ffca',
+                border: '1px solid #2b9176'
+              }}
             >
-              <button
-                className='mb-4 rounded px-4 py-2 font-bold text-black'
-                style={{
-                  backgroundColor: '#41ffca',
-                  border: '1px solid #2b9176'
-                }}
-              >
-                Table Version
-              </button>
+              Table Version
             </Link>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>

@@ -76,6 +76,7 @@ export default function Data(props: any) {
                     href={`${eachaudit.link}`}
                     target='_blank'
                     rel='noreferrer'
+                    className='block rounded-lg focus:outline-none'
                   >
                     <img src={eachaudit.image} className='w-full' alt=''></img>
                     <div className=' px-2 py-2'>

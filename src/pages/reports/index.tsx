@@ -64,9 +64,9 @@ export default function ReportsIndex(props: any) {
                     href={`${eachreport.pre === false ? '' : '/reports/'}${
                       eachreport.link
                     }`}
-                    className="block focus:outline-none focus:ring-2 focus:ring-black       focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-white dark:focus:ring-offset-zinc-900 rounded-lg"
+                    className='block rounded-lg focus:outline-none'
                   >
-                    <img src={eachreport.image} className='w-full rounded-t-lg'></img>
+                    <img src={eachreport.image} className='w-full rounded-t-lg' alt=''></img>
                     <div className=' px-2 py-2'>
                       <p className='dark:text-white'>
                         {eachreport.year} |{' '}

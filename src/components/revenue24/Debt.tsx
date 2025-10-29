@@ -269,7 +269,7 @@ export function Debt(props: any) {
                 .replace('G', 'B'),
             dy: -10,
             dx: 0,
-            fill: '#000000',
+            fill: '#178666',
           }),
           //add limit text
           Plot.text(datacleaned, {
