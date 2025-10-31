@@ -673,7 +673,7 @@ export default function pafr22(props: any) {
               </li>
               <li>
                 <span className='font-bold'>Net investment earnings</span> and
-                <span className='font-bold'>other revenues</span> decreased by
+                <span className='font-bold'> other revenues</span> decreased by
                 $88.2 million, due to decreases in investment earnings and
                 change in the fair market value of investments.
               </li>

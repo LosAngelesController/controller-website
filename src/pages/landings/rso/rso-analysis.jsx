@@ -101,7 +101,7 @@ export default function Analysis() {
   return (
     <>
       <Head>
-        <title>Rent Stablization Ordinance (RSO) Analysis</title>
+        <title>Rent Stabilization Ordinance (RSO) Analysis</title>
       </Head>
       <Navbar />
       <center>

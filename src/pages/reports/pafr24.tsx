@@ -994,7 +994,7 @@ export default function pafr24(props: any) {
                 million (3.0%). The decline was primarily due to a drop of $52.0
                 million in gas users tax receipts, following a return of
                 previously high natural gas prices to normal levels. This
-                decrease was patially offset by a growth of $5.0 million in
+                decrease was partially offset by a growth of $5.0 million in
                 communications users tax revenue from one-time receipts of prior
                 year tax liabilities, and an increase of $25.5 million in
                 electrical users’ tax revenues due to rising energy prices and

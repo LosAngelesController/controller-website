@@ -641,7 +641,7 @@ export default function Data(props: any) {
                   todos <br></br>los arrestos en los últimos cuatro años
                   (2019-2022),
                   <br></br> a pesar de ser solo 56% de la población de la ciudad
-                  de Los Ángeles, segun los datos del Censo de 2020.
+                  de Los Ángeles, según los datos del Censo de 2020.
                 </p>
 
                 <ul className='mobile-left-align'>

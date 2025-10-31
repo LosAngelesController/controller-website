@@ -30,7 +30,7 @@ export default function BuyoutsByZip() {
           <caption
             className="mb-2 text-left italic dark:text-white"
           >
-            Zipcode and communities by number of tenant buyout agreements
+            Zip code and communities by number of tenant buyout agreements
           </caption>
 
           <thead className="text-black" style={{ border: '1px solid black', backgroundColor: '#41ffca' }}>
