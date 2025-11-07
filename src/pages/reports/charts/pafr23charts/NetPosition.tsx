@@ -6,6 +6,7 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import Head from 'next/head';
 import { csvParse } from 'd3';
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
@@ -58,7 +59,14 @@ const NetPositionChart: React.FC = () => {
   }, []);
 
   if (!chartData) {
-    return <div>Loading chart data...</div>;
+    return (
+      <>
+        <Head>
+          <title>PAFR Net Position Dashboard</title>
+        </Head>
+        <div>Loading chart data...</div>
+      </>
+    );
   }
 
   // Create a set of unique years
@@ -117,9 +125,17 @@ const NetPositionChart: React.FC = () => {
   };
 
   return (
-    <div style={{ width: '100%', height: '500px', overflowX: 'auto' }}>
-      <Bar data={{ labels: uniqueYears, datasets }} options={options} />
-    </div>
+    <>
+      <Head>
+        <title>PAFR Net Position Dashboard</title>
+      </Head>
+      <h1 className='pb-4 text-center text-3xl font-semibold dark:text-white'>
+        Net Position of Governmental vs Business-Type Activities
+      </h1>
+      <div style={{ width: '100%', height: '500px', overflowX: 'auto' }}>
+        <Bar data={{ labels: uniqueYears, datasets }} options={options} />
+      </div>
+    </>
   );
 };
 

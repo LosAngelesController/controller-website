@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 interface RevenueSource {
@@ -196,7 +197,14 @@ function Revenue() {
   //     window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>City Revenue Dashboard</title>
+      </Head>
+      <div>
+        <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+          City Revenue Dashboard
+        </h1>
       <div>
         <center>
           <label htmlFor={categorySelectId} style={{ marginRight: '10px' }}>
@@ -447,7 +455,8 @@ function Revenue() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

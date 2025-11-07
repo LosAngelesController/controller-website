@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 interface RevenueSource {
@@ -233,7 +234,14 @@ function Expenditures() {
   };
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>City Expenditures Dashboard</title>
+      </Head>
+      <div>
+        <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+          City Expenditures Dashboard
+        </h1>
       <br></br>
       <div>
         <center>
@@ -450,7 +458,8 @@ function Expenditures() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

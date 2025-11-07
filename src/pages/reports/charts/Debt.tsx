@@ -12,6 +12,7 @@ import {
   Title,
   Tooltip,
 } from 'chart.js';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
@@ -279,6 +280,12 @@ const BarChart: React.FC = () => {
   // console.log('debt', debtData);
   return (
     <>
+      <Head>
+        <title>Debt Service Requirements Dashboard</title>
+      </Head>
+      <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+        Debt Service Requirements
+      </h1>
       <div className='p-10 text-center'>
         <br></br>
         <label htmlFor={debtScaleSelectId} style={{ marginRight: '10px' }}>

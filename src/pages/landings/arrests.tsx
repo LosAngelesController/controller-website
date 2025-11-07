@@ -41,13 +41,13 @@ export default function Data(props: any) {
               alignItems: 'center',
             }}
           >
-            <h2
+            <h1
               className='mobile-left-align pb-4 pt-8 dark:text-white'
               style={{ flex: '1' }}
             >
               LAPD Arrest Maps & Analysis{' '}
               <span style={{ marginLeft: '5px' }}>(2019-22)</span>
-            </h2>
+            </h1>
             <a
               href='#spanish_translation'
               style={{
@@ -146,12 +146,12 @@ export default function Data(props: any) {
         <br></br>
         <center>
           <div>
-            <h3
+            <h2
               className='mobile-left-align dark:text-white'
               style={{ fontFamily: 'Helvetica' }}
             >
               <b>Summary and Analysis</b>
-            </h3>
+            </h2>
           </div>
         </center>
         <br></br>

@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import * as Plot from '@observablehq/plot';
 import * as d3 from 'd3';
 import * as React from 'react';
@@ -148,10 +149,20 @@ export function Expenditures() {
   }, []);
 
   return (
-    <div>
-      <h4>Expenses Stacked</h4>
-      <div ref={stacked}></div>
-    </div>
+    <>
+      <Head>
+        <title>PAFR City Expenditures Dashboard</title>
+      </Head>
+      <div>
+        <h1 className='pb-4 text-3xl font-semibold dark:text-white'>
+          City Expenditures by Activity Type
+        </h1>
+        <h2 className='pb-2 text-2xl font-semibold dark:text-white'>
+          Expenses Stacked
+        </h2>
+        <div ref={stacked}></div>
+      </div>
+    </>
   );
 }
 export default Expenditures;
