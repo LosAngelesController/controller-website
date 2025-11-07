@@ -59,7 +59,11 @@ if (typeof window !== 'undefined') {
   darkModeMediaQuery.addEventListener('change', updateChartLabelColor);
 }
 
-function Expenditures() {
+interface ExpendituresProps {
+  withSeo?: boolean;
+}
+
+function Expenditures({ withSeo = true }: ExpendituresProps = {}) {
   const [category, setCategory] = useState('Budgetary Department');
   const [fiscalYear, setFiscalYear] = useState(2023);
   const [revenueSourcesData, setRevenueSourcesData] = useState<RevenueSource[]>(
@@ -235,9 +239,15 @@ function Expenditures() {
 
   return (
     <>
-      <Head>
-        <title>City Expenditures Dashboard</title>
-      </Head>
+      {withSeo && (
+        <Head>
+          <title>City Expenditures Dashboard</title>
+          <meta
+            name='description'
+            content='City expenditures dashboard comparing departments, totals over time, and interactive filters for fiscal year and budget categories.'
+          />
+        </Head>
+      )}
       <div>
         <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
           City Expenditures Dashboard

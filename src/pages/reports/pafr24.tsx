@@ -18,6 +18,10 @@ export default function pafr24(props: any) {
     <>
       <Head>
         <title>Popular Annual Financial Report FY24 | LA City Controller</title>
+        <meta
+          name='description'
+          content='Popular Annual Financial Report FY24 landing page with Controller message, charts on revenues, expenses, debt, and downloadable resources.'
+        />
       </Head>
       {/* <Navbar /> */}
       {/* <Seo

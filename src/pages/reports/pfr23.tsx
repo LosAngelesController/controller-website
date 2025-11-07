@@ -1,8 +1,6 @@
 import { Chart, registerables } from 'chart.js';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
-
 import Layout from '@/components/layout/Layout';
 import Navbar from '@/components/Navbar';
 
@@ -54,9 +52,10 @@ const Home = () => {
     <>
       <Head>
         <title>Preliminary Financial Report FY 22-23 Web Summary</title>
-      </Head>
-      <Helmet>
-        <title>Preliminary Financial Report FY 22-23 Web Summary</title>
+        <meta
+          name='description'
+          content='FY 2022-23 Preliminary Financial Report web summary with Controller commentary, interactive visuals, and links to the full PDF.'
+        />
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content='@lacontroller' />
         <meta
@@ -71,7 +70,7 @@ const Home = () => {
           name='twitter:image'
           content='https://controller.lacity.gov/images/pfr-banner.png'
         />
-      </Helmet>
+      </Head>
       <Navbar />
       <Layout>
         <div className='pt-6 sm:pt-8 lg:pt-12'>
@@ -378,7 +377,7 @@ const Home = () => {
             sizes of the City’s revenue sources and their growth over the past
             10 years.
           </p>
-          <Revenue />
+          <Revenue withSeo={false} />
           <br></br>
           <br></br>
           <h2>Expenditures</h2>
@@ -392,7 +391,7 @@ const Home = () => {
             City’s different departments, as well as non-departmental
             expenditures, over the past 10 years.
           </p>
-          <Expenditures />
+          <Expenditures withSeo={false} />
           <br></br>
           <br></br>
           <h2>Reserves</h2>
@@ -418,7 +417,7 @@ const Home = () => {
             Click the chart below to view the performances of the Reserve Fund
             and Budget Stabilization Fund.
           </p>
-          <Reserve />
+          <Reserve withSeo={false} />
           <br></br>
           <h2>Debt</h2>
           <br></br>
@@ -431,7 +430,7 @@ const Home = () => {
             The City’s debt service obligations decreased to 3.9% last fiscal
             year.
           </p>
-          <Debt />
+          <Debt withSeo={false} />
         </section>
       </div>
     </>

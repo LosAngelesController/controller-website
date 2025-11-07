@@ -37,6 +37,10 @@ export default function CashForKeys() {
     <>
       <Head>
         <title>Unhoused Deaths 2023</title>
+        <meta
+          name='description'
+          content='Interactive report on unhoused deaths in 2023 featuring charts by age, race, location, council district, and downloadable resources.'
+        />
       </Head>
       <Navbar />
       <body

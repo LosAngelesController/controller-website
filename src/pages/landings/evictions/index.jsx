@@ -16,6 +16,10 @@ export default function Evictions() {
         <title>
           Eviction Notices (February 2023 - September 2025) Summary and Analysis
         </title>
+        <meta
+          name='description'
+          content='Dashboard tracking eviction notices in Los Angeles from February 2023 through September 2025 with charts by notice type, month, district, and rent.'
+        />
       </Head>
       <Navbar />
       <main

@@ -10,6 +10,10 @@ const Index = () => {
     <>
       <Head>
         <title>Tenant Anti-Harassment Ordinance Audit | LA City Controller</title>
+        <meta
+          name='description'
+          content='Tenant Anti-Harassment Ordinance audit site highlighting findings, data visualizations, and recommendations to protect Los Angeles renters.'
+        />
       </Head>
       <Navbar />
       <div

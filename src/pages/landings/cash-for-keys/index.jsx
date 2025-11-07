@@ -14,6 +14,10 @@ export default function CashForKeys() {
     <>
       <Head>
         <title>Cash for Keys (Jan 2019 - Mar 2025)</title>
+        <meta
+          name='description'
+          content='Los Angeles Cash for Keys dashboard showing tenant buyouts by year, council district, ZIP code, and total dollars from 2019 onward.'
+        />
       </Head>
       <Navbar />
       <main id="main-content" tabIndex={-1} className='container mx-auto px-4 sm:container lg:max-w-3xl xl:max-w-4xl'>

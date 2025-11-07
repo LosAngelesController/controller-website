@@ -33,7 +33,11 @@ function getRandomColor() {
   return color;
 }
 
-const NetPositionChart: React.FC = () => {
+interface NetPositionProps {
+  withSeo?: boolean;
+}
+
+const NetPositionChart: React.FC<NetPositionProps> = ({ withSeo = true } = {}) => {
   const [chartData, setChartData] = useState<ChartDataItem[] | null>(null);
 
   useEffect(() => {
@@ -61,9 +65,15 @@ const NetPositionChart: React.FC = () => {
   if (!chartData) {
     return (
       <>
-        <Head>
-          <title>PAFR Net Position Dashboard</title>
-        </Head>
+        {withSeo && (
+          <Head>
+            <title>PAFR Net Position Dashboard</title>
+            <meta
+              name='description'
+              content='PAFR net position chart displaying governmental and business-type activities across fiscal years to highlight balance sheet trends.'
+            />
+          </Head>
+        )}
         <div>Loading chart data...</div>
       </>
     );
@@ -126,9 +136,15 @@ const NetPositionChart: React.FC = () => {
 
   return (
     <>
-      <Head>
-        <title>PAFR Net Position Dashboard</title>
-      </Head>
+      {withSeo && (
+        <Head>
+          <title>PAFR Net Position Dashboard</title>
+          <meta
+            name='description'
+            content='PAFR net position chart displaying governmental and business-type activities across fiscal years to highlight balance sheet trends.'
+          />
+        </Head>
+      )}
       <h1 className='pb-4 text-center text-3xl font-semibold dark:text-white'>
         Net Position of Governmental vs Business-Type Activities
       </h1>

@@ -30,6 +30,10 @@ export default function InterimHousing() {
         <title>
           LAPD Helicopter Audit
         </title>
+        <meta
+          name='description'
+          content='LAPD helicopter audit overview detailing air support costs, staffing, deployments, and recommendations for improving oversight and budgeting.'
+        />
       </Head>
       <Navbar />
       <main id='main-content' tabIndex={-1} className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'>

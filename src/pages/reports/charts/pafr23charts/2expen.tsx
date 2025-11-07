@@ -6,7 +6,11 @@ import { useRef } from 'react';
 
 import { addTooltips } from '@/components/tooltipsPlot/newtooltipsattempt';
 import { processEachValueIntoTextMore } from '@/components/utils';
-export function Expenditures() {
+interface ExpenProps {
+  withSeo?: boolean;
+}
+
+export function Expenditures({ withSeo = true }: ExpenProps = {}) {
   const expenrefbis = useRef<any>(null);
   const expenrefgov = useRef<any>(null);
 
@@ -150,9 +154,15 @@ export function Expenditures() {
 
   return (
     <>
-      <Head>
-        <title>PAFR City Expenditures Dashboard</title>
-      </Head>
+      {withSeo && (
+        <Head>
+          <title>PAFR City Expenditures Dashboard</title>
+          <meta
+            name='description'
+            content='PAFR expenditures visualization presenting stacked activity-type spending plus separate business-type and governmental charts with tooltips.'
+          />
+        </Head>
+      )}
       <div>
         <h1 className='pb-4 text-3xl font-semibold dark:text-white'>
           City Expenditures by Activity Type

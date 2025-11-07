@@ -102,6 +102,10 @@ export default function Analysis() {
     <>
       <Head>
         <title>Rent Stabilization Ordinance (RSO) Analysis</title>
+        <meta
+          name='description'
+          content='Rent Stabilization Ordinance analysis with charts on units gained or lost by district, bedroom range, year, and land use categories.'
+        />
       </Head>
       <Navbar />
       <center>

@@ -27,6 +27,10 @@ export default function Data(props: any) {
     <>
       <Head>
         <title>41.18 Arrests (Jan 2012 - May 2023) Summary and Analysis</title>
+        <meta
+          name='description'
+          content='Explore a decade of Los Angeles Municipal Code 41.18 arrests with interactive maps, race statistics, charts, and bilingual summaries.'
+        />
       </Head>
       <Navbar />
 

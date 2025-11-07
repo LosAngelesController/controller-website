@@ -50,7 +50,11 @@ function responsivefy(svg: any) {
   }
 }
 
-export default function CityRevenue(props: any) {
+interface CityRevenueProps {
+  withSeo?: boolean;
+}
+
+export default function CityRevenue({ withSeo = true }: CityRevenueProps = {}) {
   //import the csv table from /csvsforpafr22/1totalcityrevenue.csv
 
   const rev2 = useRef<any>();
@@ -167,9 +171,15 @@ export default function CityRevenue(props: any) {
 
   return (
     <>
-      <Head>
-        <title>PAFR City Revenue Dashboard</title>
-      </Head>
+      {withSeo && (
+        <Head>
+          <title>PAFR City Revenue Dashboard</title>
+          <meta
+            name='description'
+            content='PAFR city revenue visualization illustrating activity-type revenues and totals with interactive Observable Plot charts.'
+          />
+        </Head>
+      )}
       <div className='city-revenue'>
         <h1 className='pb-4 text-3xl font-semibold dark:text-white'>
           City Revenue by Activity Type

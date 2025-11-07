@@ -29,6 +29,10 @@ export default function Data(props: any) {
     <>
       <Head>
         <title>LAPD Arrests Maps and Analysis</title>
+        <meta
+          name='description'
+          content='Interactive LAPD arrest maps and analysis covering 2019-2022 data, race disparities, council districts, arrest types, and Spanish translation.'
+        />
       </Head>
       <Navbar />
 

@@ -54,7 +54,11 @@ if (typeof window !== 'undefined') {
   darkModeMediaQuery.addEventListener('change', updateChartLabelColor);
 }
 
-function Revenue() {
+interface RevenueProps {
+  withSeo?: boolean;
+}
+
+function Revenue({ withSeo = true }: RevenueProps = {}) {
   const [category, setCategory] = useState('General Fund');
   const [fiscalYear, setFiscalYear] = useState(2023);
   const [revenueSourcesData, setRevenueSourcesData] = useState<RevenueSource[]>(
@@ -198,9 +202,15 @@ function Revenue() {
 
   return (
     <>
-      <Head>
-        <title>City Revenue Dashboard</title>
-      </Head>
+      {withSeo && (
+        <Head>
+          <title>City Revenue Dashboard</title>
+          <meta
+            name='description'
+            content='City revenue dashboard showing adopted versus actual receipts by source, totals over time, and filters for category and fiscal year.'
+          />
+        </Head>
+      )}
       <div>
         <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
           City Revenue Dashboard
