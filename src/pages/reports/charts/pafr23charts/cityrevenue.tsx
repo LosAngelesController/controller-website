@@ -1,4 +1,5 @@
 //import d3 from 'd3';
+import Head from 'next/head';
 import * as Plot from '@observablehq/plot';
 import * as d3 from 'd3';
 import * as React from 'react';
@@ -49,7 +50,11 @@ function responsivefy(svg: any) {
   }
 }
 
-export default function CityRevenue(props: any) {
+interface CityRevenueProps {
+  withSeo?: boolean;
+}
+
+export default function CityRevenue({ withSeo = true }: CityRevenueProps = {}) {
   //import the csv table from /csvsforpafr22/1totalcityrevenue.csv
 
   const rev2 = useRef<any>();
@@ -165,9 +170,25 @@ export default function CityRevenue(props: any) {
   }, []);
 
   return (
-    <div className='city-revenue'>
-      <h4>Revenues Stacked</h4>
-      <div id='rev-2' ref={rev2}></div>
-    </div>
+    <>
+      {withSeo && (
+        <Head>
+          <title>PAFR City Revenue Dashboard</title>
+          <meta
+            name='description'
+            content='PAFR city revenue visualization illustrating activity-type revenues and totals with interactive Observable Plot charts.'
+          />
+        </Head>
+      )}
+      <div className='city-revenue'>
+        <h1 className='pb-4 text-3xl font-semibold dark:text-white'>
+          City Revenue by Activity Type
+        </h1>
+        <h2 className='pb-2 text-2xl font-semibold dark:text-white'>
+          Revenues Stacked
+        </h2>
+        <div id='rev-2' ref={rev2}></div>
+      </div>
+    </>
   );
 }

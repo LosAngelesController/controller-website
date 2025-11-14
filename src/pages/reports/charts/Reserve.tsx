@@ -1,4 +1,5 @@
 'use client';
+import Head from 'next/head';
 import {
   BarElement,
   CategoryScale,
@@ -67,7 +68,10 @@ if (typeof window !== 'undefined') {
 
 // Define state types
 type SelectedOption = 'reserveFund' | 'reserveFundPercentage';
-const BarChartForDebt = () => {
+interface ReserveProps {
+  withSeo?: boolean;
+}
+const BarChartForDebt = ({ withSeo = true }: ReserveProps = {}) => {
   const [reserveData, setReserveData] = useState<DebtDataItem[] | undefined>();
   const [selectedOption, setSelectedOption] =
     useState<SelectedOption>('reserveFund'); // Default selection
@@ -244,7 +248,20 @@ const BarChartForDebt = () => {
   };
 
   return (
-    <div className='text-center px-2 sm:px-4 md:px-10 py-10'>
+    <>
+      {withSeo && (
+        <Head>
+          <title>Reserve & Budget Stabilization Dashboard</title>
+          <meta
+            name='description'
+            content='Reserve and Budget Stabilization dashboard tracking fund balances, percentages, and trends with toggle between dollars and percent.'
+          />
+        </Head>
+      )}
+      <div className='text-center px-2 sm:px-4 md:px-10 py-10'>
+        <h1 className='pb-4 text-3xl font-semibold dark:text-white'>
+          Reserve & Budget Stabilization Funds
+        </h1>
       <br></br>
       <label htmlFor={reserveScaleSelectId} style={{ marginRight: '10px' }}>
         Scale by % or $
@@ -312,6 +329,7 @@ const BarChartForDebt = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 export default BarChartForDebt;

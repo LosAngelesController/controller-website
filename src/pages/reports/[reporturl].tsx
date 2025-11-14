@@ -18,6 +18,7 @@ interface eachaudit {
   dept: string;
   link: string;
   pdflink: string;
+  description?: string;
   textofpage: string;
   htmlofpage: string;
 }
@@ -66,7 +67,11 @@ export default function Report(props: auditinterface) {
       <Layout>
         <Seo
           title={props.report.name}
-          description={`Financial Report for ${props.report.year}`}
+          description={
+            props.report.description
+              ? props.report.description
+              : `Financial Report for ${props.report.year}`
+          }
         />
         <main className=' dark:bg-zinc-900'>
           {props.report && (

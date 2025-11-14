@@ -121,7 +121,7 @@ export default function pafr22(props: any) {
               <p>
                 <b>
                   {' '}
-                  Our last year’s report predicted <q>trouble ahead</q>.
+                  Our last year’s report predicted "trouble ahead".
                   Unfortunately, that proved to be true.
                 </b>
                 In our March 2023 estimate, we projected revenues of $7.560
@@ -132,7 +132,7 @@ export default function pafr22(props: any) {
                 City’s General Fund revenues are now $158 million below plan.
                 Combined with some departments exceeding their budget, the
                 City has been forced to adopt an abrupt hiring freeze on
-                filling all jobs except those deemed <q>critical</q>. With
+                filling all jobs except those deemed "critical". With
                 double-digit vacancy rates across nearly every City
                 department, a hiring freeze will have a negative impact on
                 virtually all City services.
@@ -237,21 +237,21 @@ export default function pafr22(props: any) {
 
             <p>
               All of this means that short-term fixes and budget gimmickry
-              will only prolong pain and lead to <q>an inexorable decline in
+              will only prolong pain and lead to "an inexorable decline in
               public services, undermining our quality of life and the
-              economic prospects of our residents</q> as our Office warned in
+              economic prospects of our residents" as our Office warned in
               January when releasing the City’s Annual Comprehensive Financial
               Report.
             </p>
             <br />
             <p>
               I summarized last year’s March Revenue Forecast with this
-              advice: <q>The voters of Los Angeles expressed their choices for
+              advice: "The voters of Los Angeles expressed their choices for
               change in the last election. It will be our shared
               responsibility not to be trapped by business as usual if we are
               to deliver on their expectations. Taking the long view and the
               high road will be essential to making a more equitable, livable
-              and resilient city for our four million residents.</q>
+              and resilient city for our four million residents."
             </p>
             <br />
             <p>

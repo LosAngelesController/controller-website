@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 interface RevenueSource {
@@ -53,7 +54,11 @@ if (typeof window !== 'undefined') {
   darkModeMediaQuery.addEventListener('change', updateChartLabelColor);
 }
 
-function Revenue() {
+interface RevenueProps {
+  withSeo?: boolean;
+}
+
+function Revenue({ withSeo = true }: RevenueProps = {}) {
   const [category, setCategory] = useState('General Fund');
   const [fiscalYear, setFiscalYear] = useState(2023);
   const [revenueSourcesData, setRevenueSourcesData] = useState<RevenueSource[]>(
@@ -196,7 +201,20 @@ function Revenue() {
   //     window.matchMedia('(prefers-color-scheme: dark)').matches);
 
   return (
-    <div>
+    <>
+      {withSeo && (
+        <Head>
+          <title>City Revenue Dashboard</title>
+          <meta
+            name='description'
+            content='City revenue dashboard showing adopted versus actual receipts by source, totals over time, and filters for category and fiscal year.'
+          />
+        </Head>
+      )}
+      <div>
+        <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+          City Revenue Dashboard
+        </h1>
       <div>
         <center>
           <label htmlFor={categorySelectId} style={{ marginRight: '10px' }}>
@@ -447,7 +465,8 @@ function Revenue() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

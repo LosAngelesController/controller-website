@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 interface RevenueSource {
@@ -58,7 +59,11 @@ if (typeof window !== 'undefined') {
   darkModeMediaQuery.addEventListener('change', updateChartLabelColor);
 }
 
-function Expenditures() {
+interface ExpendituresProps {
+  withSeo?: boolean;
+}
+
+function Expenditures({ withSeo = true }: ExpendituresProps = {}) {
   const [category, setCategory] = useState('Budgetary Department');
   const [fiscalYear, setFiscalYear] = useState(2023);
   const [revenueSourcesData, setRevenueSourcesData] = useState<RevenueSource[]>(
@@ -233,7 +238,20 @@ function Expenditures() {
   };
 
   return (
-    <div>
+    <>
+      {withSeo && (
+        <Head>
+          <title>City Expenditures Dashboard</title>
+          <meta
+            name='description'
+            content='City expenditures dashboard comparing departments, totals over time, and interactive filters for fiscal year and budget categories.'
+          />
+        </Head>
+      )}
+      <div>
+        <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+          City Expenditures Dashboard
+        </h1>
       <br></br>
       <div>
         <center>
@@ -450,7 +468,8 @@ function Expenditures() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 }
 

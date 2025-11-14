@@ -29,6 +29,10 @@ export default function Data(props: any) {
     <>
       <Head>
         <title>LAPD Arrests Maps and Analysis</title>
+        <meta
+          name='description'
+          content='Interactive LAPD arrest maps and analysis covering 2019-2022 data, race disparities, council districts, arrest types, and Spanish translation.'
+        />
       </Head>
       <Navbar />
 
@@ -41,13 +45,13 @@ export default function Data(props: any) {
               alignItems: 'center',
             }}
           >
-            <h2
+            <h1
               className='mobile-left-align pb-4 pt-8 dark:text-white'
               style={{ flex: '1' }}
             >
               LAPD Arrest Maps & Analysis{' '}
               <span style={{ marginLeft: '5px' }}>(2019-22)</span>
-            </h2>
+            </h1>
             <a
               href='#spanish_translation'
               style={{
@@ -146,12 +150,12 @@ export default function Data(props: any) {
         <br></br>
         <center>
           <div>
-            <h3
+            <h2
               className='mobile-left-align dark:text-white'
               style={{ fontFamily: 'Helvetica' }}
             >
               <b>Summary and Analysis</b>
-            </h3>
+            </h2>
           </div>
         </center>
         <br></br>
@@ -641,7 +645,7 @@ export default function Data(props: any) {
                   todos <br></br>los arrestos en los últimos cuatro años
                   (2019-2022),
                   <br></br> a pesar de ser solo 56% de la población de la ciudad
-                  de Los Ángeles, segun los datos del Censo de 2020.
+                  de Los Ángeles, según los datos del Censo de 2020.
                 </p>
 
                 <ul className='mobile-left-align'>

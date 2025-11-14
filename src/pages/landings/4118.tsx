@@ -27,14 +27,18 @@ export default function Data(props: any) {
     <>
       <Head>
         <title>41.18 Arrests (Jan 2012 - May 2023) Summary and Analysis</title>
+        <meta
+          name='description'
+          content='Explore a decade of Los Angeles Municipal Code 41.18 arrests with interactive maps, race statistics, charts, and bilingual summaries.'
+        />
       </Head>
       <Navbar />
 
       <main id='main-content' tabIndex={-1}>
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h2 className='pb-4 pt-8 dark:text-white'>
+          <h1 className='pb-4 pt-8 dark:text-white'>
             41.18 Arrests Map (Jan 2012 - May 2023)
-          </h2>
+          </h1>
 
           <center>
             <a
@@ -99,9 +103,9 @@ export default function Data(props: any) {
         <br></br>
         <center>
           <div>
-            <h3 className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
+            <h2 className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
               <b>Summary and Analysis</b>
-            </h3>
+            </h2>
           </div>
         </center>
         <br></br>

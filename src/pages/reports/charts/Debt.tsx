@@ -12,6 +12,7 @@ import {
   Title,
   Tooltip,
 } from 'chart.js';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
@@ -32,6 +33,9 @@ interface DebtDataItem {
 
 // Define state types
 type SelectedOption = 'debt' | 'debtPercentage';
+interface DebtProps {
+  withSeo?: boolean;
+}
 
 ChartJS.register(
   CategoryScale,
@@ -80,7 +84,7 @@ if (typeof window !== 'undefined') {
   darkModeMediaQuery.addEventListener('change', updateChartLabelColor);
 }
 
-const BarChart: React.FC = () => {
+const BarChart: React.FC<DebtProps> = ({ withSeo = true } = {}) => {
   const [debtData, setDebtData] = useState<DebtDataItem[] | undefined>();
   const [selectedOption, setSelectedOption] = useState<SelectedOption>('debt'); // Default selection
 
@@ -279,6 +283,18 @@ const BarChart: React.FC = () => {
   // console.log('debt', debtData);
   return (
     <>
+      {withSeo && (
+        <Head>
+          <title>Debt Service Requirements Dashboard</title>
+          <meta
+            name='description'
+            content='Debt service requirements dashboard highlighting voter-approved and non-voter-approved debt levels, caps, and percentages over time.'
+          />
+        </Head>
+      )}
+      <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+        Debt Service Requirements
+      </h1>
       <div className='p-10 text-center'>
         <br></br>
         <label htmlFor={debtScaleSelectId} style={{ marginRight: '10px' }}>

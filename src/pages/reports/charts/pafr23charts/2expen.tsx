@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import * as Plot from '@observablehq/plot';
 import * as d3 from 'd3';
 import * as React from 'react';
@@ -5,7 +6,11 @@ import { useRef } from 'react';
 
 import { addTooltips } from '@/components/tooltipsPlot/newtooltipsattempt';
 import { processEachValueIntoTextMore } from '@/components/utils';
-export function Expenditures() {
+interface ExpenProps {
+  withSeo?: boolean;
+}
+
+export function Expenditures({ withSeo = true }: ExpenProps = {}) {
   const expenrefbis = useRef<any>(null);
   const expenrefgov = useRef<any>(null);
 
@@ -148,10 +153,26 @@ export function Expenditures() {
   }, []);
 
   return (
-    <div>
-      <h4>Expenses Stacked</h4>
-      <div ref={stacked}></div>
-    </div>
+    <>
+      {withSeo && (
+        <Head>
+          <title>PAFR City Expenditures Dashboard</title>
+          <meta
+            name='description'
+            content='PAFR expenditures visualization presenting stacked activity-type spending plus separate business-type and governmental charts with tooltips.'
+          />
+        </Head>
+      )}
+      <div>
+        <h1 className='pb-4 text-3xl font-semibold dark:text-white'>
+          City Expenditures by Activity Type
+        </h1>
+        <h2 className='pb-2 text-2xl font-semibold dark:text-white'>
+          Expenses Stacked
+        </h2>
+        <div ref={stacked}></div>
+      </div>
+    </>
   );
 }
 export default Expenditures;

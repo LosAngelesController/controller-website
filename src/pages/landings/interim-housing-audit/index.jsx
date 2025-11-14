@@ -26,6 +26,10 @@ export default function InterimHousing() {
         <title>
           Homelessness Audit: Interim Housing &amp; Shelter Bed Data
         </title>
+        <meta
+          name='description'
+          content='Interim Housing audit microsite summarizing findings, key statistics, maps, and downloadable materials on shelter bed investments in Los Angeles.'
+        />
       </Head>
       <Navbar />
       <main id="main-content" tabIndex={-1} className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'>
