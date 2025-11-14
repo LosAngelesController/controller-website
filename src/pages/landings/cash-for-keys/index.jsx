@@ -13,18 +13,22 @@ export default function CashForKeys() {
   return (
     <>
       <Head>
-        <title>Cash for Keys (Jan 2019 - Mar 2025)</title>
+        <title>Cash for Keys (Jan 2019 - Jul 2025)</title>
         <meta
           name='description'
           content='Los Angeles Cash for Keys dashboard showing tenant buyouts by year, council district, ZIP code, and total dollars from 2019 onward.'
         />
       </Head>
       <Navbar />
-      <main id="main-content" tabIndex={-1} className='container mx-auto px-4 sm:container lg:max-w-3xl xl:max-w-4xl'>
+      <main
+        id='main-content'
+        tabIndex={-1}
+        className='container mx-auto px-4 sm:container lg:max-w-3xl xl:max-w-4xl'
+      >
         <center>
           <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
             <h1 className='pb-4 pt-8 text-center text-3xl font-bold dark:text-white'>
-              Cash For Keys (Jan 2019 - Mar 2025)
+              Cash For Keys (Jan 2019 - Jul 2025)
             </h1>
           </div>
           <div>
@@ -35,7 +39,7 @@ export default function CashForKeys() {
               className='mb-4 inline-block rounded px-4 py-2 font-bold text-black focus:outline-none'
               style={{
                 backgroundColor: '#41ffca',
-                border: '1px solid #2b9176'
+                border: '1px solid #2b9176',
               }}
             >
               Table Version
@@ -51,18 +55,18 @@ export default function CashForKeys() {
             style={{ fontFamily: 'Helvetica' }}
           >
             <p className='mb-4'>
-              [May 2025 Update] We analyzed updated data from the Los Angeles
-              Housing Department (LAHD) through the month of March 2025.
+              [Nov 2025 Update] We analyzed updated data from the Los Angeles
+              Housing Department (LAHD) through the month of July 2025.
             </p>
             <p className='mb-4'>
-              The data reveals that from January 2019 through March 2025, LAHD
-              received a total of <b>5,771</b> Tenant Buyout Agreements (also
-              known as “Cash for Keys” agreements). <b>$25,051</b> was the
+              The data reveals that from January 2019 through July 2025, LAHD
+              received a total of <b>5,991</b> Tenant Buyout Agreements (also
+              known as “Cash for Keys” agreements). <b>$25,068.87</b> was the
               average buyout amount.
             </p>
             <p className='mb-4'>
-              <b>175</b> Tenant Buyout agreements were filed this year so far,
-              from January to March 2025.
+              <b>395</b> Tenant Buyout agreements were filed this year so far,
+              from January to July 2025.
             </p>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
@@ -85,8 +89,8 @@ export default function CashForKeys() {
             </h3>
             <p className='mb-4 text-left dark:text-white'>
               Units located within Council District <b>10</b> had the highest
-              number of tenant buyouts <b>(1,131)</b>, followed by Council
-              District <b>13 (1,123)</b>.
+              number of tenant buyouts <b>(1,160)</b>, followed by Council
+              District <b>13 (1,145)</b>.
             </p>
           </div>
           <div className='mb-16'>
@@ -101,8 +105,8 @@ export default function CashForKeys() {
             </h3>
             <p className='mb-4 text-left dark:text-white'>
               Units located within <b>90004</b> (Koreatown, Mid-Wilshire area)
-              had the highest number of buyout agreements (<b>380</b>), followed
-              by <b>90026</b> (Echo Park area) with <b>280</b>.
+              had the highest number of buyout agreements (<b>384</b>), followed
+              by <b>90026</b> (Echo Park area) with <b>286</b>.
             </p>
           </div>
           <div className='mb-12'>
@@ -115,8 +119,8 @@ export default function CashForKeys() {
             </h3>
             <p className='mb-4 text-left'>
               The total dollar amount of tenant buyouts was{' '}
-              <b>$142,567,459.29</b> with an average tenant buyout amount of{' '}
-              <b>$25,051 per unit</b>.
+              <b>$148,182,074.29</b> with an average tenant buyout amount of{' '}
+              <b>$25,068 per unit</b>.
             </p>
           </div>
           <div className='mb-16'>
