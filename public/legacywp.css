@@ -40,3 +40,19 @@ a[data-vc-accordion] {
   font-size: 24px;
   font-weight: 600;
 }
+
+.legacycontentgal .legacy-subheading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.legacycontentgal .legacy-subheading-sm {
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
