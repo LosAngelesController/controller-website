@@ -204,7 +204,7 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
     <>
       {withSeo && (
         <Head>
-          <title>City Revenue Dashboard</title>
+          <title>City Revenue Dashboard | LA Controller</title>
           <meta
             name='description'
             content='City revenue dashboard showing adopted versus actual receipts by source, totals over time, and filters for category and fiscal year.'

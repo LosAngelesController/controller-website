@@ -241,7 +241,7 @@ function Expenditures({ withSeo = true }: ExpendituresProps = {}) {
     <>
       {withSeo && (
         <Head>
-          <title>City Expenditures Dashboard</title>
+          <title>City Expenditures Dashboard | LA Controller</title>
           <meta
             name='description'
             content='City expenditures dashboard comparing departments, totals over time, and interactive filters for fiscal year and budget categories.'

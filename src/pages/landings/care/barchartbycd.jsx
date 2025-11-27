@@ -159,7 +159,11 @@ export default function Analysis() {
   return (
     <>
       <Head>
-        {/* <title>Analysis</title> */}
+        <title>CARE & CARE+ Operations by Council District | LA Controller</title>
+        <meta
+          name='description'
+          content='Interactive view of CARE and CARE+ operations counts, totals, and budget information by Los Angeles City Council District.'
+        />
       </Head>
       <Navbar />
       <div className="mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl">
