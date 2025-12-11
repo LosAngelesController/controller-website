@@ -348,15 +348,15 @@ export default function PayrollCalendar(props: any) {
               href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll2025.pdf?alt=media&token=4e790812-2ee9-4393-ae94-9fa12d60b15d'
               target='_blank'
               referrerPolicy='no-referrer'
-              aria-label="Download Payroll Calendar 2025 (PDF) in a new tab"
+              aria-label='Download Payroll Calendar 2025 (PDF) in a new tab'
               className='my-auto rounded-full bg-black p-1.5 text-white dark:bg-white dark:text-black md:p-2  print:hidden'
             >
-                <svg className='l-4 h-4' viewBox='0 0 24 24' aria-hidden="true">
-                  <path
-                    fill='currentColor'
-                    d='M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z'
-                  />
-                </svg>
+              <svg className='l-4 h-4' viewBox='0 0 24 24' aria-hidden='true'>
+                <path
+                  fill='currentColor'
+                  d='M5,20H19V18H5M19,9H15V3H9V9H5L12,16L19,9Z'
+                />
+              </svg>
             </Link>
           </div>
           <div className='flex'>
@@ -374,7 +374,7 @@ export default function PayrollCalendar(props: any) {
 
             <p className='text-green-900 underline dark:text-mejito '>
               <Link
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendar%202026_v2.pdf?alt=media&token=7b520beb-ebbd-4858-9c85-b0576534d5a8'
+                href='hhttps://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendar%202026_v2%20%281%29.pdf?alt=media&token=80751ba1-4146-4918-89ec-067fdaa4ec9f'
                 className='font-semibold text-green-700 dark:text-mejito'
               >
                 Payroll Calendar 2026
@@ -451,10 +451,17 @@ export default function PayrollCalendar(props: any) {
                               )}  ${checkiftodaysdate(monthindex + 1, day)}`}
                             >
                               <time
-                                dateTime={`${selectedYear}-${String(monthindex+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`}
-                                aria-label={getAriaOfDate(monthindex+1, day)}
+                                dateTime={`${selectedYear}-${String(
+                                  monthindex + 1
+                                ).padStart(2, '0')}-${String(day).padStart(
+                                  2,
+                                  '0'
+                                )}`}
+                                aria-label={getAriaOfDate(monthindex + 1, day)}
                               >
-                                <span className="m-auto print:text-black">{day}</span>
+                                <span className='m-auto print:text-black'>
+                                  {day}
+                                </span>
                               </time>
                             </div>
                           )
