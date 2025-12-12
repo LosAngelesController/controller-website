@@ -1,6 +1,6 @@
-import Head from 'next/head';
 import * as Plot from '@observablehq/plot';
 import * as d3 from 'd3';
+import Head from 'next/head';
 import * as React from 'react';
 import { useRef } from 'react';
 

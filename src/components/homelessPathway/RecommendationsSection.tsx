@@ -11,7 +11,7 @@ const recommendations = [
 
 const RecommendationsSection = () => {
   return (
-    <section className='bg-background bg-[#d6d6d6] px-6 py-20 dark:bg-[#212121]'>
+    <section className='bg-background bg-[#9b9c9c] px-6 py-20 dark:bg-[#212121]'>
       <div className='container mx-auto max-w-6xl'>
         {/* Title */}
         <h2 className='text-foreground mb-6 text-5xl font-extrabold dark:text-white'>
