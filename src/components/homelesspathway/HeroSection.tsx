@@ -1,7 +1,7 @@
 import { Download } from "lucide-react";
 import { Button } from "@/components/homelesspathway/ui/button";
 import coverImage from "@/components/homelesspathway/assets/pathwayscover.jpg";
-import Image from "next/image";
+
 
 const HeroSection = () => {
   return (
@@ -48,19 +48,11 @@ const HeroSection = () => {
           </div>
 
           {/* Image */}
-          <Image
-            src={coverImage}
-            alt="Homelessness Audit: Pathways to Permanent Housing cover"
-            width={800}
-            height={1100}
-            className="w-full h-auto rounded-lg shadow-2xl"
-            priority
-          />
-          {/* <img
+          <img
             src={coverImage.src}
             alt="Homelessness Audit: Pathways to Permanent Housing cover"
             className="w-full h-auto rounded-lg shadow-2xl"
-          /> */}
+          />
         </div>
       </div>
     </section>
