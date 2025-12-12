@@ -75,3 +75,60 @@ a[data-vc-accordion] {
   margin-bottom: 8px;
   line-height: 1.4;
 }
+
+/* Legacy embeds pulled from WordPress often rely on Bootstrap grid classes
+   that don't exist in this project. Force those columns/rows to behave as a
+   single responsive column so the content can fill the viewport on mobile. */
+.legacycontentgal .vc_row,
+.legacycontentgal .vc_row-fluid,
+.legacycontentgal .wpb_row,
+.legacycontentgal .wpb_wrapper,
+.legacycontentgal .vc_column_container,
+.legacycontentgal [class*='vc_col'],
+.legacycontentgal [class*='wpb_column'] {
+  width: 100% !important;
+  max-width: 100% !important;
+  float: none !important;
+  display: block;
+}
+
+.legacycontentgal .vc_column-inner,
+.legacycontentgal .vc_column_container > .vc_column-inner {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.legacycontentgal .tableauPlaceholder,
+.legacycontentgal iframe,
+.legacycontentgal object,
+.legacycontentgal embed {
+  width: 100% !important;
+  max-width: 100% !important;
+  display: block;
+}
+
+.legacycontentgal iframe,
+.legacycontentgal object,
+.legacycontentgal embed {
+  min-height: 320px;
+}
+
+.legacycontentgal img {
+  max-width: 100%;
+  height: auto;
+}
+
+.legacycontentgal table {
+  width: 100% !important;
+  display: block;
+  overflow-x: auto;
+}
+
+.legacycontentgal .panel,
+.legacycontentgal .panel-group,
+.legacycontentgal .panel-body {
+  width: 100%;
+  max-width: 100%;
+}
