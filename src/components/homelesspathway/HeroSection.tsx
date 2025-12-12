@@ -4,12 +4,14 @@ import coverImage from "@/components/homelesspathway/assets/pathwayscover.jpg";
 
 const HeroSection = () => {
   return (
-    <section className="min-h-[80vh] flex items-center py-20 px-6 bg-[#0f1212]">
+    <section className="min-h-[80vh] flex items-center py-20 px-6 
+      bg-white dark:bg-[#0f1212]"
+    >
       <div className="container max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-slide-up">
 
-            <h1 className="hero-title text-white">
+            <h1 className="hero-title text-gray-900 dark:text-white">
               HOMELESSNESS AUDIT:
               <br />
               <span className="text-[#41ffca]">
@@ -17,17 +19,23 @@ const HeroSection = () => {
               </span>
             </h1>
 
-            <p className="text-lg text-gray-300 max-w-xl leading-relaxed">
+            <p className="text-lg max-w-xl leading-relaxed
+              text-gray-700 dark:text-gray-300"
+            >
               Performance audit of LAHSA's and the City of Los Angeles's performance
               transitioning people from interim housing to permanent housing. The audit
               covers City-funded interim housing sites over a 5-year scope period,
-              Fiscal Years 2019-2023.
+              Fiscal Years 2019–2023.
             </p>
 
             <Button
               size="lg"
-              className="gap-2 font-semibold bg-[#41ffca] text-black hover:bg-[#35e6b8]"
-
+              className="
+                gap-2 font-semibold 
+                bg-[#41ffca] text-black 
+                hover:bg-[#35e6b8]
+                shadow-md
+              "
               onClick={() =>
                 window.open(
                   "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/PH%20Pathways_LAHSA%20Final_12.10.2024.pdf?alt=media&token=0f6681b8-a28b-44ed-8bfa-e040fd2a127f",
@@ -43,7 +51,10 @@ const HeroSection = () => {
           <img
             src={coverImage.src}
             alt="Homelessness Audit: Pathways to Permanent Housing cover"
-            className="w-full h-auto rounded-lg shadow-2xl"
+            className="
+              w-full h-auto rounded-lg shadow-2xl
+              ring-1 ring-black/5 dark:ring-white/10
+            "
           />
         </div>
       </div>
