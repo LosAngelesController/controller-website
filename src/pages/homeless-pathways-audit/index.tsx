@@ -4,7 +4,6 @@ import SuccessFactorsSection from "@/components/homelesspathway/SuccessFactorsSe
 import RecommendationsSection from "@/components/homelesspathway/RecommendationsSection";
 import Navbar from "@/components/Navbar";
 
-
 const Index = () => {
   return (
     <main className="min-h-screen bg-background">
@@ -13,7 +12,6 @@ const Index = () => {
       <KeyFindingsSection />
       <SuccessFactorsSection />
       <RecommendationsSection />
-
     </main>
   );
 };
