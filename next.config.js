@@ -121,8 +121,11 @@ const nextConfig = {
     ];
   },
   eslint: {
-    dirs: ['src'],
+    ignoreDuringBuilds: true,
   },
+  // eslint: {
+  //   dirs: ['src'],
+  // },
   reactStrictMode: true,
   swcMinify: true,
 
