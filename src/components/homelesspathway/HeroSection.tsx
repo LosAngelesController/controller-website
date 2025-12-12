@@ -51,6 +51,8 @@ const HeroSection = () => {
           <Image
             src={coverImage}
             alt="Homelessness Audit: Pathways to Permanent Housing cover"
+            width={800}
+            height={1100}
             className="w-full h-auto rounded-lg shadow-2xl"
             priority
           />
