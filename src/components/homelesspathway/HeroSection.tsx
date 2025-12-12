@@ -5,9 +5,7 @@ import coverImage from "@/components/homelesspathway/assets/pathwayscover.jpg";
 
 const HeroSection = () => {
   return (
-    <section
-      className="min-h-[80vh] flex items-center py-20 px-6 bg-background dark:bg-[#0f1212]"
-    >
+    <section className="min-h-[80vh] flex items-center py-20 px-6 bg-background dark:bg-[#0f1212]">
       <div className="container max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-slide-up">
@@ -44,7 +42,7 @@ const HeroSection = () => {
             </Button>
           </div>
 
-
+          {/* ✅ FIX: Next Image (no StaticImageData → string issue) */}
           <Image
             src={coverImage}
             alt="Homelessness Audit: Pathways to Permanent Housing cover"
