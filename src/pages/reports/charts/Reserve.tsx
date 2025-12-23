@@ -1,5 +1,4 @@
 'use client';
-import Head from 'next/head';
 import {
   BarElement,
   CategoryScale,
@@ -10,6 +9,7 @@ import {
   Title,
   Tooltip,
 } from 'chart.js';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 

@@ -2,7 +2,6 @@ import { Popover } from '@headlessui/react';
 import * as React from 'react';
 
 import { ThemeContext } from '@/themeManager';
-import { Button } from '@/components/taho/ui/button';
 
 function ThemeIndicator(props: any) {
   return (

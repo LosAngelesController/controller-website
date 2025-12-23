@@ -6,9 +6,9 @@ import {
   Title,
   Tooltip,
 } from "chart.js";
+import { ChartData, ChartOptions } from "chart.js";
 import { csvParse } from "d3";
 import React, { useEffect, useState } from "react";
-import { ChartData, ChartOptions } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
 Chart.register(CategoryScale, LinearScale, BarElement, Title, Tooltip);
