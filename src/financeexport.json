@@ -202,7 +202,7 @@
     "link": "https://lacontroller.org/financial-reports/beacon-economics-llc/",
     "pdflink": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/audits%2F2022%2FBeacon_Economics__LLC_01-17-2018.pdf?alt=media&token=1aa8d071-edc5-4650-baeb-7e0b2b1a2f51",
     "textofpage": "Economic Outlook for the City of Los Angeles\n\n\nClick here to see economic indicators for the City of Los Angeles in 2018, including L.A.’s place in the regional economic, a look at the real estate and construction industries and more.",
-    "htmlofpage": "<div id=\"observations\"><h1><strong>Economic Outlook for the City of Los Angeles<br>\n</strong></h1>\n<p>Click <a href=\"https://lacontroller.org/wp-content/uploads/2019/03/Beacon_Economics__LLC_01-17-2018.pdf\">here</a> to see economic indicators for the City of Los Angeles in 2018, including L.A.’s place in the regional economic, a look at the real estate and construction industries and more.</p>\n</div>",
+    "htmlofpage": "<div id=\"observations\"><p>Click <a href=\"https://lacontroller.org/wp-content/uploads/2019/03/Beacon_Economics__LLC_01-17-2018.pdf\">here</a> to see economic indicators for the City of Los Angeles in 2018, including L.A.’s place in the regional economic, a look at the real estate and construction industries and more.</p>\n</div>",
     "description": "Review documents from Beacon Economics LLC collaborations, providing Los Angeles economic forecasts, analysis, and research findings."
   },
   "ucla-anderson-forecast": {
@@ -213,7 +213,7 @@
     "link": "https://lacontroller.org/financial-reports/ucla-anderson-forecast/",
     "pdflink": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/audits%2F2022%2FUCLA_Anderson_Forecast_01-24-2018.pdf?alt=media&token=bad9f7d1-b864-4752-a9a0-52b72b6c695f",
     "textofpage": "UCLA Anderson Forecast",
-    "htmlofpage": "<div id=\"observations\"><h1><strong>UCLA Anderson Forecast</strong></h1>\n</div>",
+    "htmlofpage": "<div id=\"observations\"></div>",
     "description": "Explore UCLA Anderson Forecast materials connected to the Controller’s office, featuring economic outlooks for Los Angeles and Southern California."
   },
   "la-city-forecast": {
@@ -224,7 +224,7 @@
     "link": "https://lacontroller.org/financial-reports/la-city-forecast/",
     "pdflink": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/audits%2F2022%2FLA_City_Forecast-_Gerd_Krueger_01-30-2018.pdf?alt=media&token=88a5ffc4-a969-453c-bfe9-018801a5aa8d",
     "textofpage": "City of Los Angeles Economic Forecast",
-    "htmlofpage": "<div id=\"observations\"><h1>City of Los Angeles Economic Forecast</h1>\n</div>",
+    "htmlofpage": "<div id=\"observations\"></div>",
     "description": "Browse LA City revenue forecast resources, including historic presentations, projections, and economic outlook materials for the Controller’s office."
   },
   "2017-comprehensive-annual-financial-report": {
@@ -235,7 +235,7 @@
     "link": "https://lacontroller.org/financial-reports/2017-comprehensive-annual-financial-report/",
     "pdflink": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/audits%2F2022%2FFY2017_CAFR.pdf?alt=media&token=d9f35565-af8f-4c77-8f4b-ca60c583ac7e",
     "textofpage": "2017 Comprehensive Annual Financial Report\n\nThe Comprehensive Annual Financial Report (CAFR) is published annually by the City Controller (Controller) on the City of Los Angeles’ (City) financial condition and results of operations at the conclusion of the fiscal year. The CAFR is issued as part of the Controller’s City Charter mandate to monitor and report on all matters relating to the City’s fiscal health, keep the City’s official financial records, and supervise expenditures of the City.",
-    "htmlofpage": "<div id=\"observations\"><h1>2017 Comprehensive Annual Financial Report</h1>\n<p>The Comprehensive Annual Financial Report (CAFR) is published annually by the City Controller (Controller) on the City of Los Angeles’ (City) financial condition and results of operations at the conclusion of the fiscal year. The CAFR is issued as part of the Controller’s City Charter mandate to monitor and report on all matters relating to the City’s fiscal health, keep the City’s official financial records, and supervise expenditures of the City.</p>\n</div>"
+    "htmlofpage": "<div id=\"observations\"><p>The Comprehensive Annual Financial Report (CAFR) is published annually by the City Controller (Controller) on the City of Los Angeles’ (City) financial condition and results of operations at the conclusion of the fiscal year. The CAFR is issued as part of the Controller’s City Charter mandate to monitor and report on all matters relating to the City’s fiscal health, keep the City’s official financial records, and supervise expenditures of the City.</p>\n</div>"
   },
   "2017-preliminary-financial-report": {
     "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPFR-Cover-2017.png?alt=media&token=cc54d77e-a9ca-4f86-a905-cd6c472e6ca4",
