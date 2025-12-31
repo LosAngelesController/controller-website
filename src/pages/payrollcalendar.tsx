@@ -20,111 +20,110 @@ import Seo from '@/components/Seo';
 // to customize the default configuration.
 
 const importantdates: any = {
-  '2025': {
+  '2026': {
     holiday: [
       '01-01',
-      '01-20',
-      '02-17',
-      '03-31',
-      '05-26',
+      '01-19',
+      '02-16',
+      '03-30',
+      '05-25',
       '06-19',
-      '07-04',
-      '09-01',
-      '10-13',
+      '07-03',
+      '09-07',
+      '10-12',
       '11-11',
+      '11-26',
       '11-27',
-      '11-28',
       '12-25',
     ],
-    excess: ['01-22'],
-    nodeduction: ['04-30', '10-29'],
+    excess: ['02-04'],
+    nodeduction: ['04-29', '09-30'],
     endofpay: [
       //every other saturday of 2025
-      '01-11',
-      '01-25',
-      '02-08',
-      '02-22',
-      '03-08',
-      '03-22',
-      '04-05',
-      '04-19',
-      '05-03',
-      '05-17',
-      '05-31',
-      '06-14',
-      '06-28',
-      '07-12',
-      '07-26',
-      '08-09',
-      '08-23',
-      '09-06',
-      '09-20',
-      '10-04',
-      '10-18',
-      '11-01',
-      '11-15',
-      '11-29',
-      '12-13',
-      '12-27',
+      '01-10',
+      '01-24',
+      '02-07',
+      '02-21',
+      '03-07',
+      '03-21',
+      '04-04',
+      '04-18',
+      '05-02',
+      '05-16',
+      '05-30',
+      '06-13',
+      '06-27',
+      '07-11',
+      '07-25',
+      '08-08',
+      '08-22',
+      '09-05',
+      '09-19',
+      '10-03',
+      '10-17',
+      '10-31',
+      '11-14',
+      '11-28',
+      '12-12',
+      '12-26',
     ],
     payday: [
       //every other wednesday of 2025 except for the excess sick pays and no deduction pays
-
-      '01-08',
-      '02-05',
-      '02-19',
-      '03-05',
-      '03-19',
-      '04-02',
-      '04-16',
-      '05-14',
-      '05-28',
-      '06-11',
-      '06-25',
-      '07-09',
-      '07-23',
-      '08-06',
-      '08-20',
-      '09-03',
-      '09-17',
-      '10-01',
-      '10-15',
-      '11-12',
-      '11-26',
-      '12-10',
-      '12-24',
+      '01-07',
+      '01-21',
+      '02-18',
+      '03-04',
+      '03-18',
+      '04-01',
+      '04-15',
+      '05-13',
+      '05-27',
+      '06-10',
+      '06-24',
+      '07-08',
+      '07-22',
+      '08-05',
+      '08-19',
+      '09-02',
+      '09-16',
+      '10-14',
+      '10-28',
+      '11-10',
+      '11-25',
+      '12-09',
+      '12-23',
     ],
   },
 };
 
 const endofpayperiodsreference: any = {
-  '2025': {
-    '01-11': '14',
-    '01-25': '15',
-    '02-08': '16',
-    '02-22': '17',
-    '03-08': '18',
+  '2026': {
+    '01-10': '14',
+    '01-24': '15',
+    '02-07': '16',
+    '02-21': '17',
+    '03-07': '18',
     '03-22': '19',
-    '04-05': '20',
-    '04-19': '21',
-    '05-03': '22',
-    '05-17': '23',
-    '05-31': '24',
-    '06-14': '25',
-    '06-28': '26',
-    '07-12': '1',
-    '07-26': '2',
-    '08-09': '3',
-    '08-23': '4',
-    '09-06': '5',
-    '09-20': '6',
-    '10-04': '7',
-    '10-18': '8',
-    '11-01': '9',
-    '11-15': '10',
-    '11-29': '11',
-    '12-13': '12',
-    '12-27': '13',
+    '04-04': '20',
+    '04-18': '21',
+    '05-02': '22',
+    '05-16': '23',
+    '05-30': '24',
+    '06-13': '25',
+    '06-27': '26',
+    '07-11': '1',
+    '07-25': '2',
+    '08-08': '3',
+    '08-22': '4',
+    '09-05': '5',
+    '09-19': '6',
+    '10-03': '7',
+    '10-17': '8',
+    '10-31': '9',
+    '11-14': '10',
+    '11-28': '11',
+    '12-12': '12',
+    '12-26': '13',
   },
 };
 
@@ -141,7 +140,7 @@ export function DatesLegendItem(props: any) {
 }
 
 export default function PayrollCalendar(props: any) {
-  const [selectedYear, setSelectedYear] = React.useState<number>(2025);
+  const [selectedYear, setSelectedYear] = React.useState<number>(2026);
   const [todaysDate, setTodaysDate] = React.useState<string>('');
   const [calendar, setCalendar] = React.useState<Array<Array<Array<number>>>>(
     []
@@ -345,10 +344,10 @@ export default function PayrollCalendar(props: any) {
             </h1>
             <Link
               download={true}
-              href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll2025.pdf?alt=media&token=4e790812-2ee9-4393-ae94-9fa12d60b15d'
+              href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendar%202026_v2.pdf?alt=media&token=7b520beb-ebbd-4858-9c85-b0576534d5a8'
               target='_blank'
               referrerPolicy='no-referrer'
-              aria-label='Download Payroll Calendar 2025 (PDF) in a new tab'
+              aria-label='Download Payroll Calendar 2026 (PDF) in a new tab'
               className='my-auto rounded-full bg-black p-1.5 text-white dark:bg-white dark:text-black md:p-2  print:hidden'
             >
               <svg className='l-4 h-4' viewBox='0 0 24 24' aria-hidden='true'>
@@ -362,7 +361,7 @@ export default function PayrollCalendar(props: any) {
           <div className='flex'>
             <p className='text-green-900 underline dark:text-mejito '>
               <Link
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll2025old.pdf?alt=media&token=86060fba-cdc3-4a6c-bdaa-bbfb48f89842'
+                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendar%202026_v2.pdf?alt=media&token=7b520beb-ebbd-4858-9c85-b0576534d5a8'
                 className='font-semibold text-green-700 dark:text-mejito'
               >
                 Print Old Version
@@ -374,10 +373,10 @@ export default function PayrollCalendar(props: any) {
 
             <p className='text-green-900 underline dark:text-mejito '>
               <Link
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendar%202026_v2%20%281%29.pdf?alt=media&token=80751ba1-4146-4918-89ec-067fdaa4ec9f'
+                href='hhttps://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendar%202027.pdf?alt=media&token=6f701edc-1c5d-4bce-818d-1785cbcfc3e8'
                 className='font-semibold text-green-700 dark:text-mejito'
               >
-                Payroll Calendar 2026
+                Payroll Calendar 2027
               </Link>
             </p>
           </div>
