@@ -1,6 +1,13 @@
 {
   "data": [
     {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/cityoflaparkingcitationdashboard2025.png?alt=media&token=7280d5eb-a8f8-4622-872e-d70a5c41f179",
+      "name": "Parking Tickets Dashboard & Map 2025",
+      "year": "2025",
+      "dept": "Dashboard",
+      "link": "https://parkingtickets.lacontroller.app/"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/FY2026%20General%20Fund%20Revenue%20%26%20Expense%20Analysis.png?alt=media&token=dbfa9ad3-0c29-4876-8f48-d211981545cd",
       "name": "FY2026 General Fund Revenue & Expense Analysis Dashboard",
       "year": "2025",
