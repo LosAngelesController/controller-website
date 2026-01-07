@@ -133,7 +133,7 @@ const Index = () => {
                 ))}
               </ul>
 
-              <div className='stat-card border border-zinc-600 p-4 dark:bg-black/30'>
+              {/* <div className='stat-card border border-zinc-600 p-4 dark:bg-black/30'>
                 <h3 className='text-primary mb-4 text-lg font-semibold uppercase tracking-wide dark:text-[#41ffca]'>
                   Path to Compliance
                 </h3>
@@ -144,7 +144,7 @@ const Index = () => {
                   systematic changes to inventory management, reporting
                   procedures, and community engagement practices.
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
