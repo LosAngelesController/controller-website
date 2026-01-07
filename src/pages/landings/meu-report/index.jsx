@@ -52,7 +52,7 @@ const Index = () => {
         </section>
 
         {/* Key Findings Section */}
-        <section className='section-light py-16 md:py-24'>
+        <section className='bg-[#212121] py-16 md:py-24'>
           <div className='container mx-auto px-6'>
             <h2 className='font-display text-foreground mb-12 text-3xl dark:text-white md:text-4xl lg:text-5xl'>
               Key Findings
