@@ -152,7 +152,7 @@ const Index = () => {
         <footer className='border-border border-t py-8'>
           <div className='container mx-auto px-6'>
             <p className='text-muted-foreground text-sm dark:text-zinc-200'>
-              © 2025 LAPD AB 481 Compliance Audit. All Rights Reserved.
+              © 2026 LAPD AB 481 Compliance Audit. All Rights Reserved.
             </p>
           </div>
         </footer>
