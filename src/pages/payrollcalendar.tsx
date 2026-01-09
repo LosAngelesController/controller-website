@@ -337,7 +337,7 @@ export default function PayrollCalendar(props: any) {
 
         <Seo title='Payroll Calendar - Los Angeles Controller' />
 
-        <div className='mx-2 flex w-full flex-col px-4 py-2   dark:text-white sm:mx-4  md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl print:text-black  print:text-black'>
+        <div className='mx-2 flex w-full flex-col px-4 py-2   dark:text-white sm:mx-4  md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl print:text-black'>
           <div className='flex flex-row gap-x-2 pb-2  pt-2  print:text-black '>
             <h1 className='dark:text-white  print:text-black'>
               Payroll Calendar {selectedYear}
