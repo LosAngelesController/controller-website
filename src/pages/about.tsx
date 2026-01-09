@@ -186,7 +186,7 @@ export default function About(props: any) {
             <div className='z-10 mx-4 max-w-7xl text-white lg:mx-auto'>
               <div className='mx-auto flex flex-row lg:max-w-3xl'>
                 <div className='my-auto'>
-                  <h1 className="text-xl md:text-3xl">About Our Office</h1>
+                  <h1 className='text-xl md:text-3xl'>About Our Office</h1>
                 </div>
 
                 <SocialPageSeries />
@@ -253,18 +253,29 @@ export default function About(props: any) {
           </p>
 
           {/* address */}
-          <address className='not-italic text-left md:relative md:py-4 md:text-center '>
+          <address className='text-left not-italic md:relative md:py-4 md:text-center '>
             <p className='content-center break-normal font-bold md:relative md:py-2'>
               200 N. Main Street, Suite 300 Los Angeles, CA 90012
             </p>
             <p className='content-center break-normal font-bold md:relative'>
-              Phone: <a href="tel:12139787200" className="underline-offset-2 hover:underline">213.978.7200</a>
+              Phone:{' '}
+              <a
+                href='tel:12139787200'
+                className='underline-offset-2 hover:underline'
+              >
+                213.978.7200
+              </a>
             </p>
             <p className='content-center break-normal font-bold md:relative'>
               Fax: 213.978.7211
             </p>
             <p className='content-center break-normal font-bold md:relative'>
-              <a href="mailto:controller.mejia@lacity.org" className="underline-offset-2 hover:underline">controller.mejia@lacity.org</a>
+              <a
+                href='mailto:controller.mejia@lacity.org'
+                className='underline-offset-2 hover:underline'
+              >
+                controller.mejia@lacity.org
+              </a>
             </p>
           </address>
 
@@ -274,7 +285,9 @@ export default function About(props: any) {
           <div className='mb-4 grid grid-cols-1 gap-x-4 dark:text-gray-100 sm:grid-cols-2 '>
             <div className='flex flex-col gap-y-8'>
               <div className='flex flex-col gap-y-2'>
-                <h3 className='text-xl font-normal dark:text-gray-100'>Leadership</h3>
+                <h3 className='text-xl font-normal dark:text-gray-100'>
+                  Leadership
+                </h3>
                 <ProfileCard
                   name='Kenneth Mejia'
                   title='LA City Controller'
@@ -323,7 +336,9 @@ export default function About(props: any) {
                 />
               </div>
               <div className='flex flex-col gap-y-2'>
-                <h3 className='text-xl font-normal'>Accounting Operations Division</h3>
+                <h3 className='text-xl font-normal'>
+                  Accounting Operations Division
+                </h3>
                 <ProfileCard
                   name='James Robinson'
                   title='Chief Operations Officer/Principal Deputy Controller'
@@ -341,7 +356,9 @@ export default function About(props: any) {
                 />
               </div>
               <div className='flex flex-col gap-y-2'>
-                <h3 className='text-xl font-normal'>Management Services Division</h3>
+                <h3 className='text-xl font-normal'>
+                  Management Services Division
+                </h3>
                 <ProfileCard
                   name='Shane Min'
                   title='Chief Management Analyst'
@@ -368,8 +385,10 @@ export default function About(props: any) {
                   />
                 </div>
 
-                <div className='flex flex-col gap-y-2 mt-6'>
-                  <h3 className='text-xl font-normal dark:text-gray-100'>Communications</h3>
+                <div className='mt-6 flex flex-col gap-y-2'>
+                  <h3 className='text-xl font-normal dark:text-gray-100'>
+                    Communications
+                  </h3>
                   <ProfileCard
                     name='Diana Chang'
                     title='Director of Communications'
@@ -389,7 +408,7 @@ export default function About(props: any) {
                   />
                 </div>
 
-                <div className='flex flex-col gap-y-2 mt-6'>
+                <div className='mt-6 flex flex-col gap-y-2'>
                   <h3 className='text-xl font-normal'>Technology</h3>
                   <ProfileCard
                     name='Vartan Arzumanyan'
@@ -407,10 +426,12 @@ export default function About(props: any) {
               </div>
 
               <div className='flex flex-col gap-y-2'>
-                <h3 className='text-xl font-normal'>Government Affairs and Research</h3>
+                <h3 className='text-xl font-normal'>
+                  Government Affairs and Research
+                </h3>
                 <ProfileCard
                   name='Michael Shear'
-                  title='Director of Research & Government Affairs'
+                  title='Deputy Chief - Research & Government Affairs'
                   subtitle=''
                   picture='/images/staff/MikeShear-DirectorOfResearch.jpg'
                 />
@@ -424,7 +445,9 @@ export default function About(props: any) {
             </div>
           </div>
 
-          <h2 className='text-2xl md:text-4xl md:py-4'>Audit Services Division</h2>
+          <h2 className='text-2xl md:py-4 md:text-4xl'>
+            Audit Services Division
+          </h2>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-2'>
             The Audit Services Division of the Controller’s Office conducts
             scheduled audits, special audits, and audits requested by the City
@@ -483,7 +506,9 @@ export default function About(props: any) {
 
           <div className='break-normal'></div>
 
-          <h2 className='text-2xl md:text-4xl'>Accounting Operations Division</h2>
+          <h2 className='text-2xl md:text-4xl'>
+            Accounting Operations Division
+          </h2>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
             The Accounting Operations Division is responsible for paying
             employees and vendors, budgetary control of all City funds as
@@ -525,7 +550,9 @@ export default function About(props: any) {
 
           <div className='break-normal'></div>
 
-          <h2 className='text-2xl md:text-4xl'>Financial Analysis and Reporting Division</h2>
+          <h2 className='text-2xl md:text-4xl'>
+            Financial Analysis and Reporting Division
+          </h2>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
             The Financial Analysis and Reporting Division is responsible for
             producing federal, state and local financial compliance reports, and
