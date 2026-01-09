@@ -210,13 +210,13 @@ const Index = () => {
           </div>
         </section>
 
-        <footer className="border-border border-t py-8">
+        {/* <footer className="border-border border-t py-8">
           <div className="container mx-auto px-6">
             <p className="text-muted-foreground text-sm dark:text-zinc-200">
               © 2026 Los Angeles City Controller. All Rights Reserved.
             </p>
           </div>
-        </footer>
+        </footer> */}
       </div>
     </>
   );
