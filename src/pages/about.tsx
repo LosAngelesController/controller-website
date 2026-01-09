@@ -431,7 +431,7 @@ export default function About(props: any) {
                 </h3>
                 <ProfileCard
                   name='Michael Shear'
-                  title='Deputy Chief - Research & Government Affairs'
+                  title='Deputy Chief - Government Affairs & Research'
                   subtitle=''
                   picture='/images/staff/MikeShear-DirectorOfResearch.jpg'
                 />
