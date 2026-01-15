@@ -477,3 +477,19 @@ a {
     box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006eff;
   }
 }
+
+.panel-heading > a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 2px;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  line-height: 1.2;
+}
+
+.panel-heading > a:focus,
+.panel-heading > a:focus-visible {
+  outline: 2px solid #006eff;
+  outline-offset: 2px;
+  box-shadow: none !important;
+}
