@@ -493,3 +493,15 @@ a {
   outline-offset: 2px;
   box-shadow: none !important;
 }
+
+.legacycontentgal a {
+  display: inline-block;
+  border-radius: 0.25rem;
+}
+
+.legacycontentgal a:focus,
+.legacycontentgal a:focus-visible {
+  outline: 2px solid #006eff;
+  outline-offset: 2px;
+  box-shadow: none !important;
+}
