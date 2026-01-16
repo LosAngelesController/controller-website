@@ -1,6 +1,13 @@
 {
   "data": [
     {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/capitalprojectdashboard.png?alt=media&token=88ef3bfa-7701-4dee-95c4-83c547fe4a81",
+      "name": "City of LA's Capital Projects Dashboard",
+      "year": "2026",
+      "dept": "Dashboard",
+      "link": "https://capitalprojects.lacontroller.app/"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/cityoflaparkingcitationdashboard2025.png?alt=media&token=7280d5eb-a8f8-4622-872e-d70a5c41f179",
       "name": "Parking Tickets Dashboard & Map 2025",
       "year": "2025",
