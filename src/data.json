@@ -1,6 +1,13 @@
 {
   "data": [
     {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2FCity%20of%20LA%20Department%20Metrics%20Dashboard.png?alt=media&token=8b45fa8e-16cb-464c-91bd-00b6b90c70cb",
+      "name": "City of LA Department Metrics Dashboard",
+      "year": "2026",
+      "dept": "Dashboard",
+      "link": "https://lacitymetrics.lacontroller.app/"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/cityoflaparkingcitationdashboard2025.png?alt=media&token=7280d5eb-a8f8-4622-872e-d70a5c41f179",
       "name": "Parking Tickets Dashboard & Map 2025",
       "year": "2025",
