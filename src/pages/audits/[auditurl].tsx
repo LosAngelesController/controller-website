@@ -28,6 +28,7 @@ interface auditinterface {
 }
 
 export default function Audit(props: auditinterface) {
+  const isFwa2019 = props.audit?.link?.includes('fwa-2019');
   const removeloadingissuesontableau = () => {
     document
       .querySelectorAll(
@@ -91,7 +92,11 @@ export default function Audit(props: auditinterface) {
               </Link>
             </div>
 
-            <div className='legacycontentgal max-w-3xl'>
+            <div
+              className={`legacycontentgal max-w-3xl${
+                isFwa2019 ? ' fwa-2019-report' : ''
+              }`}
+            >
               <div
                 dangerouslySetInnerHTML={{
                   __html: props.audit.htmlofpage,

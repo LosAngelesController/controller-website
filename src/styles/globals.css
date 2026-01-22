@@ -398,13 +398,13 @@ a {
 
   h2,
   .h2 {
-    @apply font-primary text-xl font-bold md:text-3xl;
+    @apply mb-4 font-primary text-lg font-bold md:text-2xl;
     font-family: 'Neue Kabel', sans-serif;
   }
 
   h3,
   .h3 {
-    @apply font-primary text-lg font-bold md:text-2xl;
+    @apply font-primary text-base font-bold md:text-xl;
     font-family: 'Neue Kabel', sans-serif;
   }
 
@@ -440,6 +440,20 @@ a {
 @layer components {
   .frontpageh2section {
     @apply pt-2 md:pt-6 pb-4 dark:text-white;
+  }
+
+  .fwa-2019-report h3 {
+    @apply mt-6 mb-3;
+  }
+
+  .fwa-2019-report h3:first-of-type {
+    @apply mt-4;
+  }
+
+  .fwa-2019-report h3 + p,
+  .fwa-2019-report h3 + ul,
+  .fwa-2019-report h3 + div {
+    @apply mt-2;
   }
 }
 
