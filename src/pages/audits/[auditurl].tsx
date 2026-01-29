@@ -19,6 +19,7 @@ interface eachaudit {
   pdflink: string;
   englink: string;
   spanishlink: string;
+  description?: string;
   textofpage: string;
   htmlofpage: string;
 }
@@ -67,9 +68,13 @@ export default function Audit(props: auditinterface) {
       <Navbar />
       <Seo
         title={props.audit.name}
-        description={`Audit of ${titleCase(props.audit.dept).replace(
-          /( )?department/gi
-        )} ${props.audit.year}`}
+        description={
+          props.audit.description
+            ? props.audit.description
+            : `Audit of ${titleCase(props.audit.dept).replace(
+                /( )?department/gi
+              )} ${props.audit.year}`
+        }
       />
       <main className=' dark:bg-zinc-900'>
         {props.audit && (

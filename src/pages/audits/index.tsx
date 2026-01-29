@@ -144,7 +144,7 @@ export default function Audits(props: any) {
       <Layout>
         <Seo
           title='Audits'
-          description='Audits performed by the Controller since 2016.'
+          description='Browse Los Angeles Controller audits and oversight reports, with recent findings, departments, and links to upcoming audits.'
         />
 
         <div className='flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>

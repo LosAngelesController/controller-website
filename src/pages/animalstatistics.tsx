@@ -145,7 +145,10 @@ export default function AnimalStatistics() {
       <Navbar />
       <Layout>
         {/* <Seo templateTitle='Home' /> */}
-        <Seo />
+        <Seo
+          title='Animal Statistics'
+          description='Interactive Los Angeles animal shelter statistics with charts by month, shelter, and animal type for citywide operations.'
+        />
 
         <div className='z-10 mx-auto max-w-7xl text-white'>
           <div className='mx-auto mt-2 lg:max-w-6xl'>

@@ -21,7 +21,7 @@ export default function CollectionsBoard(props: any) {
 
         <Seo
           title='Collections Board of Review'
-          description='View Minutes and Agendas of Meetings'
+          description='See Collections Board of Review meeting agendas and minutes, plus details on write-off approvals for uncollectible City accounts in Los Angeles.'
         />
 
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>

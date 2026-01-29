@@ -36,7 +36,7 @@ export default function Data(props: any) {
 
         <Seo
           title='Open Data'
-          description='City of Los Angeles Open Interactive Data.'
+          description='Explore Los Angeles Controller open data, interactive dashboards, and datasets covering city finances, services, and performance.'
         />
 
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
