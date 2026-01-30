@@ -36,7 +36,12 @@ export default function Audits(props: any) {
         />
 
         <div className=' flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h1 className='dark:text-white'>Upcoming Audits & Reports</h1>
+          <h1 className='py-2 dark:text-white sm:pb-2 sm:pt-4'>
+            Upcoming Audits & Reports
+          </h1>
+          <h2 className='text-lg font-semibold dark:text-white'>
+            Scheduled Audits and Reports for City Departments and Programs
+          </h2>
 
           <div className='md:hidden mt-3'>
             {audits.map((eachaudit: any, eachauditnum: number) => (

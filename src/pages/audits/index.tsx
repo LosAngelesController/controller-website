@@ -148,25 +148,29 @@ export default function Audits(props: any) {
         />
 
         <div className='flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <h1 className='dark:text-white' style={{ marginRight: '20px' }}>
-              Oversight
-            </h1>
-            <Link
-              href='/upcoming/'
-              className='rounded-full bg-black px-4 py-2 font-bold text-white dark:bg-white dark:text-black text-center'
-              style={{ marginRight: '20px' }}
-            >
-              Upcoming Audits & Reports
-            </Link>
-            <a
-              href='https://docs.google.com/spreadsheets/d/1oYBlBXCcSyUxx7YKovNXqt15oPD5rqOdqe5tXXgylPA/edit?usp=sharing'
-              target='_blank'
-              rel='noopener noreferrer'
-              className='rounded-full bg-black px-2 py-2 font-bold text-white dark:bg-white dark:text-black text-center'
-            >
-              Old Audits and Reports
-            </a>
+          <div className='mt-4 flex flex-wrap items-start justify-between gap-3'>
+            <div>
+              <h1 className='dark:text-white'>Oversight</h1>
+              <h2 className='text-lg font-semibold dark:text-white'>
+                Independent Audits of City Departments and Programs
+              </h2>
+            </div>
+            <div className='flex flex-wrap justify-end gap-3'>
+              <Link
+                href='/upcoming/'
+                className='rounded-full bg-black px-4 py-2 font-bold text-white dark:bg-white dark:text-black text-center'
+              >
+                Upcoming Audits & Reports
+              </Link>
+              <a
+                href='https://docs.google.com/spreadsheets/d/1oYBlBXCcSyUxx7YKovNXqt15oPD5rqOdqe5tXXgylPA/edit?usp=sharing'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='rounded-full bg-black px-2 py-2 font-bold text-white dark:bg-white dark:text-black text-center'
+              >
+                Old Audits and Reports
+              </a>
+            </div>
           </div>
 
           <div className='md:hidden mt-6'>

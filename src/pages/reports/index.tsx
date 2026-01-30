@@ -37,6 +37,9 @@ export default function ReportsIndex(props: any) {
 
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
           <h1 className='dark:text-gray-50 mt-4'>Financial Reports</h1>
+          <h2 className='text-lg font-semibold dark:text-gray-50'>
+            Detailed Insights into City of Los Angeles Finances
+          </h2>
 
           <div className='md:hidden mt-6'>
             {finance.map((eachreport: any, eachreportnum: number) => (

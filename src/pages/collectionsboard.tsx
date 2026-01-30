@@ -43,6 +43,9 @@ export default function CollectionsBoard(props: any) {
           </p>
 
           <div className='mt-3 '>
+            <h2 className='mt-2 text-lg font-semibold dark:text-white'>
+              Meeting Agendas and Minutes
+            </h2>
             <table>
               <caption className="sr-only">
                 Meetings with links to agendas and minutes
