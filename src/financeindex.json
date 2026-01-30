@@ -1,6 +1,15 @@
 {
   "finance": [
     {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/pafr25.png?alt=media&token=ede9e4e6-663a-49d6-818f-387d3301af03",
+      "name": "Annual Comprehensive Financial Report FY25",
+      "year": "2026",
+      "dept": "Financial Report",
+      "link": "https://pafr25.lacontroller.app/",
+      "pre": false,
+      "alt": "Cover photo Preliminary Financial Report 2025"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/financial%20reports%2Frev25-cover3.jpg?alt=media&token=106ff50a-f4d3-4192-95ba-832944673d54",
       "name": "Revenue Forecast Report",
       "year": "2025",
