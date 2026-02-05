@@ -51,6 +51,14 @@
   color: #24f7c3;
 }
 
+.dark .legacycontentgal span[style*='color: #993300'] {
+  color: #D14600 !important;
+}
+
+.dark .legacycontentgal span[style*='color: #BD5B00'] {
+  color: #ff9900 !important;
+}
+
 .dark a[data-vc-accordion] {
   color: #ffffff;
 }
