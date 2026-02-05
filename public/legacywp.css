@@ -126,6 +126,25 @@ a[data-vc-accordion] {
   overflow-x: auto;
 }
 
+.legacycontentgal table.hhh-summary-table {
+  display: table;
+  width: 100% !important;
+  table-layout: fixed;
+}
+
+.legacycontentgal table.hhh-summary-table td:last-child {
+  white-space: nowrap;
+}
+
+.legacycontentgal table.hhh-summary-table td {
+  vertical-align: middle;
+}
+
+.legacycontentgal table.hhh-summary-table td p {
+  margin: 0;
+}
+
+
 .legacycontentgal .panel,
 .legacycontentgal .panel-group,
 .legacycontentgal .panel-body {
