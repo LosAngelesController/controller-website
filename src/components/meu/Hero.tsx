@@ -20,7 +20,7 @@ const Hero = () => {
         >
           <h1
             id='hero-heading'
-            className='mb-4 flex-wrap text-[2rem] font-bold uppercase leading-none tracking-tight text-[#41ffca] sm:text-[2rem]'
+            className='mb-4 flex-wrap text-[2rem] font-bold uppercase leading-none tracking-tight dark:text-[#41ffca] sm:text-[2rem]'
           >
             On The Sideline: Assessing LAPD's Mental Evaluation Unit & Smart
             Co-Response Model
