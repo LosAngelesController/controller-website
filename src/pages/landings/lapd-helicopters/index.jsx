@@ -83,6 +83,7 @@ export default function InterimHousing() {
             </a>
           </div>
           <div>
+            <h1 className='mb-4 text-left dark:text-white'>Cover Letter</h1>
             <p className='mt-4 mb-5 text-left dark:text-white'>
               December 11, 2023
             </p>
@@ -266,9 +267,9 @@ export default function InterimHousing() {
           </div>
           <br></br>
 
-          <h1 id='cost-analysis' className='mb-5 text-left dark:text-white '>
+          <h2 id='cost-analysis' className='mb-2 text-left dark:text-white '>
             Cost Analysis Summary
-          </h1>
+          </h2>
           <p className='mb-5 text-left dark:text-white'>
             To identify costs related to Los Angeles Police Department (LAPD) helicopters, our auditors met with representatives from LAPD, the General Services Department (GSD), and the Information Technology Agency (ITA) as part of the cost estimate development process. We advised each during the meetings of our intent to develop a cost estimate that was based on total payroll costs and other costs (parts, materials, contracts, and services related to helicopters and their operations).
 

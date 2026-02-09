@@ -19,6 +19,7 @@ interface eachaudit {
   pdflink: string;
   englink: string;
   spanishlink: string;
+  description?: string;
   textofpage: string;
   htmlofpage: string;
 }
@@ -28,6 +29,7 @@ interface auditinterface {
 }
 
 export default function Audit(props: auditinterface) {
+  const isFwa2019 = props.audit?.link?.includes('fwa-2019');
   const removeloadingissuesontableau = () => {
     document
       .querySelectorAll(
@@ -66,9 +68,13 @@ export default function Audit(props: auditinterface) {
       <Navbar />
       <Seo
         title={props.audit.name}
-        description={`Audit of ${titleCase(props.audit.dept).replace(
-          /( )?department/gi
-        )} ${props.audit.year}`}
+        description={
+          props.audit.description
+            ? props.audit.description
+            : `Audit of ${titleCase(props.audit.dept).replace(
+                /( )?department/gi
+              )} ${props.audit.year}`
+        }
       />
       <main className=' dark:bg-zinc-900'>
         {props.audit && (
@@ -91,7 +97,11 @@ export default function Audit(props: auditinterface) {
               </Link>
             </div>
 
-            <div className='legacycontentgal max-w-3xl'>
+            <div
+              className={`legacycontentgal max-w-3xl${
+                isFwa2019 ? ' fwa-2019-report' : ''
+              }`}
+            >
               <div
                 dangerouslySetInnerHTML={{
                   __html: props.audit.htmlofpage,

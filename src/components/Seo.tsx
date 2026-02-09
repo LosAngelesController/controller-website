@@ -6,7 +6,8 @@ import { useRouter } from 'next/router';
 const defaultMeta = {
   title: 'LAController - Kenneth Mejia',
   siteName: 'Office of Kenneth Mejia, LA City Controller',
-  description: 'City of Los Angeles Controller, Kenneth Mejia.',
+  description:
+    "City Controller Kenneth Mejia's site with audits, financial reports, budgets, data sites, and upcoming reports for Los Angeles.",
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   /** the url will be changing to lacontroller.gov... */
   url: 'https://controller.lacity.gov',

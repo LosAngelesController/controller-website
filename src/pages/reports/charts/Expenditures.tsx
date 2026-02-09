@@ -2,6 +2,9 @@ import axios from 'axios';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { Chart as ChartJS, registerables } from 'chart.js';
+
+ChartJS.register(...registerables);
 interface RevenueSource {
   fiscalYear: number;
   category: string;

@@ -73,6 +73,7 @@ export default function InterimHousing() {
             </a>
           </div>
           <div>
+            <h2 className='mb-5 text-left dark:text-white'>Cover Letter</h2>
             <p className='mt-4 mb-5 text-left dark:text-white'>
               December 5, 2023
             </p>

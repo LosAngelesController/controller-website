@@ -34,11 +34,14 @@ export default function Press(props: any) {
 
         <Seo
           title='Press Releases'
-          description='Press Releases'
+          description='Press releases from the Los Angeles City Controller on audits, reports, policy statements, and city oversight updates.'
         />
 
         <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h1 className='pt-8 pb-4 dark:text-white'>Press Releases</h1>
+          <h1 className='pt-8 pb-2 dark:text-white'>Press Releases</h1>
+          <h2 className='text-lg font-semibold dark:text-white'>
+            Official Announcements and Public Updates from the Controller
+          </h2>
 
          
 

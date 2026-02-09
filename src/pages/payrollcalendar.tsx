@@ -335,7 +335,10 @@ export default function PayrollCalendar(props: any) {
       <Layout>
         {/* <Seo templateTitle='Home' /> */}
 
-        <Seo title='Payroll Calendar - Los Angeles Controller' />
+        <Seo
+          title='Payroll Calendar - Los Angeles Controller'
+          description='Los Angeles City Controller payroll calendar with pay periods, paydays, holidays, and important dates for City employees.'
+        />
 
         <div className='mx-2 flex w-full flex-col px-4 py-2   dark:text-white sm:mx-4  md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl print:text-black'>
           <div className='flex flex-row gap-x-2 pb-2  pt-2  print:text-black '>

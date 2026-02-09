@@ -24,7 +24,10 @@ export default function Contact(props: any) {
     <>
       <Navbar />
       <Layout>
-        <Seo />
+        <Seo
+          title="Contact the Controller's Office"
+          description="Contact the Los Angeles City Controller’s Office for general inquiries, media requests, and department phone numbers, hours, and address."
+        />
 
         <div className='bgColorHeader relative px-4 pt-8 text-base text-sm md:px-32 md:px-0 md:pt-24 md:text-white'>
           <div className='background-1'>
