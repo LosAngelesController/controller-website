@@ -105,7 +105,7 @@ export function SocialPageSeries() {
 
       {/* bluesky */}
       <a
-        href='https://bsky.app/profile/lacontroller.bsky.social'
+        href='https://bsky.app/profile/controller.lacity.gov'
         target='_blank'
         aria-label='Bluesky'
         rel='noreferrer'
