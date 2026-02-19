@@ -88,7 +88,7 @@ export default function Navbar(props: any) {
     });
   };
   return (
-    <>
+    <header>
       <a
         href='#main-content'
         className='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black'
@@ -255,6 +255,6 @@ export default function Navbar(props: any) {
           </>
         )}
       </Disclosure>
-    </>
+    </header>
   );
 }
