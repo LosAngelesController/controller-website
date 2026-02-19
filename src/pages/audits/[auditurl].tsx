@@ -76,7 +76,7 @@ export default function Audit(props: auditinterface) {
               )} ${props.audit.year}`
         }
       />
-      <main className=' dark:bg-zinc-900'>
+      <main id='main-content' tabIndex={-1} className=' dark:bg-zinc-900'>
         {props.audit && (
           <div className=' container mx-4 px-4 pb-3 pt-5  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
             <h1 className='font-sm'>{props.audit.name}</h1>
