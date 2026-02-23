@@ -14,6 +14,7 @@ import { ChangeColour } from './changeColour';
 //import Translate from '@/components/Translate';
 
 interface newiteminterface {
+  className(arg0: string, arg1: string, className: any): string | undefined;
   name: string;
   href: string;
   current: boolean;
@@ -28,6 +29,11 @@ const navigation: any = [
   // { name: 'Events', href: '/events', current: false },
   { name: 'Press', href: '/press', current: false },
   { name: 'Contact', href: '/contact' },
+  {
+    name: 'Charter Reform 2026',
+    href: 'https://charterreform.lacontroller.app/',
+    className: '!text-[#41ffca]'
+  },
 ];
 
 function classNames(...classes: any) {
@@ -89,6 +95,7 @@ export default function Navbar(props: any) {
   };
   return (
     <>
+
       <a
         href='#main-content'
         className='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black'
@@ -154,8 +161,9 @@ export default function Navbar(props: any) {
                           className={classNames(
                             item.current
                               ? 'text-gray-800 dark:text-gray-100'
-                              : 'text-gray-900 hover:text-black hover:underline dark:text-white dark:hover:text-white',
-                            'rounded-md px-2 py-2 text-sm font-medium lg:px-3'
+                              : 'text-gray-900 dark:text-white',
+                            'rounded-md px-2 py-2 text-sm font-medium lg:px-3',
+                            item.className
                           )}
                           aria-current={item.current ? 'page' : undefined}
                         >
@@ -210,6 +218,7 @@ export default function Navbar(props: any) {
                     as='a'
                     href={item.href}
                     className={classNames(
+
                       item.current
                         ? 'bg-green-900 text-white dark:text-white'
                         : 'text-gray-800 dark:text-gray-100',
