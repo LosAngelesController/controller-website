@@ -37,7 +37,7 @@ const kirbybutton =
 const CHARTER_SITE_URL = 'https://charterreform.lacontroller.app/';
 const CHARTER_EMAIL = 'ReformLAcharter@lacity.org';
 
-const emailSubject = `Support Charter Reforms to Strengthen the Controller`;
+const emailSubject = `Support for reforms to strengthen Controller's Office`;
 
 // ✅ CRLF line breaks for mail-client compatibility
 const emailBody =
@@ -48,8 +48,8 @@ const emailBody =
   `3. Require minimum qualifications for the Controller\r\n` +
   `4. Clarify that the Controller's audit authority includes performance audits of ALL City programs that are sourced from or use City tax dollars (including those under elected offices)\r\n` +
   `5. Allow the Controller to hire outside counsel\r\n` +
-  `6. Enshrine the Controller's Fraud, Waste, and Abuse function\r\n\r\n` +
-  `Sincerely,\r\n`;
+  `6. Enshrine the Controller's Fraud, Waste, and Abuse function\r\n\r\n`;
+
 
 function buildMailtoHrefFull() {
   const subject = encodeURIComponent(emailSubject);
