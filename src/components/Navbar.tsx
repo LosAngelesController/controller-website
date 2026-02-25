@@ -32,7 +32,11 @@ const navigation: any = [
   {
     name: 'Charter Reform 2026',
     href: 'https://charterreform.lacontroller.app/',
-    className: '!text-[#41ffca]'
+    className:
+      'font-semibold text-teal-700 hover:text-teal-900 ' +
+      'dark:!text-[#41ffca] dark:hover:!text-[#41ffca] ' +
+      'hover:bg-teal-50/60 dark:hover:bg-white/10 ' +
+      'focus:outline-none focus:ring-2 focus:ring-teal-600/40 dark:focus:ring-[#41ffca]/40'
   },
 ];
 
