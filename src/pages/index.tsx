@@ -39,26 +39,24 @@ const CHARTER_EMAIL = 'ReformLAcharter@lacity.org';
 
 const emailSubject = `Support Charter Reforms to Strengthen the Controller`;
 
-const emailBody = `To the Los Angeles City Charter Reform Commission,
-
-I am writing in support of the following reforms to the Charter, to ensure that the Controller can fulfill their role as the City's independent watchdog:
-
-1. Give the Controller an independent budget
-2. Designate the Controller as the City's Chief Financial Officer
-3. Require minimum qualifications for the Controller
-4. Clarify that the Controller's audit authority includes performance audits of ALL City programs that are sourced from or use City tax dollars (including those under elected offices)
-5. Allow the Controller to hire outside counsel
-6. Enshrine the Controller's Fraud, Waste, and Abuse function
-
-Sincerely,
-`;
+// ✅ Use CRLF line breaks for widest mail-client compatibility
+const emailBody =
+  `To the Los Angeles City Charter Reform Commission,\r\n\r\n` +
+  `I am writing in support of the following reforms to the Charter, to ensure that the Controller can fulfill their role as the City's independent watchdog:\r\n\r\n` +
+  `1. Give the Controller an independent budget\r\n` +
+  `2. Designate the Controller as the City's Chief Financial Officer\r\n` +
+  `3. Require minimum qualifications for the Controller\r\n` +
+  `4. Clarify that the Controller's audit authority includes performance audits of ALL City programs that are sourced from or use City tax dollars (including those under elected offices)\r\n` +
+  `5. Allow the Controller to hire outside counsel\r\n` +
+  `6. Enshrine the Controller's Fraud, Waste, and Abuse function\r\n\r\n` +
+  `Sincerely,\r\n`;
 
 function buildMailtoHref() {
-  const params = new URLSearchParams({
-    subject: emailSubject,
-    body: emailBody,
-  });
-  return `mailto:${CHARTER_EMAIL}?${params.toString()}`;
+  // ✅ Do NOT use URLSearchParams for mailto:
+  // Some iOS/Android clients will show "+" for spaces (or even blank fields).
+  const subject = encodeURIComponent(emailSubject);
+  const body = encodeURIComponent(emailBody);
+  return `mailto:${CHARTER_EMAIL}?subject=${subject}&body=${body}`;
 }
 
 function CharterReformModal({
@@ -106,13 +104,6 @@ function CharterReformModal({
         type='button'
       />
 
-      {/* 
-        ✅ Mobile-first responsive modal:
-        - bottom-sheet behavior on phones
-        - centered dialog on larger screens
-        - safe-area padding for iPhone notch
-        - internal scroll if content is long
-      */}
       <div
         className='
           relative z-[61] w-full
@@ -123,10 +114,8 @@ function CharterReformModal({
           [padding-bottom:calc(env(safe-area-inset-bottom,0px)+1.5rem)]
         '
       >
-        {/* Small drag handle on mobile (visual polish) */}
         <div className='mx-auto mb-3 h-1.5 w-12 rounded-full bg-white/20 sm:hidden' />
 
-        {/* Close button (big tap target) */}
         <button
           type='button'
           aria-label='Close'
@@ -136,7 +125,6 @@ function CharterReformModal({
           <span className='text-2xl leading-none'>×</span>
         </button>
 
-        {/* Header */}
         <h2 className='text-2xl font-extrabold tracking-wide sm:text-3xl md:text-4xl'>
           TAKE ACTION
         </h2>
@@ -159,7 +147,6 @@ function CharterReformModal({
           </p>
         </div>
 
-        {/* Letter box */}
         <div className='mt-5 rounded-2xl border border-white/10 bg-zinc-900/70 p-4 text-white/90 shadow-inner sm:mt-6 sm:p-6'>
           <div className='space-y-3 text-[13px] leading-6 sm:space-y-4 sm:text-base'>
             <p>To the Los Angeles City Charter Reform Commission,</p>
@@ -189,7 +176,6 @@ function CharterReformModal({
           </div>
         </div>
 
-        {/* CTA row */}
         <div className='mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center sm:justify-between'>
           <a
             href={buildMailtoHref()}
@@ -281,7 +267,6 @@ function UpcomingBigCard(props: bigcardprops) {
 export default function HomePage(props: any) {
   const [isCharterModalOpen, setIsCharterModalOpen] = React.useState(false);
 
-  // ✅ Show popup a maximum of 5 times per browser
   React.useEffect(() => {
     try {
       const KEY = 'charter_reform_popup_shown_count';
@@ -358,7 +343,6 @@ export default function HomePage(props: any) {
 
         <br />
 
-        {/* ✅ CTA ABOVE FINANCIAL DATA (readable light + locked turquoise dark) */}
         <div className='container mx-auto px-4 pt-2'>
           <a
             href={CHARTER_SITE_URL}
@@ -370,7 +354,6 @@ export default function HomePage(props: any) {
           </a>
         </div>
 
-        {/* ================= FINANCIAL DATA ================= */}
         <div className='container mx-auto px-4 '>
           <h2 className='frontpageh2section'>Financial Data</h2>
 
@@ -385,7 +368,6 @@ export default function HomePage(props: any) {
           </div>
         </div>
 
-        {/* ================= Oversight ================= */}
         <div className='container mx-auto px-4'>
           <h2 className='frontpageh2section'>Oversight</h2>
 
@@ -436,7 +418,6 @@ export default function HomePage(props: any) {
           </div>
         </div>
 
-        {/* ================= Upcoming ================= */}
         <div className='container mx-auto px-4  '>
           <h2 className='frontpageh2section'> Upcoming Audits & Reports</h2>
 
@@ -474,8 +455,7 @@ export default function HomePage(props: any) {
             {upcoming.slice(0, 6).map((eachupcoming: any, key: number) => (
               <LineCard
                 key={key}
-                link={`${eachupcoming.pre === false ? '' : '/upcoming/'}${eachupcoming.link
-                  }`}
+                link={`${eachupcoming.pre === false ? '' : '/upcoming/'}${eachupcoming.link}`}
                 year={eachupcoming.year}
                 dept={titleCase(eachupcoming.dept)}
                 name={eachupcoming.name}
@@ -492,7 +472,6 @@ export default function HomePage(props: any) {
           </div>
         </div>
 
-        {/* ================= Financial Reports ================= */}
         <div className='container mx-auto px-4  '>
           <h2 className='pb-4 pt-8 dark:text-white'>Financial Reports</h2>
 
@@ -500,8 +479,7 @@ export default function HomePage(props: any) {
             {finance.slice(0, 4).map((eachaudit: any, key: number) => (
               <BigCard
                 key={key}
-                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
-                  }`}
+                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link}`}
                 image={eachaudit.image}
                 year={eachaudit.year}
                 dept={titleCase(eachaudit.dept)}
@@ -515,8 +493,7 @@ export default function HomePage(props: any) {
               {finance.slice(4, 5).map((eachaudit: any, key: number) => (
                 <BigCard
                   key={key}
-                  link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
-                    }`}
+                  link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link}`}
                   image={eachaudit.image}
                   year={eachaudit.year}
                   dept={titleCase(eachaudit.dept)}
@@ -532,8 +509,7 @@ export default function HomePage(props: any) {
             {finance.slice(0, 6).map((eachaudit: any, key: number) => (
               <LineCard
                 key={key}
-                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
-                  }`}
+                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link}`}
                 image={eachaudit.image}
                 year={eachaudit.year}
                 dept={titleCase(eachaudit.dept)}
@@ -549,7 +525,6 @@ export default function HomePage(props: any) {
           </div>
         </div>
 
-        {/* ================= Budgets ================= */}
         <div className='container mx-auto px-4 pt-2 lg:pt-6'>
           <h2 className=''>
             <span className='frontpageh2section'>Budgets</span>
@@ -582,7 +557,6 @@ export default function HomePage(props: any) {
           </div>
         </div>
 
-        {/* ================= Data Sites ================= */}
         <div className='container mx-auto px-4 '>
           <h2 className=''>
             <span className='frontpageh2section'>Data Sites</span>
@@ -642,16 +616,12 @@ export default function HomePage(props: any) {
           </div>
         </div>
 
-
-
-        {/* ================= Popup Render ================= */}
         <CharterReformModal isOpen={isCharterModalOpen} onClose={closeModal} />
       </Layout>
     </>
   );
 }
 
-// This function gets called at build time
 export async function getStaticProps() {
   const newaudits = audits.slice(0, 7);
   return {
