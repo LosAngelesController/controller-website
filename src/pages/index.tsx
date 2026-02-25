@@ -93,7 +93,7 @@ function CharterReformModal({
 
   return (
     <div
-      className='fixed inset-0 z-[60] flex items-center justify-center'
+      className='fixed inset-0 z-[60] flex items-end justify-center sm:items-center'
       role='dialog'
       aria-modal='true'
       aria-label='Take Action for Charter Reform'
@@ -106,29 +106,42 @@ function CharterReformModal({
         type='button'
       />
 
-      {/* Modal (mobile-safe scroll) */}
+      {/* 
+        ✅ Mobile-first responsive modal:
+        - bottom-sheet behavior on phones
+        - centered dialog on larger screens
+        - safe-area padding for iPhone notch
+        - internal scroll if content is long
+      */}
       <div
         className='
-          relative mx-4 w-full max-w-2xl
-          rounded-2xl bg-zinc-950 p-6 text-white shadow-2xl md:p-8
-          max-h-[85vh] overflow-y-auto
+          relative z-[61] w-full
+          rounded-t-3xl bg-zinc-950 text-white shadow-2xl
+          px-5 pb-6 pt-5
+          max-h-[85dvh] overflow-y-auto
+          sm:mx-4 sm:max-w-2xl sm:rounded-2xl sm:p-8
+          [padding-bottom:calc(env(safe-area-inset-bottom,0px)+1.5rem)]
         '
       >
-        {/* Close button (bigger on mobile) */}
+        {/* Small drag handle on mobile (visual polish) */}
+        <div className='mx-auto mb-3 h-1.5 w-12 rounded-full bg-white/20 sm:hidden' />
+
+        {/* Close button (big tap target) */}
         <button
           type='button'
           aria-label='Close'
           onClick={onClose}
-          className='absolute right-4 top-4 rounded-full p-3 text-white/80 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-4 focus:ring-white/20'
+          className='absolute right-3 top-3 rounded-full p-3 text-white/80 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-4 focus:ring-white/20 sm:right-4 sm:top-4'
         >
-          <span className='text-xl leading-none'>×</span>
+          <span className='text-2xl leading-none'>×</span>
         </button>
 
+        {/* Header */}
         <h2 className='text-2xl font-extrabold tracking-wide sm:text-3xl md:text-4xl'>
           TAKE ACTION
         </h2>
 
-        <div className='mt-4 space-y-3 text-base leading-relaxed text-white/90'>
+        <div className='mt-4 space-y-3 text-[15px] leading-relaxed text-white/90 sm:text-base'>
           <p>The City of Los Angeles is currently rewriting the City Charter.</p>
           <p>
             In other words, <span className='font-extrabold'>YOU</span> can
@@ -146,8 +159,9 @@ function CharterReformModal({
           </p>
         </div>
 
-        <div className='mt-6 rounded-2xl border border-white/10 bg-zinc-900/70 p-5 text-white/90 shadow-inner md:p-6'>
-          <div className='space-y-4 text-sm leading-6 md:text-base'>
+        {/* Letter box */}
+        <div className='mt-5 rounded-2xl border border-white/10 bg-zinc-900/70 p-4 text-white/90 shadow-inner sm:mt-6 sm:p-6'>
+          <div className='space-y-3 text-[13px] leading-6 sm:space-y-4 sm:text-base'>
             <p>To the Los Angeles City Charter Reform Commission,</p>
             <p>
               I am writing in support of the following reforms to the Charter,
@@ -175,10 +189,11 @@ function CharterReformModal({
           </div>
         </div>
 
-        <div className='mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between'>
+        {/* CTA row */}
+        <div className='mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center sm:justify-between'>
           <a
             href={buildMailtoHref()}
-            className='inline-flex items-center justify-center gap-3 rounded-xl bg-[#41ffca] px-6 py-4 text-center font-extrabold uppercase text-black shadow-lg hover:opacity-95 focus:outline-none focus:ring-4 focus:ring-[#41ffca]/40'
+            className='inline-flex items-center justify-center rounded-xl bg-[#41ffca] px-6 py-4 text-center text-sm font-extrabold uppercase text-black shadow-lg hover:opacity-95 focus:outline-none focus:ring-4 focus:ring-[#41ffca]/40 sm:text-base'
           >
             EMAIL THE CHARTER COMMISSION
           </a>
@@ -278,7 +293,6 @@ export default function HomePage(props: any) {
         window.localStorage.setItem(KEY, String(count + 1));
       }
     } catch {
-      // If localStorage fails, show popup
       setIsCharterModalOpen(true);
     }
   }, []);
@@ -344,7 +358,7 @@ export default function HomePage(props: any) {
 
         <br />
 
-        {/* ✅ TEXT ABOVE FINANCIAL DATA (readable light + locked turquoise dark) */}
+        {/* ✅ CTA ABOVE FINANCIAL DATA (readable light + locked turquoise dark) */}
         <div className='container mx-auto px-4 pt-2'>
           <a
             href={CHARTER_SITE_URL}
@@ -356,6 +370,7 @@ export default function HomePage(props: any) {
           </a>
         </div>
 
+        {/* ================= FINANCIAL DATA ================= */}
         <div className='container mx-auto px-4 '>
           <h2 className='frontpageh2section'>Financial Data</h2>
 
