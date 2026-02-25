@@ -39,7 +39,7 @@ const CHARTER_EMAIL = 'ReformLAcharter@lacity.org';
 
 const emailSubject = `Support Charter Reforms to Strengthen the Controller`;
 
-// ✅ Use CRLF line breaks for widest mail-client compatibility
+// ✅ CRLF line breaks for mail-client compatibility
 const emailBody =
   `To the Los Angeles City Charter Reform Commission,\r\n\r\n` +
   `I am writing in support of the following reforms to the Charter, to ensure that the Controller can fulfill their role as the City's independent watchdog:\r\n\r\n` +
@@ -51,12 +51,52 @@ const emailBody =
   `6. Enshrine the Controller's Fraud, Waste, and Abuse function\r\n\r\n` +
   `Sincerely,\r\n`;
 
-function buildMailtoHref() {
-  // ✅ Do NOT use URLSearchParams for mailto:
-  // Some iOS/Android clients will show "+" for spaces (or even blank fields).
+function buildMailtoHrefFull() {
   const subject = encodeURIComponent(emailSubject);
   const body = encodeURIComponent(emailBody);
   return `mailto:${CHARTER_EMAIL}?subject=${subject}&body=${body}`;
+}
+
+function buildMailtoHrefToOnly() {
+  return `mailto:${CHARTER_EMAIL}`;
+}
+
+function buildMailtoHrefSubjectOnly() {
+  const subject = encodeURIComponent(emailSubject);
+  return `mailto:${CHARTER_EMAIL}?subject=${subject}`;
+}
+
+function getIsAndroid() {
+  if (typeof navigator === 'undefined') return false;
+  return /Android/i.test(navigator.userAgent || '');
+}
+
+async function copyToClipboard(text: string) {
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+    // ignore, fallback below
+  }
+
+  try {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    ta.setAttribute('readonly', 'true');
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    ta.style.top = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, ta.value.length);
+    const ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch {
+    return false;
+  }
 }
 
 function CharterReformModal({
@@ -66,6 +106,8 @@ function CharterReformModal({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const [copied, setCopied] = React.useState(false);
+
   React.useEffect(() => {
     if (!isOpen) return;
 
@@ -86,6 +128,31 @@ function CharterReformModal({
       document.body.style.overflow = prevOverflow;
     };
   }, [isOpen]);
+
+  React.useEffect(() => {
+    if (!isOpen) return;
+    setCopied(false);
+  }, [isOpen]);
+
+  const handleEmailClick = React.useCallback(
+    async (e: React.MouseEvent<HTMLAnchorElement>) => {
+      // Android often drops subject/body for long mailto links -> blank compose.
+      // So on Android: copy the full email to clipboard, then open mailto with subject only.
+      if (!getIsAndroid()) return;
+
+      e.preventDefault();
+
+      const fullText = `Subject: ${emailSubject}\r\n\r\n${emailBody}`;
+      const ok = await copyToClipboard(fullText);
+
+      setCopied(ok);
+
+      // Open mail app with at least recipient (and subject if possible).
+      // Subject-only is short and usually survives Android handlers.
+      window.location.href = buildMailtoHrefSubjectOnly();
+    },
+    []
+  );
 
   if (!isOpen) return null;
 
@@ -138,13 +205,20 @@ function CharterReformModal({
           <p className='pt-1'>
             <span className='italic'>Email </span>
             <a
-              href={`mailto:${CHARTER_EMAIL}`}
+              href={buildMailtoHrefToOnly()}
               className='font-semibold text-[#41ffca] underline underline-offset-2 hover:opacity-90'
             >
               {CHARTER_EMAIL}
             </a>{' '}
             <span className='italic'>and tell them:</span>
           </p>
+
+          {/* ✅ Android helper message after click (copy fallback) */}
+          {copied && (
+            <div className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90'>
+              ✅ Email text copied. In your email app, tap in the body and paste.
+            </div>
+          )}
         </div>
 
         <div className='mt-5 rounded-2xl border border-white/10 bg-zinc-900/70 p-4 text-white/90 shadow-inner sm:mt-6 sm:p-6'>
@@ -177,8 +251,10 @@ function CharterReformModal({
         </div>
 
         <div className='mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center sm:justify-between'>
+          {/* ✅ Use full mailto on non-Android; Android uses copy+subject-only fallback */}
           <a
-            href={buildMailtoHref()}
+            href={buildMailtoHrefFull()}
+            onClick={handleEmailClick}
             className='inline-flex items-center justify-center rounded-xl bg-[#41ffca] px-6 py-4 text-center text-sm font-extrabold uppercase text-black shadow-lg hover:opacity-95 focus:outline-none focus:ring-4 focus:ring-[#41ffca]/40 sm:text-base'
           >
             EMAIL THE CHARTER COMMISSION
