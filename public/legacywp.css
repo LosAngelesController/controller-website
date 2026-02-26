@@ -50,6 +50,7 @@
   width: 30%;
 }
 
+
 @media (max-width: 640px) {
   .legacycontentgal table.legacy-two-col td:first-child {
     width: 60%;
