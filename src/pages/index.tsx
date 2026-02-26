@@ -144,19 +144,25 @@ function CharterReformModal({
   /* ✅ CHANGED: make the button work on desktop too (copy + safe mailto) */
   const handleEmailClick = React.useCallback(
     async (e: React.MouseEvent<HTMLAnchorElement>) => {
-      // Always copy full email text so desktop browsers that fail on long mailto still work.
+      // 🔥 Track the click
+      (window as any).gtag?.('event', 'charter_email_click', {
+        event_category: 'engagement',
+        event_label: 'charter reform email',
+      });
+
+      // Prevent default so we control behavior
       e.preventDefault();
 
+      // Copy full email text (desktop fallback)
       const fullText = `Subject: ${emailSubject}\r\n\r\n${emailBody}`;
       const ok = await copyToClipboard(fullText);
       setCopied(ok);
 
-      // Open mail app with a "safe" mailto (full if short enough; otherwise subject-only).
+      // Open mail app
       window.location.href = buildMailtoHrefSafe();
     },
     []
   );
-
   if (!isOpen) return null;
 
   return (
@@ -220,7 +226,7 @@ function CharterReformModal({
 
           {/* ✅ Android helper message after click (copy fallback) */}
           {copied && (
-            <div className='hidden sm:block'>
+            <div className='hidden md:block'>
               <div className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90'>
                 <p className='mb-3'>
                   ✅ Email text copied. In your email app, tap in the body and
