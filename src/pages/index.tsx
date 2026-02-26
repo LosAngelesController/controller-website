@@ -34,6 +34,8 @@ const kirbybutton =
 
 /* ===================== Charter Reform Popup ===================== */
 
+/* ===================== Charter Reform Popup ===================== */
+
 const CHARTER_SITE_URL = 'https://charterreform.lacontroller.app/';
 const CHARTER_EMAIL = 'ReformLAcharter@lacity.org';
 
@@ -49,7 +51,6 @@ const emailBody =
   `4. Clarify that the Controller's audit authority includes performance audits of ALL City programs that are sourced from or use City tax dollars (including those under elected offices)\r\n` +
   `5. Allow the Controller to hire outside counsel\r\n` +
   `6. Enshrine the Controller's Fraud, Waste, and Abuse function\r\n\r\n`;
-
 
 function buildMailtoHrefFull() {
   const subject = encodeURIComponent(emailSubject);
@@ -99,6 +100,14 @@ async function copyToClipboard(text: string) {
   }
 }
 
+/* ✅ NEW: keep mailto short enough for desktop handlers */
+const MAX_MAILTO_LEN = 1800;
+
+function buildMailtoHrefSafe() {
+  const full = buildMailtoHrefFull();
+  return full.length <= MAX_MAILTO_LEN ? full : buildMailtoHrefSubjectOnly();
+}
+
 function CharterReformModal({
   isOpen,
   onClose,
@@ -134,22 +143,18 @@ function CharterReformModal({
     setCopied(false);
   }, [isOpen]);
 
+  /* ✅ CHANGED: make the button work on desktop too (copy + safe mailto) */
   const handleEmailClick = React.useCallback(
     async (e: React.MouseEvent<HTMLAnchorElement>) => {
-      // Android often drops subject/body for long mailto links -> blank compose.
-      // So on Android: copy the full email to clipboard, then open mailto with subject only.
-      if (!getIsAndroid()) return;
-
+      // Always copy full email text so desktop browsers that fail on long mailto still work.
       e.preventDefault();
 
       const fullText = `Subject: ${emailSubject}\r\n\r\n${emailBody}`;
       const ok = await copyToClipboard(fullText);
-
       setCopied(ok);
 
-      // Open mail app with at least recipient (and subject if possible).
-      // Subject-only is short and usually survives Android handlers.
-      window.location.href = buildMailtoHrefSubjectOnly();
+      // Open mail app with a "safe" mailto (full if short enough; otherwise subject-only).
+      window.location.href = buildMailtoHrefSafe();
     },
     []
   );
@@ -173,12 +178,12 @@ function CharterReformModal({
 
       <div
         className='
-          relative z-[61] w-full
-          rounded-t-3xl bg-zinc-950 text-white shadow-2xl
+          relative z-[61] max-h-[85dvh]
+          w-full overflow-y-auto rounded-t-3xl bg-zinc-950
           px-5 pb-6 pt-5
-          max-h-[85dvh] overflow-y-auto
-          sm:mx-4 sm:max-w-2xl sm:rounded-2xl sm:p-8
-          [padding-bottom:calc(env(safe-area-inset-bottom,0px)+1.5rem)]
+          text-white shadow-2xl
+          [padding-bottom:calc(env(safe-area-inset-bottom,0px)+1.5rem)] sm:mx-4 sm:max-w-2xl sm:rounded-2xl
+          sm:p-8
         '
       >
         <div className='mx-auto mb-3 h-1.5 w-12 rounded-full bg-white/20 sm:hidden' />
@@ -197,7 +202,9 @@ function CharterReformModal({
         </h2>
 
         <div className='mt-4 space-y-3 text-[15px] leading-relaxed text-white/90 sm:text-base'>
-          <p>The City of Los Angeles is currently rewriting the City Charter.</p>
+          <p>
+            The City of Los Angeles is currently rewriting the City Charter.
+          </p>
           <p>
             In other words, <span className='font-extrabold'>YOU</span> can
             change the City&apos;s Constitution!
@@ -216,7 +223,8 @@ function CharterReformModal({
           {/* ✅ Android helper message after click (copy fallback) */}
           {copied && (
             <div className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90'>
-              ✅ Email text copied. In your email app, tap in the body and paste.
+              ✅ Email text copied. In your email app, tap in the body and
+              paste.
             </div>
           )}
         </div>
@@ -238,9 +246,9 @@ function CharterReformModal({
               <li>Require minimum qualifications for the Controller</li>
               <li>
                 Clarify that the Controller&apos;s audit authority includes
-                performance audits of <span className='font-bold'>ALL</span> City
-                programs that are sourced from or use City tax dollars (including
-                those under elected offices)
+                performance audits of <span className='font-bold'>ALL</span>{' '}
+                City programs that are sourced from or use City tax dollars
+                (including those under elected offices)
               </li>
               <li>Allow the Controller to hire outside counsel</li>
               <li>
@@ -251,9 +259,9 @@ function CharterReformModal({
         </div>
 
         <div className='mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center sm:justify-between'>
-          {/* ✅ Use full mailto on non-Android; Android uses copy+subject-only fallback */}
+          {/* ✅ CHANGED: keep href short; onClick handles copy + safe open */}
           <a
-            href={buildMailtoHrefFull()}
+            href={buildMailtoHrefSubjectOnly()}
             onClick={handleEmailClick}
             className='inline-flex items-center justify-center rounded-xl bg-[#41ffca] px-6 py-4 text-center text-sm font-extrabold uppercase text-black shadow-lg hover:opacity-95 focus:outline-none focus:ring-4 focus:ring-[#41ffca]/40 sm:text-base'
           >
@@ -374,7 +382,7 @@ export default function HomePage(props: any) {
               <div className='flex'>
                 <div className='w-full flex-col pt-2 md:pt-0'>
                   <div>
-                    <p className='text-xl md:text-3xl font-bold'>
+                    <p className='text-xl font-bold md:text-3xl'>
                       Kenneth Mejia, CPA
                     </p>
                     <h1 className='text-xl md:text-3xl'>
@@ -424,7 +432,7 @@ export default function HomePage(props: any) {
             href={CHARTER_SITE_URL}
             target='_blank'
             rel='noopener noreferrer'
-            className='inline-block text-base font-semibold underline underline-offset-4 transition-colors text-teal-700 hover:text-teal-900 dark:!text-[#41ffca] dark:hover:!text-[#41ffca] md:text-lg'
+            className='inline-block text-base font-semibold text-teal-700 underline underline-offset-4 transition-colors hover:text-teal-900 dark:!text-[#41ffca] dark:hover:!text-[#41ffca] md:text-lg'
           >
             Take Action! Send this email to the Charter Reform Commission now!
           </a>
@@ -531,7 +539,9 @@ export default function HomePage(props: any) {
             {upcoming.slice(0, 6).map((eachupcoming: any, key: number) => (
               <LineCard
                 key={key}
-                link={`${eachupcoming.pre === false ? '' : '/upcoming/'}${eachupcoming.link}`}
+                link={`${eachupcoming.pre === false ? '' : '/upcoming/'}${
+                  eachupcoming.link
+                }`}
                 year={eachupcoming.year}
                 dept={titleCase(eachupcoming.dept)}
                 name={eachupcoming.name}
@@ -555,7 +565,9 @@ export default function HomePage(props: any) {
             {finance.slice(0, 4).map((eachaudit: any, key: number) => (
               <BigCard
                 key={key}
-                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link}`}
+                link={`${eachaudit.pre === false ? '' : '/reports/'}${
+                  eachaudit.link
+                }`}
                 image={eachaudit.image}
                 year={eachaudit.year}
                 dept={titleCase(eachaudit.dept)}
@@ -569,7 +581,9 @@ export default function HomePage(props: any) {
               {finance.slice(4, 5).map((eachaudit: any, key: number) => (
                 <BigCard
                   key={key}
-                  link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link}`}
+                  link={`${eachaudit.pre === false ? '' : '/reports/'}${
+                    eachaudit.link
+                  }`}
                   image={eachaudit.image}
                   year={eachaudit.year}
                   dept={titleCase(eachaudit.dept)}
@@ -585,7 +599,9 @@ export default function HomePage(props: any) {
             {finance.slice(0, 6).map((eachaudit: any, key: number) => (
               <LineCard
                 key={key}
-                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link}`}
+                link={`${eachaudit.pre === false ? '' : '/reports/'}${
+                  eachaudit.link
+                }`}
                 image={eachaudit.image}
                 year={eachaudit.year}
                 dept={titleCase(eachaudit.dept)}
