@@ -220,7 +220,7 @@ function CharterReformModal({
 
           {/* ✅ Android helper message after click (copy fallback) */}
           {copied && (
-            <>
+            <div className='hidden sm:block'>
               <div className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90'>
                 <p className='mb-3'>
                   ✅ Email text copied. In your email app, tap in the body and
@@ -243,7 +243,7 @@ function CharterReformModal({
                   </li>
                 </ul>
               </div>
-            </>
+            </div>
           )}
         </div>
 
