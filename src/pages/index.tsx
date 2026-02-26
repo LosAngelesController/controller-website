@@ -166,7 +166,7 @@ function CharterReformModal({
         (window as any).gtag?.('event', 'charter_email_click', {
           event_category: 'engagement',
           event_label: 'charter reform email',
-          debug_mode: true,
+          // debug_mode: true,
           transport_type: 'beacon',
 
           // ✅ key part: GA calls this once it has queued/sent the event
