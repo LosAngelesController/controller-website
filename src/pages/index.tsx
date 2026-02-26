@@ -222,10 +222,30 @@ function CharterReformModal({
 
           {/* ✅ Android helper message after click (copy fallback) */}
           {copied && (
-            <div className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90'>
-              ✅ Email text copied. In your email app, tap in the body and
-              paste.
-            </div>
+            <>
+              <div className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90'>
+                <p className='mb-3'>
+                  ✅ Email text copied. In your email app, tap in the body and
+                  paste.
+                </p>
+                <p className='mb-1'>
+                  Need a subject line? We suggest one of these examples, OR make
+                  it your own:
+                </p>
+                <ul className='mt-2 list-disc pl-5 italic text-[#41ffca]'>
+                  <li className='mb-2'>
+                    Support strengthening the Controller’s Office
+                  </li>
+                  <li className='mb-2'>
+                    Please support reforms that strengthen the Controller’s
+                    Office
+                  </li>
+                  <li className='mb-2'>
+                    I support a stronger Controller’s Office
+                  </li>
+                </ul>
+              </div>
+            </>
           )}
         </div>
 
