@@ -34,8 +34,6 @@ const kirbybutton =
 
 /* ===================== Charter Reform Popup ===================== */
 
-/* ===================== Charter Reform Popup ===================== */
-
 const CHARTER_SITE_URL = 'https://charterreform.lacontroller.app/';
 const CHARTER_EMAIL = 'ReformLAcharter@lacity.org';
 
@@ -377,7 +375,7 @@ export default function HomePage(props: any) {
       const raw = window.localStorage.getItem(KEY);
       const count = Number(raw ?? '0');
 
-      if (count < 5) {
+      if (count < 10) {
         setIsCharterModalOpen(true);
         window.localStorage.setItem(KEY, String(count + 1));
       }
