@@ -144,22 +144,41 @@ function CharterReformModal({
   /* ✅ CHANGED: make the button work on desktop too (copy + safe mailto) */
   const handleEmailClick = React.useCallback(
     async (e: React.MouseEvent<HTMLAnchorElement>) => {
-      // 🔥 Track the click
-      (window as any).gtag?.('event', 'charter_email_click', {
-        event_category: 'engagement',
-        event_label: 'charter reform email',
-      });
-
-      // Prevent default so we control behavior
       e.preventDefault();
 
-      // Copy full email text (desktop fallback)
+      // Copy fallback (desktop)
       const fullText = `Subject: ${emailSubject}\r\n\r\n${emailBody}`;
       const ok = await copyToClipboard(fullText);
       setCopied(ok);
 
-      // Open mail app
-      window.location.href = buildMailtoHrefSafe();
+      const href = buildMailtoHrefSafe();
+
+      // Fire GA event and only then open mailto (with a timeout fallback)
+      try {
+        let didNavigate = false;
+
+        const go = () => {
+          if (didNavigate) return;
+          didNavigate = true;
+          window.location.href = href;
+        };
+
+        (window as any).gtag?.('event', 'charter_email_click', {
+          event_category: 'engagement',
+          event_label: 'charter reform email',
+          debug_mode: true,
+          transport_type: 'beacon',
+
+          // ✅ key part: GA calls this once it has queued/sent the event
+          event_callback: go,
+          event_timeout: 1000, // fallback if callback doesn't fire quickly
+        });
+
+        // Extra belt-and-suspenders fallback
+        setTimeout(go, 1100);
+      } catch {
+        window.location.href = href;
+      }
     },
     []
   );
@@ -381,7 +400,7 @@ export default function HomePage(props: any) {
       const raw = window.localStorage.getItem(KEY);
       const count = Number(raw ?? '0');
 
-      if (count < 10) {
+      if (count < 20) {
         setIsCharterModalOpen(true);
         window.localStorage.setItem(KEY, String(count + 1));
       }
