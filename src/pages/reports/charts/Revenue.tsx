@@ -290,90 +290,93 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
                 ))}
               </tbody>
             </table>
-            <Bar
-              data={{
-                labels: revenueSources,
-                datasets: [
-                  {
-                    label: 'Adopted Budget',
-                    data: adoptedBudgetData,
-                    backgroundColor: '#ffca41',
-                    borderColor: '#000000',
-                    borderWidth: 0.5,
-                    barPercentage: 0.8,
-                    categoryPercentage: 1,
-                  },
-                  {
-                    label: 'Actual Receipts',
-                    data: actualReceiptsData,
-                    backgroundColor: '#41ffca',
-                    borderColor: '#000000',
-                    borderWidth: 0.5,
-                    barPercentage: 0.8,
-                    categoryPercentage: 1,
-                  },
-                ],
-              }}
-              aria-hidden='true'
-              options={{
-                indexAxis: 'y',
-                maintainAspectRatio: false,
-                scales: {
-                  x: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+            <div aria-hidden='true'>
+              <Bar
+                data={{
+                  labels: revenueSources,
+                  datasets: [
+                    {
+                      label: 'Adopted Budget',
+                      data: adoptedBudgetData,
+                      backgroundColor: '#ffca41',
+                      borderColor: '#000000',
+                      borderWidth: 0.5,
+                      barPercentage: 0.8,
+                      categoryPercentage: 1,
                     },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
-                      callback: (value) =>
-                        typeof value === 'number'
-                          ? formatAbbreviatedCurrency(value)
-                          : formatAbbreviatedCurrency(Number(value ?? 0)),
+                    {
+                      label: 'Actual Receipts',
+                      data: actualReceiptsData,
+                      backgroundColor: '#41ffca',
+                      borderColor: '#000000',
+                      borderWidth: 0.5,
+                      barPercentage: 0.8,
+                      categoryPercentage: 1,
                     },
-                    title: {
-                      display: true,
-                      text: 'Amount',
-                      color: isDark ? 'white' : 'black',
+                  ],
+                }}
+                aria-hidden='true'
+                aria-label=''
+                options={{
+                  indexAxis: 'y',
+                  maintainAspectRatio: false,
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+                      },
+                      ticks: {
+                        color: isDark ? 'white' : 'black',
+                        callback: (value) =>
+                          typeof value === 'number'
+                            ? formatAbbreviatedCurrency(value)
+                            : formatAbbreviatedCurrency(Number(value ?? 0)),
+                      },
+                      title: {
+                        display: true,
+                        text: 'Amount',
+                        color: isDark ? 'white' : 'black',
+                      },
                     },
-                  },
-                  y: {
-                    beginAtZero: false,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
-                    },
-                    ticks: {
-                      autoSkip: false,
-                      color: isDark ? 'white' : 'black',
-                      font: () => ({
-                        size: isMobileViewport ? 10 : 12,
-                      }),
-                    },
-                    title: {
-                      display: true,
-                      text: 'Revenue Source',
-                      color: isDark ? 'white' : 'black',
-                    },
-                  },
-                },
-                plugins: {
-                  legend: {
-                    labels: {
-                      color: isDark ? 'white' : 'black',
-                    },
-                  },
-                  tooltip: {
-                    callbacks: {
-                      label: function (context) {
-                        const label = context.dataset.label || '';
-                        const rawValue = context.raw as number;
-                        return `${label}: ${formatCurrency(rawValue)}`;
+                    y: {
+                      beginAtZero: false,
+                      grid: {
+                        color: isDark ? '#44403c' : 'rgb(211, 211, 211)',
+                      },
+                      ticks: {
+                        autoSkip: false,
+                        color: isDark ? 'white' : 'black',
+                        font: () => ({
+                          size: isMobileViewport ? 10 : 12,
+                        }),
+                      },
+                      title: {
+                        display: true,
+                        text: 'Revenue Source',
+                        color: isDark ? 'white' : 'black',
                       },
                     },
                   },
-                },
-              }}
-            />
+                  plugins: {
+                    legend: {
+                      labels: {
+                        color: isDark ? 'white' : 'black',
+                      },
+                    },
+                    tooltip: {
+                      callbacks: {
+                        label: function (context) {
+                          const label = context.dataset.label || '';
+                          const rawValue = context.raw as number;
+                          return `${label}: ${formatCurrency(rawValue)}`;
+                        },
+                      },
+                    },
+                  },
+                }}
+              />
+            </div>
           </div>
           <br></br>
           <br></br>
@@ -399,71 +402,74 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
               </tbody>
             </table>
             <div style={{ width: '100%', height: '450px' }}>
-              <Bar
-                data={{
-                  labels: getFilteredTotalRevenuesData()
-                    .map((item) => item.fiscalYear)
-                    .reverse(), // Reverse the labels to display in descending order
-                  datasets: [
-                  {
-                    label: 'Actual Receipts',
-                    data: getFilteredTotalRevenuesData()
-                      .map((item) => item.totalRevenues)
-                      .sort((a, b) => b - a), // Sort data in descending order
-                    backgroundColor: '#41ffca',
-                    borderColor: '#000000',
-                    borderWidth: 0.5,
-                  },
-                ],
-              }}
-                aria-hidden='true'
-                options={{
-                  indexAxis: 'y',
-                  maintainAspectRatio: false,
-                  scales: {
-                  x: {
-                    beginAtZero: true,
-                    grid: {
-                      color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+              <div aria-hidden='true'>
+                <Bar
+                  data={{
+                    labels: getFilteredTotalRevenuesData()
+                      .map((item) => item.fiscalYear)
+                      .reverse(), // Reverse the labels to display in descending order
+                    datasets: [
+                    {
+                      label: 'Actual Receipts',
+                      data: getFilteredTotalRevenuesData()
+                        .map((item) => item.totalRevenues)
+                        .sort((a, b) => b - a), // Sort data in descending order
+                      backgroundColor: '#41ffca',
+                      borderColor: '#000000',
+                      borderWidth: 0.5,
                     },
-                    ticks: {
-                      color: isDark ? 'white' : 'black',
-                      callback: (value) =>
-                        typeof value === 'number'
-                          ? formatAbbreviatedCurrency(value)
-                          : formatAbbreviatedCurrency(Number(value ?? 0)),
-                    },
-                    title: {
-                      display: true,
-                      text: 'Amount',
-                      color: isDark ? 'white' : 'black',
-                      },
-                    },
-                    y: {
+                  ],
+                }}
+                  aria-hidden='true'
+                  aria-label=''
+                  options={{
+                    indexAxis: 'y',
+                    maintainAspectRatio: false,
+                    scales: {
+                    x: {
                       beginAtZero: true,
                       grid: {
                         color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
                       },
                       ticks: {
-                        autoSkip: false,
                         color: isDark ? 'white' : 'black',
+                        callback: (value) =>
+                          typeof value === 'number'
+                            ? formatAbbreviatedCurrency(value)
+                            : formatAbbreviatedCurrency(Number(value ?? 0)),
                       },
                       title: {
                         display: true,
-                        text: 'Fiscal Year',
+                        text: 'Amount',
                         color: isDark ? 'white' : 'black',
+                        },
+                      },
+                      y: {
+                        beginAtZero: true,
+                        grid: {
+                          color: isDark ? '#44403c' : 'rgb(211, 211, 211)', // Set grid color to white in dark mode
+                        },
+                        ticks: {
+                          autoSkip: false,
+                          color: isDark ? 'white' : 'black',
+                        },
+                        title: {
+                          display: true,
+                          text: 'Fiscal Year',
+                          color: isDark ? 'white' : 'black',
+                        },
                       },
                     },
-                  },
-                  plugins: {
-                    legend: {
-                      labels: {
-                        color: isDark ? 'white' : 'black',
+                    plugins: {
+                      legend: {
+                        labels: {
+                          color: isDark ? 'white' : 'black',
+                        },
                       },
                     },
-                  },
-                }}
-              />
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
