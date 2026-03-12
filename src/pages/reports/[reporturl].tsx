@@ -57,6 +57,7 @@ export default function Report(props: auditinterface) {
         ? yearRaw
         : `FY${yearRaw}`
       : '';
+    const assignedLabels = new Map<string, number>();
 
     const findHeadingText = (start: HTMLElement) => {
       let node: HTMLElement | null = start;
@@ -88,7 +89,13 @@ export default function Report(props: auditinterface) {
         const labelBase = headingText
           ? `${headingText} visualization`
           : 'Report visualization';
-        const label = baseLabel ? `${baseLabel} ${labelBase}` : labelBase;
+        const baseTitle = baseLabel ? `${baseLabel} ${labelBase}` : labelBase;
+        const duplicateCount = (assignedLabels.get(baseTitle) ?? 0) + 1;
+        assignedLabels.set(baseTitle, duplicateCount);
+        const label =
+          duplicateCount === 1
+            ? baseTitle
+            : `${baseTitle} ${duplicateCount}`;
         iframe.setAttribute('title', label);
       }
     });
