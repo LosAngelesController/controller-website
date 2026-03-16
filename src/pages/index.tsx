@@ -106,65 +106,101 @@ export default function HomePage(props: any) {
         {/* POPUP */}
 
         {showPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
-            <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-lg bg-white p-6 shadow-xl dark:bg-zinc-900 dark:text-white">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
+            <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-xl border border-zinc-700 bg-[#0f1720] p-8 text-white shadow-2xl">
 
-              <h2 className="mb-6 text-xl font-bold text-center">
-                Take action! Email the Charter Reform Commission at
-                <br />
-                <span className="text-teal-700 dark:text-[#41ffca]">
-                  reformlacharter@lacity.org
-                </span>
+              {/* Close X */}
+              <button
+                onClick={() => setShowPopup(false)}
+                className="absolute right-4 top-4 text-gray-400 hover:text-white"
+              >
+                ✕
+              </button>
+
+              {/* Title */}
+              <h2 className="text-center text-2xl font-bold tracking-wide">
+                TAKE ACTION! EMAIL THE CHARTER REFORM COMMISSION AT
               </h2>
 
-              <p className="mb-4">Commissioners,</p>
-
-              <p className="mb-4">
-                Thank you for voting to protect the Controller’s budget. As the City’s chief accountant and auditor,
-                it’s essential that the Controller be empowered and independent.
+              <p className="mt-2 text-center text-2xl font-bold text-[#41ffca] underline">
+                reformlacharter@lacity.org
               </p>
 
-              <p className="mb-4">
-                After years of cuts, the Controller is currently underfunded with just <b>0.29% of the General Fund</b>.
-                This only allows for 7 auditors and 5 fraud, waste and abuse investigators for the second largest City in the County.
+              {/* Subject line */}
+              <p className="mt-6 text-center font-semibold text-[#41ffca]">
+                SUBJECT LINE: Give the Controller .42% of the General Fund
               </p>
 
-              <p className="mb-4">
-                Despite these restrictions, the Controller's FWA unit was able to expose a
-                <b> $23 million fraud case</b> related to a homeless provider not meeting contractual obligations
-                and providing fake invoices.
-              </p>
+              <hr className="my-6 border-zinc-700" />
 
-              <p className="mb-4">
-                Adequate resources would allow the Controller to provide robust oversight,
-                helping to restore trust in government.
-              </p>
+              {/* Email text */}
+              <div id="email-text" className="space-y-4 text-gray-200 leading-relaxed">
 
-              <p className="mb-4">
-                To empower the Controller to carry out the office’s charter-mandated duties,
-                we ask the Commission to support the Controller’s recommendation
-                for a budget of no less than <b>0.42% of the General Fund</b>.
-              </p>
+                <p>Commissioners,</p>
 
-              <p className="mb-6 font-semibold">
-                Less than one half of one percent of the General Fund is a small price to pay
-                for transparency and accountability.
-              </p>
+                <p>
+                  Thank you for voting to protect the Controller's budget. As the City's chief accountant
+                  and auditor, it's essential that the Controller be empowered and independent.
+                </p>
 
-              <p className="mb-6 font-semibold">Thank You.</p>
+                <p>
+                  After years of cuts, the Controller is currently underfunded with just <b>0.29% of the
+                    General Fund</b>. This only allows for 7 auditors and 5 fraud, waste and abuse investigators
+                  for the second largest City in the County.
+                </p>
 
-              <div className="flex justify-end">
+                <p>
+                  Despite these restrictions, the Controller's FWA unit was able to expose a
+                  <b> $23 million fraud case</b> related to a homeless provider not meeting contractual
+                  obligations and providing fake invoices.
+                </p>
+
+                <p>
+                  Adequate resources would allow the Controller to provide robust oversight,
+                  helping to restore trust in government.
+                </p>
+
+                <p>
+                  To empower the Controller to carry out the office's charter-mandated duties,
+                  we ask the Commission to support the Controller's recommendation for a budget
+                  of no less than <b>0.42% of the General Fund</b>.
+                </p>
+
+                <p className="font-semibold">
+                  Less than one half of one percent of the General Fund is a small price to pay
+                  for transparency and accountability.
+                </p>
+
+                <p>Thank You.</p>
+
+              </div>
+
+              {/* Buttons */}
+              <div className="mt-8 flex justify-end gap-3">
+
+                <button
+                  onClick={() => {
+                    const text = document.getElementById("email-text")?.innerText;
+                    if (text) navigator.clipboard.writeText(text);
+                  }}
+                  className="flex items-center gap-2 rounded-md border border-zinc-600 px-4 py-2 text-gray-200 hover:bg-zinc-800"
+                >
+                  ⧉ Copy text
+                </button>
+
                 <button
                   onClick={() => setShowPopup(false)}
-                  className="rounded-md bg-black px-4 py-2 text-white hover:bg-gray-800 dark:bg-white dark:text-black"
+                  className="rounded-md bg-[#41ffca] px-5 py-2 font-semibold text-black hover:bg-[#35e0b0]"
                 >
                   Close
                 </button>
+
               </div>
 
             </div>
           </div>
         )}
+
 
         {/* HERO */}
 
