@@ -37,18 +37,15 @@ const kirbybutton =
 const CHARTER_SITE_URL = 'https://charterreform.lacontroller.app/';
 const CHARTER_EMAIL = 'ReformLAcharter@lacity.org';
 
-const emailSubject = `Support for reforms to strengthen Controller's Office`;
+const emailSubject = `Support for the Controller's budget and independence`;
 
 // ✅ CRLF line breaks for mail-client compatibility
 const emailBody =
-  `To the Los Angeles City Charter Reform Commission,\r\n\r\n` +
-  `I am writing in support of the following reforms to the Charter, to ensure that the Controller can fulfill their role as the City's independent watchdog:\r\n\r\n` +
-  `1. Give the Controller an independent budget\r\n` +
-  `2. Designate the Controller as the City's Chief Financial Officer\r\n` +
-  `3. Require minimum qualifications for the Controller\r\n` +
-  `4. Clarify that the Controller's audit authority includes performance audits of ALL City programs that are sourced from or use City tax dollars (including those under elected offices)\r\n` +
-  `5. Allow the Controller to hire outside counsel\r\n` +
-  `6. Enshrine the Controller's Fraud, Waste, and Abuse function\r\n\r\n`;
+  `Commissioners,\r\n\r\n` +
+  `Thank you for voting to protect the Controller’s budget. As the City’s chief accountant and auditor, it’s essential that the Controller be empowered and independent.\r\n\r\n` +
+  `After years of cuts, the Controller is currently underfunded with just 0.29% of the General Fund. This only allows for 7 auditors and 5 fraud, waste and abuse investigators for the second largest City in the County. Despite these restrictions, the Controller's FWA unit was able to expose a $23 million fraud case related to a homeless provider not meeting contractual obligations and providing fake invoices. Adequate resources would allow the Controller to provide robust oversight, helping to restore trust in government.\r\n\r\n` +
+  `To empower the Controller to carry out the office’s charter-mandated duties, we ask the Commission to support the Controller’s recommendation for a budget of no less than 0.42% of the General Fund. Less than one half of one percent of the General Fund is a small price to pay for transparency and accountability.\r\n\r\n` +
+  `Thank You.\r\n`;
 
 function buildMailtoHrefFull() {
   const subject = encodeURIComponent(emailSubject);
@@ -63,11 +60,6 @@ function buildMailtoHrefToOnly() {
 function buildMailtoHrefSubjectOnly() {
   const subject = encodeURIComponent(emailSubject);
   return `mailto:${CHARTER_EMAIL}?subject=${subject}`;
-}
-
-function getIsAndroid() {
-  if (typeof navigator === 'undefined') return false;
-  return /Android/i.test(navigator.userAgent || '');
 }
 
 async function copyToClipboard(text: string) {
@@ -98,7 +90,7 @@ async function copyToClipboard(text: string) {
   }
 }
 
-/* ✅ NEW: keep mailto short enough for desktop handlers */
+/* ✅ keep mailto short enough for desktop handlers */
 const MAX_MAILTO_LEN = 1800;
 
 function buildMailtoHrefSafe() {
@@ -141,19 +133,16 @@ function CharterReformModal({
     setCopied(false);
   }, [isOpen]);
 
-  /* ✅ CHANGED: make the button work on desktop too (copy + safe mailto) */
   const handleEmailClick = React.useCallback(
     async (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
 
-      // Copy fallback (desktop)
       const fullText = `Subject: ${emailSubject}\r\n\r\n${emailBody}`;
       const ok = await copyToClipboard(fullText);
       setCopied(ok);
 
       const href = buildMailtoHrefSafe();
 
-      // Fire GA event and only then open mailto (with a timeout fallback)
       try {
         let didNavigate = false;
 
@@ -166,15 +155,11 @@ function CharterReformModal({
         (window as any).gtag?.('event', 'charter_email_click', {
           event_category: 'engagement',
           event_label: 'charter reform email',
-          // debug_mode: true,
           transport_type: 'beacon',
-
-          // ✅ key part: GA calls this once it has queued/sent the event
           event_callback: go,
-          event_timeout: 1000, // fallback if callback doesn't fire quickly
+          event_timeout: 1000,
         });
 
-        // Extra belt-and-suspenders fallback
         setTimeout(go, 1100);
       } catch {
         window.location.href = href;
@@ -182,6 +167,7 @@ function CharterReformModal({
     },
     []
   );
+
   if (!isOpen) return null;
 
   return (
@@ -191,7 +177,6 @@ function CharterReformModal({
       aria-modal='true'
       aria-label='Take Action for Charter Reform'
     >
-      {/* Backdrop */}
       <button
         aria-label='Close modal'
         className='absolute inset-0 cursor-default bg-black/70'
@@ -229,8 +214,8 @@ function CharterReformModal({
             The City of Los Angeles is currently rewriting the City Charter.
           </p>
           <p>
-            In other words, <span className='font-extrabold'>YOU</span> can
-            change the City&apos;s Constitution!
+            In other words, <span className='font-extrabold'>YOU</span> can help
+            strengthen transparency, accountability, and oversight.
           </p>
           <p className='pt-1'>
             <span className='italic'>Email </span>
@@ -243,7 +228,6 @@ function CharterReformModal({
             <span className='italic'>and tell them:</span>
           </p>
 
-          {/* ✅ Android helper message after click (copy fallback) */}
           {copied && (
             <div className='hidden md:block'>
               <div className='rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/90'>
@@ -251,20 +235,10 @@ function CharterReformModal({
                   ✅ Email text copied. In your email app, tap in the body and
                   paste.
                 </p>
-                <p className='mb-1'>
-                  Need a subject line? We suggest one of these examples, OR make
-                  it your own:
-                </p>
+                <p className='mb-1'>Subject line suggestion:</p>
                 <ul className='mt-2 list-disc pl-5 italic text-[#41ffca]'>
                   <li className='mb-2'>
-                    Support strengthening the Controller’s Office
-                  </li>
-                  <li className='mb-2'>
-                    Please support reforms that strengthen the Controller’s
-                    Office
-                  </li>
-                  <li className='mb-2'>
-                    I support a stronger Controller’s Office
+                    Support for the Controller&apos;s budget and independence
                   </li>
                 </ul>
               </div>
@@ -274,35 +248,87 @@ function CharterReformModal({
 
         <div className='mt-5 rounded-2xl border border-white/10 bg-zinc-900/70 p-4 text-white/90 shadow-inner sm:mt-6 sm:p-6'>
           <div className='space-y-3 text-[13px] leading-6 sm:space-y-4 sm:text-base'>
-            <p>To the Los Angeles City Charter Reform Commission,</p>
+            <p>Commissioners,</p>
+
             <p>
-              I am writing in support of the following reforms to the Charter,
-              to ensure that the Controller can fulfill their role as the
-              City&apos;s independent watchdog:
+              Thank you for voting to protect the Controller’s budget. As the
+              City’s chief accountant and auditor, it’s essential that the
+              Controller be empowered and independent.
             </p>
-            <ol className='list-decimal space-y-2 pl-5'>
-              <li>Give the Controller an independent budget</li>
-              <li>
-                Designate the Controller as the City&apos;s Chief Financial
-                Officer
-              </li>
-              <li>Require minimum qualifications for the Controller</li>
-              <li>
-                Clarify that the Controller&apos;s audit authority includes
-                performance audits of <span className='font-bold'>ALL</span>{' '}
-                City programs that are sourced from or use City tax dollars
-                (including those under elected offices)
-              </li>
-              <li>Allow the Controller to hire outside counsel</li>
-              <li>
-                Enshrine the Controller&apos;s Fraud, Waste, and Abuse function
-              </li>
-            </ol>
+
+            <p>
+              After years of cuts, the Controller is currently underfunded with
+              just 0.29% of the General Fund. This only allows for 7 auditors
+              and 5 fraud, waste and abuse investigators for the second largest
+              City in the County. Despite these restrictions, the Controller's
+              FWA unit was able to expose a $23 million fraud case related to a
+              homeless provider not meeting contractual obligations and
+              providing fake invoices. Adequate resources would allow the
+              Controller to provide robust oversight, helping to restore trust
+              in government.
+            </p>
+
+            <p>
+              To empower the Controller to carry out the office’s
+              charter-mandated duties, we ask the Commission to support the
+              Controller’s recommendation for a budget of no less than 0.42% of
+              the General Fund. Less than one half of one percent of the General
+              Fund is a small price to pay for transparency and accountability.
+            </p>
+
+            <p>Thank You.</p>
+
+            <hr className='border-white/10' />
+
+            <div>
+              <p className='mb-3 font-bold text-[#41ffca]'>
+                Additional Talking Points:
+              </p>
+              <ul className='list-disc space-y-2 pl-5'>
+                <li>
+                  Thank the Commission for recognizing the importance of
+                  protecting the Controller’s budget.
+                </li>
+                <li>
+                  Controller’s budget has been systematically cut for years. In
+                  1991, the Controller had 205 positions. Now it has 159.
+                </li>
+                <li>
+                  The budget, amount of spending, and number of programs and
+                  departments have increased tremendously since 1991, which
+                  calls for proportionate increases for transparency,
+                  accountability, and oversight.
+                </li>
+                <li>
+                  0.29% only allows the Controller to have 7 audits and 5 fraud,
+                  waste and abuse investigators for the entire City. Despite
+                  these constraints, they were able to expose a $23 million
+                  fraudulent charity that was mistreating unhoused people in
+                  South LA.
+                </li>
+                <li>
+                  To empower the Controller to carry out the office’s
+                  charter-mandated duties, the budget needs to be at least 0.42%
+                  of the General Fund.
+                </li>
+                <li>
+                  This will allow the Controller to provide more transparency
+                  and accountability to the people of LA.
+                </li>
+                <li>
+                  This will protect the integrity of the City’s programs by
+                  strengthening the office’s investigations function.
+                </li>
+                <li>
+                  This will reduce the City’s exposure to lawsuits and
+                  liability.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 
         <div className='mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:items-center sm:justify-between'>
-          {/* ✅ CHANGED: keep href short; onClick handles copy + safe open */}
           <a
             href={buildMailtoHrefSubjectOnly()}
             onClick={handleEmailClick}
