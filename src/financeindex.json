@@ -1,6 +1,15 @@
 {
   "finance": [
     {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/revforecastcover2026.jpg?alt=media&token=e6d4b8e1-99d7-4148-94a7-13e3fea86c57",
+      "name": "Revenue Forecast Report",
+      "year": "2026",
+      "dept": "Financial Report",
+      "link": "https://revforecast2027.lacontroller.app/",
+      "pre": false,
+      "alt": "Cover photo Revenue Forecast Report 2026"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/pafr25.png?alt=media&token=ede9e4e6-663a-49d6-818f-387d3301af03",
       "name": "Annual Comprehensive Financial Report FY25",
       "year": "2026",
@@ -14,7 +23,7 @@
       "name": "Revenue Forecast Report",
       "year": "2025",
       "dept": "Financial Report",
-      "link": "https://revforecast2027.lacontroller.app/",
+      "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/financial%20reports%2FController%20Revenue%20Forecast%20Report_030325.pdf?alt=media&token=71f700ff-27cf-4396-b9e4-1fcf325868ad",
       "pre": false,
       "alt": "Cover photo Revenue Forecast Report 2025"
     },
