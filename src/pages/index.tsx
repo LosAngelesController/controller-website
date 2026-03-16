@@ -13,7 +13,9 @@ import { audits } from '@/auditsindex.json';
 import { upcoming } from '@/upcoming.json';
 import { finance } from '@/financeindex.json';
 import { budget } from '@/budget.json';
+
 import Image from 'next/image';
+
 import OpenDataSeries from '@/components/opendataseries';
 import ImportantLinksSection from '@/components/ImportantLinksSection';
 import { SocialPageSeries } from '@/components/SocialPageSeries';
@@ -40,7 +42,7 @@ function LineCard(props: any) {
       key={props.key}
       className='mb-2 w-full max-w-sm rounded-lg border border-gray-500 bg-gray-100 dark:border-gray-300 dark:bg-zinc-800 dark:text-gray-100'
     >
-      <a href={`${props.link}`} className='block rounded-lg focus:outline-none'>
+      <a href={`${props.link}`} className='block rounded-lg'>
         <div className='px-2 py-2'>
           <p>
             {props.year} <span>{props.dept}</span>
@@ -52,11 +54,30 @@ function LineCard(props: any) {
   );
 }
 
+function UpcomingBigCard(props: any) {
+  return (
+    <div
+      key={props.key}
+      className="mb-2 w-full max-w-xs rounded-lg border border-gray-500 bg-gray-100 dark:border-gray-300 dark:bg-zinc-800 dark:text-gray-100"
+    >
+      <a href={`${props.link}`} className="block rounded-lg">
+        <div className="px-3 py-3">
+          <p className="text-sm">
+            {props.year} <span>{props.dept}</span>
+          </p>
+
+          <p className="font-semibold">{props.name}</p>
+        </div>
+      </a>
+    </div>
+  );
+}
+
 function BigCard(props: bigcardprops) {
   return (
     <div
       key={props.key}
-      className={`mb-2 w-full max-w-xs rounded-lg bg-gray-200 dark:bg-gray-800 dark:text-gray-100`}
+      className='mb-2 w-full max-w-xs rounded-lg bg-gray-200 dark:bg-gray-800 dark:text-gray-100'
     >
       <a href={`${props.link}`} className='block rounded-lg'>
         <img src={props.image} className='w-full' alt={props.alt}></img>
@@ -78,18 +99,22 @@ export default function HomePage(props: any) {
   return (
     <>
       <Navbar />
+
       <Layout>
         <Seo />
 
-        {/* POPUP MODAL */}
-
+        {/* POPUP */}
 
         {showPopup && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4">
             <div className="max-h-[90vh] w-full max-w-3xl overflow-y-auto rounded-lg bg-white p-6 shadow-xl dark:bg-zinc-900 dark:text-white">
 
-              <h2 className="mb-4 text-2xl font-bold text-center">
-                Take action! Email the Charter Reform Commission at reformlacharter@lacity.org
+              <h2 className="mb-6 text-xl font-bold text-center">
+                Take action! Email the Charter Reform Commission at
+                <br />
+                <span className="text-teal-700 dark:text-[#41ffca]">
+                  reformlacharter@lacity.org
+                </span>
               </h2>
 
               <p className="mb-4">Commissioners,</p>
@@ -117,8 +142,8 @@ export default function HomePage(props: any) {
 
               <p className="mb-4">
                 To empower the Controller to carry out the office’s charter-mandated duties,
-                we ask the Commission to support the Controller’s recommendation for a budget
-                of no less than <b>0.42% of the General Fund</b>.
+                we ask the Commission to support the Controller’s recommendation
+                for a budget of no less than <b>0.42% of the General Fund</b>.
               </p>
 
               <p className="mb-6 font-semibold">
@@ -128,10 +153,10 @@ export default function HomePage(props: any) {
 
               <p className="mb-6 font-semibold">Thank You.</p>
 
-              <div className="mt-6 flex justify-end">
+              <div className="flex justify-end">
                 <button
                   onClick={() => setShowPopup(false)}
-                  className="rounded-md bg-black px-4 py-2 text-white hover:bg-gray-800"
+                  className="rounded-md bg-black px-4 py-2 text-white hover:bg-gray-800 dark:bg-white dark:text-black"
                 >
                   Close
                 </button>
@@ -141,16 +166,18 @@ export default function HomePage(props: any) {
           </div>
         )}
 
-        {/* PAGE CONTENT */}
+        {/* HERO */}
 
-        <div className='bgColorHeader relative pt-4 text-base text-sm md:pt-12 md:text-white'>
+        <div className='bgColorHeader relative pt-4 md:pt-12'>
           <div className='background-1'>
-            <div className='mx-auto text-white md:px-4 lg:max-w-6xl lg:px-16 xl:max-w-7xl'>
+            <div className='mx-auto text-white lg:max-w-6xl xl:max-w-7xl'>
               <div className='flex'>
-                <div className='w-full flex-col pt-2'>
+
+                <div className='w-full pt-2'>
                   <p className='text-xl font-bold md:text-3xl'>
                     Kenneth Mejia, CPA
                   </p>
+
                   <h1 className='text-xl md:text-3xl'>
                     City Controller of Los Angeles
                   </h1>
@@ -161,7 +188,6 @@ export default function HomePage(props: any) {
                     <Image
                       src='/images/killa-website2.png'
                       alt='Portrait'
-                      className='w-full md:w-96 lg:w-[500px]'
                       height={900}
                       width={500}
                     />
@@ -173,18 +199,18 @@ export default function HomePage(props: any) {
                     <Image
                       src='/images/ken-new-blob-big.png'
                       alt='Portrait of Kenneth Mejia'
-                      className='w-full lg:w-[500px]'
                       height={900}
                       width={500}
                     />
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
         </div>
 
-        <br />
+        {/* CALL TO ACTION */}
 
         <div className='container mx-auto px-4 pt-2'>
           <a
@@ -197,6 +223,8 @@ export default function HomePage(props: any) {
           </a>
         </div>
 
+        {/* FINANCIAL DATA */}
+
         <div className='container mx-auto px-4'>
           <h2 className='frontpageh2section'>Financial Data</h2>
 
@@ -208,11 +236,262 @@ export default function HomePage(props: any) {
             </Link>
           </div>
         </div>
-
         <div className='container mx-auto px-4'>
-          <ImportantLinksSection />
+          <h2 className='frontpageh2section'>Oversight</h2>
+
+          <div className='hidden grid-cols-3 gap-x-4 gap-y-4 md:grid md:grid-cols-4 lg:grid-cols-5'>
+            {audits.slice(0, 4).map((eachaudit: any, key: number) => (
+              <BigCard
+                key={key}
+                link={`${eachaudit.pre === false ? '' : ''}${eachaudit.link}`}
+                image={eachaudit.image}
+                name={`${eachaudit.Year} | ${eachaudit.document} | ${eachaudit.category} | ${eachaudit.name}  `}
+                alt={eachaudit.alt ? eachaudit.alt : eachaudit.name}
+                year=''
+                document=''
+              />
+            ))}
+
+            <div className='hidden lg:block'>
+              {audits.slice(4, 5).map((eachaudit: any, key: number) => (
+                <BigCard
+                  key={key}
+                  link={`${eachaudit.pre === false ? '' : ''}${eachaudit.link}`}
+                  image={eachaudit.image}
+                  name={`${eachaudit.Year} | ${eachaudit.document} | ${eachaudit.category} | ${eachaudit.name}`}
+                  alt={eachaudit.alt ? eachaudit.alt : eachaudit.name}
+                  year=''
+                  document=''
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className='rounded-lg md:hidden'>
+            {audits.slice(0, 6).map((eachaudit: any, key: number) => (
+              <LineCard
+                key={key}
+                link={`${eachaudit.pre === false ? '' : ''}${eachaudit.link}`}
+                image={eachaudit.image}
+                name={`${eachaudit.Year} | ${eachaudit.document} | ${eachaudit.category} | ${eachaudit.name}`}
+                alt={eachaudit.alt ? eachaudit.alt : eachaudit.name}
+              />
+            ))}
+          </div>
+
+          <div className='flex flex-row'>
+            <Link href='/audits'>
+              <div className={`${kirbybutton}`}>All Oversight</div>
+            </Link>
+          </div>
         </div>
 
+        <div className='container mx-auto px-4  '>
+          <h2 className='frontpageh2section'> Upcoming Audits & Reports</h2>
+
+          <div className='hidden grid-cols-3 gap-x-4 gap-y-4 md:grid md:grid-cols-4 lg:grid-cols-5'>
+            {upcoming.slice(0, 4).map((eachupcoming: any, key: number) => (
+              <UpcomingBigCard
+                key={key}
+                link={`${eachupcoming.link}`}
+                year={eachupcoming.year}
+                dept={titleCase(eachupcoming.dept)}
+                name={eachupcoming.name}
+                alt={eachupcoming.alt ? eachupcoming.alt : eachupcoming.name}
+                image=''
+                document=''
+              />
+            ))}
+
+            <div className='hidden lg:block'>
+              {upcoming.slice(4, 5).map((eachupcoming: any, key: number) => (
+                <UpcomingBigCard
+                  key={key}
+                  link={`${eachupcoming.link}`}
+                  year={eachupcoming.year}
+                  dept={titleCase(eachupcoming.dept)}
+                  name={eachupcoming.name}
+                  alt={eachupcoming.alt ? eachupcoming.alt : eachupcoming.name}
+                  image=''
+                  document=''
+                />
+              ))}
+
+
+
+            </div>
+          </div>
+
+
+
+          <div className='rounded-lg  md:hidden'>
+            {upcoming.slice(0, 6).map((eachupcoming: any, key: number) => (
+              <LineCard
+                key={key}
+                link={`${eachupcoming.pre === false ? '' : '/upcoming/'}${eachupcoming.link
+                  }`}
+                year={eachupcoming.year}
+                dept={titleCase(eachupcoming.dept)}
+                name={eachupcoming.name}
+              />
+            ))}
+          </div>
+
+          <div className='flex flex-row'>
+            <Link href='/upcoming'>
+              <div className={`${kirbybutton}`}>
+                All Upcoming Audits & Reports
+              </div>
+            </Link>
+          </div>
+        </div>
+
+        <div className='container mx-auto px-4  '>
+          <h2 className='pb-4 pt-8 dark:text-white'>Financial Reports</h2>
+
+          <div className='hidden grid-cols-3 gap-x-4 gap-y-4 md:grid  md:grid-cols-4 lg:grid-cols-5'>
+            {finance.slice(0, 4).map((eachaudit: any, key: number) => (
+              <BigCard
+                key={key}
+                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
+                  }`}
+                image={eachaudit.image}
+                year={eachaudit.year}
+                dept={titleCase(eachaudit.dept)}
+                name={eachaudit.name}
+                alt={eachaudit.alt ? eachaudit.alt : eachaudit.name}
+                document=''
+              />
+            ))}
+
+            <div className='hidden lg:block'>
+              {finance.slice(4, 5).map((eachaudit: any, key: number) => (
+                <BigCard
+                  key={key}
+                  link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
+                    }`}
+                  image={eachaudit.image}
+                  year={eachaudit.year}
+                  dept={titleCase(eachaudit.dept)}
+                  name={eachaudit.name}
+                  alt={eachaudit.alt ? eachaudit.alt : eachaudit.name}
+                  document=''
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className='rounded-lg  md:hidden'>
+            {finance.slice(0, 6).map((eachaudit: any, key: number) => (
+              <LineCard
+                key={key}
+                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
+                  }`}
+                image={eachaudit.image}
+                year={eachaudit.year}
+                dept={titleCase(eachaudit.dept)}
+                name={eachaudit.name}
+              />
+            ))}
+          </div>
+
+          <div className='flex flex-row'>
+            <Link href='/reports'>
+              <div className={`${kirbybutton}`}>All Financial Reports</div>
+            </Link>
+          </div>
+        </div>
+
+        <div className='container mx-auto px-4 pt-2 lg:pt-6'>
+          <h2 className=''>
+            <span className='frontpageh2section'>Budgets</span>
+          </h2>
+
+          <div className='flex flex-row flex-wrap gap-x-3 gap-y-3 pt-4 lg:hidden'>
+            {budget.slice(0, 6).map((eachbudget: any, key: number) => (
+              <Link href={`${eachbudget.link}`} key={key}>
+                <div className='rounded-full bg-[#41ffca] px-4 py-2 font-semibold text-black dark:text-black'>
+                  {eachbudget.name}
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className='hidden flex-row flex-wrap gap-x-3 gap-y-3 pt-4 lg:flex'>
+            {budget.slice(0, 9).map((eachbudget: any, key: number) => (
+              <Link href={`${eachbudget.link}`} key={key}>
+                <div className='rounded-full bg-[#41ffca] px-4 py-2 font-semibold text-black dark:text-black'>
+                  {eachbudget.name}
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div className='flex flex-row pb-8 pt-4'>
+            <Link href='/budgets' target='_blank' rel='noreferrer'>
+              <div className={`${kirbybutton}`}>All Budgets</div>
+            </Link>
+          </div>
+        </div>
+
+        <div className='container mx-auto px-4 '>
+          <h2 className=''>
+            <span className='frontpageh2section'>Data Sites</span>
+          </h2>
+
+          <div className=' hidden grid-cols-3 gap-x-4 gap-y-4 sm:grid md:grid-cols-4 lg:grid-cols-5'>
+            {data.slice(0, 4).map((eachaudit: any, key: number) => (
+              <BigCard
+                key={key}
+                link={`${eachaudit.link}`}
+                image={eachaudit.image}
+                year={eachaudit.year}
+                dept={titleCase(eachaudit.dept)}
+                name={eachaudit.name}
+                alt={eachaudit.alt ? eachaudit.alt : eachaudit.name}
+                document=''
+              />
+            ))}
+
+            <div className='hidden lg:block'>
+              {data.slice(4, 5).map((eachaudit: any, key: number) => (
+                <BigCard
+                  key={key}
+                  link={`${eachaudit.link}`}
+                  image={eachaudit.image}
+                  year={eachaudit.year}
+                  dept={titleCase(eachaudit.dept)}
+                  name={eachaudit.name}
+                  alt={eachaudit.alt ? eachaudit.alt : eachaudit.name}
+                  document=''
+                />
+              ))}
+            </div>
+          </div>
+
+          <div className='rounded-lg  sm:hidden'>
+            {data.slice(0, 5).map((eachaudit: any, key: number) => (
+              <LineCard
+                key={key}
+                link={`${eachaudit.link}`}
+                image={eachaudit.image}
+                year={eachaudit.year}
+                dept={titleCase(eachaudit.dept)}
+                name={eachaudit.name}
+              />
+            ))}
+          </div>
+
+          <div className='flex flex-row'>
+            <Link href='/data' target='_blank' rel='noreferrer'>
+              <div className={`${kirbybutton}`}>All Data Sites</div>
+            </Link>
+          </div>
+
+          <div className=' container mx-auto mt-4 bg-zinc-50 px-4 py-4 dark:bg-zinc-800'>
+            <ImportantLinksSection />
+          </div>
+        </div>
       </Layout>
     </>
   );
