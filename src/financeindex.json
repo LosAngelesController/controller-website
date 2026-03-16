@@ -1,564 +1,305 @@
 {
   "finance": [
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2FCity%20of%20LA%20Department%20Metrics%20Dashboard.png?alt=media&token=8b45fa8e-16cb-464c-91bd-00b6b90c70cb",
-      "name": "City of LA Department Metrics Dashboard",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/pafr25.png?alt=media&token=ede9e4e6-663a-49d6-818f-387d3301af03",
+      "name": "Annual Comprehensive Financial Report FY25",
       "year": "2026",
-      "dept": "Dashboard",
-      "link": "https://lacitymetrics.lacontroller.app/"
+      "dept": "Financial Report",
+      "link": "https://pafr25.lacontroller.app/",
+      "pre": false,
+      "alt": "Cover photo Preliminary Financial Report 2025"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/capitalprojectdashboard.png?alt=media&token=88ef3bfa-7701-4dee-95c4-83c547fe4a81",
-      "name": "Capital Projects Dashboard",
-      "year": "2026",
-      "dept": "Dashboard",
-      "link": "https://capitalprojects.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/cityoflaparkingcitationdashboard2025.png?alt=media&token=7280d5eb-a8f8-4622-872e-d70a5c41f179",
-      "name": "Parking Tickets Dashboard & Map 2025",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/financial%20reports%2Frev25-cover3.jpg?alt=media&token=106ff50a-f4d3-4192-95ba-832944673d54",
+      "name": "Revenue Forecast Report",
       "year": "2025",
-      "dept": "Dashboard",
-      "link": "https://parkingtickets.lacontroller.app/"
+      "dept": "Financial Report",
+      "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/financial%20reports%2FController%20Revenue%20Forecast%20Report_030325.pdf?alt=media&token=71f700ff-27cf-4396-b9e4-1fcf325868ad",
+      "pre": false,
+      "alt": "Cover photo Revenue Forecast Report 2025"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/FY2026%20General%20Fund%20Revenue%20%26%20Expense%20Analysis.png?alt=media&token=dbfa9ad3-0c29-4876-8f48-d211981545cd",
-      "name": "FY2026 General Fund Revenue & Expense Analysis Dashboard",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Press%20Releases%2Fpafr25%2Facfr2025cover.jpg?alt=media&token=829c7b21-25f4-4414-af73-a2736c0b818d",
+      "name": "Annual Comprehensive Financial Report FY24 ",
       "year": "2025",
-      "dept": "Dashboard",
-      "link": "https://revexp.lacontroller.app/"
+      "dept": "Financial Report",
+      "link": "https://controller.lacity.gov/reports/pafr24",
+      "pre": false,
+      "alt": "Cover photo Preliminary Financial Report 2024"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Homelessness%20Dashboard%20(8).png?alt=media&token=b95f8cc1-5bf7-45eb-a6a0-7a101b2339e9",
-      "name": "P-Card Spending Dashboard",
-      "year": "2025",
-      "dept": "Dashboard",
-      "link": "https://pcard.lacontroller.app/"
-    },
-    {
-      "image": "/images/FY202526AdoptedBudget.png",
-      "name": "FY2025-26 Adopted Budget",
-      "year": "2025",
-      "dept": "Charts",
-      "link": "https://budget.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2FController%20Immigration.png?alt=media&token=18a49dae-208d-4eb3-b9af-254f7392aefa",
-      "name": "Controller Immigration Resources and City Response",
-      "year": "2025",
-      "dept": "Dashboard",
-      "link": "https://immigration.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/bathrooms-thumbnail.png?alt=media&token=a32e4362-aa08-4553-95e8-9f4ace03c456",
-      "name": "City of LA Bathrooms and Drinking Fountains",
-      "year": "2025",
-      "dept": "Map",
-      "link": "https://bathrooms.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Homelessness%20Dashboard.png?alt=media&token=9094c66f-d4a1-4749-8e54-b5af8ce73ede",
-      "name": "Liability Claims Dashboard",
-      "year": "2025",
-      "dept": "Dashboard",
-      "link": "https://liabilityclaims.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/thumbnails%2Fyour-cityofLA-budget.png?alt=media&token=c03562ee-9096-4688-894e-999d6423412f",
-      "name": "Your City of LA Budget",
-      "year": "2025",
-      "dept": "Charts",
-      "link": "https://mylabudget.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Press%20Releases%2Funnamed.png?alt=media&token=42a8c22b-ef5f-4231-bc76-6f3ab003c1de",
-      "name": "Popular Annual Financial Report FY2024",
-      "year": "2025",
-      "dept": "Dashboard",
-      "link": "https://controller.lacity.gov/reports/pafr24"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/thumbnails%2Fovpr.png?alt=media&token=c790b54f-aad6-41e7-a703-ec4a14329758",
-      "name": "Oversized Vehicle Parking Restrictions Map",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/financial%20reports%2Frevforecastcover24-25.jpg?alt=media&token=e5d242a6-d2f2-4218-b1d4-50dda3444117",
+      "name": "Revenue Forecast Report",
       "year": "2024",
-      "dept": "Map",
-      "link": "https://ovo-zones.lacontroller.app/"
+      "dept": "Financial Report",
+      "link": "https://controller.lacity.gov/reports/revenueforecast25",
+      "pre": false,
+      "alt": "Cover photo Revenue Forecast Report"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/thumbnails%2Fovo-parking-citations.png?alt=media&token=2d47a614-b402-4202-9bd2-e5b9e61331c1",
-      "name": "Oversized Vehicle Parking Citations Map",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Screenshot%202024-02-01%20at%208.29.41%20AM.png?alt=media&token=b442d276-13da-477f-a018-001745560d88",
+      "name": "Annual Comprehensive Financial Report FY23",
       "year": "2024",
-      "dept": "Map",
-      "link": "https://ovo-parking-citations.lacontroller.app/"
+      "dept": "Financial Report",
+      "link": "https://controller.lacity.gov/reports/pafr23",
+      "pre": false,
+      "alt": "Cover photo Annual Comprehensive Financial Report 2023"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Press%20Releases%2F2.png?alt=media&token=0a170023-0a52-43cd-bc12-5bf5fea75191",
-      "name": "Los Angeles Single Family/Multi-Family Zoning Map",
-      "year": "2024",
-      "dept": "Map",
-      "link": "https://single-family-zoning.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Press%20Releases%2F1.png?alt=media&token=8bd6302c-ec42-4ccb-8aa2-d23ace060c12",
-      "name": "Approved Affordable Housing Units (2018-2024)",
-      "year": "2024",
-      "dept": "Map",
-      "link": "https://affordable-housing-approved.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Press%20Releases%2F4118-banner%20(3).png?alt=media&token=632b7d57-6ff4-40f0-9e3b-ab1058d50ef9",
-      "name": "Safe Parking Map",
-      "year": "2024",
-      "dept": "Map",
-      "link": "https://safe-parking.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Press%20Releases%2F4118-banner%20(1).png?alt=media&token=25e4cc3a-dd98-4a9e-a028-7cb486349d3c",
-      "name": "Permanent Supportive Housing Map",
-      "year": "2024",
-      "dept": "Map",
-      "link": "https://permanent-supportive.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/4118-banner%20(4).png?alt=media&token=f99a363f-a629-49cf-96d0-f85cf0e9ff27",
-      "name": "Interim Housing Map",
-      "year": "2024",
-      "dept": "Map",
-      "link": "https://interim-housing.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/homeless_dashboard%2FHomelessnessDashboard.png?alt=media&token=c8dc1cf9-5291-457b-be4d-e1414147b1cb",
-      "name": "Homelessness Dashboard",
-      "year": "2024",
-      "dept": "Dashboard",
-      "link": "https://homelessdashboard.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/2023-unhoused.png?alt=media&token=1d7fb3ae-12cc-46c4-94aa-f87557307705",
-      "name": "2023 Unhoused Deaths in City of LA",
-      "year": "2024",
-      "dept": "Map",
-      "link": "https://unhouseddeaths2023.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/deptvacancies_thumbnail.png?alt=media&token=c70b7a9b-c726-490a-90fa-be7c8ec5c869",
-      "name": "City of LA Staffing Vacancies by Department",
-      "year": "2024",
-      "dept": "Charts",
-      "link": "https://deptvacancies.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/liabclaim.png?alt=media&token=ca5c7821-85b2-45c5-826c-3dc7bc0ae14f",
-      "name": "City Of LA Liability Claim Payouts FY2020 - FY2023",
-      "year": "2024",
-      "dept": "Charts",
-      "link": "https://liabilityclaims.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Copy%20of%20LAAS%20Spay%20Neuter%20%26%20Shelter%20(4).png?alt=media&token=84e3ce8d-b11d-4fa7-91a9-c65eb785781b",
-      "name": "City Council Discretionary Funds Spending",
-      "year": "2024",
-      "dept": "Dataset",
-      "link": "https://ccspending.controller.lacity.gov/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/thumbnails%2Fcash-for-keys.png?alt=media&token=408d2b6d-fb8e-460c-89fa-dfc5bc338842",
-      "name": "Cash for Keys LA",
-      "year": "2025",
-      "dept": "Map",
-      "link": "https://cashforkeys.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/LA%20Homelessness%20Expense%20Tracker.png?alt=media&token=f7d20cf1-0b5f-466e-9b21-0fcc950263aa",
-      "name": "LA Homelessness Expense Tracker",
-      "year": "2024",
-      "dept": "Datasets",
-      "link": "https://controllerdata.lacity.org/dataset/HOMELESSNESS-EXPENSE-TRACKER/98ve-cuf5/data_preview"
-    },
-    {
-      "image": "/images/2022analysis.png",
-      "name": "LA City Payroll Employee Residence Analysis (2022)",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/prelim22-23-cover.jpg?alt=media&token=34ac7eca-0dac-4356-9a70-21f33cd4b3a8",
+      "name": "Preliminary Financial Report FY23 ",
       "year": "2023",
-      "dept": "Analysis",
-      "link": "https://controller.lacity.gov/landings/2022-employee-residence-analysis"
+      "dept": "Financial Report",
+      "link": "https://controller.lacity.gov/reports/pfr23",
+      "pre": false,
+      "alt": "Cover photo Preliminary Financial Report 2023"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/thumbnails%2F4118recent.png?alt=media&token=20362a52-b6cc-4d17-a158-031b8e1ea8b3",
-      "name": "41.18 Arrests (1/1/21 - 12/31/24)",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/financial%20reports%2Fidlespecialfunds.jpg?alt=media&token=69d117cb-df34-4ec4-85b1-f20d28fcebfd",
+      "name": "Leveraging Idle Special Funds 2023 ",
       "year": "2023",
-      "dept": "Map",
-      "link": "https://4118recentarrests.lacontroller.app/"
+      "dept": "Financial Report",
+      "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/financial%20reports%2FFinal_Special_Funds_Report-2023.pdf?alt=media&token=5e628268-7878-4ac4-8990-fe6aedf18abb",
+      "pre": false,
+      "alt": "Cover photo Leveraging Idle Special Funds 2023"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/deptvacancies_thumbnail.png?alt=media&token=c70b7a9b-c726-490a-90fa-be7c8ec5c869",
-      "name": "City of LA Staffing Vacancies by Department",
+      "image": "https://controller.lacity.gov/images/revforecastcover.jpg",
+      "name": "Revenue Forecast Report for Fiscal Years 2023-2024",
       "year": "2023",
-      "dept": "Charts",
-      "link": "https://deptvacancies.lacontroller.app/"
+      "dept": "Financial Report",
+      "link": "/reports/revenueforecast24",
+      "pre": false,
+      "alt": "Cover photo Revenue Forecast Report, Background Subway Train Stairs with corgi"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/ncreport.png?alt=media&token=18e2c5d3-6829-4ea0-a3df-27eb809406fa",
-      "name": "Neighborhood Councils Expenditure Report",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/acfr-mejia-mejito.png?alt=media&token=deb356bd-10af-408f-8c05-33c552b9e18d",
+      "name": "Annual Comprehensive Financial Report FY22",
       "year": "2023",
-      "dept": "Report",
-      "link": "https://ncspending.controller.lacity.gov/"
+      "dept": "Financial Report",
+      "link": "pafr22",
+      "alt": "Corgi in Park with Downtown LA in the background"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/eviction-notices.png?alt=media&token=4d0fae64-7d16-45b5-898d-4646cbc2b1d4",
-      "name": "Eviction Notices Map & Analysis",
-      "year": "2025",
-      "dept": "Map",
-      "link": "https://evictions.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/lapd-arrest-map.png?alt=media&token=c442083f-fb8f-4a6b-ba8d-0d6b6e91599c",
-      "name": "LAPD Arrests Map & Analysis",
-      "year": "2023",
-      "dept": "Map",
-      "link": "https://arrests.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/4118-banner.png?alt=media&token=28ea786e-894a-4bd4-b9fb-c844e46d8baa",
-      "name": "41.18 Arrests (Jan 2012 - May 2023)",
-      "year": "2023",
-      "dept": "Map",
-      "link": "https://4118arrests.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/affordable-housing.png?alt=media&token=00fdaf96-e113-420c-8775-391a1918d618",
-      "name": "Affordable Housing Covenants - 1985 to 2022",
-      "year": "2023",
-      "dept": "Map",
-      "link": "https://housingcovenants.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/LAAS%20Spay%20Neuter%20%26%20Shelter.png?alt=media&token=27bc963d-fe2e-4ff9-b4e1-9f1b68bb269e",
-      "name": "LA Animal Services Transparency Charts",
-      "year": "2023",
-      "dept": "Charts",
-      "link": "https://laascharts.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/banner-budget.png?alt=media&token=29c9bdbb-c597-4e6a-97b5-026b9c41ad1b",
-      "name": "City Of LA Budget",
-      "year": "2023",
-      "dept": "Charts",
-      "link": "https://budget.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/laas_banner.png?alt=media&token=d9ef3cd0-ad10-4599-9641-4a0c935168e0",
-      "name": "LAAS Spay Neuter & Shelter",
-      "year": "2023",
-      "dept": "Map",
-      "link": "https://spayneuter.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/unhoused.png?alt=media&token=bedc82ec-6232-47da-9731-1543bac5995d",
-      "name": "Unhoused Deaths in Los Angeles",
-      "year": "2023",
-      "dept": "Map",
-      "link": "https://unhouseddeaths.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FVisualizing-Nine-Years-of-Audits-Financial-Reports-and-Data-Stories-1.jpg?alt=media&token=07109c82-8bcd-482a-833e-f936a927e8bb",
-      "name": "Visualizing Nine Years of Audits, Reports and Data Stories",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2019%2F2021-22-Prelim-Financial-Report-Thumbnail-scaled.jpg?alt=media&token=714422e6-ba0b-47aa-93e6-abe2577d67bb",
+      "name": "Preliminary Financial Report FY22",
       "year": "2022",
-      "dept": "Dashboard",
-      "link": "https://public.tableau.com/views/VisualizingControllerGalperinsWork/AuditsFinancialReportsandDataStories?:language=en-US&:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=y&publish=yes&:origin=viz_share_link "
+      "dept": "Financial Report",
+      "link": "preliminary-financial-report-fy22",
+      "alt": "Downtown Los Angeles"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Flafd-banner-thumbnail.png?alt=media&token=c77624cd-905f-4a3d-b06d-e3672da0ba7c",
-      "name": "Get Ready, L.A.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FSpecial-Funds-Report-Cover.jpg?alt=media&token=125055e8-7d14-4a49-a1d3-4108db918227",
+      "name": "Maximizing the Use of Special Funds",
       "year": "2022",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/d32f5d0d03d64964be022b0de6c2b290"
+      "dept": "FINANCIAL REPORT",
+      "link": "special-funds-2022",
+      "alt": " Highway next tow Downtown LA"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fgreat-wall-of-los-angelesa-352.jpg?alt=media&token=de302ab0-c446-49b2-8996-06648d3c8560",
-      "name": "Unidos: Latinx en Los Angeles",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FRevenue-Forecast-Report-Cover-2022_alt-1.jpg?alt=media&token=bcaa0247-a97a-4339-b820-9411f796e70b",
+      "name": "Revenue Forecast Report for Fiscal Years 2022-2023",
       "year": "2022",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/ef7618624f2f4628883dd9f6ec8d4660"
+      "dept": "FINANCIAL REPORT",
+      "link": "revenueforecast2023",
+      "alt": " storm brewing over Los Angeles"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FCost-of-Living-Thumbnail-352x241-.jpg?alt=media&token=b763e1b5-aa7f-4f9c-aea7-5c874ea37952",
-      "name": "L.A.'s Cost of Living Crisis",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FAFR-FY21-Report-Cover_alt.jpg?alt=media&token=7cea9e5f-3bf3-404a-9bfa-7f8986b6a517",
+      "name": "Annual Comprehensive Financial Report FY21",
       "year": "2022",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/328b8455699f46e78b50f948c2853216"
+      "dept": "Financial Report",
+      "link": "acfr2021",
+      "alt": "Hollywood sign in the background"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FLGBTQ-Pride-2021_thumb_352x241.jpg?alt=media&token=969e0428-0459-426a-ba62-52827a5e4259",
-      "name": "LGBTQ+ Pride, Progress and Perseverance ",
-      "year": "2022",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/d986ea4235fe47d68da9fef08006bd8b"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Flahsa_352.jpg?alt=media&token=616bca6e-a4a7-4097-94ce-278d229c783c",
-      "name": "Homelessness and Housing Hub",
-      "year": "2022",
-      "dept": "Map",
-      "link": "https://lacontroller.maps.arcgis.com/apps/dashboards/b97e8c693b18495083ca6ef1e5a4d43c"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Ffood-for-californians-352x241-1.jpg?alt=media&token=2521b2dd-b556-46f2-9f05-1d55a313f126",
-      "name": "Free Food in California",
-      "year": "2022",
-      "dept": "Map",
-      "link": "https://lacontroller.maps.arcgis.com/apps/instant/nearby/index.html?appid=319e5219ffc24bfa9aa532bb1d8a1a23"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FTax-Prep-352x241-1.jpg?alt=media&token=c12fc90a-26ea-4490-9d5c-7229b277674c",
-      "name": "Free Tax Prep Los Angeles",
-      "year": "2022",
-      "dept": "Map",
-      "link": "https://lacontroller.maps.arcgis.com/apps/instant/nearby/index.html?appid=dfc1736890424acc8263676be00da37f"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Flos-angeles-skyline_352x241.jpg?alt=media&token=07e3f9a5-9035-4175-b7f5-483be1e067ad",
-      "name": "Inside L.A. City Finances",
-      "year": "2022",
-      "dept": "Dashboard",
-      "link": "https://controllerdata.lacity.org/stories/s/s482-ftsm"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fhomelessness_la_352x241.jpg?alt=media&token=27fab275-1115-4a15-adc4-56edaa37e5f4",
-      "name": "The Problems and Progress of Prop. HHH Story Map",
-      "year": "2022",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/bc84be5b5f794fc7a1c6e81bc5ef0104"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FWatts_towers_352x241.jpg?alt=media&token=3a102714-d920-43e8-93b4-399520232abc",
-      "name": "Black History Is L.A. History",
-      "year": "2022",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/c9c7c9db4d3f4c2aa5bb967a51c7d768"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FGriffith-Observatory-sunset_352x241.jpg?alt=media&token=8f064dd4-97f6-41d7-9557-f6f94251271b",
-      "name": "City Activities Dashboard",
-      "year": "2022",
-      "dept": "Resource",
-      "link": "https://public.tableau.com/views/2021ACFR/CityActivitiesDashboard?:language=en-US&:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=y&:origin=viz_share_link"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Flos_angeles_city-properties_352x241.jpg?alt=media&token=3109fdb5-318d-493f-9a0d-3f4fc63e4acb",
-      "name": "City Properties Available for Homeless Housing and Services",
-      "year": "2022",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/8c7809428740453e83dfdc7475a7f2fb"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fholiday-budgeting-tips_352x241.jpg?alt=media&token=5afc193f-a275-4c0c-b1e1-8accad5c31fc",
-      "name": "Holiday Financial Tips",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPreliminary-Financial-Report-Cover-2021.jpg?alt=media&token=b1414c01-2e4b-40c2-9a7c-c77f40640003",
+      "name": "Preliminary Financial Report FY21",
       "year": "2021",
-      "dept": "Resource",
-      "link": "https://storymaps.arcgis.com/stories/7b65075d01c2474695b44e7a9ada6659"
+      "dept": "Financial Report",
+      "link": "pfr2021"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FBroken-sidewalk-352x241-1.jpg?alt=media&token=980c8d35-5992-417c-b792-c9bb4be7491c",
-      "name": "Sidewalk Repair Requests Dashboard",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FRevenue-Forecast-Report-Cover-2021_long-winding-road.jpg?alt=media&token=7afd3a09-9378-4ae5-ac5d-0b4f4091c123",
+      "name": "Revenue Forecast Report for Fiscal Years 2021-2022",
       "year": "2021",
-      "dept": "Resource",
-      "link": "https://lacontroller.maps.arcgis.com/apps/dashboards/520f51079f5a4516a8f642d399158e2d"
+      "dept": "FINANCIAL REPORT",
+      "link": "revenueforecast2022"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FFood-insecurity_352x241.jpg?alt=media&token=a3215687-f785-4756-a9bb-70aab2f904e9",
-      "name": "Hunger for Solutions to Food Insecurity",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FCAFR-FY20-Report-Cover-e1611252399776.jpg?alt=media&token=8dbfd326-b65f-4f04-b7be-1631e979fd9f",
+      "name": "Annual Comprehensive Financial Report FY20",
       "year": "2021",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/668a02958b774daea3cdd55bfa48d6d1"
+      "dept": "Financial Report",
+      "link": "cafr2020"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fcovid-testing_mayor-garcetti_352x241.jpg?alt=media&token=1805fb35-7c27-4b54-9b9c-75ad652b5adc",
-      "name": "LAFD COVID-19 Labor Costs Dashboard",
-      "year": "2021",
-      "dept": "Resource",
-      "link": "https://public.tableau.com/views/LAFDCOVID-19LaborCosts/Workforce?:language=en-US&:display_count=n&:origin=viz_share_link"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FARP-graph_no-words_no-numbers-copy_352x241.jpg?alt=media&token=b8a0f789-d7ed-474c-a66c-51e959682672",
-      "name": "How the American Rescue Plan is Impacting L.A.",
-      "year": "2021",
-      "dept": "Resource",
-      "link": "https://public.tableau.com/views/AmericanRescuePlan/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FLGBTQ-Pride-2021_thumb_352x241.jpg?alt=media&token=969e0428-0459-426a-ba62-52827a5e4259",
-      "name": "LGBTQ+ Pride: Toward Equity & Equity",
-      "year": "2021",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/b5389e1e42c945c2a54d51e6d8ccd1e9"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FCovid-spending-tracker-thumb.jpg?alt=media&token=28c49817-18cb-47f5-b8fc-704d6d3da19c",
-      "name": "COVID-19 Spending Tracker",
-      "year": "2021",
-      "dept": "Resource",
-      "link": "https://public.tableau.com/views/COVIDSpendingTracker/UpdatedSpendingTracker?:language=en-US&:toolbar=n&:display_count=n&:origin=viz_share_link"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fcovid-dash-352x241-1.png?alt=media&token=bfbfc272-d8f0-4bdd-8678-fb1cf94f575f",
-      "name": "COVID-19 Dashboard",
-      "year": "2021",
-      "dept": "Resource",
-      "link": "https://www.arcgis.com/apps/dashboards/e767cbb9b3964148af558bc21c4a9136"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fillegal-dumping_352x241.jpg?alt=media&token=304b5a7f-43d1-4885-964a-63c637b3e3f2",
-      "name": "Illegal Dumping Dashboard",
-      "year": "2021",
-      "dept": "Resource",
-      "link": "https://lacontroller.maps.arcgis.com/apps/dashboards/54a77fc6a1b64794aae8e428b1f4b6d2"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F311_352x241.jpg?alt=media&token=bb45c881-4550-48de-9ba0-ea3ebb8a7d7a",
-      "name": "311 Dashboard",
-      "year": "2021",
-      "dept": "Resource",
-      "link": "https://public.tableau.com/views/311ReportDashboard/CDDashboard?:language=en&:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=y&publish=yes&:origin=viz_share_link"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F1_crowd-young-elderly-men-women-tr.jpg?alt=media&token=44921252-c506-4537-b48e-531825919d77",
-      "name": "City Workforce Dashboard",
-      "year": "2021",
-      "dept": "Resource",
-      "link": "https://public.tableau.com/views/DiversityandEquityPayrollReport/WorkforceDashboard3?:language=en&:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=y&:origin=viz_share_link"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FEquity-Index-screenshot-352x241-1-e1605218811434.jpg?alt=media&token=61c8ae7d-4d82-4c6e-931f-68252aae3c5e",
-      "name": "A Great Divide: L.A. Equity Index",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPreliminary-Financial-Report-Cover-2020.jpg?alt=media&token=2e870c00-33c6-4e23-a1d8-4b9fd098e377",
+      "name": "Preliminary Financial Report FY20",
       "year": "2020",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/ca477e68657643c9a2bad1fddfe24359"
+      "dept": "Financial Report",
+      "link": "pfr2020"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FOutdoor-dining-2_352x241.jpg?alt=media&token=d4938f12-1781-4399-9e42-fe5d3ca13ffb",
-      "name": "Getting Main St. Back on Its Feet: Small Biz Resources",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FRevised-Revenue-Forecast_umbrella-e1586808384955.jpg?alt=media&token=9cb18319-af17-422f-a5f4-98120734efe6",
+      "name": "Revised Revenue Forecast for Fiscal Years 2020-2021",
       "year": "2020",
-      "dept": "Resource",
-      "link": "https://storymaps.arcgis.com/stories/058fde03441441dc8d0c7e2f3232d497"
+      "dept": "FINANCIAL REPORT",
+      "link": "revised-revenue-forecast-2020-2021"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FID-docs-352x241-1.jpg?alt=media&token=0d4cee55-f053-47ce-8da7-e8b435b7f409",
-      "name": "Be Prepared: How to Build a Financial First Aid Kit",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FFinal-Cover_Revenue-Forecast-Report-scaled.jpg?alt=media&token=ec61838a-20ea-4916-a25f-7725d549f73f",
+      "name": "Revenue Forecast Report for Fiscal Years 2020-2021",
       "year": "2020",
-      "dept": "Resource",
-      "link": "https://storymaps.arcgis.com/stories/65ed3020931d44b0b36376a03ec0a2aa"
+      "dept": "FINANCIAL REPORT",
+      "link": "revenue-forecast-report-fy21"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fhomelessness-part-2_no-names_cropped354x241.jpg?alt=media&token=867cb52e-0d14-4a09-9588-54589e6b8a6f",
-      "name": "Meeting the Moment to Advance Prop. HHH",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPAFR-Cover-Version-3.png?alt=media&token=bda01189-29c6-49b4-80d2-54b47cdc0273",
+      "name": "Annual Financial Report FY19",
       "year": "2020",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/b1ab32a29fbe4a9e936931394ec22cf8"
+      "dept": "Financial Report",
+      "link": "cafr-2019"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fjoblosses2_smaller.jpg?alt=media&token=756f470f-d915-44c4-8e66-e97f229df803",
-      "name": "COVID-19 Job Losses In L.A.",
-      "year": "2020",
-      "dept": "Map",
-      "link": "https://public.tableau.com/views/JobLossJuly/July?:language=en&:embed=y&:toolbar=n&:embed_code_version=3&:loadOrderID=0&:display_count=y&publish=yes&:origin=viz_share_link"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Farchitecture-buildings-business-car-331990_352.jpg?alt=media&token=0d50b0fc-2f00-4057-90b8-b9cdc4b9fab4",
-      "name": "Small Business Microloan Tracker",
-      "year": "2020",
-      "dept": "Map",
-      "link": "https://public.tableau.com/views/MicroloansVisualization/MicroloansDashboard?:language=en&:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=y&:origin=viz_share_link"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fengineering_geology-scaled-e1592331519392.jpg?alt=media&token=9fe3b5d8-a410-4722-9447-06fcde5a5a52",
-      "name": "A More Modern Approach to City-Owned Art",
-      "year": "2020",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/c127b26156914b9caf3b7d5a39cb2719"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fwall-las-memorias_small.jpg?alt=media&token=871f296c-9a15-4c29-9358-505402e9b3c9",
-      "name": "LGBTQ+ Pride & Power",
-      "year": "2020",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/6cdd00b0242a4ffbb03c77f6c6a9f762"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FStimulus-checks.jpg?alt=media&token=d547d70e-7077-4d95-aa84-a76ea2b3eb3e",
-      "name": "Stimulus Checks in Los Angeles",
-      "year": "2020",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/8f762395cd204552bb958ecb1b54339d"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F816d69c601c696e12a96f4ef723f-1448801.jpgd_.jpg?alt=media&token=ab157770-154c-4595-8b4e-e55c73449310",
-      "name": "Food Pantries Across L.A. County",
-      "year": "2020",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/b6167ef98ac2438fbaf7624b4257bb16"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fpower-lines-fires.jpeg?alt=media&token=b104dbb6-a670-4fbb-a525-817b2fa617a2",
-      "name": "Sparking DWP's Wildfire Prevention Strategy",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FAudit-and-Report-Cover-PFR-e1571165235945.jpg?alt=media&token=ff53e282-f036-487c-b4b6-6b630c74af50",
+      "name": "Preliminary Financial Report FY19",
       "year": "2019",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/73d3f4d69eed4d8fa204ba221b47cbd0"
+      "dept": "Financial Report",
+      "link": "preliminary-financial-report-2019"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FVermont-Rendering-Final-1.jpg?alt=media&token=5029c302-5868-4fec-83ee-15052e0c272d",
-      "name": "The High Cost of Homeless Housing",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FRevenue-Forecast-Report-Cover_243.jpg?alt=media&token=f88e224c-81d1-4043-824f-75bf05cb32f8",
+      "name": "Revenue Forecast Report for Fiscal Years 2019-2020",
       "year": "2019",
-      "dept": "Map",
-      "link": "https://storymaps.arcgis.com/stories/b10aa6780e4a45499715e8e9dc4fcee4"
+      "dept": "Financial Report",
+      "link": "revenue-forecast"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FSummer-Fun-in-LA-pic.png?alt=media&token=c1fa7c9a-ef9c-4155-8f82-39fe2d7cfb2d",
-      "name": "Summer Fun in L.A.",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FIn_the_Balanace_-_Special_Funds_Cover.png?alt=media&token=6cd03a07-09a1-4c57-9ff9-75fdf02b2557",
+      "name": "In the Balance: Report on the City’s Special Funds",
       "year": "2019",
-      "dept": "MAP, Data Report",
-      "link": "https://arcg.is/GKOHq"
+      "dept": "Financial Report",
+      "link": "special-funds"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FgirlsMajors2018.jpg?alt=media&token=f1aecdb4-cc6b-4301-a998-433a297fb8df",
-      "name": "Youth Programs ",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F2018_CAFR_sm.png?alt=media&token=76a67439-4107-4fdf-bbb7-2be8b98fa916",
+      "name": "Annual Financial Report FY18",
       "year": "2019",
-      "dept": "Map",
-      "link": "https://arcg.is/1efXT0"
+      "dept": "Financial Report",
+      "link": "2018-popular-financial-report"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FProperty-Panel-352-e1560817645925.png?alt=media&token=ad066459-00e9-4be4-9faf-4b5b2e5dcf7b",
-      "name": "Property Panel",
-      "year": "2019",
-      "dept": "Property Map",
-      "link": "https://arcg.is/1SjrXX"
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPrelim-Financial-Report-Cover-1.jpg?alt=media&token=378e2dc4-60bd-47e3-8efa-a9f0821bac9e",
+      "name": "Preliminary Financial Report FY18",
+      "year": "2018",
+      "dept": "Financial Report",
+      "link": "preliminary-financial-report"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FLGBTQ-City-Hall-Data-Story.jpg?alt=media&token=74cf19d5-890f-4e3d-8778-06ac24a7aac4",
-      "name": "LGBTQ+ Resources",
-      "year": "2019",
-      "dept": "Map, Data Report",
-      "link": "https://arcg.is/1q0aSf"
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Ffinancial-report-2018-idle-funds.jpg?alt=media&token=54f02ca7-394d-4ac9-9c5d-986d57d9150c",
+      "name": "Idle Funds",
+      "year": "2018",
+      "dept": "Financial Report",
+      "link": "idle-funds"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Faffordable-housing-data-story.png?alt=media&token=e0613b01-6442-40ea-b408-231d20e0299e",
-      "name": "Affordable Housing: Incentives and Oversight",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Ffinancial-report-2018-idle-funds.jpg?alt=media&token=54f02ca7-394d-4ac9-9c5d-986d57d9150c",
+      "name": "Economic Outlook for the City of Los Angeles",
+      "year": "2018",
+      "dept": "Economist Report",
+      "link": "beacon-economics-llc"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Ffinancial-report-2018-idle-funds.jpg?alt=media&token=54f02ca7-394d-4ac9-9c5d-986d57d9150c",
+      "name": "UCLA Anderson Forecast",
+      "year": "2018",
+      "dept": "Economist Report",
+      "link": "ucla-anderson-forecast"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Ffinancial-report-2018-idle-funds.jpg?alt=media&token=54f02ca7-394d-4ac9-9c5d-986d57d9150c",
+      "name": "City of Los Angeles Economic Forecast",
+      "year": "2018",
+      "dept": "Economist Report",
+      "link": "la-city-forecast"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F2017-CAFR.png?alt=media&token=e4ac24a3-44c6-41be-aaa5-fa5b7f7aeb28",
+      "name": "Annual Financial Report FY17",
+      "year": "2018",
+      "dept": "Financial Report",
+      "link": "2017-comprehensive-annual-financial-report"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPFR-Cover-2017.png?alt=media&token=cc54d77e-a9ca-4f86-a905-cd6c472e6ca4",
+      "name": "Preliminary Financial Report FY17",
+      "year": "2018",
+      "dept": "Financial Report",
+      "link": "2017-preliminary-financial-report"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FRevenue-Forecast-Report-Cover.png?alt=media&token=cdfec6f3-92fc-41d8-a038-e11d242fd7ed",
+      "name": "Revenue Forecast Report FY18",
       "year": "2017",
-      "dept": "Map, Data Report",
-      "link": "https://arcg.is/1q0aSf"
+      "dept": "Revenue Forecast Report",
+      "link": "2017-revenue-forecast-report"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fparking-tickets-data-story.png?alt=media&token=05c0c03a-3661-4bfb-8199-415a72aee000",
-      "name": "Street Talk: Parking Tickets in LA",
-      "year": "2017",
-      "dept": "MAP, Data Report",
-      "link": "https://lacontroller.maps.arcgis.com/apps/Embed/index.html?webmap=fe0e444a0ffc4cb3a2da1aef4c6cbc46&extent=-118.8495,33.8219,-118.0407,34.1942&zoom=true&scale=true&search=true&searchextent=true&disable_scroll=true&theme=light"
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPreliminary_FY16_Cover-1.jpg?alt=media&token=496972e6-bd34-4e32-bd98-3b645623428c",
+      "name": "Preliminary Financial Report FY16",
+      "year": "2016",
+      "dept": "Preliminary Financial Report",
+      "link": "2016-preliminary-financial-report"
     },
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2Fnoise.1.jpg?alt=media&token=68d9b10b-2a13-4701-b51c-97c52c22326f",
-      "name": "Ready for Take Off?",
-      "year": "2017",
-      "dept": "Map, Data Report",
-      "link": "https://webtrak.emsbk.com/lax4"
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F2016-CAFR.png?alt=media&token=77a919e3-c04b-407a-8a89-7be27c93ae2a",
+      "name": "Annual Financial Report FY16",
+      "year": "2016",
+      "dept": "Financial Report",
+      "link": "2016-comprehensive-annual-financial-report"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F2015-CAFR.png?alt=media&token=61e255c1-f10b-41f2-ad12-893897cbc0e9",
+      "name": "Annual Financial Report FY15",
+      "year": "2016",
+      "dept": "Financial Report",
+      "link": "2015-comprehensive-annual-financial-report"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPreliminary_FY15_Cover.jpg?alt=media&token=22170318-11ac-4072-b2b9-6d3e2da00c14",
+      "name": "Preliminary Financial Report FY15",
+      "year": "2015",
+      "dept": "Preliminary Financial Report",
+      "link": "2015-preliminary-financial-report"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F2014-CAFR.png?alt=media&token=f100591c-ea3c-4a41-9fc1-cc02145fb72e",
+      "name": "Annual Financial Report FY14",
+      "year": "2015",
+      "dept": "Financial Report",
+      "link": "2014-comprehensive-annual-financial-report"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPreliminary_FY14_Cover.jpg?alt=media&token=e05c2792-741e-41f8-a9a8-91fc1b7c2f39",
+      "name": "Preliminary Financial Report FY14",
+      "year": "2014",
+      "dept": "Preliminary Financial Report",
+      "link": "2014-preliminary-financial-report"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2F2013-CAFR.png?alt=media&token=87db368b-87e4-40b4-9a93-c711e600205f",
+      "name": "Annual Financial Report FY13",
+      "year": "2014",
+      "dept": "Financial Report",
+      "link": "2013-comprehensive-annual-financial-report"
+    },
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FPreliminary_FY13_Cover.jpg?alt=media&token=03f62c53-8296-4d50-ae48-27737bb9866a",
+      "name": "Preliminary Financial Report FY13",
+      "year": "2013",
+      "dept": "Preliminary Financial Report",
+      "link": "2013-preliminary-financial-report"
     }
   ]
 }
