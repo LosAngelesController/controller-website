@@ -146,7 +146,7 @@ export default function HomePage(props: any) {
                 <p>
                   After years of cuts, the Controller is currently underfunded with just <b>0.29% of the
                     General Fund</b>. This only allows for 7 auditors and 5 fraud, waste and abuse investigators
-                  for the second largest City in the County.
+                  for the second largest City in the country.
                 </p>
 
                 <p>
