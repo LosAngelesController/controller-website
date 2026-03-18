@@ -63,16 +63,26 @@ export default function Footer() {
         )}
 
         <div className='sm:flex sm:items-center sm:justify-between'>
-          <span className='text-sm text-gray-500 dark:text-gray-100 sm:text-center '>
-            © 2026{' '}
-            <a
-              href='https://controller.lacity.gov'
-              className='p-0 text-gray-800 hover:text-gray-500 hover:underline dark:text-white'
-            >
-              Kenneth Mejia, Los Angeles City Controller
-            </a>
-            . All Rights Reserved.
-          </span>
+          <div className='flex flex-col gap-1'>
+            <span className='text-sm text-gray-500 dark:text-gray-100 sm:text-center '>
+              © 2026{' '}
+              <a
+                href='https://controller.lacity.gov'
+                className='p-0 text-gray-800 hover:text-gray-500 hover:underline dark:text-white'
+              >
+                Kenneth Mejia, Los Angeles City Controller
+              </a>
+              . All Rights Reserved.
+            </span>
+            <span>
+              <a
+                href='https://disclaimer.lacity.gov/accessibility.htm'
+                className='p-0 text-sm text-gray-800 hover:text-gray-500 hover:underline dark:text-white'
+              >
+                Citywide Accessibility
+              </a>
+            </span>
+          </div>
           <div className='mt-4 flex space-x-6 text-black dark:text-mejito sm:mt-0 sm:justify-center'>
             <a
               href=' https://www.facebook.com/lacontroller'
