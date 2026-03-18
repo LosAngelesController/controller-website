@@ -248,16 +248,7 @@ export default function HomePage(props: any) {
 
         {/* CALL TO ACTION */}
 
-        <div className='container mx-auto px-4 pt-2'>
-          <a
-            href={CHARTER_SITE_URL}
-            target='_blank'
-            rel='noopener noreferrer'
-            className='inline-block text-base font-semibold text-teal-700 underline'
-          >
-            Take Action! Send this email to the Charter Reform Commission now!
-          </a>
-        </div>
+
 
         {/* FINANCIAL DATA */}
 
