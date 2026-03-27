@@ -1,10 +1,15 @@
 import Navbar from '@/components/Navbar';
+import Seo from '@/components/Seo';
 import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Index = () => {
   return (
     <>
+      <Seo
+        templateTitle="Audit: LAPD's Compliance with Military Equipment State Law AB 481"
+        description="Performance audit of the LAPD's compliance with California state law AB 481, covering military equipment oversight, key findings, and recommendations."
+      />
       <Navbar />
 
       <div className='bg-background min-h-screen'>

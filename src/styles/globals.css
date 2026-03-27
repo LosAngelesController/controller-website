@@ -513,6 +513,22 @@ a {
   border-radius: 0.25rem;
 }
 
+.legacycontentgal p a {
+  display: inline;
+}
+
+.legacycontentgal ul {
+  margin-bottom: 0.75rem;
+}
+
+.legacycontentgal h3 {
+  margin-bottom: 0.75rem;
+}
+
+.legacycontentgal h2 {
+  margin-top: 1rem;
+}
+
 .legacycontentgal a:focus,
 .legacycontentgal a:focus-visible {
   outline: 2px solid #006eff;

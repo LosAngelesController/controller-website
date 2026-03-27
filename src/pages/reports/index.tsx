@@ -10,6 +10,13 @@ import Seo from '@/components/Seo';
 
 import { finance } from './../../financeindex.json';
 
+function buildReportCoverAlt(name: string, year?: string) {
+  const normalizedName = name.trim();
+  const includesYear = year ? normalizedName.includes(year) : false;
+
+  return `Cover of the ${normalizedName}${includesYear || !year ? '' : ` (${year})`} PDF report`;
+}
+
 /**
  * SVGR Support
  * Caveat: No React Props Type.
@@ -69,7 +76,11 @@ export default function ReportsIndex(props: any) {
                     }`}
                     className='block rounded-lg focus:outline-none'
                   >
-                    <img src={eachreport.image} className='w-full rounded-t-lg' alt=''></img>
+                    <img
+                      src={eachreport.image}
+                      className='w-full rounded-t-lg'
+                      alt={buildReportCoverAlt(eachreport.name, eachreport.year)}
+                    />
                     <div className=' px-2 py-2'>
                       <p className='dark:text-white'>
                         {eachreport.year} |{' '}

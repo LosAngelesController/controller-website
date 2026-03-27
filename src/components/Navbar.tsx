@@ -36,7 +36,7 @@ const navigation: any = [
       'font-semibold text-teal-700 hover:text-teal-900 ' +
       'dark:!text-[#41ffca] dark:hover:!text-[#41ffca] ' +
       'hover:bg-teal-50/60 dark:hover:bg-white/10 ' +
-      'focus:outline-none focus:ring-2 focus:ring-teal-600/40 dark:focus:ring-[#41ffca]/40'
+      'focus:outline-none focus:ring-2 focus:ring-teal-600/40 dark:focus:ring-[#41ffca]/40',
   },
 ];
 
@@ -98,11 +98,10 @@ export default function Navbar(props: any) {
     });
   };
   return (
-    <>
-
+    <header>
       <a
         href='#main-content'
-        className='sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black'
+        className='sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black'
       >
         Skip to main content
       </a>
@@ -222,7 +221,6 @@ export default function Navbar(props: any) {
                     as='a'
                     href={item.href}
                     className={classNames(
-
                       item.current
                         ? 'bg-green-900 text-white dark:text-white'
                         : 'text-gray-800 dark:text-gray-100',
@@ -268,6 +266,6 @@ export default function Navbar(props: any) {
           </>
         )}
       </Disclosure>
-    </>
+    </header>
   );
 }
