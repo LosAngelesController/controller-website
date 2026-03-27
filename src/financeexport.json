@@ -347,7 +347,7 @@
     "link": "https://lacontroller.org/financial-reports/2013-preliminary-financial-report/",
     "pdflink": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/audits%2F2022%2FPreliminary_FY13.pdf?alt=media&token=449f68bc-7f59-4407-b17a-ffd583657ecb",
     "textofpage": "2013 Preliminary Financial Report\nA first look at the City’s financial performance in the fiscal year ending June 30, 2013",
-    "htmlofpage": "<div id=\"observations\"><h1>2013 Preliminary Financial Report</h1>\n<h2>A first look at the City’s financial performance in the fiscal year ending June 30, 2013</h2>\n</div>",
+    "htmlofpage": "<div id=\"observations\"><h2>A first look at the City’s financial performance in the fiscal year ending June 30, 2013</h2>\n</div>",
     "description": "Access the 2013 Preliminary Financial Report with summary charts, Controller message, and breakdowns of revenues, expenditures, and reserves."
   }
 }
