@@ -76,7 +76,7 @@ export default function Audit(props: auditinterface) {
               )} ${props.audit.year}`
         }
       />
-      <main className=' dark:bg-zinc-900'>
+      <main id='main-content' tabIndex={-1} className=' dark:bg-zinc-900'>
         {props.audit && (
           <div className=' container mx-4 px-4 pb-3 pt-5  dark:text-gray-100 lg:mx-auto lg:max-w-7xl'>
             <h1 className='font-sm'>{props.audit.name}</h1>
@@ -89,7 +89,7 @@ export default function Audit(props: auditinterface) {
                 </span>
               )}
             </h3>
-            <div className='flex flex-row gap-x-2'>
+            <div className='flex flex-row gap-x-2 py-2'>
               <Link href={props.audit.pdflink}>
                 <button className='rounded-full bg-black px-3 py-1 font-semibold text-white'>
                   View Full Report

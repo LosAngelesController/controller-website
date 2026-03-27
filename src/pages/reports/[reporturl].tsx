@@ -50,12 +50,66 @@ export default function Report(props: auditinterface) {
     });
   };
 
+  const relabelGenericVizTitles = () => {
+    const yearRaw = String(props.report?.year ?? '').trim();
+    const baseLabel = yearRaw
+      ? /^FY/i.test(yearRaw) || yearRaw.includes('-')
+        ? yearRaw
+        : `FY${yearRaw}`
+      : '';
+    const assignedLabels = new Map<string, number>();
+
+    const findHeadingText = (start: HTMLElement) => {
+      let node: HTMLElement | null = start;
+      while (node) {
+        let sibling: HTMLElement | null = node.previousElementSibling as
+          | HTMLElement
+          | null;
+        while (sibling) {
+          const headings = sibling.querySelectorAll('h2, h3');
+          if (headings.length > 0) {
+            const last = headings[headings.length - 1];
+            return last.textContent?.trim() || '';
+          }
+          if (sibling.matches('h2, h3')) {
+            return sibling.textContent?.trim() || '';
+          }
+          sibling = sibling.previousElementSibling as HTMLElement | null;
+        }
+        node = node.parentElement;
+      }
+      return '';
+    };
+
+    const iframes = Array.from(document.querySelectorAll('iframe'));
+    iframes.forEach((iframe) => {
+      const title = (iframe.getAttribute('title') || '').trim();
+      if (!title || /^data visualization$/i.test(title)) {
+        const headingText = findHeadingText(iframe);
+        const labelBase = headingText
+          ? `${headingText} visualization`
+          : 'Report visualization';
+        const baseTitle = baseLabel ? `${baseLabel} ${labelBase}` : labelBase;
+        const duplicateCount = (assignedLabels.get(baseTitle) ?? 0) + 1;
+        assignedLabels.set(baseTitle, duplicateCount);
+        const label =
+          duplicateCount === 1
+            ? baseTitle
+            : `${baseTitle} ${duplicateCount}`;
+        iframe.setAttribute('title', label);
+      }
+    });
+  };
+
   React.useEffect(() => {
     removeloadingissuesontableau();
 
     setInterval(() => {
       removeloadingissuesontableau();
+      relabelGenericVizTitles();
     }, 500);
+
+    relabelGenericVizTitles();
   }, []);
 
   return (
