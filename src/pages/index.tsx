@@ -158,6 +158,110 @@ export default function HomePage(props: any) {
         {/* CALL TO ACTION */}
 
 
+        {/* MOST VISITED SITES */}
+        <div className='container mx-auto px-4 pt-10'>
+          <h2 className='frontpageh2section'>Most Visited Websites</h2>
+
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 pt-5'>
+
+            {/* Bathroom Map */}
+            <Link href='https://bathrooms.lacontroller.app' target='_blank'>
+              <div className='rounded-2xl p-6 transition cursor-pointer 
+        bg-[#2a2a2a] border border-[#3a3a3a] 
+        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
+                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+                  className="mb-5">
+                  <rect x="3" y="3" width="18" height="18" rx="3" />
+                  <circle cx="8" cy="7" r="1.5" />
+                  <circle cx="16" cy="7" r="1.5" />
+                  <path d="M8 9v6M16 9v6" />
+                  <path d="M6.5 15h3M14.5 15h3" />
+                </svg>
+
+                <h3 className='text-white font-semibold text-sm'>Bathroom Map</h3>
+              </div>
+            </Link>
+
+            {/* Budget */}
+            <Link href='https://budget.lacontroller.app/' target='_blank'>
+              <div className='rounded-2xl p-6 transition cursor-pointer 
+        bg-[#2a2a2a] border border-[#3a3a3a] 
+        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
+                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+                  className="mb-5">
+                  <path d="M4 18h16" />
+                  <rect x="5" y="12" width="2" height="6" rx="1" />
+                  <rect x="10" y="9" width="2" height="9" rx="1" />
+                  <rect x="15" y="6" width="2" height="12" rx="1" />
+                  <path d="M6 6l4-2 4 2 4-2" />
+                </svg>
+
+                <h3 className='text-white font-semibold text-sm'>Interactive City Budget</h3>
+              </div>
+            </Link>
+
+            {/* Homelessness */}
+            <Link href='https://homelessdashboard.lacontroller.app/' target='_blank'>
+              <div className='rounded-2xl p-6 transition cursor-pointer 
+        bg-[#2a2a2a] border border-[#3a3a3a] 
+        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
+                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+                  className="mb-5">
+                  <path d="M3 10l9-6 9 6" />
+                  <rect x="5" y="10" width="14" height="10" rx="2" />
+                  <path d="M14 6l2-2" />
+                  <circle cx="17" cy="4" r="1.5" />
+                </svg>
+
+                <h3 className='text-white font-semibold text-sm'>Homelessness Dashboard</h3>
+              </div>
+            </Link>
+
+            {/* Liability */}
+            <Link href='https://liabilityclaims.lacontroller.app' target='_blank'>
+              <div className='rounded-2xl p-6 transition cursor-pointer 
+        bg-[#2a2a2a] border border-[#3a3a3a] 
+        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
+                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+                  className="mb-5">
+                  <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+
+                <h3 className='text-white font-semibold text-sm'>Liability Claims Dashboard</h3>
+              </div>
+            </Link>
+
+            {/* Metrics */}
+            <Link href='https://lacitymetrics.lacontroller.app/' target='_blank'>
+              <div className='rounded-2xl p-6 transition cursor-pointer 
+        bg-[#2a2a2a] border border-[#3a3a3a] 
+        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
+                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+                  className="mb-5">
+                  <rect x="3" y="4" width="18" height="12" rx="2" />
+                  <path d="M7 12v-3M11 12v-5M15 12v-7" />
+                  <circle cx="18" cy="17" r="2" />
+                </svg>
+
+                <h3 className='text-white font-bold text-sm'>
+                  City Departments Metrics Dashboard
+                </h3>
+              </div>
+            </Link>
+
+          </div>
+        </div>
 
         {/* FINANCIAL DATA */}
 
