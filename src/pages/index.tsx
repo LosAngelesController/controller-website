@@ -166,9 +166,7 @@ export default function HomePage(props: any) {
 
             {/* Bathroom Map */}
             <Link href='https://bathrooms.lacontroller.app' target='_blank'>
-              <div className='rounded-2xl p-6 transition cursor-pointer 
-        bg-[#2a2a2a] border border-[#3a3a3a] 
-        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
 
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
                   stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
@@ -186,9 +184,7 @@ export default function HomePage(props: any) {
 
             {/* Budget */}
             <Link href='https://budget.lacontroller.app/' target='_blank'>
-              <div className='rounded-2xl p-6 transition cursor-pointer 
-        bg-[#2a2a2a] border border-[#3a3a3a] 
-        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
 
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
                   stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
@@ -206,9 +202,7 @@ export default function HomePage(props: any) {
 
             {/* Homelessness */}
             <Link href='https://homelessdashboard.lacontroller.app/' target='_blank'>
-              <div className='rounded-2xl p-6 transition cursor-pointer 
-        bg-[#2a2a2a] border border-[#3a3a3a] 
-        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
 
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
                   stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
@@ -225,9 +219,7 @@ export default function HomePage(props: any) {
 
             {/* Liability */}
             <Link href='https://liabilityclaims.lacontroller.app' target='_blank'>
-              <div className='rounded-2xl p-6 transition cursor-pointer 
-        bg-[#2a2a2a] border border-[#3a3a3a] 
-        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
 
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
                   stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
@@ -242,9 +234,7 @@ export default function HomePage(props: any) {
 
             {/* Metrics */}
             <Link href='https://lacitymetrics.lacontroller.app/' target='_blank'>
-              <div className='rounded-2xl p-6 transition cursor-pointer 
-        bg-[#2a2a2a] border border-[#3a3a3a] 
-        hover:border-[#41ffca]/40 hover:shadow-[0_0_25px_rgba(65,255,202,0.05)]'>
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
 
                 <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
                   stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
@@ -261,11 +251,11 @@ export default function HomePage(props: any) {
             </Link>
 
           </div>
-        </div>
+        </div >
 
         {/* FINANCIAL DATA */}
 
-        <div className='container mx-auto px-4'>
+        < div className='container mx-auto px-4' >
           <h2 className='frontpageh2section'>Financial Data</h2>
 
           <OpenDataSeries />
@@ -275,7 +265,7 @@ export default function HomePage(props: any) {
               <div className={`${kirbybutton}`}>All Datasets</div>
             </Link>
           </div>
-        </div>
+        </div >
         <div className='container mx-auto px-4'>
           <h2 className='frontpageh2section'>Oversight</h2>
 
