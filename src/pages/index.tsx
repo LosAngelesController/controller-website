@@ -129,7 +129,7 @@ export default function HomePage(props: any) {
 
                   <SocialPageSeries />
 
-                  <div className='ml-auto mt-10'>
+                  <div className='ml-auto mt-12 relative top-6'>
                     <Image
                       src='/images/killa-website2.png'
                       alt='Portrait'
