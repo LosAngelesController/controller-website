@@ -1,13 +1,6 @@
 {
   "data": [
     {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/LASpeedCamera.png?alt=media&token=879d7494-4f69-4fb9-aed6-43fa38064045",
-      "name": "LA Speed Cameras Map",
-      "year": "2026",
-      "dept": "Map",
-      "link": "https://speedcameras.lacontroller.app/"
-    },
-    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/LAAS%20Spay%20Neuter%20%26%20Shelter%20(1).png?alt=media&token=ff166791-26be-4583-8ef1-019f986bf218",
       "name": "FY2025 Unspent Homelessness Funds",
       "year": "2026",
