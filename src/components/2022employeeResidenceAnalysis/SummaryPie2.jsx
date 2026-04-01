@@ -85,7 +85,7 @@ function SummaryPie2() {
             label: 'Total Payroll',
             data: LAEmployees.map((x) => x.totalPayroll),
             backgroundColor: ['#41ffca', '#ffc021'],
-            borderColor: ['#41ffca', '#ffc021'],
+            borderColor: ['#000000', '#000000'],
             borderWidth: 1,
           },
         ],

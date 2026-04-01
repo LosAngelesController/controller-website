@@ -77,8 +77,8 @@ function HundredKOut() {
           '#41ffca',
         ],
         borderColor: [
-          '#ffc021',
-          '#41ffca',
+          '#000000',
+          '#000000',
         ],
         borderWidth: 1,
       },
