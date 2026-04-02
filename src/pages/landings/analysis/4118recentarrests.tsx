@@ -223,7 +223,6 @@ export default function Home() {
                 checked={showBarChart}
                 role="switch"
                 aria-checked={showBarChart}
-                aria-labelledby="chartTypeLabel"
               />
               {showBarChart ? <RaceBarChart /> : <RacePieChart />}
             </center>
