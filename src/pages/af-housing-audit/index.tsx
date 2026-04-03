@@ -20,7 +20,11 @@ const Index = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className='min-h-screen bg-gray-900 text-white'>
+      <main
+        id='main-content'
+        tabIndex={-1}
+        className='min-h-screen bg-gray-900 text-white'
+      >
         {/* Navigation */}
         <nav
           className='flex items-center justify-between border-b border-gray-800 px-8 py-4'
@@ -337,7 +341,7 @@ const Index = () => {
             </div>
           </div>
         </section>
-      </div>
+      </main>
     </>
   );
 };
