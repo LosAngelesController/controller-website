@@ -65,12 +65,13 @@ export default function NoticeType() {
           <tbody className="text-black" style={{ border: "1px solid black" }}>
             {noticeType.map((row) => (
               <tr key={row.id}>
-                <td
+                <th
                   className="text-black p-2 font-bold text-xl"
                   style={{ border: "1px solid black" }}
+                  scope="row"
                 >
                   {row.noticeType}
-                </td>
+                </th>
                 <td
                   className='text-black p-2 text-xl'
                   style={{ border: "1px solid black" }}

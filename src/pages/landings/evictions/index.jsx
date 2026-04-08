@@ -85,9 +85,9 @@ export default function Evictions() {
             <br></br>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
-            <h4 className='mb-4 text-xl font-bold'>
+            <h3 className='mb-4 text-xl font-bold'>
               <b>Number of Eviction Notices</b>
-            </h4>
+            </h3>
           </div>
           <div className='mb-16'>
             {' '}
@@ -96,21 +96,21 @@ export default function Evictions() {
         </center>
         <center>
           <div>
-            <h4
+            <h3
               className='mb-4 text-xl font-bold dark:text-white'
               style={{ fontFamily: 'Helvetica' }}
             >
               <b>Council District</b>
-            </h4>
+            </h3>
           </div>
           <div className='mb-16'>
             {' '}
             <NoticesByCd />
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
-            <h4 className='mb-4 text-xl font-bold dark:text-white'>
+            <h3 className='mb-4 text-xl font-bold dark:text-white'>
               <b>Top 20 Zip Codes with Highest Number of Eviction Notices</b>
-            </h4>
+            </h3>
           </div>
           <div className='mb-12'>
             {' '}
@@ -133,9 +133,9 @@ export default function Evictions() {
             </p>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
-            <h4 className='mb-4 text-xl font-bold dark:text-white'>
+            <h3 className='mb-4 text-xl font-bold dark:text-white'>
               <b>Fair Market Rent</b>
-            </h4>
+            </h3>
             <div className='mb-4 text-left'>
               <p className='mb-4'>
                 The <b>Just Cause Ordinance (JCO)</b> contains a provision where
@@ -153,9 +153,9 @@ export default function Evictions() {
             </p>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
-            <h4 className='mb-4 text-xl font-bold dark:text-white'>
+            <h3 className='mb-4 text-xl font-bold dark:text-white'>
               <b>Notice Types</b>
-            </h4>
+            </h3>
             <div className='mb-4 text-left'>
               <p>
                 When served with an eviction, tenants are given a deadline to
@@ -170,9 +170,9 @@ export default function Evictions() {
             <NoticeType />
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
-            <h4 className='mb-4 text-xl font-bold dark:text-white'>
+            <h3 className='mb-4 text-xl font-bold dark:text-white'>
               <b>Tenant Protection Deadlines</b>
-            </h4>
+            </h3>
             <ul className='ml-7 list-disc'>
               <li className='mb-4 text-left'>
                 <b>Allowable Rent Increases for RSO Units</b>:
