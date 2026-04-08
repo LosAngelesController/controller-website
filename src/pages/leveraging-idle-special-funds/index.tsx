@@ -9,12 +9,10 @@ const Index = () => {
   return (
     <>
       <Head>
-        <title>
-          Tenant Anti-Harassment Ordinance Audit | LA City Controller
-        </title>
+        <title>Leveraging Idle Special Funds 2026 | LA City Controller</title>
         <meta
           name='description'
-          content='Tenant Anti-Harassment Ordinance audit site highlighting findings, data visualizations, and recommendations to protect Los Angeles renters.'
+          content='The Controller’s Office identified $80.4 million sitting idle in 177 special funds, out of the City’s total 612 special funds. This report analyzes special funds as of June 30, 2025.'
         />
       </Head>
       <Navbar />
