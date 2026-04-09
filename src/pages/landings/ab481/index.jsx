@@ -12,7 +12,11 @@ const Index = () => {
       />
       <Navbar />
 
-      <div className='bg-background min-h-screen'>
+      <main
+        id='main-content'
+        tabIndex={-1}
+        className='bg-background min-h-screen'
+      >
         {/* Hero Section */}
         <section className='section-dark py-16 md:py-24'>
           <div className='container mx-auto px-6'>
@@ -161,7 +165,7 @@ const Index = () => {
             </p>
           </div>
         </footer>
-      </div>
+      </main>
     </>
   );
 };
