@@ -403,8 +403,12 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
               <caption>Actual receipts by fiscal year</caption>
               <thead>
                 <tr>
-                  <th scope='col'>Fiscal Year</th>
-                  <th scope='col'>Actual Receipts</th>
+                  <th id='revenue-over-time-fiscal-year' scope='col'>
+                    Fiscal Year
+                  </th>
+                  <th id='revenue-over-time-actual-receipts' scope='col'>
+                    Actual Receipts
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -412,8 +416,17 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
                   .sort((a, b) => b.fiscalYear - a.fiscalYear)
                   .map((item) => (
                     <tr key={item.id}>
-                      <th scope='row'>{item.fiscalYear}</th>
-                      <td>{formatAbbreviatedCurrency(item.totalRevenues)}</td>
+                      <th
+                        id={`revenue-over-time-row-${item.id}`}
+                        scope='row'
+                      >
+                        {item.fiscalYear}
+                      </th>
+                      <td
+                        headers={`revenue-over-time-row-${item.id} revenue-over-time-actual-receipts`}
+                      >
+                        {formatAbbreviatedCurrency(item.totalRevenues)}
+                      </td>
                     </tr>
                   ))}
               </tbody>
