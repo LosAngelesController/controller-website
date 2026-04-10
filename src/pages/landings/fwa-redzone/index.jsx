@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import Head from 'next/head';
 import Navbar from '@/components/Navbar';
 import { Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -28,9 +29,16 @@ const Index = () => {
 
   return (
     <>
+      <Head>
+        <title>FWA Investigative Report: LADOT Red Zone Parking Tickets | LA City Controller</title>
+        <meta
+          name="description"
+          content="Investigative report from the Los Angeles City Controller's Office on LADOT red zone parking tickets."
+        />
+      </Head>
       <Navbar />
 
-      <div className="min-h-screen bg-background">
+      <main id="main-content" tabIndex={-1} className="min-h-screen bg-background">
         {/* Hero Section */}
         <section className="section-dark py-16 md:py-24">
           <div className="container mx-auto px-6">
@@ -212,7 +220,7 @@ const Index = () => {
             </p>
           </div>
         </footer> */}
-      </div>
+      </main>
     </>
   );
 };
