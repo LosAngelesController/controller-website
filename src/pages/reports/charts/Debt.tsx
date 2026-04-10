@@ -292,12 +292,12 @@ const BarChart: React.FC<DebtProps> = ({ withSeo = true } = {}) => {
           />
         </Head>
       )}
-      <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+      <h3 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
         Debt Service Requirements
-      </h1>
-      <h2 className='mt-2 text-center text-lg font-semibold dark:text-white'>
+      </h3>
+      <p className='mt-2 text-center text-lg font-semibold dark:text-white'>
         Debt Service Ratio by Percentage or Dollars
-      </h2>
+      </p>
       <div className='p-10 text-center'>
         <br></br>
         <label htmlFor={debtScaleSelectId} style={{ marginRight: '10px' }}>

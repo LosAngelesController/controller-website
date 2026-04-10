@@ -252,9 +252,9 @@ function Expenditures({ withSeo = true }: ExpendituresProps = {}) {
         </Head>
       )}
       <div>
-        <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+        <h3 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
           City Expenditures Dashboard
-        </h1>
+        </h3>
       <br></br>
       <div>
         <center>
@@ -300,7 +300,7 @@ function Expenditures({ withSeo = true }: ExpendituresProps = {}) {
         <br></br>
         <div className='chart-container'>
           <div>
-            <h2>Total Expenditures by Department</h2>
+            <h4>Total Expenditures by Department</h4>
             <div style={{ width: '100%', height: '600px' }}>
               <table className='sr-only'>
                 <caption>
@@ -383,7 +383,7 @@ function Expenditures({ withSeo = true }: ExpendituresProps = {}) {
           <br></br>
           <br></br>
           <div>
-            <h2>Total Expenditures Over Time</h2>
+            <h4>Total Expenditures Over Time</h4>
             <div style={{ width: '100%', height: '450px' }}>
               <table className='sr-only'>
                 <caption>Total expenditures over time</caption>
