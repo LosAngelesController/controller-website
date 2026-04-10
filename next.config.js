@@ -24,6 +24,18 @@ const securityHeaders = [
   },
 ];
 
+module.exports = {
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: 'https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/FWA.pdf?alt=media&token=28184e07-1a84-42c6-a725-73d03ab842fe',
+        permanent: true,
+      },
+    ]
+  },
+}
+
 const nextConfig = {
   async redirects() {
     return [
