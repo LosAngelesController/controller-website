@@ -85,11 +85,6 @@ const Index = () => {
 
             <div className="grid gap-12 lg:grid-cols-2">
               <div className="space-y-6">
-
-                <h2 className="text-xl font-semibold text-foreground dark:text-white">
-                  Report Highlights
-                </h2>
-
                 <ul className="list-disc ml-6 space-y-5 marker:text-[#41ffca]">
 
                   {/* Bullet 1 */}
