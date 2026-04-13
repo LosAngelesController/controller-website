@@ -259,12 +259,12 @@ const BarChartForDebt = ({ withSeo = true }: ReserveProps = {}) => {
         </Head>
       )}
       <div className='text-center px-2 sm:px-4 md:px-10 py-10'>
-        <h1 className='pb-4 text-3xl font-semibold dark:text-white'>
+        <h3 className='pb-4 text-3xl font-semibold dark:text-white'>
           Reserve & Budget Stabilization Funds
-        </h1>
-        <h2 className='mt-2 text-lg font-semibold dark:text-white'>
+        </h3>
+        <p className='mt-2 text-lg font-semibold dark:text-white'>
           Reserve and Stabilization Fund Balances by Percentage or Dollars
-        </h2>
+        </p>
       <br></br>
       <label htmlFor={reserveScaleSelectId} style={{ marginRight: '10px' }}>
         Scale by % or $

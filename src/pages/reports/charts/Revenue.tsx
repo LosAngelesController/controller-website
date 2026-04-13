@@ -215,9 +215,9 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
         </Head>
       )}
       <div>
-        <h1 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
+        <h3 className='pt-6 text-center text-3xl font-semibold dark:text-white'>
           City Revenue Dashboard
-        </h1>
+        </h3>
       <div>
         <center>
           <label htmlFor={categorySelectId} style={{ marginRight: '10px' }}>
@@ -258,9 +258,16 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
         </center>
 
         <div className='chart-container'>
-          <div style={{ width: '100%', height: '600px' }}>
+          <div
+            style={{
+              width: '100%',
+              height: '600px',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
             <br></br>
-            <h2>Revenue Sources</h2>
+            <h4>Revenue Sources</h4>
             <table className='sr-only'>
               <caption>
                 Revenue sources for {category} in fiscal year {fiscalYear}
@@ -290,7 +297,10 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
                 ))}
               </tbody>
             </table>
-            <div aria-hidden='true'>
+            <div
+              aria-hidden='true'
+              style={{ position: 'relative', flex: 1, minHeight: 0 }}
+            >
               <Bar
                 data={{
                   labels: revenueSources,
@@ -380,8 +390,15 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
           </div>
           <br></br>
           <br></br>
-          <div>
-            <h2>Revenues Over Time</h2>
+          <div
+            style={{
+              width: '100%',
+              height: '450px',
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            <h4>Revenues Over Time</h4>
             <table className='sr-only'>
               <caption>Actual receipts by fiscal year</caption>
               <thead>
@@ -401,8 +418,10 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
                   ))}
               </tbody>
             </table>
-            <div style={{ width: '100%', height: '450px' }}>
-              <div aria-hidden='true'>
+            <div
+              aria-hidden='true'
+              style={{ position: 'relative', flex: 1, minHeight: 0 }}
+            >
                 <Bar
                   data={{
                     labels: getFilteredTotalRevenuesData()
@@ -469,7 +488,6 @@ function Revenue({ withSeo = true }: RevenueProps = {}) {
                     },
                   }}
                 />
-              </div>
             </div>
           </div>
         </div>

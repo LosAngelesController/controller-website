@@ -112,12 +112,13 @@ export default function FairMarketRent() {
           <tbody className='text-black' style={{ border: '1px solid black' }}>
             {fairMarket.map((row) => (
               <tr key={row.id}>
-                <td
+                <th
                   className='p-2 text-xl font-bold text-black'
                   style={{ border: '1px solid black' }}
+                  scope="row"
                 >
                   {row.bedroomSize}
-                </td>
+                </th>
                 <td
                   className='p-2 text-center text-xl text-black'
                   style={{

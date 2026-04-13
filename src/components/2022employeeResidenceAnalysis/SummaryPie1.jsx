@@ -75,8 +75,8 @@ function SummaryPie1() {
           "#ffc021",
         ],
         borderColor: [
-          '#41ffca',
-          "#ffc021",
+          '#000000',
+          '#000000',
         ],
         borderWidth: 1,
       },

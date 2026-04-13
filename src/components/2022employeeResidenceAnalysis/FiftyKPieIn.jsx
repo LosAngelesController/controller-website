@@ -73,7 +73,7 @@ function FiftyKPieIn() {
         label: '# of Employees',
         data: LAEmployees.map((x) => x.noOfEmployees),
         backgroundColor: ['#41ffca', '#ffc021'],
-        borderColor: ['#41ffca', '#ffc021'],
+        borderColor: ['#000000', '#000000'],
         borderWidth: 1,
       },
     ],

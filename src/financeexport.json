@@ -336,7 +336,7 @@
     "link": "https://lacontroller.org/financial-reports/2013-comprehensive-annual-financial-report/",
     "pdflink": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/audits%2F2022%2FLACITYP_027750.pdf?alt=media&token=80b981a9-4903-4b57-ae12-86f99f7ea31e",
     "textofpage": "2013 Comprehensive Annual Financial Report\n\nThe Comprehensive Annual Financial Report (CAFR) is published annually by the City Controller (Controller) on the City of Los Angeles’ (City) financial condition and results of operations at the conclusion of the fiscal year. The CAFR is issued as part of the Controller’s City Charter mandate to monitor and report on all matters relating to the City’s fiscal health, keep the City’s official financial records, and supervise expenditures of the City.",
-    "htmlofpage": "<div id=\"observations\"><h1>2013 Comprehensive Annual Financial Report</h1>\n<p>The Comprehensive Annual Financial Report (CAFR) is published annually by the City Controller (Controller) on the City of Los Angeles’ (City) financial condition and results of operations at the conclusion of the fiscal year. The CAFR is issued as part of the Controller’s City Charter mandate to monitor and report on all matters relating to the City’s fiscal health, keep the City’s official financial records, and supervise expenditures of the City.</p>\n</div>",
+    "htmlofpage": "<div id=\"observations\"><p>The Comprehensive Annual Financial Report (CAFR) is published annually by the City Controller (Controller) on the City of Los Angeles’ (City) financial condition and results of operations at the conclusion of the fiscal year. The CAFR is issued as part of the Controller’s City Charter mandate to monitor and report on all matters relating to the City’s fiscal health, keep the City’s official financial records, and supervise expenditures of the City.</p>\n</div>",
     "description": "Read the 2013 Comprehensive Annual Financial Report with full statements, Controller narrative, and detailed fiscal analysis."
   },
   "2013-preliminary-financial-report": {
@@ -347,7 +347,7 @@
     "link": "https://lacontroller.org/financial-reports/2013-preliminary-financial-report/",
     "pdflink": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/audits%2F2022%2FPreliminary_FY13.pdf?alt=media&token=449f68bc-7f59-4407-b17a-ffd583657ecb",
     "textofpage": "2013 Preliminary Financial Report\nA first look at the City’s financial performance in the fiscal year ending June 30, 2013",
-    "htmlofpage": "<div id=\"observations\"><h1>2013 Preliminary Financial Report</h1>\n<h2>A first look at the City’s financial performance in the fiscal year ending June 30, 2013</h2>\n</div>",
+    "htmlofpage": "<div id=\"observations\"><h2>A first look at the City’s financial performance in the fiscal year ending June 30, 2013</h2>\n</div>",
     "description": "Access the 2013 Preliminary Financial Report with summary charts, Controller message, and breakdowns of revenues, expenditures, and reserves."
   }
 }

@@ -79,7 +79,7 @@ function CDBar2() {
             ? filteredData.map((x) => x['#OfEmployees'])
             : filteredData.map((x) => Math.round(x.totalPayroll)),
         backgroundColor: ['#41ffca'],
-        borderColor: ['#41ffca'],
+        borderColor: ['#000000'],
         borderWidth: 1,
       },
     ],

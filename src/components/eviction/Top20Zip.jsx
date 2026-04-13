@@ -27,17 +27,23 @@ export default function Top20Zip() {
       <div>
         <div className="bg-white p-2">
           <table className="table-auto w-full">
+            <caption
+              className="p-2 text-center text-3xl font-bold text-black"
+              style={{ border: '1px solid black', backgroundColor: '#41ffca', borderBottom: 'none' }}
+            >
+              Top 20 Zip Codes with Highest Number of Eviction Notices
+            </caption>
             <thead className="text-black" style={{border: '1px solid black', backgroundColor: '#41ffca'}}>
               <tr>
-                <th className="text-black p-2 text-left" style={{border: '1px solid black'}}>Zip Code</th>
-                <th className="text-black p-2 text-left" style={{border: '1px solid black'}}>Communities</th>
-                <th className="text-black p-2" style={{border: '1px solid black'}}># of Eviction Notices</th>
+                <th className="text-black p-2 text-left" style={{border: '1px solid black'}} scope="col">Zip Code</th>
+                <th className="text-black p-2 text-left" style={{border: '1px solid black'}} scope="col">Communities</th>
+                <th className="text-black p-2" style={{border: '1px solid black'}} scope="col"># of Eviction Notices</th>
               </tr>
             </thead>
             <tbody className="text-black" style={{border: '1px solid black'}}>
               {zipNotices.map((row) => (
                 <tr key={row.id}>
-                  <td className="text-black p-2 font-bold" style={{border: '1px solid black'}}>{row.zipCode}</td>
+                  <th className="text-black p-2 font-bold" style={{border: '1px solid black'}} scope="row">{row.zipCode}</th>
                   <td className="text-black p-2" style={{border: '1px solid black'}}>{row.communities}</td>
                   <td className="text-black p-2 text-right" style={{border: '1px solid black'}}>{row.number}</td>
                 </tr>
