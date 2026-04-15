@@ -61,22 +61,25 @@ export default function Contact(props: any) {
         <div className=' container mx-auto mt-4  px-4 py-4 '>
           <ImportantLinksSection />
         </div>
-        <div className='grid grid-cols-2 gap-8 py-8 px-6 md:grid-cols-4'>
+        <div className='container mx-auto px-4 pt-12 pb-8'>
+          <div className='grid grid-cols-2 gap-8 md:grid-cols-4'>
           <div>
-            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-              Office
-            </h2>
-            <ul className='text-gray-500 dark:text-gray-100'>
-              <li className='mb-4'>
+            <ul className='text-[#667799] dark:text-gray-100'>
+              <li className='mb-2'>
+                <h2 className='text-sm font-semibold uppercase text-[#667799] dark:text-gray-100'>
+                  Office
+                </h2>
+              </li>
+              <li className='mb-2'>
                 <p>200 N. Main Street, Suite 300</p>
               </li>
-              <li className='mb-4'>
+              <li className='mb-2'>
                 <p>Los Angeles, CA 90012</p>
               </li>
-              <li className='mb-4'>
+              <li className='mb-2'>
                 <p>213.978.7211 Fax</p>
               </li>
-              <li className='mb-4'>
+              <li className='mb-8'>
                 <a
                   href="https://www.controller.lacity.gov"
                   className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
@@ -84,10 +87,10 @@ export default function Contact(props: any) {
                   www.controller.lacity.gov
                 </a>
               </li>
-              <li className='mb-6'>
+              <li className='mb-2'>
                 <h3 className="text-base">General Inquiries</h3>
               </li>
-              <li className='mb-4'>
+              <li className='mb-2'>
                 <a
                   href="tel:2139787200"
                   className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
@@ -95,7 +98,7 @@ export default function Contact(props: any) {
                   213.978.7200
                 </a>
               </li>
-              <li className='mb-4'>
+              <li className='mb-8'>
                 <a
                   href="mailto:controller.mejia@lacity.org"
                   className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
@@ -103,10 +106,10 @@ export default function Contact(props: any) {
                   controller.mejia@lacity.org
                 </a>
               </li>
-              <li className='mb-6'>
+              <li className='mb-2'>
                 <h3 className="text-base">Media Inquiries</h3>
               </li>
-              <li className='mb-4'>
+              <li className='mb-2'>
                 <a
                   href="mailto:diana.chang@lacity.org"
                   className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
@@ -117,11 +120,13 @@ export default function Contact(props: any) {
             </ul>
           </div>
           <div>
-            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-              Financial Analysis and Reporting
-            </h2>
-            <ul className='text-gray-500 dark:text-gray-100'>
-              <li className='mb-4'>
+            <ul className='text-[#667799] dark:text-gray-100'>
+              <li className='mb-2'>
+                <h2 className='text-sm font-semibold uppercase text-[#667799] dark:text-gray-100'>
+                  Financial Analysis and Reporting
+                </h2>
+              </li>
+              <li className='mb-8'>
                 <a
                   href="tel:2139787300"
                   className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
@@ -131,11 +136,13 @@ export default function Contact(props: any) {
               </li>
             </ul>
 
-            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-              Accounting Operations
-            </h2>
-            <ul className='text-gray-500 dark:text-gray-100'>
-              <li className='mb-4'>
+            <ul className='text-[#667799] dark:text-gray-100'>
+              <li className='mb-2'>
+                <h2 className='text-sm font-semibold uppercase text-[#667799] dark:text-gray-100'>
+                  Accounting Operations
+                </h2>
+              </li>
+              <li className='mb-8'>
                 <a
                   href="tel:2139787292"
                   className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
@@ -145,11 +152,13 @@ export default function Contact(props: any) {
               </li>
             </ul>
 
-            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-              Audit Services
-            </h2>
-            <ul className='text-gray-500 dark:text-gray-100'>
-              <li className='mb-4'>
+            <ul className='text-[#667799] dark:text-gray-100'>
+              <li className='mb-2'>
+                <h2 className='text-sm font-semibold uppercase text-[#667799] dark:text-gray-100'>
+                  Audit Services
+                </h2>
+              </li>
+              <li className='mb-8'>
                 <a
                   href="tel:2139787500"
                   className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
@@ -159,11 +168,13 @@ export default function Contact(props: any) {
               </li>
             </ul>
 
-            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-              Management Services
-            </h2>
-            <ul className='text-gray-500 dark:text-gray-100'>
-              <li className='mb-4'>
+            <ul className='text-[#667799] dark:text-gray-100'>
+              <li className='mb-2'>
+                <h2 className='text-sm font-semibold uppercase text-[#667799] dark:text-gray-100'>
+                  Management Services
+                </h2>
+              </li>
+              <li className='mb-2'>
                 <a
                   href="tel:2139787250"
                   className="hover:underline focus-visible:underline underline-offset-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-600"
@@ -174,15 +185,18 @@ export default function Contact(props: any) {
             </ul>
           </div>
           <div>
-            <h2 className='mb-6 text-sm font-semibold uppercase text-gray-500 dark:text-gray-100'>
-              Office Hours
-            </h2>
-            <ul className='text-gray-500 dark:text-gray-100'>
-              <li className='mb-4'>
+            <ul className='text-[#667799] dark:text-gray-100'>
+              <li className='mb-2'>
+                <h2 className='text-sm font-semibold uppercase text-[#667799] dark:text-gray-100'>
+                  Office Hours
+                </h2>
+              </li>
+              <li className='mb-2'>
                 <p>Monday-Friday 9am-5pm</p>
               </li>
             </ul>
           </div>
+        </div>
         </div>
       </section>
     </>
