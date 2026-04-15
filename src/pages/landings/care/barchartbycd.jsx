@@ -1,9 +1,20 @@
 'use client';
+import {
+  BarElement,
+  CategoryScale,
+  Chart as ChartJS,
+  Legend,
+  LinearScale,
+  Title,
+  Tooltip,
+} from 'chart.js';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
 import Navbar from '@/components/Navbar';
+
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
 export default function Analysis() {
   const [careData, setCareData] = useState({});
@@ -96,7 +107,7 @@ export default function Analysis() {
         label: 'CARE Operations by CD',
         data: Object.values(fixedCareData),
         backgroundColor: '#41ffca',
-        borderColor: '#41ffca',
+        borderColor: '#000000',
         borderWidth: 1,
       },
     ],
@@ -109,7 +120,7 @@ export default function Analysis() {
         label: 'CARE+ Operations by CD',
         data: Object.values(fixedCarePlusData),
         backgroundColor: '#41ffca',
-        borderColor: '#41ffca',
+        borderColor: '#000000',
         borderWidth: 1,
       },
     ],
