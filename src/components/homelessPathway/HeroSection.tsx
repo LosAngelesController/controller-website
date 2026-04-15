@@ -14,7 +14,7 @@ const HeroSection = () => {
             <h1 className='hero-title text-gray-900 dark:text-white'>
               HOMELESSNESS AUDIT:
               <br />
-              <span className='text-[#41ffca]'>
+              <span className='text-[#1f3b63] dark:text-[#41ffca]'>
                 PATHWAYS TO PERMANENT HOUSING
               </span>
             </h1>
@@ -32,10 +32,11 @@ const HeroSection = () => {
             <Button
               size='lg'
               className='
-                gap-2 bg-[#41ffca] 
-                font-semibold text-black 
+                gap-2 bg-[#1f3b63]
+                font-semibold text-white
                 shadow-md
-                hover:bg-[#35e6b8]
+                hover:bg-[#274b7e]
+                dark:bg-[#41ffca] dark:text-black dark:hover:bg-[#35e6b8]
               '
               onClick={() =>
                 window.open(

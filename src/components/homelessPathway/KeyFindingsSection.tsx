@@ -32,7 +32,7 @@ const findings = [
 
 const KeyFindingsSection = () => {
   return (
-    <section className='bg-background bg-[#9b9c9c] px-6 py-20 dark:bg-[#212121]'>
+    <section className='bg-background bg-[#a6a6a6] px-6 py-20 dark:bg-[#212121]'>
       <div className='container mx-auto max-w-6xl'>
         {/* Title */}
         <h2 className='text-foreground mb-14 text-5xl font-extrabold dark:text-white'>
@@ -50,7 +50,7 @@ const KeyFindingsSection = () => {
                 {/* Teal bullet */}
                 <div
                   className='mt-2 h-2 w-2 flex-shrink-0 rounded-full'
-                  style={{ backgroundColor: '#41ffca' }}
+                  style={{ backgroundColor: '#1f3b63' }}
                 />
 
                 <p className='text-foreground leading-relaxed dark:text-white'>
@@ -72,8 +72,7 @@ const KeyFindingsSection = () => {
                   text-center dark:border-white/10 dark:bg-[#0f1416]'
                 >
                   <p
-                    className='text-4xl font-extrabold leading-none'
-                    style={{ color: '#41ffca' }}
+                    className='text-4xl font-extrabold leading-none text-[#1f3b63] dark:text-[#41ffca]'
                   >
                     {finding.stat}
                   </p>

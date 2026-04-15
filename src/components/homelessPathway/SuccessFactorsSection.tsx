@@ -19,7 +19,9 @@ const SuccessFactorsSection = () => {
             dark:text-white md:text-5xl'
           >
             HOW WERE PEOPLE{' '}
-            <span style={{ color: '#41ffca' }}>SUCCESSFULLY HOUSED?</span>
+            <span className='text-[#1f3b63] dark:text-[#41ffca]'>
+              SUCCESSFULLY HOUSED?
+            </span>
           </h2>
 
           <p className='text-muted-foreground text-lg dark:text-white/70'>
@@ -43,9 +45,13 @@ const SuccessFactorsSection = () => {
               {/* Icon */}
               <div
                 className='mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full'
-                style={{ backgroundColor: 'rgba(65, 255, 202, 0.12)' }}
+                style={{
+                  backgroundColor: 'rgba(31, 59, 99, 0.12)',
+                }}
               >
-                <factor.icon className='h-7 w-7' style={{ color: '#41ffca' }} />
+                <factor.icon
+                  className='h-7 w-7 text-[#1f3b63] dark:text-[#41ffca]'
+                />
               </div>
 
               {/* Title */}

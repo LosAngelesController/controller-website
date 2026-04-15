@@ -11,7 +11,7 @@ const recommendations = [
 
 const RecommendationsSection = () => {
   return (
-    <section className='bg-background bg-[#9b9c9c] px-6 py-20 dark:bg-[#212121]'>
+    <section className='bg-background bg-[#a6a6a6] px-6 py-20 dark:bg-[#212121]'>
       <div className='container mx-auto max-w-6xl'>
         {/* Title */}
         <h2 className='text-foreground mb-6 text-5xl font-extrabold dark:text-white'>
@@ -22,7 +22,7 @@ const RecommendationsSection = () => {
         <p className='text-muted-foreground mb-12 max-w-3xl text-lg dark:text-white/70'>
           Recommendations are in addition to — not in place of — building more
           permanent housing.
-          <span className='font-semibold' style={{ color: '#41ffca' }}>
+          <span className='font-semibold text-[#1f3b63] dark:text-[#41ffca]'>
             {' '}
             The most critical solution for homelessness is more permanent
             housing.
@@ -36,7 +36,7 @@ const RecommendationsSection = () => {
               {/* Teal bullet */}
               <div
                 className='mt-2 h-2 w-2 flex-shrink-0 rounded-full'
-                style={{ backgroundColor: '#41ffca' }}
+                style={{ backgroundColor: '#1f3b63' }}
               />
 
               {/* Text */}
