@@ -52,12 +52,16 @@ const Index = () => {
         <meta name='twitter:site' content='@lacontroller' />
       </Head>
       <Navbar />
-      <div className="min-h-screen bg-[#1a1a1a] font-['Inter'] text-white">
+      <main
+        id='main-content'
+        tabIndex={-1}
+        className="min-h-screen bg-[#1a1a1a] font-['Inter'] text-white"
+      >
         <FwaHero />
         <FwaHighlights />
         <FwaCaseExample />
         <FwaReportInfo />
-      </div>
+      </main>
     </>
   );
 };
