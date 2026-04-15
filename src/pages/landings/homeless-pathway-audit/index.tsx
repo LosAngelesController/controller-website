@@ -7,8 +7,9 @@ import Head from 'next/head';
 
 const Index = () => {
   return (
-    <main className='bg-background min-h-screen'>
+    <main id='main-content' tabIndex={-1} className='bg-background min-h-screen'>
       <Head>
+        <title>Homelessness Audit: Pathways to Permanent Housing | LA City Controller</title>
         <meta
           name='description'
           content='LA Controller’s Homeless Pathway Audit summarizes findings, data, and recommendations to improve homelessness response and outcomes in Los Angeles.'
