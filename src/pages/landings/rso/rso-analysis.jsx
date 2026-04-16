@@ -340,13 +340,13 @@ export default function Analysis() {
               <table className='mb-4 w-full table-auto bg-white text-left text-black sm:mb-0 sm:mr-2 sm:w-1/2'>
                 <thead style={{ backgroundColor: '#41ffca', color: 'black' }}>
                   <tr>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th scope='col' className='border border-gray-400 px-4 py-2'>
                       Zip Code
                     </th>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th scope='col' className='border border-gray-400 px-4 py-2'>
                       Communities
                     </th>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th scope='col' className='border border-gray-400 px-4 py-2'>
                       Net Change (Units)
                     </th>
                   </tr>
@@ -354,9 +354,12 @@ export default function Analysis() {
                 <tbody>
                   {netGainData.map((item, index) => (
                     <tr key={index} className='hover:bg-gray-100'>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <th
+                        scope='row'
+                        className='border border-gray-400 px-4 py-2 text-left font-normal'
+                      >
                         {item.zipCodes}
-                      </td>
+                      </th>
                       <td className='border border-gray-400 px-4 py-2'>
                         {item.communities}
                       </td>
@@ -371,13 +374,13 @@ export default function Analysis() {
               <table className='w-full table-auto bg-white text-left text-black sm:w-1/2'>
                 <thead style={{ backgroundColor: '#41ffca', color: 'black' }}>
                   <tr>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th scope='col' className='border border-gray-400 px-4 py-2'>
                       Zip Code
                     </th>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th scope='col' className='border border-gray-400 px-4 py-2'>
                       Communities
                     </th>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th scope='col' className='border border-gray-400 px-4 py-2'>
                       Net Change (Units)
                     </th>
                   </tr>
@@ -385,9 +388,12 @@ export default function Analysis() {
                 <tbody>
                   {netLossData.map((item, index) => (
                     <tr key={index} className='hover:bg-gray-100'>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <th
+                        scope='row'
+                        className='border border-gray-400 px-4 py-2 text-left font-normal'
+                      >
                         {item.zipCode}
-                      </td>
+                      </th>
                       <td className='border border-gray-400 px-4 py-2'>
                         {item.communities}
                       </td>
