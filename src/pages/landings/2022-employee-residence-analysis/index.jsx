@@ -48,7 +48,11 @@ export default function Employees() {
         /> */}
       </Head>
       <Navbar />
-      <section className='md:max-w container mx-auto px-4 sm:container lg:max-w-3xl xl:max-w-4xl'>
+      <main
+        id='main-content'
+        tabIndex={-1}
+        className='md:max-w container mx-auto px-4 sm:container lg:max-w-3xl xl:max-w-4xl'
+      >
         <center>
           <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
             <h1
@@ -173,7 +177,7 @@ export default function Employees() {
             <Bargaining />
           </div>
         </center>
-      </section>
+      </main>
     </>
   );
 }
