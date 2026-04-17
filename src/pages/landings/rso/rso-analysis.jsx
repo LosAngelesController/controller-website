@@ -215,27 +215,62 @@ export default function Analysis() {
             <table className='w-full table-auto bg-white text-left text-black'>
               <thead style={{ backgroundColor: '#41ffca', color: 'black' }}>
                 <tr>
-                  <th className='border border-gray-400 px-2 py-1'>#</th>
-                  <th className='border border-gray-400 px-2 py-1'>Zip Code</th>
-                  <th className='border border-gray-400 px-2 py-1'>
+                  <th
+                    id='top-rso-rank'
+                    scope='col'
+                    className='border border-gray-400 px-2 py-1'
+                  >
+                    #
+                  </th>
+                  <th
+                    id='top-rso-zip'
+                    scope='col'
+                    className='border border-gray-400 px-2 py-1'
+                  >
+                    Zip Code
+                  </th>
+                  <th
+                    id='top-rso-communities'
+                    scope='col'
+                    className='border border-gray-400 px-2 py-1'
+                  >
                     Communities
                   </th>
-                  <th className='border border-gray-400 px-2 py-1'>Number</th>
+                  <th
+                    id='top-rso-number'
+                    scope='col'
+                    className='border border-gray-400 px-2 py-1'
+                  >
+                    Number
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {zipCodeData.map((item, index) => (
                   <tr key={item.zipCode}>
-                    <td className='border border-gray-400 px-2 py-1'>
+                    <td
+                      headers='top-rso-rank'
+                      className='border border-gray-400 px-2 py-1'
+                    >
                       {index + 1}
                     </td>
-                    <td className='border border-gray-400 px-2 py-1'>
+                    <th
+                      id={`top-rso-zip-${index}`}
+                      scope='row'
+                      className='border border-gray-400 px-2 py-1 text-left font-normal'
+                    >
                       {item.zipCode}
-                    </td>
-                    <td className='border border-gray-400 px-2 py-1'>
+                    </th>
+                    <td
+                      headers={`top-rso-zip-${index} top-rso-communities`}
+                      className='border border-gray-400 px-2 py-1'
+                    >
                       {item.communities}
                     </td>
-                    <td className='border border-gray-400 px-2 py-1'>
+                    <td
+                      headers={`top-rso-zip-${index} top-rso-number`}
+                      className='border border-gray-400 px-2 py-1'
+                    >
                       {item.number}
                     </td>
                   </tr>
@@ -279,13 +314,25 @@ export default function Analysis() {
             <table className='w-full table-auto bg-white text-left text-black'>
               <thead style={{ backgroundColor: '#41ffca', color: 'black' }}>
                 <tr>
-                  <th className='border border-gray-400 px-2 py-1'>
+                  <th
+                    id='land-use-code'
+                    scope='col'
+                    className='border border-gray-400 px-2 py-1'
+                  >
                     Land Use Code
                   </th>
-                  <th className='border border-gray-400 px-2 py-1'>
+                  <th
+                    id='land-use-description'
+                    scope='col'
+                    className='border border-gray-400 px-2 py-1'
+                  >
                     Description
                   </th>
-                  <th className='border border-gray-400 px-2 py-1'>
+                  <th
+                    id='land-use-units'
+                    scope='col'
+                    className='border border-gray-400 px-2 py-1'
+                  >
                     # of RSO Units
                   </th>
                 </tr>
@@ -293,13 +340,23 @@ export default function Analysis() {
               <tbody>
                 {landUseCodeData.map((item, index) => (
                   <tr key={item.landUseCode}>
-                    <td className='border border-gray-400 px-2 py-1'>
+                    <th
+                      id={`land-use-code-${index}`}
+                      scope='row'
+                      className='border border-gray-400 px-2 py-1 text-left font-normal'
+                    >
                       {item.landuseCode}
-                    </td>
-                    <td className='border border-gray-400 px-2 py-1'>
+                    </th>
+                    <td
+                      headers={`land-use-code-${index} land-use-description`}
+                      className='border border-gray-400 px-2 py-1'
+                    >
                       {item.description}
                     </td>
-                    <td className='border border-gray-400 px-2 py-1'>
+                    <td
+                      headers={`land-use-code-${index} land-use-units`}
+                      className='border border-gray-400 px-2 py-1'
+                    >
                       {item.number}
                     </td>
                   </tr>
@@ -340,13 +397,25 @@ export default function Analysis() {
               <table className='mb-4 w-full table-auto bg-white text-left text-black sm:mb-0 sm:mr-2 sm:w-1/2'>
                 <thead style={{ backgroundColor: '#41ffca', color: 'black' }}>
                   <tr>
-                    <th scope='col' className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-gain-zip'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       Zip Code
                     </th>
-                    <th scope='col' className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-gain-communities'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       Communities
                     </th>
-                    <th scope='col' className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-gain-change'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       Net Change (Units)
                     </th>
                   </tr>
@@ -355,15 +424,22 @@ export default function Analysis() {
                   {netGainData.map((item, index) => (
                     <tr key={index} className='hover:bg-gray-100'>
                       <th
+                        id={`net-gain-zip-${index}`}
                         scope='row'
                         className='border border-gray-400 px-4 py-2 text-left font-normal'
                       >
                         {item.zipCodes}
                       </th>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <td
+                        headers={`net-gain-zip-${index} net-gain-communities`}
+                        className='border border-gray-400 px-4 py-2'
+                      >
                         {item.communities}
                       </td>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <td
+                        headers={`net-gain-zip-${index} net-gain-change`}
+                        className='border border-gray-400 px-4 py-2'
+                      >
                         {item.number}
                       </td>
                     </tr>
@@ -374,13 +450,25 @@ export default function Analysis() {
               <table className='w-full table-auto bg-white text-left text-black sm:w-1/2'>
                 <thead style={{ backgroundColor: '#41ffca', color: 'black' }}>
                   <tr>
-                    <th scope='col' className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-loss-zip'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       Zip Code
                     </th>
-                    <th scope='col' className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-loss-communities'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       Communities
                     </th>
-                    <th scope='col' className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-loss-change'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       Net Change (Units)
                     </th>
                   </tr>
@@ -389,15 +477,22 @@ export default function Analysis() {
                   {netLossData.map((item, index) => (
                     <tr key={index} className='hover:bg-gray-100'>
                       <th
+                        id={`net-loss-zip-${index}`}
                         scope='row'
                         className='border border-gray-400 px-4 py-2 text-left font-normal'
                       >
                         {item.zipCode}
                       </th>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <td
+                        headers={`net-loss-zip-${index} net-loss-communities`}
+                        className='border border-gray-400 px-4 py-2'
+                      >
                         {item.communities}
                       </td>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <td
+                        headers={`net-loss-zip-${index} net-loss-change`}
+                        className='border border-gray-400 px-4 py-2'
+                      >
                         {item.number}
                       </td>
                     </tr>
@@ -436,15 +531,25 @@ export default function Analysis() {
                 <thead style={{ backgroundColor: '#41ffca', color: 'black' }}>
                   <tr>
                     <th
+                      id='net-gain-lucode'
+                      scope='col'
                       className='border border-gray-400 px-4 py-2'
                       style={{ whiteSpace: 'normal', width: '10rem' }}
                     >
                       Land Use Code
                     </th>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-gain-ludesc'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       Description
                     </th>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-gain-luchange'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       # Net Change
                     </th>
                   </tr>
@@ -452,13 +557,23 @@ export default function Analysis() {
                 <tbody>
                   {netGainByLuCodeData.map((item, index) => (
                     <tr key={index} className='hover:bg-gray-100'>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <th
+                        id={`net-gain-lucode-${index}`}
+                        scope='row'
+                        className='border border-gray-400 px-4 py-2 text-left font-normal'
+                      >
                         {item.landuseCode}
-                      </td>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      </th>
+                      <td
+                        headers={`net-gain-lucode-${index} net-gain-ludesc`}
+                        className='border border-gray-400 px-4 py-2'
+                      >
                         {item.description}
                       </td>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <td
+                        headers={`net-gain-lucode-${index} net-gain-luchange`}
+                        className='border border-gray-400 px-4 py-2'
+                      >
                         {item.netGain}
                       </td>
                     </tr>
@@ -470,15 +585,25 @@ export default function Analysis() {
                 <thead style={{ backgroundColor: '#41ffca', color: 'black' }}>
                   <tr>
                     <th
+                      id='net-loss-lucode'
+                      scope='col'
                       className='border border-gray-400 px-4 py-2'
                       style={{ whiteSpace: 'normal', width: '10rem' }}
                     >
                       Land Use Code
                     </th>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-loss-ludesc'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       Description
                     </th>
-                    <th className='border border-gray-400 px-4 py-2'>
+                    <th
+                      id='net-loss-luchange'
+                      scope='col'
+                      className='border border-gray-400 px-4 py-2'
+                    >
                       # Net Loss
                     </th>
                   </tr>
@@ -486,13 +611,23 @@ export default function Analysis() {
                 <tbody>
                   {netLossByLuCodeData.map((item, index) => (
                     <tr key={index} className='hover:bg-gray-100'>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <th
+                        id={`net-loss-lucode-${index}`}
+                        scope='row'
+                        className='border border-gray-400 px-4 py-2 text-left font-normal'
+                      >
                         {item.landuseCode}
-                      </td>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      </th>
+                      <td
+                        headers={`net-loss-lucode-${index} net-loss-ludesc`}
+                        className='border border-gray-400 px-4 py-2'
+                      >
                         {item.description}
                       </td>
-                      <td className='border border-gray-400 px-4 py-2'>
+                      <td
+                        headers={`net-loss-lucode-${index} net-loss-luchange`}
+                        className='border border-gray-400 px-4 py-2'
+                      >
                         {item.netLoss}
                       </td>
                     </tr>
