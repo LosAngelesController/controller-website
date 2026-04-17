@@ -551,3 +551,12 @@ a {
   border-radius: 0.375rem;
   box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006eff;
 }
+
+/* Keep the third-party accessibility launcher clear of the civic header and navbar. */
+#userwayAccessibilityIcon,
+.uwy.userway_p1,
+.uwy.userway_p2,
+.uwy.userway_p3,
+.uwy.userway_p4 {
+  top: calc(7.5rem + 25px) !important;
+}
