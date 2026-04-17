@@ -103,13 +103,21 @@ export default function Report(props: auditinterface) {
 
   React.useEffect(() => {
     removeloadingissuesontableau();
-
-    setInterval(() => {
-      removeloadingissuesontableau();
-      relabelGenericVizTitles();
-    }, 500);
-
     relabelGenericVizTitles();
+
+    // Legacy Tableau embeds often replace placeholder markup asynchronously.
+    // Retry briefly after mount so the DOM stabilizes, then stop mutating it.
+    const retryIntervals = [500, 1500, 3000, 5000];
+    const timeoutIds = retryIntervals.map((delay) =>
+      window.setTimeout(() => {
+        removeloadingissuesontableau();
+        relabelGenericVizTitles();
+      }, delay)
+    );
+
+    return () => {
+      timeoutIds.forEach((timeoutId) => window.clearTimeout(timeoutId));
+    };
   }, []);
 
   return (

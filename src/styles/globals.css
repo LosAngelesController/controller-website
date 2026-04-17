@@ -535,3 +535,19 @@ a {
   outline-offset: 2px;
   box-shadow: none !important;
 }
+
+.legacycontentgal iframe {
+  border-radius: 0.375rem;
+}
+
+.legacycontentgal iframe:focus,
+.legacycontentgal iframe:focus-visible {
+  outline: 2px solid #006eff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006eff !important;
+}
+
+.legacycontentgal .tableauPlaceholder:focus-within {
+  border-radius: 0.375rem;
+  box-shadow: 0 0 0 2px #ffffff, 0 0 0 4px #006eff;
+}
