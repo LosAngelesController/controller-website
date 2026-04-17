@@ -30,6 +30,7 @@ const HeroSection = () => {
             </p>
 
             <Button
+              asChild
               size='lg'
               className='
                 gap-2 bg-[#1f3b63]
@@ -38,15 +39,15 @@ const HeroSection = () => {
                 hover:bg-[#274b7e]
                 dark:bg-[#41ffca] dark:text-black dark:hover:bg-[#35e6b8]
               '
-              onClick={() =>
-                window.open(
-                  'https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/PH%20Pathways_LAHSA%20Final_12.10.2024.pdf?alt=media&token=0f6681b8-a28b-44ed-8bfa-e040fd2a127f',
-                  '_blank'
-                )
-              }
             >
-              <Download className='h-5 w-5' />
-              Download Report
+              <a
+                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/PH%20Pathways_LAHSA%20Final_12.10.2024.pdf?alt=media&token=0f6681b8-a28b-44ed-8bfa-e040fd2a127f'
+                target='_blank'
+                rel='noopener noreferrer'
+              >
+                <Download className='h-5 w-5' />
+                Download Report
+              </a>
             </Button>
           </div>
 
