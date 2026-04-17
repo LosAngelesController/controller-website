@@ -115,9 +115,9 @@ export default function Navbar(props: any) {
       >
         {({ open }) => (
           <>
-            <div className='mx-auto max-w-7xl pl-2 drop-shadow-sm sm:px-4 md:px-2 lg:px-8'>
-              <div className='relative flex h-16 items-center justify-between'>
-                <div className='absolute inset-y-0 left-0 flex items-center sm:hidden'>
+            <div className='mx-auto max-w-7xl pl-2 drop-shadow-sm xl:px-4 2xl:px-8'>
+              <div className='relative flex min-h-16 items-center justify-between py-2'>
+                <div className='absolute inset-y-0 left-0 flex items-center xl:hidden'>
                   {/* Mobile menu button*/}
                   <Disclosure.Button
                     onClick={() => {
@@ -134,7 +134,7 @@ export default function Navbar(props: any) {
                   </Disclosure.Button>
                 </div>
 
-                <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
+                <div className='flex flex-1 items-center justify-center xl:items-stretch xl:justify-start'>
                   <div className='flex flex-shrink-0 items-center'>
                     <Link href='/'>
                       <Image
@@ -158,39 +158,40 @@ export default function Navbar(props: any) {
                     </Link>
                   </div>
 
-                  <div className='hidden sm:ml-4 sm:block lg:ml-6'>
-                    <div className='flex gap-x-3 lg:gap-x-4'>
-                      {navarraycurrent().map((item: newiteminterface) => (
-                        <a
-                          key={item.name}
-                          href={item.href}
-                          className={classNames(
-                            item.current
-                              ? 'text-gray-800 dark:text-gray-100'
-                              : 'text-gray-900 dark:text-white',
-                            'rounded-md px-2 py-2 text-sm font-medium lg:px-3',
-                            item.className
-                          )}
-                          aria-current={item.current ? 'page' : undefined}
-                        >
-                          {item.name}
-                        </a>
-                      ))}
-                      {/* <Translate /> */}
-                      <div className='align-right  ml-auto'>
-                        <ChangeColour />
+                  <div className='hidden xl:ml-4 xl:block 2xl:ml-6'>
+                    <div className='flex flex-wrap items-center gap-x-3 gap-y-2 lg:gap-x-4'>
+                      <div className='flex flex-wrap items-center gap-x-3 gap-y-2 lg:gap-x-4'>
+                        {navarraycurrent().map((item: newiteminterface) => (
+                          <a
+                            key={item.name}
+                            href={item.href}
+                            className={classNames(
+                              item.current
+                                ? 'text-gray-800 dark:text-gray-100'
+                                : 'text-gray-900 dark:text-white',
+                              'rounded-md px-2 py-2 text-sm font-medium lg:px-3',
+                              item.className
+                            )}
+                            aria-current={item.current ? 'page' : undefined}
+                          >
+                            {item.name}
+                          </a>
+                        ))}
                       </div>
-                      {width >= 768 && <NewTranslate />}
+                      <div className='flex flex-wrap items-center gap-x-3 gap-y-2 xl:ml-auto'>
+                        <ChangeColour />
+                        {width >= 1280 && <NewTranslate />}
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className='absolute inset-y-0 right-0 flex items-center dark:text-white sm:static sm:inset-auto sm:ml-6 sm:pr-0'>
+                <div className='absolute inset-y-0 right-0 flex items-center dark:text-white xl:static xl:inset-auto xl:ml-6 xl:pr-0'>
                   <button
                     onClick={() => {
                       setMobileTranslateOpen(!mobiletranslateopen);
                     }}
                     aria-label='Open Translate Selector'
-                    className='px-4 py-4 sm:px-0 sm:pb-4 sm:pt-3 md:hidden'
+                    className='px-4 py-4 xl:px-0 xl:pb-4 xl:pt-3 2xl:hidden'
                   >
                     <svg
                       xmlns='http://www.w3.org/2000/svg'
@@ -209,14 +210,12 @@ export default function Navbar(props: any) {
                   </button>
                 </div>
               </div>
-              <div
-                className={`${mobiletranslateopen ? 'md:hidden' : 'hidden'}`}
-              >
-                {width < 768 && <NewTranslate />}
+              <div className={`${mobiletranslateopen ? 'xl:hidden' : 'hidden'}`}>
+                {width < 1280 && <NewTranslate />}
               </div>
             </div>
 
-            <Disclosure.Panel className='md:hidden'>
+            <Disclosure.Panel className='xl:hidden'>
               <div className='space-y-1 px-2 pb-3 pt-2'>
                 {navarraycurrent().map((item: newiteminterface) => (
                   <Disclosure.Button
