@@ -9,26 +9,43 @@ import Seo from '@/components/Seo';
 
 import collections from '@/collectionsboard.json';
 
+interface Meeting {
+  date: string;
+  agenda?: string;
+  minutes?: string;
+}
 
-
-export default function CollectionsBoard(props: any) {
+export default function CollectionsBoard(_props: any) {
   return (
     <>
+      {/*
+        SC 2.4.1 Bypass Blocks — skip link lets keyboard users jump past
+        Navbar straight to main content. Visually hidden until focused.
+      */}
+      <a
+        href='#main-content'
+        className='sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-black focus:px-4 focus:py-2 focus:text-white focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-yellow-400'
+      >
+        Skip to main content
+      </a>
+
       <Navbar />
 
       <Layout>
-        {/* <Seo templateTitle='Home' /> */}
-
         <Seo
           title='Collections Board of Review'
           description='See Collections Board of Review meeting agendas and minutes, plus details on write-off approvals for uncollectible City accounts in Los Angeles.'
         />
 
-        <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
-          <h1 className='py-2 dark:text-white sm:pt-4 sm:pb-2'>
+        <main
+          id='main-content'
+          tabIndex={-1}
+          className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'
+        >
+          <h1 className='py-2 text-3xl font-bold dark:text-white sm:pb-2 sm:pt-4'>
             Collections Board of Review
           </h1>
-          <p className='dark:text-white mt-6'>
+          <p className='mt-6 dark:text-white'>
             The Los Angeles Administrative Code Section 5.182 establishes a
             Collections Board of Review (Board) to review uncollectible accounts
             of City departments, bureaus and offices. The Board consists of the
@@ -42,59 +59,119 @@ export default function CollectionsBoard(props: any) {
             October at 9:00 am in the Controller’s office.
           </p>
 
-          <div className='mt-3 '>
-            <h2 className='mt-2 text-lg font-semibold dark:text-white'>
+          <section className='mt-3' aria-labelledby='meetings-heading'>
+            <h2
+              id='meetings-heading'
+              className='mt-2 text-lg font-semibold dark:text-white'
+            >
               Meeting Agendas and Minutes
             </h2>
-            <table>
-              <caption className="sr-only">
-                Meetings with links to agendas and minutes
-              </caption>
-              <thead>
-                <tr className="text-left dark:text-white">
-                  <th scope="col" className="px-1 py-2">Date</th>
-                  <th scope="col" className="px-1 py-2">Agenda</th>
-                  <th scope="col" className="px-1 py-2">Minutes</th>
-                </tr>
-              </thead>
-              <tbody>
-                {collections.map((eachmeeting: any, key: number) => (
-                  <tr className='dark:text-white' key={key}>
-                    <td className='px-1'>{eachmeeting.date}</td>
 
-                    {eachmeeting.agenda ? (
-                      <td className='px-1'>
-                        <Link
-                          href={eachmeeting.agenda}
-                          className='text-green-700 dark:text-mejito'
-                          aria-label={`Agenda for meeting on ${eachmeeting.date}`}
-                        >
-                          Agenda
-                        </Link>
-                      </td>
-                    ) : (
-                      <td aria-label="Not available"></td>
-                    )}
-
-                    {eachmeeting.minutes ? (
-                      <td className='px-1'>
-                        <Link
-                          href={eachmeeting.minutes}
-                          className='text-green-700 dark:text-mejito'
-                          aria-label={`Minutes for meeting on ${eachmeeting.date}`}
-                        >
-                          Minutes
-                        </Link>
-                      </td>
-                    ) : (
-                      <td aria-label="Not available"></td>
-                    )}
+            {/*
+              SC 1.4.10 Reflow — wrapper allows horizontal scroll on very narrow
+              viewports without breaking the page layout. table-auto + word-break
+              handles long URLs gracefully on larger screens.
+            */}
+            <div className='mt-2 overflow-x-auto'>
+              <table className='w-full border-collapse text-left'>
+                <caption className='sr-only'>
+                  Collections Board of Review meetings, with links to the agenda
+                  and minutes for each date where available.
+                </caption>
+                <thead>
+                  <tr className='border-b-2 border-gray-300 dark:border-gray-600 dark:text-white'>
+                    <th scope='col' className='px-2 py-2 font-semibold'>
+                      Date
+                    </th>
+                    <th scope='col' className='px-2 py-2 font-semibold'>
+                      Agenda
+                    </th>
+                    <th scope='col' className='px-2 py-2 font-semibold'>
+                      Minutes
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
+                </thead>
+                <tbody>
+                  {(collections as Meeting[]).map((eachmeeting, key) => (
+                    <tr
+                      key={`${eachmeeting.date}-${key}`}
+                      className='border-b border-gray-200 dark:border-gray-700 dark:text-white'
+                    >
+                      <th
+                        scope='row'
+                        className='px-2 py-2 align-top font-normal'
+                      >
+                        {eachmeeting.date}
+                      </th>
+
+                      <td className='px-2 py-2 align-top'>
+                        {eachmeeting.agenda ? (
+                          <Link
+                            href={eachmeeting.agenda}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='
+                              text-green-800 underline decoration-1 underline-offset-2
+                              hover:text-green-900 hover:decoration-2
+                              focus-visible:outline focus-visible:outline-2
+                              focus-visible:outline-offset-2 focus-visible:outline-yellow-500
+                              dark:text-mejito dark:hover:text-green-300
+                            '
+                            aria-label={`Agenda (PDF) for meeting on ${eachmeeting.date}, opens in a new tab`}
+                          >
+                            Agenda
+                            <span className='sr-only'>
+                              {' '}
+                              (PDF, opens in new tab)
+                            </span>
+                          </Link>
+                        ) : (
+                          <>
+                            <span aria-hidden='true'>—</span>
+                            <span className='sr-only'>
+                              No agenda available for {eachmeeting.date}
+                            </span>
+                          </>
+                        )}
+                      </td>
+
+                      <td className='px-2 py-2 align-top'>
+                        {eachmeeting.minutes ? (
+                          <Link
+                            href={eachmeeting.minutes}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='
+                              text-green-800 underline decoration-1 underline-offset-2
+                              hover:text-green-900 hover:decoration-2
+                              focus-visible:outline focus-visible:outline-2
+                              focus-visible:outline-offset-2 focus-visible:outline-yellow-500
+                              dark:text-mejito dark:hover:text-green-300
+                            '
+                            aria-label={`Minutes (PDF) for meeting on ${eachmeeting.date}, opens in a new tab`}
+                          >
+                            Minutes
+                            <span className='sr-only'>
+                              {' '}
+                              (PDF, opens in new tab)
+                            </span>
+                          </Link>
+                        ) : (
+                          <>
+                            <span aria-hidden='true'>—</span>
+                            <span className='sr-only'>
+                              No minutes available for {eachmeeting.date}
+                            </span>
+                          </>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
       </Layout>
     </>
   );
