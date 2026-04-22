@@ -1,56 +1,147 @@
-"use client";
+'use client';
 
-import axios from "axios";
-import React from 'react';
-import { useEffect, useState } from "react";
-
-
-
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 export default function Top20Zip() {
-    const [zipNotices, setZipNotices] = useState([]);
+  const [zipNotices, setZipNotices] = useState([]);
+  const [status, setStatus] = useState('loading'); // 'loading' | 'ready' | 'error'
 
-    useEffect(() => {
-        axios
-        .get('https://api.sheety.co/2996d79e2117ff0d746768a9b29ec03c/evictionNoticesAnalysisMonthly/topTwenty')
-        .then((response) => {
-            const data = response.data.topTwenty;
-            // console.log("zip", data);
-            setZipNotices(data);
-        })
-        .catch((error) => {
-            console.error("Error:", error);
-        })
-      }, []);
+  useEffect(() => {
+    let cancelled = false;
 
-    return (
-      <div>
-        <div className="bg-white p-2">
-          <table className="table-auto w-full">
-            <caption
-              className="p-2 text-center text-3xl font-bold text-black"
-              style={{ border: '1px solid black', backgroundColor: '#41ffca', borderBottom: 'none' }}
-            >
-              Top 20 Zip Codes with Highest Number of Eviction Notices
-            </caption>
-            <thead className="text-black" style={{border: '1px solid black', backgroundColor: '#41ffca'}}>
+    axios
+      .get(
+        'https://api.sheety.co/2996d79e2117ff0d746768a9b29ec03c/evictionNoticesAnalysisMonthly/topTwenty'
+      )
+      .then((response) => {
+        if (cancelled) return;
+        setZipNotices(response.data.topTwenty ?? []);
+        setStatus('ready');
+      })
+      .catch((error) => {
+        if (cancelled) return;
+        // eslint-disable-next-line no-console
+        console.error('Error loading eviction notices:', error);
+        setStatus('error');
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  return (
+    <div className='bg-white p-2'>
+      {/*
+        SC 4.1.3 Status Messages — aria-live region announces fetch state
+        to screen readers without moving focus. Visually hidden; the table
+        and inline messages below provide the sighted equivalent.
+      */}
+      <div role='status' aria-live='polite' className='sr-only'>
+        {status === 'loading' && 'Loading eviction notice data.'}
+        {status === 'ready' &&
+          `Loaded ${zipNotices.length} zip codes with eviction notices.`}
+        {status === 'error' &&
+          'Unable to load eviction notice data. Please try again later.'}
+      </div>
+
+      {/*
+        SC 2.4.6 / 1.3.1 — a real <h2> gives the table a place in the
+        document outline. Visually hidden because the <caption> already
+        shows the title to sighted users, and we don't want duplication.
+      */}
+      <h2 id='top20zip-heading' className='sr-only'>
+        Top 20 Zip Codes with Highest Number of Eviction Notices
+      </h2>
+
+      {/* SC 1.4.10 Reflow — wrapper scrolls horizontally on narrow viewports. */}
+      <div className='overflow-x-auto'>
+        <table
+          className='w-full table-auto border border-black'
+          aria-labelledby='top20zip-heading'
+          aria-describedby='top20zip-status'
+        >
+          <caption className='border border-b-0 border-black bg-[#41ffca] p-2 text-center text-3xl font-bold text-black'>
+            Top 20 Zip Codes with Highest Number of Eviction Notices
+          </caption>
+
+          <thead className='border border-black bg-[#41ffca] text-black'>
+            <tr>
+              <th scope='col' className='border border-black p-2 text-left'>
+                Zip Code
+              </th>
+              <th scope='col' className='border border-black p-2 text-left'>
+                Communities
+              </th>
+              <th scope='col' className='border border-black p-2 text-right'>
+                <span aria-hidden='true'># of Eviction Notices</span>
+                <span className='sr-only'>Number of eviction notices</span>
+              </th>
+            </tr>
+          </thead>
+
+          <tbody className='text-black'>
+            {status === 'loading' && (
               <tr>
-                <th className="text-black p-2 text-left" style={{border: '1px solid black'}} scope="col">Zip Code</th>
-                <th className="text-black p-2 text-left" style={{border: '1px solid black'}} scope="col">Communities</th>
-                <th className="text-black p-2" style={{border: '1px solid black'}} scope="col"># of Eviction Notices</th>
+                <td
+                  colSpan={3}
+                  className='border border-black p-4 text-center italic'
+                >
+                  Loading data…
+                </td>
               </tr>
-            </thead>
-            <tbody className="text-black" style={{border: '1px solid black'}}>
-              {zipNotices.map((row) => (
-                <tr key={row.id}>
-                  <th className="text-black p-2 font-bold" style={{border: '1px solid black'}} scope="row">{row.zipCode}</th>
-                  <td className="text-black p-2" style={{border: '1px solid black'}}>{row.communities}</td>
-                  <td className="text-black p-2 text-right" style={{border: '1px solid black'}}>{row.number}</td>
+            )}
+
+            {status === 'error' && (
+              <tr>
+                <td
+                  colSpan={3}
+                  className='border border-black p-4 text-center text-red-700'
+                >
+                  Unable to load eviction notice data. Please refresh the page
+                  or try again later.
+                </td>
+              </tr>
+            )}
+
+            {status === 'ready' && zipNotices.length === 0 && (
+              <tr>
+                <td
+                  colSpan={3}
+                  className='border border-black p-4 text-center italic'
+                >
+                  No eviction notice data available.
+                </td>
+              </tr>
+            )}
+
+            {status === 'ready' &&
+              zipNotices.map((row, index) => (
+                <tr key={row.id ?? `${row.zipCode}-${index}`}>
+                  <th
+                    scope='row'
+                    className='border border-black p-2 text-left font-bold'
+                  >
+                    {row.zipCode}
+                  </th>
+                  <td className='border border-black p-2'>{row.communities}</td>
+                  <td className='border border-black p-2 text-right'>
+                    {typeof row.number === 'number'
+                      ? row.number.toLocaleString()
+                      : row.number}
+                  </td>
                 </tr>
               ))}
-            </tbody>
-          </table>
-        </div>
+          </tbody>
+        </table>
       </div>
-    );
-};
+
+      {/* Hidden description associated via aria-describedby, useful for AT users. */}
+      <p id='top20zip-status' className='sr-only'>
+        Table shows zip codes, associated community names, and the number of
+        eviction notices filed in each.
+      </p>
+    </div>
+  );
+}
