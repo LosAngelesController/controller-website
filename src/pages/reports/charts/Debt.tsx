@@ -322,18 +322,32 @@ const BarChart: React.FC<DebtProps> = ({ withSeo = true } = {}) => {
         </caption>
         <thead>
           <tr>
-            <th scope='col'>Fiscal Year</th>
+            <th id='debt-fiscal-year' scope='col'>
+              Fiscal Year
+            </th>
             {selectedOption === 'debt' ? (
               <>
-                <th scope='col'>$ Total Debt Cap</th>
-                <th scope='col'>Voter Approved Debt</th>
-                <th scope='col'>Non-Voter Approved Debt</th>
+                <th id='debt-total-cap' scope='col'>
+                  $ Total Debt Cap
+                </th>
+                <th id='debt-voter-approved' scope='col'>
+                  Voter Approved Debt
+                </th>
+                <th id='debt-non-voter-approved' scope='col'>
+                  Non-Voter Approved Debt
+                </th>
               </>
             ) : (
               <>
-                <th scope='col'>% Total Debt Cap</th>
-                <th scope='col'>Voter Approved Debt %</th>
-                <th scope='col'>Non-Voter Approved Debt %</th>
+                <th id='debt-total-cap-percent' scope='col'>
+                  % Total Debt Cap
+                </th>
+                <th id='debt-voter-approved-percent' scope='col'>
+                  Voter Approved Debt %
+                </th>
+                <th id='debt-non-voter-approved-percent' scope='col'>
+                  Non-Voter Approved Debt %
+                </th>
               </>
             )}
           </tr>
@@ -347,10 +361,22 @@ const BarChart: React.FC<DebtProps> = ({ withSeo = true } = {}) => {
 
               return (
                 <tr key={`debt-${item.fiscalYear}`}>
-                  <th scope='row'>{item.fiscalYear}</th>
-                  <td>{formatAbbreviatedCurrency(totalCap)}</td>
-                  <td>{formatAbbreviatedCurrency(voterApproved)}</td>
-                  <td>{formatAbbreviatedCurrency(nonVoterApproved)}</td>
+                  <th id={`debt-row-${item.fiscalYear}`} scope='row'>
+                    {item.fiscalYear}
+                  </th>
+                  <td headers={`debt-row-${item.fiscalYear} debt-total-cap`}>
+                    {formatAbbreviatedCurrency(totalCap)}
+                  </td>
+                  <td
+                    headers={`debt-row-${item.fiscalYear} debt-voter-approved`}
+                  >
+                    {formatAbbreviatedCurrency(voterApproved)}
+                  </td>
+                  <td
+                    headers={`debt-row-${item.fiscalYear} debt-non-voter-approved`}
+                  >
+                    {formatAbbreviatedCurrency(nonVoterApproved)}
+                  </td>
                 </tr>
               );
             }
@@ -363,10 +389,24 @@ const BarChart: React.FC<DebtProps> = ({ withSeo = true } = {}) => {
 
             return (
               <tr key={`percent-${item.fiscalYear}`}>
-                <th scope='row'>{item.fiscalYear}</th>
-                <td>{formatPercentage(totalPercent)}</td>
-                <td>{formatPercentage(voterPercent)}</td>
-                <td>{formatPercentage(nonVoterPercent)}</td>
+                <th id={`debt-row-${item.fiscalYear}`} scope='row'>
+                  {item.fiscalYear}
+                </th>
+                <td
+                  headers={`debt-row-${item.fiscalYear} debt-total-cap-percent`}
+                >
+                  {formatPercentage(totalPercent)}
+                </td>
+                <td
+                  headers={`debt-row-${item.fiscalYear} debt-voter-approved-percent`}
+                >
+                  {formatPercentage(voterPercent)}
+                </td>
+                <td
+                  headers={`debt-row-${item.fiscalYear} debt-non-voter-approved-percent`}
+                >
+                  {formatPercentage(nonVoterPercent)}
+                </td>
               </tr>
             );
           })}

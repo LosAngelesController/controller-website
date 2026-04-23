@@ -136,7 +136,7 @@ export default function Navbar(props: any) {
                   </Disclosure.Button>
                 </div>
 
-                <div className='flex flex-1 items-center justify-center sm:items-stretch sm:justify-start'>
+                <div className='flex flex-1 items-center justify-center xl:items-stretch xl:justify-start'>
                   <div className='flex flex-shrink-0 items-center'>
                     {/*
                       a11y: one <Link> with a single accessible name.
@@ -221,8 +221,8 @@ export default function Navbar(props: any) {
 
                       <div className='align-right ml-auto'>
                         <ChangeColour />
+                        {width >= 1280 && <NewTranslate />}
                       </div>
-                      {width >= 768 && <NewTranslate />}
                     </div>
                   </div>
                 </div>
@@ -276,7 +276,7 @@ export default function Navbar(props: any) {
               </div>
             </div>
 
-            <Disclosure.Panel className='md:hidden'>
+            <Disclosure.Panel className='xl:hidden'>
               <div className='space-y-1 px-2 pb-3 pt-2'>
                 {navigation.map((item) => {
                   const current = isCurrent(item.href);
