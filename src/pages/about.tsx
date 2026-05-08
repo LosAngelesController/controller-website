@@ -329,10 +329,10 @@ export default function About(props: any) {
                   Financial Analysis and Reporting Division
                 </h3>
                 <ProfileCard
-                  name='Rahoof (Wally) Oyewole'
+                  name='Deborah Mitrenga'
                   title='Director of Financial Analysis and Reporting'
                   subtitle=''
-                  picture='/images/staff/WallyOyewole-CFO.jpg'
+                  picture='/images/staff/DeborahMitrenga-ChiefAssistantController.jpg'
                 />
               </div>
               <div className='flex flex-col gap-y-2'>
