@@ -172,8 +172,8 @@ export default function Navbar(props: any) {
                     </Link>
                   </div>
 
-                  <div className='hidden sm:ml-4 sm:block lg:ml-6'>
-                    <div className='flex gap-x-3 lg:gap-x-4'>
+                  <div className='hidden min-w-0 flex-1 sm:ml-4 sm:block lg:ml-6'>
+                    <div className='flex items-center gap-x-3 lg:gap-x-4'>
                       {navigation.map((item) => {
                         const current = isCurrent(item.href);
 
@@ -219,7 +219,7 @@ export default function Navbar(props: any) {
                         );
                       })}
 
-                      <div className='align-right ml-auto'>
+                      <div className='ml-auto flex shrink-0 items-center gap-3'>
                         <ChangeColour />
                         {width >= 1280 && <NewTranslate />}
                       </div>
