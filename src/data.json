@@ -1,6 +1,13 @@
 {
   "data": [
     {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/top100problemsdashboard.png?alt=media&token=e39170c1-41d9-4626-83f6-014a10f22b71",
+      "name": "Top 100 Problem Rental Properties",
+      "year": "2026",
+      "dept": "Dashboard",
+      "link": "https://prp.lacontroller.app/"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/LASpeedCamera.png?alt=media&token=879d7494-4f69-4fb9-aed6-43fa38064045",
       "name": "LA Speed Cameras Map",
       "year": "2026",
