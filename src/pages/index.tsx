@@ -163,6 +163,23 @@ export default function HomePage(props: any) {
           <h2 className='frontpageh2section'>Most Visited Websites</h2>
 
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 pt-5'>
+     {/* top 100 dashboard */}
+            <Link href='https://prp.lacontroller.app/' target='_blank'>
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
+
+                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
+                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
+                  className="mb-5">
+                  <rect x="3" y="3" width="18" height="18" rx="3" />
+                  <circle cx="8" cy="7" r="1.5" />
+                  <circle cx="16" cy="7" r="1.5" />
+                  <path d="M8 9v6M16 9v6" />
+                  <path d="M6.5 15h3M14.5 15h3" />
+                </svg>
+
+                <h3 className='text-white font-semibold text-sm'>Top 100 Problem Rental Properties Dashboard</h3>
+              </div>
+            </Link>
 
             {/* Bathroom Map */}
             <Link href='https://bathrooms.lacontroller.app' target='_blank'>
