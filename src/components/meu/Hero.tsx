@@ -33,7 +33,7 @@ const Hero = () => {
               className='flex items-center gap-2 bg-[#41ffca] px-6 text-base font-medium text-black hover:bg-[#41ffca]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#41ffca] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1a1a]'
             >
               <a
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/LAPD%20MEU%20Assessment_2025-10-24_FINAL.pdf?alt=media&token=a7028b5d-2cca-4a43-84c9-0abf6bedbd53'
+                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/REMEDIATED%20PDFS%2FAudits%2Fa_LAPD-MEU-Assessment-10242025-FINAL.pdf?alt=media&token=2eebff5e-1746-4ab1-8c9e-c660ade1904d'
                 target='_blank'
                 rel='noopener noreferrer'
                 download
