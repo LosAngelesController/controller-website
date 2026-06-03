@@ -58,23 +58,39 @@ export default function Top20Zip() {
       {/* SC 1.4.10 Reflow — wrapper scrolls horizontally on narrow viewports. */}
       <div className='overflow-x-auto'>
         <table
+          id='top20zip-table'
           className='w-full table-auto border border-black'
           aria-labelledby='top20zip-heading'
           aria-describedby='top20zip-status'
         >
-          <caption className='border border-b-0 border-black bg-[#41ffca] p-2 text-center text-3xl font-bold text-black'>
+          <caption
+            id='top20zip-caption'
+            className='border border-b-0 border-black bg-[#41ffca] p-2 text-center text-3xl font-bold text-black'
+          >
             Top 20 Zip Codes with Highest Number of Eviction Notices
           </caption>
 
           <thead className='border border-black bg-[#41ffca] text-black'>
             <tr>
-              <th scope='col' className='border border-black p-2 text-left'>
+              <th
+                id='top20zip-zip-code-header'
+                scope='col'
+                className='border border-black p-2 text-left'
+              >
                 Zip Code
               </th>
-              <th scope='col' className='border border-black p-2 text-left'>
+              <th
+                id='top20zip-communities-header'
+                scope='col'
+                className='border border-black p-2 text-left'
+              >
                 Communities
               </th>
-              <th scope='col' className='border border-black p-2 text-right'>
+              <th
+                id='top20zip-notices-header'
+                scope='col'
+                className='border border-black p-2 text-right'
+              >
                 <span aria-hidden='true'># of Eviction Notices</span>
                 <span className='sr-only'>Number of eviction notices</span>
               </th>
@@ -86,6 +102,7 @@ export default function Top20Zip() {
               <tr>
                 <td
                   colSpan={3}
+                  headers='top20zip-zip-code-header top20zip-communities-header top20zip-notices-header'
                   className='border border-black p-4 text-center italic'
                 >
                   Loading data…
@@ -97,6 +114,7 @@ export default function Top20Zip() {
               <tr>
                 <td
                   colSpan={3}
+                  headers='top20zip-zip-code-header top20zip-communities-header top20zip-notices-header'
                   className='border border-black p-4 text-center text-red-700'
                 >
                   Unable to load eviction notice data. Please refresh the page
@@ -109,6 +127,7 @@ export default function Top20Zip() {
               <tr>
                 <td
                   colSpan={3}
+                  headers='top20zip-zip-code-header top20zip-communities-header top20zip-notices-header'
                   className='border border-black p-4 text-center italic'
                 >
                   No eviction notice data available.
@@ -117,22 +136,36 @@ export default function Top20Zip() {
             )}
 
             {status === 'ready' &&
-              zipNotices.map((row, index) => (
-                <tr key={row.id ?? `${row.zipCode}-${index}`}>
-                  <th
-                    scope='row'
-                    className='border border-black p-2 text-left font-bold'
-                  >
-                    {row.zipCode}
-                  </th>
-                  <td className='border border-black p-2'>{row.communities}</td>
-                  <td className='border border-black p-2 text-right'>
-                    {typeof row.number === 'number'
-                      ? row.number.toLocaleString()
-                      : row.number}
-                  </td>
-                </tr>
-              ))}
+              zipNotices.map((row, index) => {
+                const rowHeaderId = `top20zip-row-${index}-zip-code`;
+
+                return (
+                  <tr key={row.id ?? `${row.zipCode}-${index}`}>
+                    <th
+                      id={rowHeaderId}
+                      scope='row'
+                      headers='top20zip-zip-code-header'
+                      className='border border-black p-2 text-left font-bold'
+                    >
+                      {row.zipCode}
+                    </th>
+                    <td
+                      headers={`${rowHeaderId} top20zip-communities-header`}
+                      className='border border-black p-2'
+                    >
+                      {row.communities}
+                    </td>
+                    <td
+                      headers={`${rowHeaderId} top20zip-notices-header`}
+                      className='border border-black p-2 text-right'
+                    >
+                      {typeof row.number === 'number'
+                        ? row.number.toLocaleString()
+                        : row.number}
+                    </td>
+                  </tr>
+                );
+              })}
           </tbody>
         </table>
       </div>
