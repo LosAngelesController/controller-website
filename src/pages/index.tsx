@@ -34,7 +34,7 @@ interface bigcardprops {
 const kirbybutton =
   'w-content rounded-full bg-black px-4 py-2 font-bold text-white dark:bg-white dark:text-black';
 
-const CHARTER_SITE_URL = 'https://charterreform.lacontroller.app/';
+// const CHARTER_SITE_URL = 'https://charterreform.lacontroller.app/';
 
 function LineCard(props: any) {
   return (
