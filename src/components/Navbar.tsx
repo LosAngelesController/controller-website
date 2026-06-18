@@ -28,16 +28,16 @@ const navigation: NavItem[] = [
   // { name: 'Events', href: '/events' },
   { name: 'Press', href: '/press' },
   { name: 'Contact', href: '/contact' },
-  {
-    name: 'Charter Reform 2026',
-    href: 'https://charterreform.lacontroller.app/',
-    external: true,
-    className:
-      'font-semibold text-teal-800 hover:text-teal-900 ' +
-      'dark:!text-[#41ffca] dark:hover:!text-[#41ffca] ' +
-      'hover:bg-teal-50/60 dark:hover:bg-white/10 ' +
-      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 dark:focus-visible:ring-[#41ffca]',
-  },
+  // {
+  //   name: 'Charter Reform 2026',
+  //   href: 'https://charterreform.lacontroller.app/',
+  //   external: true,
+  //   className:
+  //     'font-semibold text-teal-800 hover:text-teal-900 ' +
+  //     'dark:!text-[#41ffca] dark:hover:!text-[#41ffca] ' +
+  //     'hover:bg-teal-50/60 dark:hover:bg-white/10 ' +
+  //     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700 dark:focus-visible:ring-[#41ffca]',
+  // },
 ];
 
 function classNames(...classes: (string | undefined | false)[]) {
