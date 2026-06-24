@@ -14,11 +14,11 @@ export default function Evictions() {
     <>
       <Head>
         <title>
-          Eviction Notices (February 2023 - September 2025) Summary and Analysis
+          Eviction Notices (February 2023 - April 2026) Summary and Analysis
         </title>
         <meta
           name='description'
-          content='Dashboard tracking eviction notices in Los Angeles from February 2023 through September 2025 with charts by notice type, month, district, and rent.'
+          content='Dashboard tracking eviction notices in Los Angeles from February 2023 through April 2026 with charts by notice type, month, district, and rent.'
         />
       </Head>
       <Navbar />
@@ -30,7 +30,7 @@ export default function Evictions() {
         <center>
           <div className='mx-2 flex w-full flex-col px-4 py-2 sm:mx-4 md:px-0 lg:mx-auto lg:max-w-3xl xl:max-w-4xl'>
             <h1 className='pb-4 pt-8 text-center text-3xl font-bold dark:text-white'>
-              Eviction Notices (February 2023 - September 2025)
+              Eviction Notices (February 2023 - April 2026)
             </h1>
           </div>
           <div>
@@ -57,19 +57,19 @@ export default function Evictions() {
             style={{ fontFamily: 'Helvetica' }}
           >
             <p className='mb-2'>
-              [October 2025 Update] We analyzed updated data from the Los
-              Angeles Housing Department (LAHD) from February 2023 through
-              September 2025.
+              [<b>May 2026 Update</b>] We analyzed updated data from the Los
+              Angeles Housing Department (LAHD) from February 2023 through April
+              2026.
             </p>
             <p className='mb-4'>
-              The data reveals that from February 2023 to September 2025, LAHD
-              received a total of
-              <b> 245,599</b> eviction notices. <b>6,337</b> notices were filed
-              for September 2025.
+              The data reveals that from <b>February 2023</b> through{' '}
+              <b>April 2026</b>, LAHD received a total of
+              <b> 289,327</b> eviction notices. <b>3,608</b> notices were filed
+              for April 2026.
             </p>
             <ul className='mb-10 ml-10 list-outside list-disc'>
               <li>
-                <b>245,599 eviction notices were filed</b>
+                <b>289,327 eviction notices were filed</b>
               </li>
               <li>
                 <b>93% of eviction notices were for “non-payment of rent”</b>
@@ -78,7 +78,7 @@ export default function Evictions() {
                 <b>89% came with a 3-day notice</b>
               </li>
               <li>
-                <b>$3,972.26 is the average amount of rent owed</b>
+                <b>$3,914.96 is the average amount of rent owed</b>
               </li>
             </ul>
 
@@ -123,13 +123,13 @@ export default function Evictions() {
             <p className='mb-4'>
               The table above shows the top 20 Zip Codes with the highest number
               of eviction notices filed with the City from February 2023 to
-              September 2025.
+              April 2026.
             </p>
             <p className='mb-4'>
               Units located within <b>90028 </b>(Hollywood area) had the highest
-              number of eviction notices filed from February 2023 to September
-              2025 with <b>14,585</b> followed by <b>90012</b> (Downtown LA,
-              Chinatown area) with <b>11,673</b>.
+              number of eviction notices filed from February 2023 to April 2026
+              with <b>17,151</b> followed by <b>90012</b> (Downtown LA,
+              Chinatown area) with <b>13,660</b>.
             </p>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
@@ -183,20 +183,51 @@ export default function Evictions() {
                   months.
                 </li>
                 <li className='mb-4 text-left'>
-                  The allowable rent increase of 3% is in effect from July 1,
-                  2025 through June 30, 2026. If the landlord pays gas and/or
-                  electricity, they can increase up to another 2% (1% for each
-                  they pay).
+                  The allowable rent increase of 3% still in effect started on{' '}
+                  <b>July 1, 2025</b> through <b>June 30, 2026</b>. Beginning{' '}
+                  <b>February 2, 2026</b>, a landlord can no longer include any
+                  additional percentage increase for utilities.
                 </li>
+                <li className='mb-4 text-left'>
+                  Effective <b>February 2, 2026</b>, new regulations govern rent
+                  adjustments for additional occupants
+                </li>
+                <ul className='ml-10 list-[circle]'>
+                  <li className='mb-4 text-left'>
+                    <b>Dependents:</b> No rent increase is permitted when adding
+                    a dependent to the tenancy.
+                  </li>
+                  <li className='mb-4 text-left'>
+                    <b>Non-Dependents:</b> Landlords may increase both the rent
+                    and the security deposit by ten percent (10%) for each
+                    additional adult tenant.
+                  </li>
+                  <li className='mb-4 text-left'>
+                    <b>Notification Window:</b> The landlord must issue a formal
+                    notice of the rent increase within 60 days of discovering
+                    the new tenant.
+                  </li>
+                  <li className='mb-4 text-left'>
+                    <b>Rent Reductions:</b> If the additional tenant vacates the
+                    premises, a corresponding rent reduction must be implemented
+                    immediately.
+                  </li>
+                  <li className='mb-4 text-left'>
+                    <b>Tenant Approval:</b> Landlords retain the right to screen
+                    prospective tenants, provided that approval is not
+                    unreasonably withheld.
+                  </li>
+                </ul>
               </ul>
               <li className='mb-4 text-left'>
                 Protections for Tenants Impacted by the January 2025 Wildfires
               </li>
               <ul className='ml-10 list-[circle]'>
                 <li className='mb-4 text-left'>
-                  Tenants are protected from eviction between February 1, 2025
-                  and July 31, 2025 if they lost actual wages due to one of the
-                  following:
+                  Tenants are protected from eviction between{' '}
+                  <b>February 1, 2025</b>
+                  and <b>July 31, 2025</b> if they lost actual wages due to one
+                  of the following:
                 </li>
                 <ul className='ml-10 list-[circle]'>
                   <li className='mb-2 text-left'>
@@ -214,8 +245,36 @@ export default function Evictions() {
                   </li>
                 </ul>
                 <p className='mb-4 text-left'>
+                  The tenant must also have met <strong>all</strong> of the
+                  following criteria:
+                </p>
+                <ul className='ml-10 list-[circle]'>
+                  <li className='mb-2 text-left'>
+                    Provide your landlord with a self-certification notice
+                    within seven days of rent due for each month you cannot
+                    afford to pay rent. For February 2025 rent, a tenant must
+                    have given notice to the landlord by March 4, 2025.
+                  </li>
+                  <li className='mb-2 text-left'>
+                    Must have lived in the unit since before January 7, 2025.
+                  </li>
+                  <li className='mb-2 text-left'>
+                    Loss of at least ten percent of average monthly household
+                    income immediately before January 7, 2025.
+                  </li>
+                  <li className='mb-2 text-left'>
+                    Enrolled in or have applied for wildfire relief program and
+                    applied for unemployment benefits or other qualifying income
+                    assistance programs.
+                  </li>
+                  <li className='mb-2 text-left'>
+                    Must have a 2024 household income equal to or less than 150%
+                    of the Area Median Income.
+                  </li>
+                </ul>
+                <p className='mb-4 text-left'>
                   Rent not paid during this time must be paid to the landlord on
-                  or before July 31, 2025.
+                  or before <b>July 31, 2025</b>.
                 </p>
                 <li className='mb-4 text-left'>
                   <p className='mb-2'>
