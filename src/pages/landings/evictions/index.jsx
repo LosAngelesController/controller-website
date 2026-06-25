@@ -35,7 +35,7 @@ export default function Evictions() {
           </div>
           <div>
             <Link
-              href='https://docs.google.com/spreadsheets/d/e/2PACX-1vTwkKXHVAsJjGwuEuzY7ILdmYtN_rCmZZsxjECdHK8kG1jGEMjpDa0VWR1UFy97vTNlgtfyysbDYQJL/pubhtml'
+              href='https://docs.google.com/spreadsheets/d/1D5-U3U1Tle2NxLAUG8myo2VuR-85qX09jyuT4GIKPYc/edit?usp=sharing'
               target='_blank'
               rel='noopener noreferrer'
               className='mb-4 inline-block rounded px-4 py-2 font-bold text-black focus:outline-none'
