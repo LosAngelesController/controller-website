@@ -64,12 +64,12 @@ export default function Evictions() {
             <p className='mb-4'>
               The data reveals that from <b>February 2023</b> through{' '}
               <b>April 2026</b>, LAHD received a total of
-              <b> 289,327</b> eviction notices. <b>3,608</b> notices were filed
+              <b> 290,560</b> eviction notices. <b>3,608</b> notices were filed
               for April 2026.
             </p>
             <ul className='mb-10 ml-10 list-outside list-disc'>
               <li>
-                <b>289,327 eviction notices were filed</b>
+                <b>290,560 eviction notices were filed</b>
               </li>
               <li>
                 <b>93% of eviction notices were for “non-payment of rent”</b>
@@ -128,8 +128,8 @@ export default function Evictions() {
             <p className='mb-4'>
               Units located within <b>90028 </b>(Hollywood area) had the highest
               number of eviction notices filed from February 2023 to April 2026
-              with <b>17,151</b> followed by <b>90012</b> (Downtown LA,
-              Chinatown area) with <b>13,660</b>.
+              with <b>17,151</b> followed by <b>90015</b> (Downtown LA, South
+              Park area) with <b>13,833</b>.
             </p>
           </div>
           <div className='dark:text-white' style={{ fontFamily: 'Helvetica' }}>
