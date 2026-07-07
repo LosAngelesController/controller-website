@@ -330,7 +330,7 @@ export default function About(props: any) {
                 </h3>
                 <ProfileCard
                   name='Deborah Mitrenga'
-                  title='Chief Assistant Controller'
+                  title='Chief Assistant Controller / Director of Financial Analysis and Reporting'
                   subtitle=''
                   picture='/images/staff/DeborahMitrenga-ChiefAssistantController.jpg'
                 />
