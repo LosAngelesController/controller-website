@@ -450,58 +450,70 @@ export default function About(props: any) {
           </h2>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-2'>
             The Audit Services Division of the Controller’s Office conducts
-            scheduled audits, special audits, and audits requested by the City
-            Council or City management. Audits determine if existing controls in
-            City departments are adequate, gauge whether departments are
-            operating efficiently and effectively, and ensure that revenues and
-            expenditures are properly recorded in conformance with applicable
-            laws and regulations. City auditors recommend improvements that
-            promote efficiency and effectiveness of City operations and save
-            taxpayer dollars. This division conducts the following types of
-            audits:
+            audits and special reviews to evaluate the efficiency and
+            effectiveness of City programs as well as the controls in place to
+            safeguard City assets. The Audit Services Division also investigates
+            allegations of fraud, waste, and abuse of City resources. Audits and
+            investigations are essential in promoting transparency and integrity.
           </p>
-          <h3>Financial and Compliance Audits</h3>
-          <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
-            Financial-related audits determine whether financial information is
-            presented in accordance with established or stated criteria, and
-            whether the internal control structure over financial reporting and
-            safeguarding of assets is suitably designed and implemented to
-            achieve its objectives. These audits also include routine payroll
-            observations and reviews of departmental bank accounts.
+          <h3>Audits</h3>
+          <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-4'>
+            The Audit Services Division conducts audits covering a wide variety
+            of issues, including but not limited to, operations, finances,
+            procurement, and compliance. Audits focus on determining whether the
+            City is adequately safeguarding resources, using City funds
+            appropriately, operating efficiently and effectively, and complying
+            with applicable laws, regulations, and contracts. Audit reports make
+            recommendations to improve City programs and strengthen operational
+            and financial controls. The Audit Services Division monitors the
+            City’s implementation of recommendations to ensure programs correct
+            weaknesses and continuously improve.
           </p>
-          <h3>Performance Audits</h3>
-          <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
-            Performance and operational audits of City departments and programs
-            are mandated by the City Charter, and assess whether government
-            programs or functions are efficiently and effectively achieving
-            their goals.
+          <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-4'>
+            The division conducts audits in accordance with Generally Accepted
+            Government Auditing Standards.
           </p>
-          <h3>Special Analysis and Reviews</h3>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
-            These are different types of reports that do various things, such as
-            tracking the implementation status of audit recommendations as
-            asserted by management, follow-up audits to independently ensure
-            implementation status, and other special assignments as directed. On
-            an as-needed basis, the division also performs information systems
-            audits, such as general control reviews, application reviews, and
-            post-implementation systems reviews to ensure system functionality
-            and data integrity. In addition, the division performs vendor
-            reviews for selected contracts.
+            The results of the Audit Services Division’s most recent external
+            peer review can be found{' '}
+            <a
+              className="text-2xl font-extrabold text-blue-700 underline hover:text-blue-900"
+              href="https://drive.google.com/file/d/1k3QLLpLHo7CdNGKyNOymvGLkbBiuiJzS/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View the Most Recent External Peer Review Report
+            </a>
+            {/* <a
+              className='font-medium underline'
+              href='https://drive.google.com/file/d/1k3QLLpLHo7CdNGKyNOymvGLkbBiuiJzS/view?usp=drive_link'
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              here
+            </a> */}
+            .
+          </p>
+          <h3>Special Reviews</h3>
+          <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
+            The Audit Services Division conducts special reviews to examine
+            unique and urgent matters. This can include technical studies,
+            follow-up reviews, after action reviews, and other evaluations that
+            address current and emerging risks, and provide valuable information
+            to the public and City leaders. The Audit Services Division also
+            manages periodic, independent studies of the Department of Water and
+            Power, Los Angeles World Airports, the Port of Los Angeles, and the
+            City’s pension systems, as required by the City Charter.
           </p>
           <h3>Fraud, Waste and Abuse Unit</h3>
-          <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-4'>
-            The City of Los Angeles aims to be as transparent and efficient as
-            possible, going above and beyond to protect taxpayers’ assets and
-            preserve government integrity. Critical to these efforts is tracking
-            reports of fraud, waste and abuse of City resources, a core function
-            of the Controller’s office for 15 years.
-          </p>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
-            Since its creation, the Controller’s Fraud, Waste and Abuse Unit has
-            sought to identify, stop and, ultimately, prevent the misuse of City
-            resources by employees and others. This is done through a 24-hour
-            telephone hotline and web-based complaint form, along with citywide
-            education and training programs.
+            The Fraud, Waste, and Abuse Unit within the Audit Services Division
+            conducts investigations into alleged misuse of City resources, abuse
+            of authority or government position, and violations of laws,
+            regulations, or policies. The Fraud, Waste, and Abuse Unit operates
+            a 24-hour telephone hotline and web-based complaint form, and
+            maintains a citywide training program to educate City workers about
+            ethics expectations, fraud red flags, and reporting suspected fraud.
           </p>
 
           <div className='break-normal'></div>
