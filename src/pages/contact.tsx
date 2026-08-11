@@ -162,11 +162,10 @@ export default function Contact(props: any) {
                 </h3>
                 <p className='mb-2'>
                   <a
-                    href='tel:+12139787250'
-                    aria-label='Call Management Services at 2 1 3. 9 7 8. 7 2 5 0'
+                    href='mailto:ctrmgmtservices@lacity.org'
                     className='underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2'
                   >
-                    213.978.7250
+                    ctrmgmtservices@lacity.org
                   </a>
                 </p>
               </div>
