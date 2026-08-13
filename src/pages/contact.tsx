@@ -121,7 +121,7 @@ export default function Contact(props: any) {
                 <h3 className='mb-2 text-sm font-semibold uppercase'>
                   Financial Analysis and Reporting
                 </h3>
-                <p className='mb-8'>
+                <p className='mb-2'>
                   <a
                     href='tel:+12139787300'
                     aria-label='Call Financial Analysis and Reporting at 2 1 3. 9 7 8. 7 3 0 0'
@@ -130,30 +130,46 @@ export default function Contact(props: any) {
                     213.978.7300
                   </a>
                 </p>
+                <p className='mb-8'>
+                  <a
+                    href='mailto:ctr.finreportadmin@lacity.org'
+                    className='underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2'
+                  >
+                    ctr.finreportadmin@lacity.org
+                  </a>
+                </p>
 
                 <h3 className='mb-2 text-sm font-semibold uppercase'>
                   Accounting Operations
                 </h3>
                 <p className='mb-8'>
                   <a
-                    href='tel:+12139787292'
+                    href='tel:+12139787392'
                     aria-label='Call Accounting Operations at 2 1 3. 9 7 8. 7 2 9 2'
                     className='underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2'
                   >
-                    213.978.7292
+                    213.978.7392
                   </a>
                 </p>
 
                 <h3 className='mb-2 text-sm font-semibold uppercase'>
                   Audit Services
                 </h3>
-                <p className='mb-8'>
+                <p className='mb-2'>
                   <a
                     href='tel:+12139787500'
                     aria-label='Call Audit Services at 2 1 3. 9 7 8. 7 5 0 0'
                     className='underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2'
                   >
                     213.978.7500
+                  </a>
+                </p>
+                <p className='mb-8'>
+                  <a
+                    href='mailto:ctr.auditadmin@lacity.org'
+                    className='underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2'
+                  >
+                    ctr.auditadmin@lacity.org
                   </a>
                 </p>
 
