@@ -12,7 +12,11 @@ const links = [
     name: '📝 Public Records Request',
     url: 'https://recordsrequest.lacity.org/requests/new?dept_id=1219',
   },
-  { name: '🚨 Report Fraud, Waste, or Abuse', url: '/fwa/' },
+  {
+    name: '🚨 Report Fraud, Waste, or Abuse',
+    url: '/fwa/',
+    number: '(866)428-1514',
+  },
   {
     name: '💸 Collections Board of Review',
     url: '/collectionsboard/',
@@ -24,9 +28,17 @@ export default function ImportantLinksSection(props: any) {
     <div className='grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-3'>
       {links.map((link, key) => (
         <div key={key}>
-          <Link href={link.url} key={key} target='_blank' rel='noreferrer' className='text-lg font-bold text-black underline dark:text-white'>
-            <span>
-              {link.name}
+          <Link
+            href={link.url}
+            key={key}
+            target='_blank'
+            rel='noreferrer'
+            className='text-lg font-bold text-black dark:text-white'
+          >
+            <span className='underline'>{link.name}</span>
+            <br />
+            <span className='text-base font-normal text-gray-600 dark:text-gray-400'>
+              {link.number}
             </span>
           </Link>
         </div>
