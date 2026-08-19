@@ -15,7 +15,7 @@ const links = [
   {
     name: '🚨 Report Fraud, Waste, or Abuse',
     url: '/fwa/',
-    number: '(866)428-1514',
+    number: '866.428.1514',
   },
   {
     name: '💸 Collections Board of Review',
