@@ -361,7 +361,7 @@ export default function PayrollCalendar(props: any) {
               </svg>
             </Link>
           </div>
-          <div className='flex items-center'>
+          <div className='my flex items-center'>
             <label htmlFor='payroll-calendar' className='sr-only'>
               Select Payroll Calendar
             </label>
@@ -377,7 +377,7 @@ export default function PayrollCalendar(props: any) {
                   e.target.value = '';
                 }
               }}
-              className='my-3 rounded-md border border-gray-300 bg-white px-10 py-2 font-semibold text-green-700 shadow-sm transition hover:border-green-700 focus:border-green-700 focus:outline-none focus:ring-2 focus:ring-green-700/20 dark:border-gray-600 dark:bg-gray-800 dark:text-mejito'
+              className='my-3 rounded-md border border-gray-300 bg-white py-2 pl-4 pr-10 font-semibold text-green-700 shadow-sm transition hover:border-green-700 focus:border-green-700 focus:outline-none focus:ring-2 focus:ring-green-700/20 dark:border-gray-600 dark:bg-gray-800 dark:text-mejito'
             >
               <option value='' disabled>
                 📅 Payroll Calendars
