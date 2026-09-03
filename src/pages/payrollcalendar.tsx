@@ -292,7 +292,7 @@ export default function PayrollCalendar(props: any) {
 
     const selectedYearObject = importantdates[yearToLook];
 
-    console.log('selectedYearObject', selectedYearObject);
+    // console.log('selectedYearObject', selectedYearObject);
 
     Object.keys(selectedYearObject).forEach((categoryname) => {
       const category = selectedYearObject[categoryname];
@@ -309,7 +309,7 @@ export default function PayrollCalendar(props: any) {
       });
     });
 
-    console.log(listofdates);
+    // console.log(listofdates);
 
     setListofimportantdates(listofdates);
   }
@@ -361,27 +361,48 @@ export default function PayrollCalendar(props: any) {
               </svg>
             </Link>
           </div>
-          <div className='flex'>
-            <p className='text-green-900 underline dark:text-mejito '>
-              <Link
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll%20Calendar%202025.pdf?alt=media&token=f744d2d8-2f76-4257-bde0-3f174fe219a1'
-                className='font-semibold text-green-700 dark:text-mejito'
-              >
-                Print Old Version
-              </Link>
-            </p>
+          <div className='flex items-center'>
+            <label htmlFor='payroll-calendar' className='sr-only'>
+              Select Payroll Calendar
+            </label>
 
-            {/* Add margin to create space between the links */}
-            <div style={{ margin: '0 10px' }}></div>
+            <select
+              id='payroll-calendar'
+              defaultValue=''
+              onChange={(e) => {
+                const url = e.target.value;
 
-            <p className='text-green-900 underline dark:text-mejito '>
-              <Link
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll%20Calendar%202027.pdf?alt=media&token=24f3bc1a-aa89-4dc2-adbf-609a5ce41c77'
-                className='font-semibold text-green-700 dark:text-mejito'
-              >
-                Payroll Calendar 2027
-              </Link>
-            </p>
+                if (url) {
+                  window.open(url, '_blank', 'noopener,noreferrer');
+                  e.target.value = '';
+                }
+              }}
+              className='my-3 rounded-md border border-gray-300 bg-white px-10 py-2 font-semibold text-green-700 shadow-sm transition hover:border-green-700 focus:border-green-700 focus:outline-none focus:ring-2 focus:ring-green-700/20 dark:border-gray-600 dark:bg-gray-800 dark:text-mejito'
+            >
+              <option value='' disabled>
+                📅 Payroll Calendars
+              </option>
+
+              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll%20Calendar%202025.pdf?alt=media&token=f744d2d8-2f76-4257-bde0-3f174fe219a1'>
+                2025 — Old Version
+              </option>
+
+              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202027.pdf?alt=media&token=23b795ec-f6e7-4722-a387-b37217075ef5'>
+                2027
+              </option>
+
+              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202028.pdf?alt=media&token=3ae3eaca-1635-4425-a527-60ae00ccefb8'>
+                2028
+              </option>
+
+              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202029.pdf?alt=media&token=4fc75a7f-9343-4d1f-ad42-fef3ab5da4e5'>
+                2029
+              </option>
+
+              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202030.pdf?alt=media&token=4e64e2d0-5423-4583-bfad-5824211ff9a0'>
+                2030
+              </option>
+            </select>
           </div>
 
           <div>
