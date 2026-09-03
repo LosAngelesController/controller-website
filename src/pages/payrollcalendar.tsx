@@ -384,7 +384,7 @@ export default function PayrollCalendar(props: any) {
               </option>
 
               <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll%20Calendar%202025.pdf?alt=media&token=f744d2d8-2f76-4257-bde0-3f174fe219a1'>
-                2025 — Old Version
+                2025
               </option>
 
               <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202027.pdf?alt=media&token=23b795ec-f6e7-4722-a387-b37217075ef5'>
