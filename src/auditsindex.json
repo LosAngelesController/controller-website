@@ -1,6 +1,14 @@
 {
   "audits": [
     {
+      "name": "Fraud, Waste and Abuse Annual Report",
+      "Year": 2026,
+      "document": "FWA Investigative Report",
+      "category": "City of Los Angeles",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2Ffwa-annualreport2025.jpg?alt=media&token=4d0d3aef-adea-4f7d-a820-62a97b8528e6",
+      "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/REMEDIATED%20PDFS%2FFWA%2FFWA_Annual_Report_2025_08.20.2026%20REM.pdf?alt=media&token=16f5c409-f8d8-4315-8251-7d33b52841c2"
+    },
+    {
       "name": "Vendor Fraud",
       "Year": 2026,
       "document": "FWA Investigative Report",
@@ -73,9 +81,9 @@
       "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/City.pdf?alt=media&token=ba669280-2ab8-4a33-accc-d971713770ba"
     },
     {
-      "name": "Performance Audit: Pathways to Permanent Housing",
+      "name": "Pathways to Permanent Housing",
       "Year": 2024,
-      "document": "Audit",
+      "document": "Report",
       "category": "LAHSA",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Screenshot%202024-12-10%20at%2010.43.55%E2%80%AFAM.png?alt=media&token=ae7b314a-d9e2-48ec-8d11-273c080ff9a5",
       "link": "https://controller.lacity.gov/landings/homeless-pathway-audit"
@@ -83,7 +91,7 @@
     {
       "name": "Citywide Internal Controls Self-Assessment",
       "Year": 2024,
-      "document": "Special Report",
+      "document": "Report",
       "category": "City of Los Angeles",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Press%20Releases%2Finternalcontrols-cover.jpg?alt=media&token=79b9fba0-5927-4d5f-adcd-d370151e84a3",
       "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Press%20Releases%2FASD%20Controls%20Assessment%20Final%20Management%20Report%20-%2009262024.2.pdf?alt=media&token=f9a1fef7-d767-4efd-af63-825236f82e39"
@@ -121,17 +129,17 @@
       "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/1.pdf?alt=media&token=a299ba96-8895-4530-bcd2-b667b482e22b"
     },
     {
-      "name": "LAPD Helicopters",
+      "name": "Helicopters",
       "Year": 2023,
-      "document": "Audit",
+      "document": "Report",
       "category": "LAPD",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/lapdhelicopter-cover-thumb.jpg?alt=media&token=ea5dccf0-d50b-4145-b338-aedf3bf4fa7d",
       "link": "https://bit.ly/heli-audit"
     },
     {
-      "name": "Homelessness Audit: Interim Housing Data",
+      "name": "Interim Housing & Shelter Bed Data",
       "Year": 2023,
-      "document": "Audit",
+      "document": "Report",
       "category": "LAHSA",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/homelessaudit-sheltercover.jpg?alt=media&token=483a5f0a-13ea-41b1-bbf8-b5f64285f128",
       "link": "https://bit.ly/interim-housing-audit"
@@ -153,9 +161,9 @@
       "link": "/audits/fwa-2022/"
     },
     {
-      "name": "L.A. Tree Trimming & Maintenance Audit - Follow-up",
+      "name": "Follow-Up: L.A. Tree Trimming & Maintenance",
       "Year": 2023,
-      "document": "Audit",
+      "document": "Report",
       "category": "Public Works - Bureau of Street Services",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/tree-audit-cover4.jpg?alt=media&token=19951e63-0298-4e51-8a46-3816db590837",
       "link": "/audits/tree-audit-followup/"
@@ -195,31 +203,31 @@
     {
       "name": "High Maintenance: Review of the City\u2019s Cannabis Regulation Efforts",
       "Year": 2022,
-      "document": "Audit",
+      "document": "Report",
       "category": "Cannabis Regulation",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FDCR-Cover-scaled.jpg?alt=media&token=4db30924-7ea1-453a-a54b-cd6e6244c06c",
       "link": "audits/review-of-the-citys-cannabis-regulation-efforts/"
     },
     {
-      "name": "Follow-Up Audit \u2014 Alert and Aware: Modernizations to Improve NotifyLA, the City\u2019s Emergency Mass Notification System",
+      "name": "Follow-Up \u2014 Alert and Aware: Modernizations to Improve NotifyLA, the City\u2019s Emergency Mass Notification System",
       "Year": 2022,
-      "document": "Audit",
+      "document": "Report",
       "category": "Emergency Management",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FNotify-LA-Thumbnail-scaled.jpg?alt=media&token=a8d9a5f1-82fb-4b50-bd06-23192e62da9c",
       "link": "audits/follow-up-audit-alert-and-aware-modernizations-to-improve-notifyla-the-citys-emergency-mass-notification-system/"
     },
     {
-      "name": "Follow-Up Audit \u2014 In Case of Emergency: The City\u2019s Disaster Service Worker Program",
+      "name": "Follow-Up \u2014 In Case of Emergency: The City\u2019s Disaster Service Worker Program",
       "Year": 2022,
-      "document": "Audit",
-      "category": "Disaster Service Worker Program",
+      "document": "Report",
+      "category": "Emergency Management",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FDSW-Thumbnail-scaled.jpg?alt=media&token=20b8ee88-3d81-474b-ab2d-2697b6c67b2a",
       "link": "audits/follow-up-audit-in-case-of-emergency-the-citys-disaster-service-worker-program/"
     },
     {
       "name": "A Better Plan to Get L.A. Ready for Emergencies",
       "Year": 2022,
-      "document": "Audit",
+      "document": "Report",
       "category": "Emergency Management",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FEmergency-Management-Department-Audit-Cover-scaled.jpg?alt=media&token=ac0b19f5-ab6d-49bf-b88b-8cde7e45775c",
       "link": "audits/a-better-plan-to-get-l-a-ready-for-emergencies/"
@@ -233,9 +241,9 @@
       "link": "audits/fy21-single-audit-reports/"
     },
     {
-      "name": "Follow-Up Audit\u2014Room to Grow: A Framework for Youth Development in Los Angeles",
+      "name": "Follow-Up \u2014 Room to Grow: A Framework for Youth Development in Los Angeles",
       "Year": 2022,
-      "document": "Audit",
+      "document": "Report",
       "category": "City Youth Programs",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FYouth-Program-Follow-Up-2022.png?alt=media&token=0c920bef-44c6-4c12-b1b4-c68ed02b332c",
       "link": "audits/youth-development-in-l-a-follow-up-audit/"
@@ -275,7 +283,7 @@
     {
       "name": "The Problems and Progress of Prop. HHH",
       "Year": 2022,
-      "document": "Audit",
+      "document": "Report",
       "category": "Housing",
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/photos%2F2022%2FHHH-Report-2022.png?alt=media&token=a72b7181-c714-494d-bdce-127eecfc0a80",
       "link": "audits/problems-and-progress-of-prop-hhh/"
