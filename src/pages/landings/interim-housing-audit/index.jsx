@@ -32,16 +32,20 @@ export default function InterimHousing() {
         />
       </Head>
       <Navbar />
-      <main id="main-content" tabIndex={-1} className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'>
+      <main
+        id='main-content'
+        tabIndex={-1}
+        className='md:max-w container mx-auto px-4 sm:max-w-4xl lg:max-w-6xl xl:max-w-7xl'
+      >
         <center>
           <div className='mt-6'>
-            <h1 className="sr-only">Homelessness Audit: Interim Housing &amp; Shelter Bed Data</h1>
+            <h1 className='sr-only'>Interim Housing &amp; Shelter Bed Data</h1>
             <img
-              src='/images/homelessaudit-sheltercover-site2.png'
+              src='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2Finterimhousingbanner.jpg?alt=media&token=bb32315f-5319-4d29-be56-7ef148b07df5'
               alt=''
             />
           </div>
-          <div className='mt-7 mb-7 dark:text-white'>
+          <div className='mb-7 mt-7 dark:text-white'>
             <iframe
               className='w-full sm:w-2/3 md:w-1/2 lg:w-1/2 xl:w-1/2'
               height='400'
@@ -54,7 +58,7 @@ export default function InterimHousing() {
           </div>
           <div className='mb-7 flex flex-row justify-center'>
             <a
-              href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/homelessnessaudit-interimhousing.pdf?alt=media&token=9c88b2c7-fd89-4613-be66-b0b4cca9b61a'
+              href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Oversight%2Fhomelessnessaudit-interimhousing.pdf?alt=media&token=c935e8af-5ec9-4aa1-b1c3-bb5b145cd6f2'
               target='_blank'
               rel='noopener noreferrer'
               className='text-base sm:text-base md:text-lg lg:text-lg xl:text-lg'
@@ -74,7 +78,7 @@ export default function InterimHousing() {
           </div>
           <div>
             <h2 className='mb-5 text-left dark:text-white'>Cover Letter</h2>
-            <p className='mt-4 mb-5 text-left dark:text-white'>
+            <p className='mb-5 mt-4 text-left dark:text-white'>
               December 5, 2023
             </p>
             <p className='mb-5 text-left dark:text-white'>
@@ -223,9 +227,9 @@ export default function InterimHousing() {
                 alt='Signature of Kenneth Mejia, City Controller'
               />
             </div>
-              <p className='mb-5 text-left dark:text-white clear-left'>
-                KENNETH MEJIA<br></br>City Controller
-              </p>
+            <p className='clear-left mb-5 text-left dark:text-white'>
+              KENNETH MEJIA<br></br>City Controller
+            </p>
           </div>
         </center>
       </main>

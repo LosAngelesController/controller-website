@@ -11,12 +11,8 @@ const HeroSection = () => {
       <div className='container mx-auto max-w-6xl'>
         <div className='grid items-center gap-12 lg:grid-cols-2'>
           <div className='animate-slide-up space-y-8'>
-            <h1 className='hero-title text-gray-900 dark:text-white'>
-              HOMELESSNESS AUDIT:
-              <br />
-              <span className='text-[#1f3b63] dark:text-[#41ffca]'>
-                PATHWAYS TO PERMANENT HOUSING
-              </span>
+            <h1 className='hero-title text-gray-900 dark:text-[#41ffca]'>
+              PATHWAYS TO PERMANENT HOUSING
             </h1>
 
             <p
@@ -41,7 +37,7 @@ const HeroSection = () => {
               '
             >
               <a
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/PH%20Pathways_LAHSA%20Final_12.10.2024.pdf?alt=media&token=0f6681b8-a28b-44ed-8bfa-e040fd2a127f'
+                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Oversight%2FPH%20Pathways_LAHSA%20Final_12.10.2024.pdf?alt=media&token=2667c148-57d4-42cb-8977-82336a727000'
                 target='_blank'
                 rel='noopener noreferrer'
               >
@@ -52,7 +48,7 @@ const HeroSection = () => {
           </div>
 
           <img
-            src='/pathwayscover.jpg'
+            src='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2Fpathwayscover3.jpg?alt=media&token=b0af4bae-c50d-4034-badc-db5d4bd0ef0f'
             alt='Homelessness Audit: Pathways to Permanent Housing cover'
             className='
               h-auto w-full rounded-lg shadow-2xl
