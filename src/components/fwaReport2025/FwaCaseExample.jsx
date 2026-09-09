@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
+import { Poppins } from 'next/font/google';
 
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+});
 const FwaCaseExample = () => {
   return (
-    <section className='bg-[#1a1a1a] py-20'>
+    <section className={`${poppins.className} bg-[#1a1a1a] py-20`}>
       <div className='container mx-auto max-w-7xl px-4'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,10 +42,11 @@ const FwaCaseExample = () => {
                 href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/FWA-Statement.pdf?alt=media&token=a79d44ba-407b-4ca9-846e-ce964a7d2d58'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-white hover:text-blue-300'
+                className='text-white underline hover:text-blue-300'
               >
                 press release
               </a>
+              .
             </p>
           </div>
         </motion.div>

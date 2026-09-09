@@ -1,10 +1,16 @@
 import { motion } from 'framer-motion';
+import { Poppins } from 'next/font/google';
 
 import FwaBarChart from './FwaBarChart';
 
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+});
+
 const FwaHighlights = () => {
   return (
-    <section className='bg-[#41ffca] py-20 text-black'>
+    <section className={`${poppins.className} bg-[#41ffca] py-20 text-black`}>
       <div className='container mx-auto max-w-7xl px-4'>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

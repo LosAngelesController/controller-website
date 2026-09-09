@@ -1,11 +1,19 @@
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
+import { Poppins } from 'next/font/google';
 
 import { Button } from '../ui/button';
 
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+});
+
 const FwaHero = () => {
   return (
-    <div className='relative mb-12 flex min-h-screen items-center overflow-hidden bg-[#1a1a1a]'>
+    <div
+      className={`${poppins.className} relative mb-12 flex min-h-screen items-center overflow-hidden bg-[#1a1a1a]`}
+    >
       <div className='container mx-auto flex max-w-7xl flex-col items-start gap-20 px-4 lg:flex-row'>
         <motion.div
           initial={{ opacity: 0, x: -50 }}

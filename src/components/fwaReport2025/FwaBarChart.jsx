@@ -7,6 +7,7 @@ import {
   Tooltip,
 } from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
+import { Poppins } from 'next/font/google';
 import { useEffect, useState } from 'react';
 import { Bar } from 'react-chartjs-2';
 
@@ -18,6 +19,11 @@ ChartJS.register(
   Legend,
   ChartDataLabels
 );
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+});
 
 const FwaBarChart = () => {
   const [dataPoints, setDataPoints] = useState([]);
@@ -97,12 +103,14 @@ const FwaBarChart = () => {
     <figure
       role='group'
       aria-labelledby='fwa-bar-title'
-      className='h-[475px] w-full rounded-lg bg-[#1a1a1a] p-4'
+      className={`${poppins.className} h-[475px] w-full rounded-lg bg-[#1a1a1a] p-4`}
     >
       <figcaption id='fwa-bar-title' className='sr-only'>
         Bar chart showing FWA cases received from 2014 to 2024.
       </figcaption>
-      <h3 className='mb-6 text-left text-2xl font-bold leading-snug text-[#41ffca] md:text-3xl'>
+      <h3
+        className={`${poppins.className} mb-6 text-left text-2xl font-bold leading-snug text-[#41ffca] md:text-3xl`}
+      >
         <div>CASES RECEIVED BY</div>
         <div className='text-white'>FRAUD, WASTE, ABUSE UNIT</div>
         <div className='text-[#41ffca]'>(2014–2025)</div>
