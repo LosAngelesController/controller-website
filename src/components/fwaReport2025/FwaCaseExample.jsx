@@ -29,12 +29,12 @@ const FwaCaseExample = () => {
               services. We quickly inspected the location, interviewed residents
               and staff, and conducted a formal investigation into allegations
               of contractor fraud.{' '}
-              <b className='text-white'>
+              <span className='text-white'>
                 These efforts culminated in a January 2026 federal indictment of
                 the contractor’s CEO, Alexander Soofer, who was charged with
                 fraudulently obtaining $23 million in public money intended to
                 combat homelessness.
-              </b>
+              </span>
             </p>
             <p>
               See January 2026{' '}
