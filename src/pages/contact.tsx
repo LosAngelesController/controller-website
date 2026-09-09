@@ -109,10 +109,10 @@ export default function Contact(props: any) {
                 <h4 className='mb-2 text-base'>Media Inquiries</h4>
                 <p className='mb-2'>
                   <a
-                    href='mailto:diana.chang@lacity.org'
+                    href='mailto:ctr.comms@lacity.org'
                     className='underline-offset-2 hover:underline focus-visible:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2'
                   >
-                    diana.chang@lacity.org
+                   ctr.comms@lacity.org
                   </a>
                 </p>
               </div>
