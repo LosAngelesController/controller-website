@@ -1,16 +1,12 @@
 import Head from 'next/head';
 
-import FwaReportInfo from '@/components/fwa/FwaReportInfo';
-import FwaCaseExample from '@/components/fwaReport2025/FwaCaseExample';
-import FwaHero from '@/components/fwaReport2025/FwaHero';
-import FwaHighlights from '@/components/fwaReport2025/FwaHighlights';
 import Navbar from '@/components/Navbar';
 
 const Index = () => {
   return (
     <>
       <Head>
-        <title>FWA Report – City of Los Angeles</title>
+        <title>FWA Annual 2025Report – City of Los Angeles</title>
         <meta
           name='description'
           content='Explore the Fraud, Waste, and Abuse (FWA) report from the City of Los Angeles Controller’s Office, highlighting key findings, case examples, and reporting tools.'
@@ -52,7 +48,7 @@ const Index = () => {
         <meta name='twitter:site' content='@lacontroller' />
       </Head>
       <Navbar />
-      <main
+      {/* <main
         id='main-content'
         tabIndex={-1}
         className="min-h-screen bg-[#1a1a1a] font-['Inter'] text-white"
@@ -61,7 +57,7 @@ const Index = () => {
         <FwaHighlights />
         <FwaCaseExample />
         <FwaReportInfo />
-      </main>
+      </main> */}
     </>
   );
 };
