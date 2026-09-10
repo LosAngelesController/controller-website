@@ -62,7 +62,7 @@ const FwaReportInfo = () => {
           <div className='mt-10 text-lg font-extrabold text-black sm:text-xl md:text-2xl'>
             <p>
               Available 24 hours a day, 365 days a year. Reports may be made
-              discretely and anonymously.
+              discreetly and anonymously.
             </p>
             <p></p>
           </div>
