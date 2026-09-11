@@ -1,6 +1,13 @@
 {
   "data": [
-      {
+    {
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/lawelfare_datesites.png?alt=media&token=8f0b50f6-a022-4848-837f-cfe5d8e68882",
+      "name": "LA Animal Shelters & Clinics",
+      "year": "2026",
+      "dept": "Map",
+      "link": "https://laanimalwelfare.lacontroller.app/"
+    },
+    {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/cityofovertime_dashboard.png?alt=media&token=92997f32-4541-41d9-a7f4-e1db0861f5c3",
       "name": "City of LA Overtime Dashboard",
       "year": "2026",
@@ -272,13 +279,6 @@
       "year": "2023",
       "dept": "Charts",
       "link": "https://budget.lacontroller.app/"
-    },
-    {
-      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/laas_banner.png?alt=media&token=d9ef3cd0-ad10-4599-9641-4a0c935168e0",
-      "name": "LAAS Spay Neuter & Shelter",
-      "year": "2023",
-      "dept": "Map",
-      "link": "https://spayneuter.lacontroller.app/"
     },
     {
       "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/unhoused.png?alt=media&token=bedc82ec-6232-47da-9731-1543bac5995d",
