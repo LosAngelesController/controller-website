@@ -84,7 +84,7 @@ const Index = () => {
                 style={{ backgroundColor: '#41ffca' }}
               >
                 <a
-                  href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/LAHD%20Affordable%20Housing%20Oversight%20-%20Final%20Report%20(2025.06.03).pdf?alt=media&token=55422707-52ee-4230-b167-9fcba2d0a7f9'
+                  href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/REMEDIATED%20PDFS%2FAudits%2FREM-LAHD%20Affordable%20Housing%20Oversight%20(2025.06.03).pdf?alt=media&token=179ee4ad-64b4-46b1-a93d-8386790b6eda'
                   target='_blank'
                   rel='noopener noreferrer'
                   aria-label='Download Affordable Housing Oversight Audit Report PDF (opens in new tab)'
