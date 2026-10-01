@@ -1,6 +1,14 @@
 {
   "audits": [
     {
+      "name": "Industrial, Economic and Administrative Survey of the Los Angeles Harbor Department",
+      "Year": 2026,
+      "document": "Charter-mandated Assessment",
+      "category": "Harbor Department",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2FPortIEA-cover.jpg?alt=media&token=9f88d81f-90b4-4da3-bb2b-ff9019ae960b",
+      "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/REMEDIATED%20PDFS%2FLAHD%20IEA%20Survey_Final%20Report_Aug%202026.pdf?alt=media&token=86d32e7b-6dce-48ef-bad8-f8cd351ab168"
+    },
+    {
       "name": "Fraud, Waste and Abuse Annual Report",
       "Year": 2026,
       "document": "FWA Investigative Report",
