@@ -477,22 +477,13 @@ export default function About(props: any) {
             The results of the Audit Services Division’s most recent external
             peer review can be found{' '}
             <a
-              className="text-2xl font-extrabold text-blue-700 underline hover:text-blue-900"
-              href="https://drive.google.com/file/d/1k3QLLpLHo7CdNGKyNOymvGLkbBiuiJzS/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View the Most Recent External Peer Review Report
-            </a>
-            {/* <a
-              className='font-medium underline'
-              href='https://drive.google.com/file/d/1k3QLLpLHo7CdNGKyNOymvGLkbBiuiJzS/view?usp=drive_link'
+              className='inline font-medium text-blue-700 underline hover:text-blue-900'
+              href='https://drive.google.com/file/d/1k3QLLpLHo7CdNGKyNOymvGLkbBiuiJzS/view?usp=sharing'
               target='_blank'
               rel='noopener noreferrer'
             >
-              here
-            </a> */}
-            .
+              View the most recent external peer review report.
+            </a>
           </p>
           <h3>Special Reviews</h3>
           <p className='mb-3 font-light text-black dark:text-gray-100 md:relative md:pb-8'>
