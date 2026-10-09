@@ -478,7 +478,7 @@ export default function About(props: any) {
             peer review can be found{' '}
             <a
               className='inline font-medium text-blue-700 underline hover:text-blue-900'
-              href='https://drive.google.com/file/d/1k3QLLpLHo7CdNGKyNOymvGLkbBiuiJzS/view?usp=sharing'
+              href='/RESULTS - PeerReviewReport_LAControllerASD_Oct2026-2.pdf'
               target='_blank'
               rel='noopener noreferrer'
             >
