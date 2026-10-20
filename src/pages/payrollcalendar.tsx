@@ -387,19 +387,13 @@ export default function PayrollCalendar(props: any) {
                 2025
               </option>
 
-              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202027.pdf?alt=media&token=23b795ec-f6e7-4722-a387-b37217075ef5'>
-                2027
-              </option>
+              <option value='/Payroll_Calendar_2027_v2.pdf'>2027</option>
 
-              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202028.pdf?alt=media&token=3ae3eaca-1635-4425-a527-60ae00ccefb8'>
-                2028
-              </option>
+              <option value='/Payroll_Calendar_2028_v2.pdf'>2028</option>
 
-              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202029.pdf?alt=media&token=4fc75a7f-9343-4d1f-ad42-fef3ab5da4e5'>
-                2029
-              </option>
+              <option value='/Payroll_Calendar_2029_v2.pdf'>2029</option>
 
-              <option value='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Payroll%20Calendars%2FPayroll%20Calendar%202030.pdf?alt=media&token=4e64e2d0-5423-4583-bfad-5824211ff9a0'>
+              <option value='/Payroll_Calendar_2030_v2.pdf'>
                 2030
               </option>
             </select>
