@@ -1,6 +1,14 @@
 {
   "audits": [
     {
+      "name": "Performance Audit: LA Animal Services Shelter Operations",
+      "Year": 2026,
+      "document": "Audit",
+      "category": "Animal Services",
+      "image": "/laas-shelter-audit-cover.jpg",
+      "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/LAAS%20Shelter%20Mgmt.%20Audit%20FINAL_10.20.2026.pdf?alt=media&token=ece011a8-09ec-443c-836d-1af538188e8d"
+    },
+    {
       "name": "Industrial, Economic and Administrative Survey of the Los Angeles Harbor Department",
       "Year": 2026,
       "document": "Charter-mandated Assessment",
