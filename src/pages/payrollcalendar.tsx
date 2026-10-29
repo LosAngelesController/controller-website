@@ -185,7 +185,7 @@ const CURRENT_PDF =
 const OTHER_CALENDARS = [
   {
     year: '2025',
-    href: 'https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll%20Calendar%202025.pdf?alt=media&token=f744d2d8-2f76-4257-bde0-3f174fe219a1',
+    href: 'https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll%20Calendar%202025%20(2).pdf?alt=media&token=543c1471-aaff-4137-9831-0d62df4e8f8b',
   },
   {
     year: '2027',
