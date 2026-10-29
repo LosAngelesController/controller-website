@@ -191,9 +191,18 @@ const OTHER_CALENDARS = [
     year: '2027',
     href: 'https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll_Calendar_2027_v2.pdf?alt=media&token=809902b9-ddb0-4d2f-a2d6-950f9bd4022d',
   },
-  { year: '2028', href: '/Payroll_Calendar_2028_v2.pdf' },
-  { year: '2029', href: '/Payroll_Calendar_2029_v2.pdf' },
-  { year: '2030', href: '/Payroll_Calendar_2030_v2.pdf' },
+  {
+    year: '2028',
+    href: 'https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll_Calendar_2028_v2.pdf?alt=media&token=a15fdf6a-4c61-43d5-a54e-21a7f905288e',
+  },
+  {
+    year: '2029',
+    href: 'https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll_Calendar_2029_v2.pdf?alt=media&token=7c6c66a1-ec6d-4ad8-bc3a-64297fbce551',
+  },
+  {
+    year: '2030',
+    href: 'https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/payroll%20calendar%2FPayroll_Calendar_2030_v2.pdf?alt=media&token=16569182-828c-4172-b273-2a945d56a374',
+  },
 ];
 
 const pad = (n: number) => String(n).padStart(2, '0');
@@ -334,7 +343,7 @@ export default function PayrollCalendar() {
 
           <ul
             aria-label='Calendar legend'
-            className='flex flex-row flex-wrap gap-x-4 gap-y-2'
+            className='my-5 flex flex-row flex-wrap gap-x-4 gap-y-2'
           >
             {LEGEND_ORDER.map((category) => (
               <li key={category}>
@@ -345,8 +354,8 @@ export default function PayrollCalendar() {
               </li>
             ))}
             <li>
-              <span className='font-bold print:text-black'>PP</span> Pay period
-              number, shown on the week the pay period ends
+              <span className='font-bold print:text-black'>[PP]</span> Pay
+              period number, shown on the week the pay period ends
             </li>
           </ul>
 
