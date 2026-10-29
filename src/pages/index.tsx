@@ -58,15 +58,15 @@ function UpcomingBigCard(props: any) {
   return (
     <div
       key={props.key}
-      className="mb-2 w-full max-w-xs rounded-lg border border-gray-500 bg-gray-100 dark:border-gray-300 dark:bg-zinc-800 dark:text-gray-100"
+      className='mb-2 w-full max-w-xs rounded-lg border border-gray-500 bg-gray-100 dark:border-gray-300 dark:bg-zinc-800 dark:text-gray-100'
     >
-      <a href={`${props.link}`} className="block rounded-lg">
-        <div className="px-3 py-3">
-          <p className="text-sm">
+      <a href={`${props.link}`} className='block rounded-lg'>
+        <div className='px-3 py-3'>
+          <p className='text-sm'>
             {props.year} <span>{props.dept}</span>
           </p>
 
-          <p className="font-semibold">{props.name}</p>
+          <p className='font-semibold'>{props.name}</p>
         </div>
       </a>
     </div>
@@ -93,7 +93,6 @@ function BigCard(props: bigcardprops) {
 }
 
 export default function HomePage(props: any) {
-
   const [showPopup, setShowPopup] = React.useState(true);
 
   return (
@@ -103,21 +102,12 @@ export default function HomePage(props: any) {
       <Layout>
         <Seo />
 
-
-
-
-
-
-
-
-
         {/* HERO */}
 
         <div className='bgColorHeader relative pt-4 md:pt-12'>
           <div className='background-1'>
             <div className='mx-auto text-white lg:max-w-6xl xl:max-w-7xl'>
               <div className='flex'>
-
                 <div className='w-full pt-2'>
                   <p className='text-xl font-bold md:text-3xl'>
                     Kenneth Mejia, CPA
@@ -129,7 +119,7 @@ export default function HomePage(props: any) {
 
                   <SocialPageSeries />
 
-                  <div className='ml-auto mt-12 relative top-6'>
+                  <div className='relative top-6 ml-auto mt-12'>
                     <Image
                       src='/images/killa-website2.png'
                       alt='Portrait'
@@ -149,7 +139,6 @@ export default function HomePage(props: any) {
                     />
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
@@ -157,136 +146,191 @@ export default function HomePage(props: any) {
 
         {/* CALL TO ACTION */}
 
-
         {/* MOST VISITED SITES */}
         <div className='container mx-auto px-4 pt-10'>
           <h2 className='frontpageh2section'>Most Visited Websites</h2>
 
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 pt-5'>
-  {/* top 100 dashboard */}
-<Link href='https://prp.lacontroller.app/' target='_blank'>
-  <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
+          <div className='grid grid-cols-1 gap-5 pt-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5'>
+            {/* top 100 dashboard */}
+            <Link href='https://prp.lacontroller.app/' target='_blank'>
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
+                {/* warning / property dashboard icon */}
+                <svg
+                  width='42'
+                  height='42'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='#41ffca'
+                  strokeWidth='2.2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='mb-5'
+                >
+                  {/* house */}
+                  <path d='M3 10.5L12 3l9 7.5' />
+                  <path d='M5 9.5V20h14V9.5' />
 
-    {/* warning / property dashboard icon */}
-    <svg
-      width="42"
-      height="42"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#41ffca"
-      strokeWidth="2.2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="mb-5"
-    >
-      {/* house */}
-      <path d="M3 10.5L12 3l9 7.5" />
-      <path d="M5 9.5V20h14V9.5" />
+                  {/* warning triangle */}
+                  <path d='M12 11l3.5 6h-7L12 11z' />
+                  <path d='M12 13.5v1.5' />
+                  <circle
+                    cx='12'
+                    cy='16.8'
+                    r='0.3'
+                    fill='#41ffca'
+                    stroke='none'
+                  />
+                </svg>
 
-      {/* warning triangle */}
-      <path d="M12 11l3.5 6h-7L12 11z" />
-      <path d="M12 13.5v1.5" />
-      <circle cx="12" cy="16.8" r="0.3" fill="#41ffca" stroke="none" />
-    </svg>
-
-    <h3 className='text-white font-semibold text-sm'>
-      Top 100 Problem Rental Properties Dashboard
-    </h3>
-  </div>
-</Link>
+                <h3 className='text-sm font-semibold text-white'>
+                  Top 100 Problem Rental Properties Dashboard
+                </h3>
+              </div>
+            </Link>
 
             {/* Bathroom Map */}
             <Link href='https://bathrooms.lacontroller.app' target='_blank'>
               <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
-
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
-                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
-                  className="mb-5">
-                  <rect x="3" y="3" width="18" height="18" rx="3" />
-                  <circle cx="8" cy="7" r="1.5" />
-                  <circle cx="16" cy="7" r="1.5" />
-                  <path d="M8 9v6M16 9v6" />
-                  <path d="M6.5 15h3M14.5 15h3" />
+                <svg
+                  width='42'
+                  height='42'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='#41ffca'
+                  strokeWidth='2.2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='mb-5'
+                >
+                  <rect x='3' y='3' width='18' height='18' rx='3' />
+                  <circle cx='8' cy='7' r='1.5' />
+                  <circle cx='16' cy='7' r='1.5' />
+                  <path d='M8 9v6M16 9v6' />
+                  <path d='M6.5 15h3M14.5 15h3' />
                 </svg>
 
-                <h3 className='text-white font-semibold text-sm'>Bathroom Map</h3>
+                <h3 className='text-sm font-semibold text-white'>
+                  Bathroom Map
+                </h3>
               </div>
             </Link>
 
             {/* Budget */}
             <Link href='https://budget.lacontroller.app/' target='_blank'>
               <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
-
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
-                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
-                  className="mb-5">
-                  <path d="M4 18h16" />
-                  <rect x="5" y="12" width="2" height="6" rx="1" />
-                  <rect x="10" y="9" width="2" height="9" rx="1" />
-                  <rect x="15" y="6" width="2" height="12" rx="1" />
-                  <path d="M6 6l4-2 4 2 4-2" />
+                <svg
+                  width='42'
+                  height='42'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='#41ffca'
+                  strokeWidth='2.2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='mb-5'
+                >
+                  <path d='M4 18h16' />
+                  <rect x='5' y='12' width='2' height='6' rx='1' />
+                  <rect x='10' y='9' width='2' height='9' rx='1' />
+                  <rect x='15' y='6' width='2' height='12' rx='1' />
+                  <path d='M6 6l4-2 4 2 4-2' />
                 </svg>
 
-                <h3 className='text-white font-semibold text-sm'>Interactive City Budget</h3>
-              </div>
-            </Link>
-
-            {/* Homelessness */}
-            <Link href='https://homelessdashboard.lacontroller.app/' target='_blank'>
-              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
-
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
-                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
-                  className="mb-5">
-                  <path d="M3 10l9-6 9 6" />
-                  <rect x="5" y="10" width="14" height="10" rx="2" />
-                  <path d="M14 6l2-2" />
-                  <circle cx="17" cy="4" r="1.5" />
-                </svg>
-
-                <h3 className='text-white font-semibold text-sm'>Homelessness Dashboard</h3>
-              </div>
-            </Link>
-
-            {/* Liability */}
-            <Link href='https://liabilityclaims.lacontroller.app' target='_blank'>
-              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
-
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
-                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
-                  className="mb-5">
-                  <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
-
-                <h3 className='text-white font-semibold text-sm'>Liability Claims Dashboard</h3>
-              </div>
-            </Link>
-
-            {/* Metrics */}
-            <Link href='https://lacitymetrics.lacontroller.app/' target='_blank'>
-              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
-
-                <svg width="42" height="42" viewBox="0 0 24 24" fill="none"
-                  stroke="#41ffca" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"
-                  className="mb-5">
-                  <rect x="3" y="4" width="18" height="12" rx="2" />
-                  <path d="M7 12v-3M11 12v-5M15 12v-7" />
-                  <circle cx="18" cy="17" r="2" />
-                </svg>
-
-                <h3 className='text-white font-bold text-sm'>
-                  City Departments Metrics Dashboard
+                <h3 className='text-sm font-semibold text-white'>
+                  Interactive City Budget
                 </h3>
               </div>
             </Link>
 
+            {/* Homelessness */}
+            <Link
+              href='https://homelessdashboard.lacontroller.app/'
+              target='_blank'
+            >
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
+                <svg
+                  width='42'
+                  height='42'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='#41ffca'
+                  strokeWidth='2.2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='mb-5'
+                >
+                  <path d='M3 10l9-6 9 6' />
+                  <rect x='5' y='10' width='14' height='10' rx='2' />
+                  <path d='M14 6l2-2' />
+                  <circle cx='17' cy='4' r='1.5' />
+                </svg>
+
+                <h3 className='text-sm font-semibold text-white'>
+                  Homelessness Dashboard
+                </h3>
+              </div>
+            </Link>
+
+            {/* Liability */}
+            <Link
+              href='https://liabilityclaims.lacontroller.app'
+              target='_blank'
+            >
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
+                <svg
+                  width='42'
+                  height='42'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='#41ffca'
+                  strokeWidth='2.2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='mb-5'
+                >
+                  <path d='M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4z' />
+                  <path d='M9 12l2 2 4-4' />
+                </svg>
+
+                <h3 className='text-sm font-semibold text-white'>
+                  Liability Claims Dashboard
+                </h3>
+              </div>
+            </Link>
+
+            {/* Metrics */}
+            <Link
+              href='https://lacitymetrics.lacontroller.app/'
+              target='_blank'
+            >
+              <div className='newBgColor rounded-lg px-4 py-2 text-white dark:bg-zinc-700 dark:text-white'>
+                <svg
+                  width='42'
+                  height='42'
+                  viewBox='0 0 24 24'
+                  fill='none'
+                  stroke='#41ffca'
+                  strokeWidth='2.2'
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  className='mb-5'
+                >
+                  <rect x='3' y='4' width='18' height='12' rx='2' />
+                  <path d='M7 12v-3M11 12v-5M15 12v-7' />
+                  <circle cx='18' cy='17' r='2' />
+                </svg>
+
+                <h3 className='text-sm font-bold text-white'>
+                  City Departments Metrics Dashboard
+                </h3>
+              </div>
+            </Link>
           </div>
-        </div >
+        </div>
 
         {/* FINANCIAL DATA */}
 
-        < div className='container mx-auto px-4' >
+        <div className='container mx-auto px-4'>
           <h2 className='frontpageh2section'>Financial Data</h2>
 
           <OpenDataSeries />
@@ -296,7 +340,7 @@ export default function HomePage(props: any) {
               <div className={`${kirbybutton}`}>All Datasets</div>
             </Link>
           </div>
-        </div >
+        </div>
         <div className='container mx-auto px-4'>
           <h2 className='frontpageh2section'>Oversight</h2>
 
@@ -313,7 +357,7 @@ export default function HomePage(props: any) {
               />
             ))}
 
-            <div className='hidden lg:block'>
+            <div className='hidden lg:flex'>
               {audits.slice(4, 5).map((eachaudit: any, key: number) => (
                 <BigCard
                   key={key}
@@ -364,7 +408,7 @@ export default function HomePage(props: any) {
               />
             ))}
 
-            <div className='hidden lg:block'>
+            <div className='hidden lg:flex'>
               {upcoming.slice(4, 5).map((eachupcoming: any, key: number) => (
                 <UpcomingBigCard
                   key={key}
@@ -377,20 +421,16 @@ export default function HomePage(props: any) {
                   document=''
                 />
               ))}
-
-
-
             </div>
           </div>
-
-
 
           <div className='rounded-lg  md:hidden'>
             {upcoming.slice(0, 6).map((eachupcoming: any, key: number) => (
               <LineCard
                 key={key}
-                link={`${eachupcoming.pre === false ? '' : '/upcoming/'}${eachupcoming.link
-                  }`}
+                link={`${eachupcoming.pre === false ? '' : '/upcoming/'}${
+                  eachupcoming.link
+                }`}
                 year={eachupcoming.year}
                 dept={titleCase(eachupcoming.dept)}
                 name={eachupcoming.name}
@@ -414,8 +454,9 @@ export default function HomePage(props: any) {
             {finance.slice(0, 4).map((eachaudit: any, key: number) => (
               <BigCard
                 key={key}
-                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
-                  }`}
+                link={`${eachaudit.pre === false ? '' : '/reports/'}${
+                  eachaudit.link
+                }`}
                 image={eachaudit.image}
                 year={eachaudit.year}
                 dept={titleCase(eachaudit.dept)}
@@ -425,12 +466,13 @@ export default function HomePage(props: any) {
               />
             ))}
 
-            <div className='hidden lg:block'>
+            <div className='hidden lg:flex'>
               {finance.slice(4, 5).map((eachaudit: any, key: number) => (
                 <BigCard
                   key={key}
-                  link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
-                    }`}
+                  link={`${eachaudit.pre === false ? '' : '/reports/'}${
+                    eachaudit.link
+                  }`}
                   image={eachaudit.image}
                   year={eachaudit.year}
                   dept={titleCase(eachaudit.dept)}
@@ -446,8 +488,9 @@ export default function HomePage(props: any) {
             {finance.slice(0, 6).map((eachaudit: any, key: number) => (
               <LineCard
                 key={key}
-                link={`${eachaudit.pre === false ? '' : '/reports/'}${eachaudit.link
-                  }`}
+                link={`${eachaudit.pre === false ? '' : '/reports/'}${
+                  eachaudit.link
+                }`}
                 image={eachaudit.image}
                 year={eachaudit.year}
                 dept={titleCase(eachaudit.dept)}
@@ -514,7 +557,7 @@ export default function HomePage(props: any) {
               />
             ))}
 
-            <div className='hidden lg:block'>
+            <div className='hidden lg:flex'>
               {data.slice(4, 5).map((eachaudit: any, key: number) => (
                 <BigCard
                   key={key}
@@ -553,7 +596,7 @@ export default function HomePage(props: any) {
             <ImportantLinksSection />
           </div>
         </div>
-      </Layout >
+      </Layout>
     </>
   );
 }
