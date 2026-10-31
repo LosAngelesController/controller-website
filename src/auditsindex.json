@@ -1,6 +1,22 @@
 {
   "audits": [
     {
+      "name": "Risk Financing Options for the City of Los Angeles",
+      "Year": 2026,
+      "document": "Audit",
+      "category": "Oversight",
+      "image": "/images/riskfinance-cover.jpg",
+      "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Risk%20Financing%20White%20Paper%20-%20FINAL%20-%2010292026.pdf?alt=media&token=ebe4e379-de0d-4ad0-a3b0-6ecff1ea15d0"
+    },
+    {
+      "name": "Performance Audit: Citywide Risk Management",
+      "Year": 2026,
+      "document": "Audit",
+      "category": "Oversight",
+      "image": "/images/riskmanagement7.jpg",
+      "link": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Performance%20Audit%20of%20Citywide%20Risk%20Management%20-%20FINAL%20-%2010292026.pdf?alt=media&token=1e4bf8f6-7c3c-4a53-b1aa-860d3e797882"
+    },
+    {
       "name": "Performance Audit: LA Animal Services Shelter Operations",
       "Year": 2026,
       "document": "Audit",
