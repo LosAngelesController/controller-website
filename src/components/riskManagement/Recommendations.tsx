@@ -34,10 +34,12 @@ const PayoutsChart = () => (
       City of LA Liability Payouts by Fiscal Year
     </h3>
 
-    {/* Visual chart (hidden from screen readers; the table below carries the data) */}
-    <div className='flex gap-3' aria-hidden='true'>
+    {/* Visual chart. Decorative parts are aria-hidden; the bars stay exposed
+        because they are keyboard-focusable (focusable content must not sit
+        inside aria-hidden). The sr-only table below carries the full data. */}
+    <div className='flex gap-3'>
       {/* Y-axis labels */}
-      <div className='relative h-72 w-16 shrink-0 sm:w-24'>
+      <div className='relative h-72 w-16 shrink-0 sm:w-24' aria-hidden='true'>
         {ticks.map((t) => (
           <span
             key={t}
@@ -58,6 +60,7 @@ const PayoutsChart = () => (
             .map((t) => (
               <div
                 key={t}
+                aria-hidden='true'
                 className='absolute inset-x-0 border-t border-white/10'
                 style={{ top: `${100 - (t / 300) * 100}%` }}
               />
@@ -70,13 +73,20 @@ const PayoutsChart = () => (
                 key={p.year}
                 className='group relative flex h-full flex-1 items-end'
               >
+                {/* Focusable bar so keyboard users can reach each value */}
                 <div
-                  className='w-full rounded-t bg-[#41ffca] transition-opacity group-hover:opacity-80'
+                  tabIndex={0}
+                  role='img'
+                  aria-label={`Fiscal year 20${p.year}: ${formatDollars(
+                    p.amount
+                  )}`}
+                  className='w-full rounded-t bg-[#41ffca] outline-none transition-opacity focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#2a2a2a] group-focus-within:opacity-80 group-hover:opacity-80'
                   style={{ height: `${pct}%` }}
                 />
-                {/* Hover tooltip */}
+                {/* Tooltip: shows on hover and on keyboard focus */}
                 <div
-                  className='pointer-events-none absolute left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-sm font-bold text-white opacity-0 shadow-lg transition-opacity group-hover:opacity-100'
+                  aria-hidden='true'
+                  className='pointer-events-none absolute left-1/2 z-10 -translate-x-1/2 whitespace-nowrap rounded-md bg-black px-3 py-1.5 text-sm font-bold text-white opacity-0 shadow-lg transition-opacity group-focus-within:opacity-100 group-hover:opacity-100'
                   style={{ bottom: `calc(${pct}% + 8px)` }}
                 >
                   FY 20{p.year}: {formatDollars(p.amount)}
@@ -87,7 +97,7 @@ const PayoutsChart = () => (
         </div>
 
         {/* X-axis labels */}
-        <div className='mt-2 flex gap-2 sm:gap-3'>
+        <div className='mt-2 flex gap-2 sm:gap-3' aria-hidden='true'>
           {payouts.map((p) => (
             <div
               key={p.year}
