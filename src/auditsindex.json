@@ -1,6 +1,14 @@
 {
   "audits": [
     {
+      "name": "Evaluation of LAAS Animal SHelter Operations",
+      "Year": 2026,
+      "document": "Report",
+      "category": "Oversight",
+      "image": "https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Data%20Thumbnails%2Feval_laas.png?alt=media&token=77773b78-bcd6-4835-b07e-37715c44ab18",
+      "link": "bit.ly/jvr-eval"
+    },
+    {
       "name": "Risk Financing Options for the City of Los Angeles",
       "Year": 2026,
       "document": "Report",
