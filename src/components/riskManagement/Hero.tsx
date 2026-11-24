@@ -27,7 +27,7 @@ const Hero = () => {
               className='flex items-center gap-2 bg-[#41ffca] px-6 text-base font-bold text-black hover:bg-[#41ffca]/90'
             >
               <a
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Performance%20Audit%20of%20Citywide%20Risk%20Management%20-%20FINAL%20-%2010292026.pdf?alt=media&token=1e4bf8f6-7c3c-4a53-b1aa-860d3e797882'
+                href='https://d22tgksh1zpp6f.cloudfront.net/OnlineDocs/managed/4310b574-e091-4a31-894e-e07230f09b61/1.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
                 download
@@ -41,7 +41,7 @@ const Hero = () => {
               className='flex items-center gap-2 bg-[#41ffca] px-6 text-base font-bold text-black hover:bg-[#41ffca]/90'
             >
               <a
-                href='https://firebasestorage.googleapis.com/v0/b/lacontroller-2b7de.appspot.com/o/Risk%20Financing%20White%20Paper%20-%20FINAL%20-%2010292026.pdf?alt=media&token=ebe4e379-de0d-4ad0-a3b0-6ecff1ea15d0'
+                href='https://d22tgksh1zpp6f.cloudfront.net/OnlineDocs/managed/87396ffb-d975-4755-b98a-be7ef98e438e/1.pdf'
                 target='_blank'
                 rel='noopener noreferrer'
                 download
